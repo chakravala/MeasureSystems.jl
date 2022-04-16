@@ -1,16 +1,18 @@
 name = "MeasureSystems"
 uuid = "ea45d09e-59d0-491b-a101-09823c6a9fd4"
 authors = ["Michael Reed"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
+Similitude = "d70e672a-ff44-4dfc-8031-4cc812d84922"
 UnitSystems = "3a241a3c-2137-41aa-af5e-1388e404ca09"
 Measurements = "eff96d63-e80a-5855-80a2-b1b0885c5ab7"
 
 
 [compat]
 Measurements = "2"
-UnitSystems = "0.3.2"
+UnitSystems = "0.3.3"
+Similitude = "0.2"
 julia = "1"
 
 [extras]
