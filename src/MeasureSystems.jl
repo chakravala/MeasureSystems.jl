@@ -38,7 +38,7 @@ Base.show(io::IO,M::Measure{N}) where N = show(io,measure(M))
 
 # unit systems
 
-const usingSimilitude = true#UnitSystems.similitude()
+const usingSimilitude = UnitSystems.similitude()
 
 if !usingSimilitude
 @pure mass(U::UnitSystem,S::UnitSystem) = electronmass(U,S)
@@ -46,17 +46,17 @@ if !usingSimilitude
 @pure electronmass(𝘩,R∞,C::Coupling) = inv(finestructure(C))^2*R∞*2𝘩/𝘤
 @pure planckmass(U::UnitSystem,C::Coupling=universe(U)) = electronmass(U,C)/√coupling(C)
 @pure planck(U::UnitSystem,C::Coupling=universe(U)) = 2π*planckreduced(U,C)
-@pure newton(U::UnitSystem,C::Coupling=universe(U)) = lightspeed(U,C)*planckreduced(U,C)/planckmass(U,C)^2
-@pure elementarycharge(U::UnitSystem,C::Coupling=universe(U)) = sqrt(2planck(U)/(permeability(U)/finestructure(U))/(lightspeed(U)*rationalization(U)*lorentz(U)^2))
+@pure gravitation(U::UnitSystem,C::Coupling=universe(U)) = lightspeed(U,C)*planckreduced(U,C)/planckmass(U,C)^2
+@pure elementarycharge(U::UnitSystem,C::Coupling=universe(U)) = sqrt(2planck(U)/(vacuumpermeability(U)/finestructure(U))/(lightspeed(U)*rationalization(U)*lorentz(U)^2))
 
 for unit ∈ Dimensionless
     @eval @pure $unit(C::Coupling) = UnitSystems.$unit(C)
     @eval @pure $unit(U::UnitSystem) = UnitSystems.$unit(universe(U))
 end
-for unit ∈ (:boltzmann,:planckreduced,:lightspeed,:permeability,:electronmass,:molarmass)
+for unit ∈ (:boltzmann,:planckreduced,:lightspeed,:vacuumpermeability,:electronmass,:molarmass)
     @eval @pure $unit(U::UnitSystem,C::Coupling) = $unit(U)
 end
-for unit ∈ Constants
+for unit ∈ (Constants...,:vacuumpermeability)
     unit≠:planck && @eval @pure $unit(U::UnitSystem) = UnitSystems.$unit(U)
     unit≠:angle && (@eval @pure $unit(U::UnitSystem,S::UnitSystem) = unit($unit(S)/$unit(U)))
 end
@@ -187,7 +187,7 @@ const ΩΛ = measurement("0.6889(56)")
 const α = inv(αinv)
 const RK,KJ = RK2014,KJ2014
 import UnitSystems: g₀,ft,ftUS,lb,atm,ΔνCs,Kcd,NA,kB,𝘩,𝘤,𝘦,τ,inHg,T₀,aⱼ,Ωᵢₜ,Vᵢₜ,kG,au,seven
-import UnitSystems: RK1990,KJ1990,𝟏,𝟐,𝟑,𝟓,𝟕,𝟏𝟎,𝟏𝟏,𝟏𝟗,𝟒𝟑,isquantity,vacuumpermeability,zetta
+import UnitSystems: RK1990,KJ1990,𝟏,𝟐,𝟑,𝟓,𝟕,𝟏𝟎,𝟏𝟏,𝟏𝟗,𝟒𝟑,isquantity
 const RK90,KJ90 = RK1990,KJ1990
 end
 
@@ -218,8 +218,10 @@ for CAL ∈ (:calₜₕ,:cal₄,:cal₁₀,:cal₂₀,:calₘ,:calᵢₜ)
     KCAL = Symbol(:k,CAL)
     @eval import UnitSystems: $CAL, $KCAL
 end
-import UnitSystems: convertext
+import UnitSystems: convertext, unitext
 const dir = dirname(pathof(UnitSystems))
+const zetta,zepto = Constant(1e21),Constant(1e-21)
+const yotta,yocto = Constant(1e24),Constant(1e-24)
 include("$dir/kinematic.jl")
 include("$dir/electromagnetic.jl")
 include("$dir/thermodynamic.jl")
@@ -233,8 +235,8 @@ end
 @pure electronmass(U::typeof(PlanckGauss),C::Coupling) = sqrt(coupling(C))
 @pure electronmass(U::UnitSystem{kB,ħ,𝘤,μ₀,cache(√(αG*αinv))},C::Coupling) where {kB,ħ,𝘤,μ₀} = sqrt(coupling(C)/finestructure(C))
 @pure electronmass(U::UnitSystem{kB,ħ,𝘤,μ₀,cache(1/μₚₑ)},C::Coupling) where {kB,ħ,𝘤,μ₀} = 1/protonelectron(C)
-@pure permeability(U::UnitSystem{kB,ħ,𝘤,cache(4π/αinv^2)},C::Coupling) where {kB,ħ,𝘤} = 4π*finestructure(C)^2
-@pure permeability(U::UnitSystem{kB,ħ,𝘤,cache(π/αinv^2)},C::Coupling) where {kB,ħ,𝘤} = π*finestructure(C)^2
+@pure vacuumpermeability(U::UnitSystem{kB,ħ,𝘤,cache(4π/αinv^2)},C::Coupling) where {kB,ħ,𝘤} = 4π*finestructure(C)^2
+@pure vacuumpermeability(U::UnitSystem{kB,ħ,𝘤,cache(π/αinv^2)},C::Coupling) where {kB,ħ,𝘤} = π*finestructure(C)^2
 @pure lightspeed(U::UnitSystem{kB,ħ,cache(αinv)},C::Coupling) where {kB,ħ} = 1/finestructure(C)
 @pure lightspeed(U::UnitSystem{kB,ħ,cache(2αinv)},C::Coupling) where {kB,ħ} = 2/finestructure(C)
 @pure planckreduced(U::UnitSystem{kB,cache(αinv)},C::Coupling) where kB = 1/finestructure(C)
@@ -245,10 +247,8 @@ end
 @pure electronmass(U::UnitSystem{kB,ħ,𝘤,μ₀,cache(electronmass(CODATA))},C::Coupling) where {kB,ħ,μ₀} = electronmass(planck(U),R∞,C)
 @pure electronmass(U::UnitSystem{kB,ħ,𝘤,μ₀,cache(electronmass(Conventional))},C::Coupling) where {kB,ħ,μ₀} = electronmass(planck(U),R∞,C)
 @pure electronmass(U::UnitSystem{kB,ħ,𝘤/ftUS,μ₀,cache(mₑ*ft/lb/g₀)},C::Coupling) where {kB,ħ,μ₀} = electronmass(SI,C)*ft/lb/g₀
-@pure permeability(U::UnitSystem{kB,ħ,𝘤,cache(μ₀)},C::Coupling) where {kB,ħ,𝘤} = finestructure(C)*2𝘩/𝘤/𝘦^2
-#@pure permeability(U::typeof(ESU2019),C::Coupling) = 1e3*permeability(SI,C)/𝘤^2
-#@pure permeability(U::typeof(EMU2019),C::Coupling) = 1e7*permeability(SI,C)
-@pure permeability(U::typeof(CODATA),C::Coupling) = 2RK2014*finestructure(C)/𝘤
-@pure permeability(U::typeof(Conventional),C::Coupling) = 2RK1990*finestructure(C)/𝘤
+@pure vacuumpermeability(U::UnitSystem{kB,ħ,𝘤,cache(μ₀)},C::Coupling) where {kB,ħ,𝘤} = finestructure(C)*2𝘩/𝘤/𝘦^2
+@pure vacuumpermeability(U::typeof(CODATA),C::Coupling) = 2RK2014*finestructure(C)/𝘤
+@pure vacuumpermeability(U::typeof(Conventional),C::Coupling) = 2RK1990*finestructure(C)/𝘤
 
 end # module
