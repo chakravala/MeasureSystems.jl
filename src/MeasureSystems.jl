@@ -147,7 +147,7 @@ Base.:*(a::Constant{D},b::Measurements.Measurement) where D = constant(D)*b
 Base.:/(a::Measurements.Measurement,b::Constant{D}) where D = a*inv(b)
 Base.:/(a::Constant{D},b::Measurements.Measurement) where D = a*inv(b)
 Base.:+(a::Measurements.Measurement,b::Constant{D}) where D = a+constant(D)
-Base.:+(a::Constant{D},b::Measurements.Measurement) where D = constant(D)-b
+Base.:+(a::Constant{D},b::Measurements.Measurement) where D = constant(D)+b
 Base.:-(a::Measurements.Measurement,b::Constant{D}) where D = a-constant(D)
 Base.:-(a::Constant{D},b::Measurements.Measurement) where D = constant(D)-b
 #=Base.:*(a::Measurements.Measurement,b::Similitude.Constant{D}) where D = a*Constant{D}()
@@ -166,7 +166,7 @@ Base.:*(a::UnitSystems.Constant{D},b::Measurements.Measurement) where D = D*b
 Base.:/(a::Measurements.Measurement,b::UnitSystems.Constant{D}) where D = a*inv(b)
 Base.:/(a::UnitSystems.Constant{D},b::Measurements.Measurement) where D = a*inv(b)
 Base.:+(a::Measurements.Measurement,b::UnitSystems.Constant{D}) where D = a+D
-Base.:+(a::UnitSystems.Constant{D},b::Measurements.Measurement) where D = D-b
+Base.:+(a::UnitSystems.Constant{D},b::Measurements.Measurement) where D = D+b
 Base.:-(a::Measurements.Measurement,b::UnitSystems.Constant{D}) where D = a-D
 Base.:-(a::UnitSystems.Constant{D},b::Measurements.Measurement) where D = D-b
 const mP = measurement("0.00000002176434(24)")
@@ -191,7 +191,7 @@ import UnitSystems: RK1990,KJ1990,𝟏,𝟐,𝟑,𝟓,𝟕,𝟏𝟎,𝟏𝟏,�
 const RK90,KJ90 = RK1990,KJ1990
 end
 
-const LD = Constant(UnitSystems.LD)
+const LD,JD = Constant(384399)*𝟏𝟎^3,Constant(778479)*𝟏𝟎^6
 const μE☾ = Constant(measurement("81.300568(3)"))
 
 import UnitSystems: GaussSystem, ElectricSystem, EntropySystem, AstronomicalSystem, unitname, normal
