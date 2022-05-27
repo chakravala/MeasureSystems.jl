@@ -35,12 +35,16 @@ function cache(M::Measurement{Float64})
     return Measure{N}()
 end
 Base.show(io::IO,M::Measure{N}) where N = show(io,measure(M))
+Base.one(::Measure) = 𝟏
+Base.zero(::Measure) = 𝟏-𝟏
 
 # unit systems
 
-const usingSimilitude = UnitSystems.similitude()
+const usingSimilitude = true #UnitSystems.similitude()
 
 if !usingSimilitude
+import UnitSystems: two, three, five, eleven, nineteen, fourtythree
+import UnitSystems: golden, eulergamma, tau
 @pure mass(U::UnitSystem,S::UnitSystem) = electronmass(U,S)
 @pure electronmass(𝘩,R∞) = αinv^2*R∞*2𝘩/𝘤
 @pure electronmass(𝘩,R∞,C::Coupling) = inv(finestructure(C))^2*R∞*2𝘩/𝘤
@@ -71,7 +75,7 @@ for unit ∈ Convert
         @eval @pure @inline $unit(U::UnitSystem) = $unit(Natural,U)
     end
 end
-@pure turn(U::UnitSystem) = twopi(U)/angle(U)
+@pure turn(U::UnitSystem) = tau(U)/angle(U)
 @pure solidangle(U::UnitSystem,S::UnitSystem) = unit(angle(U,S)^2)
 @pure spat(U::UnitSystem) = two(U)*turn(U)/angle(U)*unit(turn(U)/normal(turn(U)))
 end
@@ -79,18 +83,18 @@ for unit ∈ (Systems...,Dimensionless...,Constants...,Physics...,Convert...,Der
     unit ∉ (:length,:time) && @eval export $unit
 end
 
-import UnitSystems: twopi, two, three, five, eleven, nineteen, fourtythree
-
 # fundamental constants, αinv = (34259-1/4366.8123)/250 # 137.036 exactly?
 
 if usingSimilitude
-export Similitude, 𝟙
+export Similitude, 𝟙, Unified
 import Similitude
-import Similitude: Group,AbelianGroup,LogGroup,ExpGroup,Quantity,Dimension,Quantities,𝟙
+import Similitude: Unified, coefprod, promoteint
+import Similitude: Group,AbelianGroup,LogGroup,ExpGroup,Quantity,Dimension,Quantities,𝟙,usq
 import Similitude: Values,value,vals,basis,valueat,makeint,showgroup,ratio,isq,dims,dimtext
-for D ∈ (:F,:M,:L,:T,:Q,:Θ,:N,:J,:A,:Λ,:C)
+for D ∈ (:F,:M,:L,:T,:Q,:Θ,:N,:J,:A,:R,:C)
     @eval const $D = Similitude.$D
 end
+Similitude.makeint(x::MeasureSystems.Measurements.Measurement) = x
 @pure function constant(d::Group,C::Coupling=UnitSystems.Universe,dc=d.c); cs =
     UnitSystems.kB^makeint(d.v[1])*
     UnitSystems.NA^makeint(d.v[2])*
@@ -187,11 +191,11 @@ const ΩΛ = measurement("0.6889(56)")
 const α = inv(αinv)
 const RK,KJ = RK2014,KJ2014
 import UnitSystems: g₀,ft,ftUS,lb,atm,ΔνCs,Kcd,NA,kB,𝘩,𝘤,𝘦,τ,inHg,T₀,aⱼ,Ωᵢₜ,Vᵢₜ,kG,au,seven
-import UnitSystems: RK1990,KJ1990,𝟏,𝟐,𝟑,𝟓,𝟕,𝟏𝟎,𝟏𝟏,𝟏𝟗,𝟒𝟑,isquantity
+import UnitSystems: RK1990,KJ1990,𝟏,𝟐,𝟑,𝟓,𝟕,𝟏𝟏,𝟏𝟗,𝟒𝟑,isquantity
 const RK90,KJ90 = RK1990,KJ1990
 end
 
-const LD,JD = Constant(384399)*𝟏𝟎^3,Constant(778479)*𝟏𝟎^6
+const LD,JD = Constant(384399)*(𝟐*𝟓)^3,Constant(778479)*(𝟐*𝟓)^6
 const μE☾ = Constant(measurement("81.300568(3)"))
 
 import UnitSystems: GaussSystem, ElectricSystem, EntropySystem, AstronomicalSystem, unitname, normal
