@@ -13,17 +13,25 @@ module MeasureSystems
 #   https://github.com/chakravala
 #   https://crucialflow.com
 
+using FieldConstants, FieldAlgebra
+import FieldAlgebra: coef, coefprod, factorize, showgroup, product, makeint, measure
+import FieldAlgebra: AbstractModule, AbelianGroup, Group, LogGroup, ExpGroup
+import FieldAlgebra: value, isonezero, islog, base, Variables
 import Base: @pure, angle
 import UnitSystems
 import UnitSystems: UnitSystem, Systems, Constants, Physics, Convert, Dimensionless
 import UnitSystems: Coupling, measure, unit, universe, cache, Derived, logdb, expdb, dB
-export UnitSystems, Measure, measure, cache
+export UnitSystems, Measure, measure, cache, Constant
 const dir = dirname(pathof(UnitSystems))
+
+macro group(args...)
+    FieldAlgebra.group(args...)
+end
 
 # measure
 
 using Measurements
-struct Measure{N} end
+struct Measure{N} <: Real end
 const measure_cache = Measurement{Float64}[]
 @pure measure(::Measure{N}) where N = measure_cache[N]
 function cache(M::Measurement{Float64})
@@ -37,6 +45,20 @@ end
 Base.show(io::IO,M::Measure{N}) where N = show(io,measure(M))
 Base.one(::Measure) = 𝟏
 Base.zero(::Measure) = 𝟏-𝟏
+FieldConstants.Constant(N::Measurement) = Constant{cache(N)}()
+Base.inv(M::Measure) = cache(inv(measure(M)))
+Base.sqrt(M::Measure) = cache(inv(measure(M)))
+
+Base.:*(a::Number,b::Measure) = cache(a*measure(b))
+Base.:*(a::Measure,b::Number) = cache(measure(a)*b)
+Base.:/(a::Number,b::Measure) = cache(a/measure(b))
+Base.:/(a::Measure,b::Number) = cache(measure(a)/b)
+Base.:+(a::Number,b::Measure) = cache(a+measure(b))
+Base.:+(a::Measure,b::Number) = cache(measure(a)-b)
+Base.:+(a::Measurement,b::Measure) = cache(a+measure(b))
+Base.:+(a::Measure,b::Measurement) = cache(measure(a)-b)
+Base.:-(a::Number,b::Measure) = cache(a-measure(b))
+Base.:-(a::Measure,b::Number) = cache(measure(a)-b)
 
 # unit systems
 
@@ -88,80 +110,101 @@ end
 if usingSimilitude
 export Similitude, 𝟙, Unified
 import Similitude
-import Similitude: Unified, coefprod, promoteint
+import Similitude: Unified, coefprod, promoteint, USQ
 import Similitude: Group,AbelianGroup,LogGroup,ExpGroup,Quantity,Dimension,Quantities,𝟙,usq
-import Similitude: Values,value,vals,basis,valueat,makeint,showgroup,ratio,isq,dims,dimtext
+import Similitude: Values,value,vals,basis,valueat,showgroup,ratio,isq,dims,dimtext
+import FieldAlgebra: makeint, product
 for D ∈ (:F,:M,:L,:T,:Q,:Θ,:N,:J,:A,:R,:C)
     @eval const $D = Similitude.$D
 end
-Similitude.makeint(x::MeasureSystems.Measurements.Measurement) = x
-@pure function constant(d::Group,C::Coupling=UnitSystems.Universe,dc=d.c); cs =
-    UnitSystems.kB^makeint(d.v[1])*
-    UnitSystems.NA^makeint(d.v[2])*
-    UnitSystems.𝘩^makeint(d.v[3])*
-    UnitSystems.𝘤^makeint(d.v[4])*
-    UnitSystems.𝘦^makeint(d.v[5])*
-    UnitSystems.Kcd^makeint(d.v[6])*
-    UnitSystems.ΔνCs^makeint(d.v[7])*
-    UnitSystems.g₀^makeint(d.v[14])*
-    UnitSystems.aⱼ^makeint(d.v[15])*
-    UnitSystems.ft^makeint(d.v[17])*
-    UnitSystems.ftUS^makeint(d.v[18])*
-    UnitSystems.lb^makeint(d.v[19])*
-    UnitSystems.T₀^makeint(d.v[20])*
-    UnitSystems.atm^makeint(d.v[21])*
-    UnitSystems.inHg^makeint(d.v[22])*
-    UnitSystems.RK1990^makeint(d.v[23])*
-    UnitSystems.KJ1990^makeint(d.v[24])*
-    UnitSystems.Ωᵢₜ^makeint(d.v[28])*
-    UnitSystems.Vᵢₜ^makeint(d.v[29])*
-    UnitSystems.kG^makeint(d.v[30])*
-    Base.MathConstants.φ^makeint(d.v[34])*
-    Base.MathConstants.γ^makeint(d.v[35])*
-    Base.MathConstants.ℯ^makeint(d.v[36])*
-    (2π)^makeint(d.v[37]); is =
-    2.0^makeint(d.v[38])*
-    3.0^makeint(d.v[39])*
-    5.0^makeint(d.v[40])*
-    7.0^makeint(d.v[41])*
-    11.0^makeint(d.v[42])*
-    19.0^makeint(d.v[43])*
-    43.0^makeint(d.v[44]); me = 
-    abs(d.v[8])+abs(d.v[9])+abs(d.v[10])+abs(d.v[11])+abs(d.v[12])+abs(d.v[13])+abs(d.v[16])+abs(d.v[25])+abs(d.v[26])+abs(d.v[27])+abs(d.v[31])+abs(d.v[32])+abs(d.v[33])
-    if iszero(me); return cs*(is*d.c); else; ms = 
-    measurement("10973731.5681601(210)")^makeint(d.v[8])* #R∞
-    inv(measurement("137.035999084(21)"))^makeint(d.v[9])* #α
-    inv(measurement("1822.888486209(53)"))^makeint(d.v[10])* #μₑᵤ
-    measurement("1.007276466621(53)")^makeint(d.v[11])* #μₑᵤ
-    measurement("0.6889(56)")^makeint(d.v[12])* #ΩΛ
-    measurement("67.66(42)")^makeint(d.v[13])* #H0
-    measurement("149597870700(3)")^makeint(d.v[16])* #au
-    measurement("25812.8074555(59)")^makeint(d.v[25])* #RK
-    (measurement("483597.8525(30)")*1e9)^makeint(d.v[26])* #KJ
-    measurement("8.3144598(48)")^makeint(d.v[27])* #Rᵤ
-    measurement("0.00000002176434(24)")^makeint(d.v[31])* #mP
-    (measurement("3.986004418(8)")*1e14)^makeint(d.v[32])* #GME
-    (measurement("1.26686534(9)")*1e17)^makeint(d.v[33]) #GMJ
-    return (cs*(is*d.c))*ms; end
+FieldAlgebra.makeint(x::MeasureSystems.Measurements.Measurement) = x
+FieldAlgebra.promoteint(x::Measure) = x
+@group Measures begin
+    kB = UnitSystems.kB
+    NA = UnitSystems.NA
+    𝘩 = UnitSystems.𝘩
+    𝘤 = UnitSystems.𝘤
+    𝘦 = UnitSystems.𝘦
+    Kcd = UnitSystems.Kcd
+    ΔνCs = UnitSystems.ΔνCs
+    R∞ ≈ measurement("10973731.5681601(210)")
+    α ≈ inv(measurement("137.035999084(21)"))
+    μₑᵤ ≈ inv(measurement("1822.888486209(53)"))
+    μₚᵤ ≈ measurement("1.007276466621(53)")
+    ΩΛ ≈ measurement("0.6889(56)")
+    H0 ≈ measurement("67.66(42)")
+    g₀ = UnitSystems.g₀
+    aⱼ = UnitSystems.aⱼ
+    au ≈ measurement("149597870700(3)")
+    ft = UnitSystems.ft
+    ftUS = UnitSystems.ftUS
+    lb = UnitSystems.lb
+    T₀ = UnitSystems.T₀
+    atm = UnitSystems.atm
+    inHg = UnitSystems.inHg
+    RK90 = UnitSystems.RK1990
+    KJ90 = UnitSystems.KJ1990
+    RK ≈ measurement("25812.8074555(59)")
+    KJ ≈ measurement("483597.8525(30)")*1e9
+    Rᵤ2014 ≈ measurement("8.3144598(48)")
+    Ωᵢₜ = UnitSystems.Ωᵢₜ
+    Vᵢₜ = UnitSystems.Vᵢₜ
+    kG = UnitSystems.kG
+    mP ≈ measurement("0.00000002176434(24)")
+    GME ≈ measurement("3.986004418(8)")*1e14
+    GMJ ≈ measurement("1.26686534(9)")*1e17
+    φ = Base.MathConstants.φ
+    γ = Base.MathConstants.γ
+    ℯ = Base.MathConstants.ℯ
+    τ ≡ 2π
+    2 = 2
+    3 = 3
+    5 = 5
+    7 = 7
+    11 = 11
+    19 = 19
+    43 = 43
 end
+Base.show(io::IO,x::Group{:Measures}) = showgroup(io,x,basis,'𝟏')
+phys(j,k=vals) = Constant(valueat(j,k,:Measures))
 const sim = dirname(pathof(Similitude))
 include("$sim/constant.jl")
-Base.:*(a::Measurements.Measurement,b::Constant{D}) where D = a*constant(D)
-Base.:*(a::Constant{D},b::Measurements.Measurement) where D = constant(D)*b
+Base.:*(a::Measure,b::Group{G,T,S,N}) where {G,T,S,N} = FieldAlgebra.times(factorize(a,Val(G)),b)
+Base.:*(a::Group{G,T,S,N},b::Measure) where {G,T,S,N} = FieldAlgebra.times(a,factorize(b,Val(G)))
+Base.:/(a::Measure,b::Group{G,T,S,N}) where {G,T,S,N} = a*inv(b)
+Base.:/(a::Group{G,T,S,N},b::Measure) where {G,T,S,N} = a*inv(b)
+Base.:+(a::Measure,b::Group{:Measures,T,S,N}) where {T,S,N} = a+FieldAlgebra.product(b)
+Base.:+(a::Group{:Measures,T,S,N},b::Measure) where {T,S,N} = FieldAlgebra.product(a)+b
+Base.:*(a::Group{:Measures},b::Group{:USQ}) = Group(b.v,a*b.c,Val(:USQ))
+Base.:*(a::Group{:USQ},b::Group{:Measures}) = Group(a.v,a.c*b,Val(:USQ))
+Base.:/(a::Group{:Measures},b::Group{:USQ}) = a*inv(b)
+Base.:/(a::Group{:USQ},b::Group{:Measures}) = a*inv(b)
+Base.:+(a::Group{:Measures,T,S,N} where {T,S},b::Group{:Measures,T,S,N} where {T,S}) where N = product(a)+product(b)
+Base.:+(a::Number,b::Group{:Measures,T,S,N} where {T,S}) where N = a+product(b)
+Base.:+(a::Group{:Measures,T,S,N} where {T,S},b::Number) where N = product(a)+b
+Base.:+(a::Constant,b::Group{:Measures,T,S,N} where {T,S}) where N = a+product(b)
+Base.:+(a::Group{:Measures,T,S,N} where {T,S},b::Constant) where N = product(a)+b
+Base.:-(a::Group{:Measures,T,S,N} where {T,S},b::Group{:Measures,T,S,N} where {T,S}) where N = product(a)-product(b)
+Base.:-(a::Number,b::Group{:Measures,T,S,N} where {T,S}) where N = a-product(b)
+Base.:-(a::Group{:Measures,T,S,N} where {T,S},b::Number) where N = product(a)-b
+Base.:-(a::Constant,b::Group{:Measures,T,S,N} where {T,S}) where N = a-product(b)
+Base.:-(a::Group{:Measures,T,S,N} where {T,S},b::Constant) where N = product(a)-b
+Base.:*(a::Group{:Constants,T,S,N} where {T,S},b::Group{:Measures,T,S,N} where {T,S}) where N = Group(a.v+b.v,coefprod(coef(a),coef(b)),Val(:Measures))
+Base.:*(a::Group{:Measures,T,S,N} where {T,S},b::Group{:Constants,T,S,N} where {T,S}) where N = Group(a.v+b.v,coefprod(coef(a),coef(b)),Val(:Measures))
+Base.:/(a::Group{:Constants,T,S,N} where {T,S},b::Group{:Measures,T,S,N} where {T,S}) where N = Group(a.v-b.v,coefprod(coef(a),coef(b)),Val(:Measures))
+Base.:/(a::Group{:Measures,T,S,N} where {T,S},b::Group{:Constants,T,S,N} where {T,S}) where N = Group(a.v-b.v,coefprod(coef(a),coef(b)),Val(:Measures))
+#Base.:+(a::Group{:Constants,T,S,N} where {T,S},b::Group{:Measures,T,S,N} where {T,S}) where {N,G} = Group(a.v+b.v,coefprod(coef(a),coef(b)),Val(G))
+#Base.:+(a::Group{:Measures,T,S,N} where {T,S},b::Group{:Constants,T,S,N} where {T,S}) where N = Group(a.v+b.v,coefprod(coef(a),coef(b)),Val(:Measures))
+#Base.:-(a::Group{:Constants,T,S,N} where {T,S},b::Group{:Measures,T,S,N} where {T,S}) where {N,G} = Group(a.v+b.v,coefprod(coef(a),coef(b)),Val(G))
+#Base.:-(a::Group{:Measures,T,S,N} where {T,S},b::Group{:Constants,T,S,N} where {T,S}) where N = Group(a.v+b.v,coefprod(coef(a),coef(b)),Val(:Measures))
+Base.:*(a::Measurements.Measurement,b::Constant{D}) where D = a*D
+Base.:*(a::Constant{D},b::Measurements.Measurement) where D = D*b
 Base.:/(a::Measurements.Measurement,b::Constant{D}) where D = a*inv(b)
 Base.:/(a::Constant{D},b::Measurements.Measurement) where D = a*inv(b)
-Base.:+(a::Measurements.Measurement,b::Constant{D}) where D = a+constant(D)
-Base.:+(a::Constant{D},b::Measurements.Measurement) where D = constant(D)+b
-Base.:-(a::Measurements.Measurement,b::Constant{D}) where D = a-constant(D)
-Base.:-(a::Constant{D},b::Measurements.Measurement) where D = constant(D)-b
-#=Base.:*(a::Measurements.Measurement,b::Similitude.Constant{D}) where D = a*Constant{D}()
-Base.:*(a::Similitude.Constant{D},b::Measurements.Measurement) where D = Constant{D}()*b
-Base.:/(a::Measurements.Measurement,b::Similitude.Constant{D}) where D = a*inv(b)
-Base.:/(a::Similitude.Constant{D},b::Measurements.Measurement) where D = a*inv(b)=#
-Base.:*(a::Similitude.Constant{A},b::Constant{B}) where {A,B} = Constant{A*B}()
-Base.:*(a::Constant{A},b::Similitude.Constant{B}) where {A,B} = Constant{A*B}()
-Base.:/(a::Similitude.Constant{A},b::Constant{B}) where {A,B} = Constant{A/B}()
-Base.:/(a::Constant{A},b::Similitude.Constant{B}) where {A,B} = Constant{A/B}()
+Base.:+(a::Measurements.Measurement,b::Constant{D}) where D = a+D
+Base.:+(a::Constant{D},b::Measurements.Measurement) where D = D+b
+Base.:-(a::Measurements.Measurement,b::Constant{D}) where D = a-D
+Base.:-(a::Constant{D},b::Measurements.Measurement) where D = D-b
 else
 Constant(x) = x
 Quantity(x) = Constant(x)
