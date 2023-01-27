@@ -60,6 +60,121 @@ Base.:+(a::Measure,b::Measurement) = cache(measure(a)-b)
 Base.:-(a::Number,b::Measure) = cache(a-measure(b))
 Base.:-(a::Measure,b::Number) = cache(measure(a)-b)
 
+function round_extra(x)
+    l = length(string(x))
+    lp = length(string(prevfloat(x)))
+    ln = length(string(nextfloat(x)))
+    if ln < l && ln < lp
+        nextfloat(x)
+    elseif lp < l && lp <ln
+        prevfloat(x)
+    else
+        x
+    end
+end
+
+function showgroup(io::IO,x::Group{:Measures,T,S,N} where S,u=basistext(x),c='𝟙') where {T,N}
+    #back = T<:AbstractFloat && x.v[N]<0
+    #!back && printexpo(io, 10, x.v[N])
+    FieldAlgebra.printdims(io,x,u)
+    iz = iszero(FieldAlgebra.norm(x.v))
+    xc = coef(x)
+    iz && (isone(xc)||abs(measure(xc))<1) && print(io, c)
+    #back && printexpo(io, 10, last(x.v))
+    if !isone(xc)
+        if float(abs(measure(xc)))<1 && !FieldAlgebra.isgroup(xc)
+            print(io, '/')
+            print_special(io, makeint(inv(xc)))
+        else
+            !iz && print(io, '⋅')
+            if FieldAlgebra.isgroup(xc)
+                print(io, '(')
+                print_special(io, makeint(xc))
+                print(io, ')')
+            else
+                print_special(io, makeint(xc))
+            end
+        end
+    end
+    print(io, " = ")
+    print_special(io, product(x))
+end
+
+import FieldAlgebra: special_print, print_special
+function special_print(io::IO, M::Measurement, error_digits::Int=get(io,:error_digits,2))
+    isinf(M) && (return print(io,"\\infty "))
+    err_digits = -Base.hidigit(M.err, 10) + error_digits
+    digits = if isfinite(M.val)
+        max(-Base.hidigit(M.val, 10) + 2, err_digits)
+    else
+        err_digits
+    end
+    val = if iszero(M.err) || !isfinite(M.err)
+        M.val
+    else
+        round_extra(round(M.val, digits = digits))
+    end
+    err = round_extra(round(M.err, sigdigits=error_digits))
+    sval = string(val)
+    if 'e' ∈ sval
+        serr = string(err)
+        'e' ∈ serr && (serr = match(r"(\d+.\d+)[e](-?\d+)",serr).captures[1])
+        m = match(r"(\d+.\d+)[e](-?\d+)",string(val)).captures
+        ms = replace(serr,'.'=>"")
+        zs = digits+1+Base.hidigit(M.val, 10)+(M.val<0)-length(m[1])
+        z = join(string.(zeros(Int,zs)))
+        print(io,"$(m[1])$z($(ms[1]≠'0' ? ms[1:error_digits] : ms[end-error_digits+1]≠'0' ? ms[end-error_digits+1:end] : join(string(ms[end],"0")))) \\times 10^{$(m[2])}")
+    else
+        mz = match(r"0\.0*",sval)
+        zs = digits+1+Base.hidigit(M.val, 10)+(M.val<0)-length(sval)+(isnothing(mz) ? 0 : length(mz.match)-1)
+        if zs<0 && sval[end]=='0' && sval[end-1]=='.'
+            print(io, val, " (\\pm ")
+            special_print(io,err)
+            print(io, ')')
+        else
+            z,ms = join(string.(zeros(Int,zs))),replace(string(err),'.'=>"")
+            print(io,"$sval$z($(ms[1]≠'0' ? ms[1:error_digits] : ms[end-error_digits+1]≠'0' ? ms[end-error_digits+1:end] : join(string(ms[end],"0"))))")
+        end
+    end
+end
+function print_special(io::IO, M::Measurement, error_digits::Int=get(io,:error_digits,2))
+    isinf(M) && (return print(io,"Inf"))
+    err_digits = -Base.hidigit(M.err, 10) + error_digits
+    digits = if isfinite(M.val)
+        max(-Base.hidigit(M.val, 10) + 2, err_digits)
+    else
+        err_digits
+    end
+    val = if iszero(M.err) || !isfinite(M.err)
+        M.val
+    else
+        round_extra(round(M.val, digits = digits))
+    end
+    err = round_extra(round(M.err, sigdigits=error_digits))
+    sval = string(val)
+    if 'e' ∈ sval
+        serr = string(err)
+        'e' ∈ serr && (serr = match(r"(\d+.\d+)[e](-?\d+)",serr).captures[1])
+        m = match(r"(\d+.\d+)[e](-?\d+)",string(val)).captures
+        ms = replace(serr,'.'=>"")
+        zs = digits+1+Base.hidigit(M.val, 10)+(M.val<0)-length(m[1])
+        z = join(string.(zeros(Int,zs)))
+        print(io,"$(m[1])$z($(ms[1]≠'0' ? ms[1:error_digits] : ms[end-error_digits+1]≠'0' ? ms[end-error_digits+1:end] : join(string(ms[end]),"0"))) × 10")
+        FieldAlgebra.printexpo(io,Meta.parse(m[2]))
+    else
+        mz = match(r"0\.0*",sval)
+        zs = digits+1+Base.hidigit(M.val, 10)+(M.val<0)-length(sval)+(isnothing(mz) ? 0 : length(mz.match)-1)
+        if zs<0 && sval[end]=='0' && sval[end-1]=='.'
+            print(io, val, "(±")
+            print_special(io,err)
+            print(io, ')')
+        else
+            z,ms = join(string.(zeros(Int,zs))),replace(string(err),'.'=>"")
+            print(io,"$sval$z($(ms[1]≠'0' ? ms[1:error_digits] : ms[end-error_digits+1]≠'0' ? ms[end-error_digits+1:end] : join(string(ms[end],"0"))))")
+        end
+    end
+end
+
 # unit systems
 
 const usingSimilitude = true #UnitSystems.similitude()
@@ -82,7 +197,7 @@ end
 for unit ∈ (:boltzmann,:planckreduced,:lightspeed,:vacuumpermeability,:electronmass,:molarmass)
     @eval @pure $unit(U::UnitSystem,C::Coupling) = $unit(U)
 end
-for unit ∈ (Constants...,:vacuumpermeability)
+for unit ∈ (Constants...,:permeability)
     unit≠:planck && @eval @pure $unit(U::UnitSystem) = UnitSystems.$unit(U)
     unit≠:angle && (@eval @pure $unit(U::UnitSystem,S::UnitSystem) = unit($unit(S)/$unit(U)))
 end
@@ -93,7 +208,7 @@ for unit ∈ Convert
         @pure @inline $unit(v::Real,U::UnitSystem{kB,ħ,𝘤,μ₀,mₑ,Mᵤ,extra},S::UnitSystem{kB,ħ,𝘤,μ₀,mₑ,Mᵤ,extra}) where {kB,ħ,𝘤,μ₀,mₑ,Mᵤ,extra} = v
     end
     unit≠:angle && (@eval @pure @inline $unit(U::UnitSystem{kB,ħ,𝘤,μ₀,mₑ,Mᵤ,extra},S::UnitSystem{kB,ħ,𝘤,μ₀,mₑ,Mᵤ,extra}) where {kB,ħ,𝘤,μ₀,mₑ,Mᵤ,extra} = 𝟏)
-    if unit ∉ (Constants...,:permittivity,:angle)
+    if unit ∉ (Constants...,:permittivity,:permeability,:angle)
         @eval @pure @inline $unit(U::UnitSystem) = $unit(Natural,U)
     end
 end
@@ -108,9 +223,9 @@ end
 # fundamental constants, αinv = (34259-1/4366.8123)/250 # 137.036 exactly?
 
 if usingSimilitude
-export Similitude, 𝟙, Unified
+export Similitude, 𝟙, Unified, quotient
 import Similitude
-import Similitude: Unified, coefprod, promoteint, USQ
+import Similitude: Unified, coefprod, promoteint, USQ, quotient,dimlatex, morphism
 import Similitude: Group,AbelianGroup,LogGroup,ExpGroup,Quantity,Dimension,Quantities,𝟙,usq
 import Similitude: Values,value,vals,basis,valueat,showgroup,ratio,isq,dims,dimtext
 import FieldAlgebra: makeint, product
@@ -119,6 +234,7 @@ for D ∈ (:F,:M,:L,:T,:Q,:Θ,:N,:J,:A,:R,:C)
 end
 FieldAlgebra.makeint(x::MeasureSystems.Measurements.Measurement) = x
 FieldAlgebra.promoteint(x::Measure) = x
+FieldAlgebra.latext(::Group{:Measures}) = Similitude.usqlatex
 @group Measures begin
     kB = UnitSystems.kB
     NA = UnitSystems.NA
