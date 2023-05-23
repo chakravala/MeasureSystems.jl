@@ -45,6 +45,8 @@ end
 Base.show(io::IO,M::Measure{N}) where N = show(io,measure(M))
 Base.one(::Measure) = 𝟏
 Base.zero(::Measure) = 𝟏-𝟏
+Base.isone(::Measure) = false
+Base.iszero(::Measure) = false
 FieldConstants.Constant(N::Measurement) = Constant{cache(N)}()
 Base.inv(M::Measure) = cache(inv(measure(M)))
 Base.sqrt(M::Measure) = cache(inv(measure(M)))
