@@ -78,7 +78,7 @@ end
 function showgroup(io::IO,x::Group{:Measures,T,S,N} where S,u=basistext(x),c='𝟙') where {T,N}
     #back = T<:AbstractFloat && x.v[N]<0
     #!back && printexpo(io, 10, x.v[N])
-    FieldAlgebra.printdims(io,x,u)
+    FieldAlgebra.printdims(io,x.v,u)
     iz = iszero(FieldAlgebra.norm(x.v))
     xc = coef(x)
     iz && (isone(xc)||abs(measure(xc))<1) && print(io, c)
