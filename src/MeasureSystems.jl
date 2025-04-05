@@ -394,7 +394,11 @@ end
 
 import UnitSystems: GaussSystem, ElectricSystem, EntropySystem, AstronomicalSystem, unitname, normal
 println("MeasureSystems: initializing UnitSystems data")
-include("$dir/initdata.jl")
+if !usingSimilitude || CONSTVAL
+    include("$dir/initdata.jl")
+else
+    Similitude.includereplace(MeasureSystems,"$dir/initdata.jl")
+end
 
 #const μ₀ = 2𝘩/𝘤/αinv/𝘦^2 # ≈ 4π*(1e-7+5.5e-17), exact charge
 const δμ₀ = μ₀-4π*1e-7
