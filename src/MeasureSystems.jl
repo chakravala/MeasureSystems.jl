@@ -21,11 +21,22 @@ import Base: @pure, angle
 import UnitSystems
 import UnitSystems: UnitSystem, Systems, Constants, Physics, Convert, Dimensionless
 import UnitSystems: Coupling, measure, unit, universe, cache, Derived, logdb, expdb, dB
-export UnitSystems, Measure, measure, cache, Constant
+export UnitSystems, Measure, measure, cache, Constant, dimensions
 const dir = dirname(pathof(UnitSystems))
 
+const usingSimilitude = true #UnitSystems.similitude()
+
+if usingSimilitude
+    import Similitude: CONSTDIM, CONSTVAL
+else
+    const CONSTDIM = true
+    const CONSTVAL = CONSTDIM
+end
 macro group(args...)
-    FieldAlgebra.group(args...)
+    CONSTDIM ? FieldAlgebra.group(args...) : FieldAlgebra.group2(args...)
+end
+macro group2(args...)
+    CONSTVAL ? FieldAlgebra.group(args...) : FieldAlgebra.group2(args...)
 end
 
 # measure
@@ -179,8 +190,6 @@ end
 
 # unit systems
 
-const usingSimilitude = true #UnitSystems.similitude()
-
 if !usingSimilitude
 import UnitSystems: two, three, five, eleven, nineteen, fourtythree
 import UnitSystems: golden, eulergamma, tau
@@ -227,17 +236,32 @@ end
 if usingSimilitude
 export Similitude, 𝟙, Unified, quotient
 import Similitude
-import Similitude: Unified, coefprod, promoteint, USQ, quotient,dimlatex, morphism
-import Similitude: Group,AbelianGroup,LogGroup,ExpGroup,Quantity,Dimension,Quantities,𝟙,usq
-import Similitude: Values,value,vals,basis,valueat,showgroup,ratio,isq,dims,dimtext
+import Similitude: Unified, coefprod, promoteint, USQ, quotient, dimlatex, dimtext
+import Similitude: Group, AbelianGroup, LogGroup, ExpGroup, Quantity, Dimension, Quantities
+import Similitude: Values, value, vals, basis, valueat, showgroup, isq, dims, 𝟙,usq
+import Similitude: ratio, morphism, dimensions
 import FieldAlgebra: makeint, product
 for D ∈ (:F,:M,:L,:T,:Q,:Θ,:N,:J,:A,:R,:C)
-    @eval const $D = Similitude.$D
+    if CONSTDIM==Similitude.CONSTDIM
+        @eval const $D = Similitude.$D
+    elseif CONSTDIM
+        @eval const $D = Constant(Similitude.$D)
+    else
+        @eval const $D = Similitude.param(Similitude.$D)
+    end
 end
+Base.:*(a::Quantity{U},b::Measure) where U = Quantity{U}(cache(a.v*measure(b)),Similitude.dimensions(a))
+Base.:*(a::Measure,b::Quantity{U}) where U = Quantity{U}(cache(measure(a)*b.v),Similitude.dimensions(b))
+Base.:/(a::Quantity{U},b::Measure) where U = Quantity{U}(cache(a.v/measure(b)),Similitude.dimensions(a))
+Base.:/(a::Measure,b::Quantity{U}) where U = Quantity{U}(cache(measure(a)/b.v),Similitude.dimensions(b))
+Base.:+(a::Quantity{U},b::Measure) where U = Quantity{U}(cache(a.v+measure(b)),Similitude.dimensions(a))
+Base.:+(a::Measure,b::Quantity{U}) where U = Quantity{U}(cache(measure(a)-b.v),Similitude.dimensions(b))
+Base.:-(a::Quantity{U},b::Measure) where U = Quantity{U}(cache(a.v-measure(b)),Similitude.dimensions(a))
+Base.:-(a::Measure,b::Quantity{U}) where U = Quantity{U}(cache(measure(a)-b.v),Similitude.dimensions(b))
 FieldAlgebra.makeint(x::MeasureSystems.Measurements.Measurement) = x
 FieldAlgebra.promoteint(x::Measure) = x
 FieldAlgebra.latext(::Group{:Measures}) = Similitude.usqlatex
-@group Measures begin
+@group2 Measures begin
     kB = UnitSystems.kB
     NA = UnitSystems.NA
     𝘩 = UnitSystems.𝘩
@@ -284,7 +308,11 @@ FieldAlgebra.latext(::Group{:Measures}) = Similitude.usqlatex
     43 = 43
 end
 Base.show(io::IO,x::Group{:Measures}) = showgroup(io,x,basis,'𝟏')
-phys(j,k=vals) = Constant(valueat(j,k,:Measures))
+if CONSTVAL
+    phys(j,k=vals) = Constant(valueat(j,k,:Measures))
+else
+    phys(j,k=vals) = valueat(j,k,:Measures)
+end
 const sim = dirname(pathof(Similitude))
 include("$sim/constant.jl")
 Base.:*(a::Measure,b::Group{G,T,S,N}) where {G,T,S,N} = FieldAlgebra.times(factorize(a,Val(G)),b)
@@ -325,7 +353,7 @@ Base.:-(a::Measurements.Measurement,b::Constant{D}) where D = a-D
 Base.:-(a::Constant{D},b::Measurements.Measurement) where D = D-b
 else
 Constant(x) = x
-Quantity(x) = Constant(x)
+Quantity(x) = CONSTVAL ? Constant(x) : x
 Base.:*(a::Measurements.Measurement,b::UnitSystems.Constant{D}) where D = a*D
 Base.:*(a::UnitSystems.Constant{D},b::Measurements.Measurement) where D = D*b
 Base.:/(a::Measurements.Measurement,b::UnitSystems.Constant{D}) where D = a*inv(b)
@@ -356,10 +384,16 @@ import UnitSystems: RK1990,KJ1990,𝟏,𝟐,𝟑,𝟓,𝟕,𝟏𝟏,𝟏𝟗,�
 const RK90,KJ90 = RK1990,KJ1990
 end
 
-const LD,JD = Constant(384399)*(𝟐*𝟓)^3,Constant(778479)*(𝟐*𝟓)^6
-const μE☾ = Constant(measurement("81.300568(3)"))
+if CONSTVAL
+    const LD,JD = Constant(384399)*(𝟐*𝟓)^3,Constant(778479)*(𝟐*𝟓)^6
+    const μE☾ = Constant(measurement("81.300568(3)"))
+else
+    const LD,JD = 384399*(𝟐*𝟓)^3,778479*(𝟐*𝟓)^6
+    const μE☾ = measurement("81.300568(3)")
+end
 
 import UnitSystems: GaussSystem, ElectricSystem, EntropySystem, AstronomicalSystem, unitname, normal
+println("MeasureSystems: initializing UnitSystems data")
 include("$dir/initdata.jl")
 
 #const μ₀ = 2𝘩/𝘤/αinv/𝘦^2 # ≈ 4π*(1e-7+5.5e-17), exact charge
@@ -372,11 +406,17 @@ for unit ∈ UnitSystems.Convert
         @eval const $unit = Similitude.$unit
     end
 end
+println("MeasureSystems: deriving Quantity measurements")
 include("$sim/derived.jl")
+println("MeasureSystems: documenting kinematic units")
 include("$dir/kinematicdocs.jl")
+println("MeasureSystems: documenting electromagnetic units")
 include("$dir/electromagneticdocs.jl")
+println("MeasureSystems: documenting thermodynamic units")
 include("$dir/thermodynamicdocs.jl")
+println("MeasureSystems: documenting physics constants")
 include("$dir/physicsdocs.jl")
+println("MeasureSystems: documenting UnitSystems")
 include("$dir/systems.jl")
 else
 for CAL ∈ (:calₜₕ,:cal₄,:cal₁₀,:cal₂₀,:calₘ,:calᵢₜ)
@@ -385,8 +425,13 @@ for CAL ∈ (:calₜₕ,:cal₄,:cal₁₀,:cal₂₀,:calₘ,:calᵢₜ)
 end
 import UnitSystems: convertext, unitext
 const dir = dirname(pathof(UnitSystems))
-const zetta,zepto = Constant(1e21),Constant(1e-21)
-const yotta,yocto = Constant(1e24),Constant(1e-24)
+if CONSTVAL
+    const zetta,zepto = Constant(1e21),Constant(1e-21)
+    const yotta,yocto = Constant(1e24),Constant(1e-24)
+else
+    const zetta,zepto = 1e21,1e-21
+    const yotta,yocto = 1e24,1e-24
+end
 include("$dir/kinematic.jl")
 include("$dir/electromagnetic.jl")
 include("$dir/thermodynamic.jl")
@@ -396,6 +441,7 @@ end
 
 # physical constants
 
+if CONSTVAL
 @pure electronmass(U::typeof(Planck),C::Coupling) = sqrt(4π*coupling(C))
 @pure electronmass(U::typeof(PlanckGauss),C::Coupling) = sqrt(coupling(C))
 @pure electronmass(U::UnitSystem{kB,ħ,𝘤,μ₀,cache(√(αG*αinv))},C::Coupling) where {kB,ħ,𝘤,μ₀} = sqrt(coupling(C)/finestructure(C))
@@ -415,5 +461,6 @@ end
 @pure vacuumpermeability(U::UnitSystem{kB,ħ,𝘤,cache(μ₀)},C::Coupling) where {kB,ħ,𝘤} = finestructure(C)*2𝘩/𝘤/𝘦^2
 @pure vacuumpermeability(U::typeof(CODATA),C::Coupling) = 2RK2014*finestructure(C)/𝘤
 @pure vacuumpermeability(U::typeof(Conventional),C::Coupling) = 2RK1990*finestructure(C)/𝘤
+end
 
 end # module
