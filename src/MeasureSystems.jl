@@ -412,11 +412,9 @@ for unit ∈ UnitSystems.Convert
 end
 println("MeasureSystems: deriving Quantity measurements")
 include("$sim/derived.jl")
-println("MeasureSystems: documenting kinematic units")
+println("MeasureSystems: documenting physics dimensions")
 include("$dir/kinematicdocs.jl")
-println("MeasureSystems: documenting electromagnetic units")
 include("$dir/electromagneticdocs.jl")
-println("MeasureSystems: documenting thermodynamic units")
 include("$dir/thermodynamicdocs.jl")
 println("MeasureSystems: documenting physics constants")
 include("$dir/physicsdocs.jl")
