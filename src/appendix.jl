@@ -99,3 +99,191 @@ function latexdimensions()
         :Molar => latexdimensions((Metric,British,English),[UnitSystems.Molar...]),
         :Photometric => latexdimensions((Metric,British,English,Gauss),[UnitSystems.Photometric...])]
 end
+
+function printmarkdowndimensions()
+    ld = latexdimensions()
+    out = [
+        markdowndimensions(last(ld[1]),Values("Metric","British","English","Gauss")),
+        markdowndimensions(last(ld[2]),Values("Metric","British","English","Gauss")),
+        markdowndimensions(last(ld[3]),Values("Metric","EMU","ESU","Gauss")),
+        markdowndimensions(last(ld[4]),Values("Metric","British","English","Gauss")),
+        markdowndimensions(last(ld[5]),Values("Metric","British","English")),
+        markdowndimensions(last(ld[6]),Values("Metric","British","English","Gauss"))]
+    join("\n## ".*String.(first.(ld)).*"\n\n".*out)
+end
+
+function printtexdimensions()
+    ld = latexdimensions()
+    out = [
+        texdimensions(last(ld[1]),Values("Metric","British","English","Gauss")),
+        texdimensions(last(ld[2]),Values("Metric","British","English","Gauss")),
+        texdimensions(last(ld[3]),Values("Metric","EMU","ESU","Gauss")),
+        texdimensions(last(ld[4]),Values("Metric","British","English","Gauss")),
+        texdimensions(last(ld[5]),Values("Metric","British","English")),
+        texdimensions(last(ld[6]),Values("Metric","British","English","Gauss"))]
+    join("\n".*String.(first.(ld)).*"\n\n".*out)
+end
+
+function markdownquantities(data::Vector{Pair{Symbol,Vector{Values{N,String}}}} where N)
+    join(join.(markdownquantities.(data)))
+end
+function markdownquantities(data::Pair{Symbol,Vector{Values{N,String}}} where N)
+    "\n## ".*String.(first.(data)).*" Units\n\n".*markdownquantities.(last.(data))
+end
+function markdownquantities(data::Vector{Values{2,String}})
+    printmarkdown(data,Values("Quantity","Equivalent Dimensions"),Values(":---:",":---"))
+end
+function markdownquantities(data::Vector{Values{3,String}})
+    printmarkdown(data,Values("Name","Quantity","Product"),Values("---:",":---",":---:"))
+end
+function markdownquantities(data::Vector{Values{4,String}})
+    printmarkdown(data,Values("Name","Quantity","Product","UnitSystem"),Values("---:",":---",":---:",":---"))
+end
+function markdowndimensions(data::Vector{Values{N,String}},systems::Values{M}) where {N,M}
+    printmarkdown(data,Values("","Unified",systems...),Values("---:",":---",[":---:" for i ∈ systems]...))
+end
+
+function printmarkdown(data::Vector{Values{N,String}},title::Values{N,String},format::Values{N,String}) where N
+    io = IOBuffer()
+    printmarkdown(io,title)
+    printmarkdown(io,format)
+    printmarkdown(io,data)
+    String(take!(io))
+end
+
+function printmarkdown(io::IO,data::Values{N,String}) where N
+    print(io,"|")
+    for i ∈ count(1,N)
+        @inbounds print(io," ",data[i]," |")
+    end
+    print(io,"\n")
+end
+function printmarkdown(io::IO,data::Vector{Values{N,String}}) where N
+    for i ∈ 1:length(data)
+        printmarkdown(io,data[i])
+    end
+end
+
+function texquantities(data::Vector{Pair{Symbol,Vector{Values{N,String}}}} where N)
+    join(join.(texquantities.(data)))
+end
+function texquantities(data::Pair{Symbol,Vector{Values{N,String}}} where N)
+    "\n".*String.(first.(data)).*" Units\n\n".*texquantities.(last.(data))
+end
+function texquantities(data::Vector{Values{2,String}})
+    printtex(data,Values("Quantity","Equivalent Dimensions"),Values("c","l"))
+end
+function texquantities(data::Vector{Values{3,String}})
+    printtex(data,Values("Name","Quantity","Product"),Values("r","l","c"))
+end
+function texquantities(data::Vector{Values{4,String}})
+    printtex(data,Values("Name","Quantity","Product","UnitSystem"),Values("r","l","c","l"))
+end
+function texdimensions(data::Vector{Values{N,String}},systems::Values{M}) where {N,M}
+    printtex(data,Values("","Unified",systems...),Values("r","l",["c" for i ∈ systems]...))
+end
+
+function printtex(data::Vector{Values{N,String}},title::Values{N,String},format::Values{N,String}) where N
+    io = IOBuffer()
+    print(io,"\\begin{tabular}{$(join(format))}\n")
+    printtex(io,title)
+    print(io," \\\\\n\\hline\n")
+    printtex(io,data)
+    print(io,"\n\\end{tabular}\n")
+    String(take!(io))
+end
+
+function printtex(io::IO,data::Values{N,String}) where N
+    for i ∈ count(1,N)
+        @inbounds print(io,data[i])
+        i≠N && print(io," & ")
+    end
+end
+function printtex(io::IO,data::Vector{Values{N,String}}) where N
+    l = length(data)
+    for i ∈ 1:l
+        printtex(io,data[i])
+        i≠l && print(io," \\\\\n")
+    end
+end
+
+function markdownsystem()
+    markdownunits()
+    ls = latexsystems()
+    lq = latexquotients()
+    for i ∈ 1:length(ls)
+        markdownsystem(ls[i],lq[i])
+    end
+end
+function markdownsystem(ls,lq)
+    str = """
+# $(first(lq))
+
+\$ $(MeasureSystems.dimlistlatex(eval(first(lq)))) \$
+
+$(markdownquantities(last(ls)))
+
+## Equivalent dimensional quantities
+
+$(markdownquantities(last(lq)))
+    """
+    open(joinpath("md","$(first(lq)).md"),"w") do f
+        write(f,str)
+    end
+    return str
+end
+
+function markdownunits()
+    str = """
+# Definition
+
+$(markdownquantities(latexunits()))
+
+$(printmarkdowndimensions())
+    """
+    open(joinpath("md","Definition.md"),"w") do f
+        write(f,str)
+    end
+    return str
+end
+
+function texsystem()
+    texunits()
+    ls = latexsystems()
+    lq = latexquotients()
+    for i ∈ 1:length(ls)
+        texsystem(ls[i],lq[i])
+    end
+end
+function texsystem(ls,lq)
+    str = """
+$(first(lq)) : \$ $(MeasureSystems.dimlistlatex(eval(first(lq)))) \$
+
+$(texquantities(last(ls)))
+
+Equivalent dimensional quantities
+
+$(texquantities(last(lq)))
+    """
+    open(joinpath("tex","$(first(lq)).tex"),"w") do f
+        write(f,str)
+    end
+    return str
+end
+
+function texunits()
+    str = """
+Definition
+
+$(texquantities(latexunits()))
+
+$(printtexdimensions())
+    """
+    open(joinpath("tex","Definition.tex"),"w") do f
+        write(f,str)
+    end
+    return str
+end
+
+
+# electricdisplacement -> electric flux density
