@@ -44,6 +44,9 @@ const StandardUnits = [
     :MagneticFluxDensity => [:tesla,:gauss,:stattesla],
     :MagneticSpecialized => [:oersted,:gilbert]]
 
+const FilteredUnits = copy(StandardUnits)
+FilteredUnits[1] = first(FilteredUnits[1]) => filter(x->x≠:sackurtetrode,last(FilteredUnits[1]))
+
 const sourceconstants = [:boltzmann => :SI2019, :avogadro => :SI2019, :planck => :SI2019, :lightspeed => :SI2019, :elementarycharge => :SI2019, :luminousefficacy => :SI2019, :hyperfine => :SI2019, :rydberg => :SI2019, :finestructure => :Universe, :electronunit => :Universe, :protonunit => :Universe, :darkenergydensity => :Universe, :hubble => :Metric, :gforce => :Metric, :year => :IAU, :astronomicalunit => :Metric, :foot => :Metric, :surveyfoot => :Metric, :pound => :Metric, :celsius => :Metric, :atmosphere => :Metric, :inchmercury => :Metric, :klitzing => :Conventional, :josephson => :Conventional, :klitzing => :CODATA, :josephson => :CODATA, :molargas => :CODATA, :resistance => :Metric, :electricpotential => :Metric, :gaussgravitation => :IAU, :planckmass => :Metric, :earthmass => :Metric, :jupitermass => :Metric]
 
 quantityjoin(nam::String,str::Values) = Values(nam,str...)
@@ -68,7 +71,8 @@ function latexsystems()
 end
 
 latexunits(U::Symbol) = latexunits(eval(U))
-function latexunits(U::UnitSystem)
+latexunits(U::typeof(Unified)) = latexunits(U,FilteredUnits)
+function latexunits(U::UnitSystem,StandardUnits=StandardUnits)
     nam = map.(textconstant,last.(StandardUnits))
     str = map.(Similitude.latexquantity,map.(x->eval(x)(U),last.(StandardUnits)))
     first.(StandardUnits) .=> map.(quantityjoincut,nam,str)
@@ -100,6 +104,21 @@ function latexdimensions()
         :Photometric => latexdimensions((Metric,British,English,Gauss),[UnitSystems.Photometric...])]
 end
 
+latexdimensions2(u::Tuple) = first.(Dimensions) .=> latexdimensions2.(Ref(u),last.(Dimensions))
+function latexdimensions2(u::Tuple,dims); U = (Unified,u...)
+    nam = textconstant.(dims)
+    str = Similitude.latexdimensions.(Similitude.evaldim.(dims),Ref(U))
+    quantityjoin.(nam,Values.(str))
+end
+function latexdimensions2()
+    [:Kinematic => latexdimensions2((Metric,normal(Unified)),[UnitSystems.Kinematic...]),
+        :Mechanical => latexdimensions2((Metric,British,normal(Unified)),[UnitSystems.Mechanical...]),
+        :Electromagnetic => latexdimensions2((Metric,EMU,ESU,normal(Unified)),[UnitSystems.Electromagnetic...]),
+        :Thermodynamic => latexdimensions2((Metric,British,normal(Unified)),[UnitSystems.Thermodynamic...]),
+        :Molar => latexdimensions2((Metric,British,normal(Unified)),[UnitSystems.Molar...]),
+        :Photometric => latexdimensions2((Metric,British,normal(Unified)),[UnitSystems.Photometric...])]
+end
+
 function printmarkdowndimensions()
     ld = latexdimensions()
     out = [
@@ -109,6 +128,18 @@ function printmarkdowndimensions()
         markdowndimensions(last(ld[4]),Values("Metric","British","English","Gauss")),
         markdowndimensions(last(ld[5]),Values("Metric","British","English")),
         markdowndimensions(last(ld[6]),Values("Metric","British","English","Gauss"))]
+    join("\n## ".*String.(first.(ld)).*"\n\n".*out)
+end
+
+function printmarkdowndimensions2()
+    ld = latexdimensions2()
+    out = [
+        markdowndimensions(last(ld[1]),Values("Metric","Product")),
+        markdowndimensions(last(ld[2]),Values("Metric","British","Product")),
+        markdowndimensions(last(ld[3]),Values("Metric","EMU","ESU","Product")),
+        markdowndimensions(last(ld[4]),Values("Metric","British","Product")),
+        markdowndimensions(last(ld[5]),Values("Metric","British","Product")),
+        markdowndimensions(last(ld[6]),Values("Metric","British","Product"))]
     join("\n## ".*String.(first.(ld)).*"\n\n".*out)
 end
 
@@ -124,30 +155,45 @@ function printtexdimensions()
     join("\n".*String.(first.(ld)).*"\n\n".*out)
 end
 
+function printtexdimensions2()
+    ld = latexdimensions2()
+    out = [
+        texdimensions(last(ld[1]),Values("Metric","Product")),
+        texdimensions(last(ld[2]),Values("Metric","British","Product")),
+        texdimensions(last(ld[3]),Values("Metric","EMU","ESU","Product")),
+        texdimensions(last(ld[4]),Values("Metric","British","Product")),
+        texdimensions(last(ld[5]),Values("Metric","British","Product")),
+        texdimensions(last(ld[6]),Values("Metric","British","Product"))]
+    join("\n".*String.(first.(ld)).*"\n\n".*out)
+end
+
 function markdownquantities(data::Vector{Pair{Symbol,Vector{Values{N,String}}}} where N)
     join(join.(markdownquantities.(data)))
 end
-function markdownquantities(data::Pair{Symbol,Vector{Values{N,String}}} where N)
-    "\n## ".*String.(first.(data)).*" Units\n\n".*markdownquantities.(last.(data))
+function markdownquantities(data::Vector{Pair{Symbol,Vector{Values{N,String}}}} where N,str::String)
+    join(join.(markdownquantities.(data,Ref(str))))
 end
-function markdownquantities(data::Vector{Values{2,String}})
-    printmarkdown(data,Values("Quantity","Equivalent Dimensions"),Values(":---:",":---"))
+function markdownquantities(data::Pair{Symbol,Vector{Values{N,String}}} where N,str::String=String(first(data)))
+    "\n## $(String(first(data))) Units\n\n".*markdownquantities(last(data),str)
 end
-function markdownquantities(data::Vector{Values{3,String}})
-    printmarkdown(data,Values("Name","Quantity","Product"),Values("---:",":---",":---:"))
+function markdownquantities(data::Vector{Values{2,String}},quantity::String="Quantity")
+    printmarkdown(data,Values(quantity,"Equivalent Dimensions"),Values(":---:",":---"))
 end
-function markdownquantities(data::Vector{Values{4,String}})
+function markdownquantities(data::Vector{Values{3,String}},quantity::String="Quantity")
+    printmarkdown(data,Values("Name",quantity,"Product"),Values("---:",":---",":---:"),quantity=="Unified")
+end
+function markdownquantities(data::Vector{Values{4,String}},quantity::String="Quantity")
     printmarkdown(data,Values("Name","Quantity","Product","UnitSystem"),Values("---:",":---",":---:",":---"))
 end
 function markdowndimensions(data::Vector{Values{N,String}},systems::Values{M}) where {N,M}
     printmarkdown(data,Values("","Unified",systems...),Values("---:",":---",[":---:" for i ∈ systems]...))
 end
 
-function printmarkdown(data::Vector{Values{N,String}},title::Values{N,String},format::Values{N,String}) where N
+function printmarkdown(data::Vector{Values{N,String}},title::Values{N,String},format::Values{N,String},st::Bool=false) where N
     io = IOBuffer()
     printmarkdown(io,title)
     printmarkdown(io,format)
-    printmarkdown(io,data)
+    printmarkdown(io,data,st)
     String(take!(io))
 end
 
@@ -158,25 +204,35 @@ function printmarkdown(io::IO,data::Values{N,String}) where N
     end
     print(io,"\n")
 end
-function printmarkdown(io::IO,data::Vector{Values{N,String}}) where N
-    for i ∈ 1:length(data)
-        printmarkdown(io,data[i])
+function printmarkdown(io::IO,data::Vector{Values{N,String}},st::Bool=false) where N
+    if st
+        for i ∈ 1:length(data)
+            dat = data[i]
+            dat[1]≠"Sackur-Tetrode" && printmarkdown(io,dat)
+        end
+    else
+        for i ∈ 1:length(data)
+            printmarkdown(io,data[i])
+        end
     end
 end
 
 function texquantities(data::Vector{Pair{Symbol,Vector{Values{N,String}}}} where N)
     join(join.(texquantities.(data)))
 end
-function texquantities(data::Pair{Symbol,Vector{Values{N,String}}} where N)
-    "\n".*String.(first.(data)).*" Units\n\n".*texquantities.(last.(data))
+function texquantities(data::Vector{Pair{Symbol,Vector{Values{N,String}}}} where N,str)
+    join(join.(texquantities.(data,Ref(str))))
 end
-function texquantities(data::Vector{Values{2,String}})
-    printtex(data,Values("Quantity","Equivalent Dimensions"),Values("c","l"))
+function texquantities(data::Pair{Symbol,Vector{Values{N,String}}} where N,str::String=String(first(data)))
+    "\n$(String(first(data))) Units\n\n".*texquantities(last(data),str)
 end
-function texquantities(data::Vector{Values{3,String}})
-    printtex(data,Values("Name","Quantity","Product"),Values("r","l","c"))
+function texquantities(data::Vector{Values{2,String}},quantity="Quantity")
+    printtex(data,Values(quantity,"Equivalent Dimensions"),Values("c","l"))
 end
-function texquantities(data::Vector{Values{4,String}})
+function texquantities(data::Vector{Values{3,String}},quantity="Quantity")
+    printtex(data,Values("Name",quantity,"Product"),Values("r","l","c"))
+end
+function texquantities(data::Vector{Values{4,String}},quantity="Quantity")
     printtex(data,Values("Name","Quantity","Product","UnitSystem"),Values("r","l","c","l"))
 end
 function texdimensions(data::Vector{Values{N,String}},systems::Values{M}) where {N,M}
@@ -199,16 +255,27 @@ function printtex(io::IO,data::Values{N,String}) where N
         i≠N && print(io," & ")
     end
 end
-function printtex(io::IO,data::Vector{Values{N,String}}) where N
+function printtex(io::IO,data::Vector{Values{N,String}},st=false) where N
     l = length(data)
-    for i ∈ 1:l
-        printtex(io,data[i])
-        i≠l && print(io," \\\\\n")
+    if st
+        for i ∈ 1:l
+            dat = data[i]
+            if dat[1]≠"Sackur-Tetrode"
+                printtex(io,data[i])
+                i≠l && print(io," \\\\\n")
+            end
+        end
+    else
+        for i ∈ 1:l
+            printtex(io,data[i])
+            i≠l && print(io," \\\\\n")
+        end
     end
 end
 
 function markdownsystem()
     markdownunits()
+    markdownunified()
     ls = latexsystems()
     lq = latexquotients()
     for i ∈ 1:length(ls)
@@ -221,17 +288,25 @@ function markdownsystem(ls,lq)
 
 \$ $(MeasureSystems.dimlistlatex(eval(first(lq)))) \$
 
-$(markdownquantities(last(ls)))
+$(markdownquantities(last(ls),String(first(lq))))
 
 ## Equivalent dimensional quantities
 
-$(markdownquantities(last(lq)))
+$(markdownquantities(last(lq),String(first(lq))))
     """
-    open(joinpath("md","$(first(lq)).md"),"w") do f
-        write(f,str)
-    end
-    return str
+    writestr(first(lq),str,"md")
 end
+function markdownunified()
+    str = """
+# Unified
+
+$(printmarkdowndimensions2())
+
+$(markdownquantities(latexunits(Unified),"Unified"))
+    """
+    writestr(:Unified,str,"md")
+end
+
 
 function markdownunits()
     str = """
@@ -241,14 +316,12 @@ $(markdownquantities(latexunits()))
 
 $(printmarkdowndimensions())
     """
-    open(joinpath("md","Definition.md"),"w") do f
-        write(f,str)
-    end
-    return str
+    writestr(:Definition,str,"md")
 end
 
 function texsystem()
     texunits()
+    texunified()
     ls = latexsystems()
     lq = latexquotients()
     for i ∈ 1:length(ls)
@@ -265,11 +338,17 @@ Equivalent dimensional quantities
 
 $(texquantities(last(lq)))
     """
-    open(joinpath("tex","$(first(lq)).tex"),"w") do f
-        write(f,str)
-    end
-    return str
+    writestr(first(lq),str,"tex")
 end
+function texunified()
+    str = """
+$(printtexdimensions2())
+
+$(texquantities(latexunits(Unified),"Unified"))
+    """
+    writestr(:Unified,str,"tex")
+end
+
 
 function texunits()
     str = """
@@ -279,11 +358,14 @@ $(texquantities(latexunits()))
 
 $(printtexdimensions())
     """
-    open(joinpath("tex","Definition.tex"),"w") do f
+    writestr(:Definition,str,"tex")
+end
+
+function writestr(name,str,ext)
+    open(joinpath(ext,"$name.$ext"),"w") do f
         write(f,str)
     end
     return str
 end
-
 
 # electricdisplacement -> electric flux density
