@@ -288,23 +288,27 @@ function markdownsystem(ls,lq)
 
 \$ $(MeasureSystems.dimlistlatex(eval(first(lq)))) \$
 
+data derived with [UnitSystems.jl](https://github.com/chakravala/UnitSystems.jl)  [![DOI](https://zenodo.org/badge/317419353.svg)](https://zenodo.org/badge/latestdoi/317419353)
+
 $(markdownquantities(last(ls),String(first(lq))))
 
 ## Equivalent dimensional quantities
 
 $(markdownquantities(last(lq),String(first(lq))))
     """
-    writestr(first(lq),str,"md")
+    writestr(first(lq),str,"md","../docs/src/appendix")
 end
 function markdownunified()
     str = """
 # Unified
 
+data derived with [UnitSystems.jl](https://github.com/chakravala/UnitSystems.jl) [![DOI](https://zenodo.org/badge/317419353.svg)](https://zenodo.org/badge/latestdoi/317419353)
+
 $(printmarkdowndimensions2())
 
 $(markdownquantities(latexunits(Unified),"Unified"))
     """
-    writestr(:Unified,str,"md")
+    writestr(:Unified,str,"md","../docs/src/appendix")
 end
 
 
@@ -312,11 +316,13 @@ function markdownunits()
     str = """
 # Definition
 
+data derived with [UnitSystems.jl](https://github.com/chakravala/UnitSystems.jl)  [![DOI](https://zenodo.org/badge/317419353.svg)](https://zenodo.org/badge/latestdoi/317419353)
+
 $(markdownquantities(latexunits()))
 
 $(printmarkdowndimensions())
     """
-    writestr(:Definition,str,"md")
+    writestr(:Definition,str,"md","../docs/src/appendix")
 end
 
 function texsystem()
@@ -361,8 +367,8 @@ $(printtexdimensions())
     writestr(:Definition,str,"tex")
 end
 
-function writestr(name,str,ext)
-    open(joinpath(ext,"$name.$ext"),"w") do f
+function writestr(name,str,ext,pre=ext)
+    open(joinpath(pre,"$name.$ext"),"w") do f
         write(f,str)
     end
     return str
