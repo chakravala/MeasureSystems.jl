@@ -1,6 +1,1199 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>The UnitSystem · UnitSystems.jl</title><meta name="title" content="The UnitSystem · UnitSystems.jl"/><meta property="og:title" content="The UnitSystem · UnitSystems.jl"/><meta property="twitter:title" content="The UnitSystem · UnitSystems.jl"/><meta name="description" content="Documentation for UnitSystems.jl."/><meta property="og:description" content="Documentation for UnitSystems.jl."/><meta property="twitter:description" content="Documentation for UnitSystems.jl."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">UnitSystems.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">UnitSystems README</a></li><li><a class="tocitem" href="../similitude/">Similitude</a></li><li class="is-active"><a class="tocitem" href>The UnitSystem</a><ul class="internal"><li><a class="tocitem" href="#Metric-SI-Unit-Systems"><span>Metric SI Unit Systems</span></a></li><li><a class="tocitem" href="#Electromagnetic-CGS-Systems"><span>Electromagnetic CGS Systems</span></a></li><li><a class="tocitem" href="#Modified-(Entropy)-Unit-Systems"><span>Modified (Entropy) Unit Systems</span></a></li><li><a class="tocitem" href="#Foot-Pound-Second-Rankine"><span>Foot-Pound-Second-Rankine</span></a></li><li><a class="tocitem" href="#Astronomical-Unit-Systems"><span>Astronomical Unit Systems</span></a></li><li><a class="tocitem" href="#Natural-Unit-Systems"><span>Natural Unit Systems</span></a></li><li><a class="tocitem" href="#UnitSystem-Index"><span>UnitSystem Index</span></a></li></ul></li><li><a class="tocitem" href="../constants/">Physics Constants</a></li><li><a class="tocitem" href="../convert/">Unit Conversions</a></li><li><a class="tocitem" href="../units/">Standard Units</a></li><li><span class="tocitem">Appendix</span><ul><li><a class="tocitem" href="../appendix/Definition/">Definition</a></li><li><a class="tocitem" href="../appendix/Unified/">Unified</a></li><li><a class="tocitem" href="../appendix/Metric/">Metric</a></li><li><a class="tocitem" href="../appendix/SI2019/">SI2019</a></li><li><a class="tocitem" href="../appendix/SI1976/">SI1976</a></li><li><a class="tocitem" href="../appendix/CODATA/">CODATA</a></li><li><a class="tocitem" href="../appendix/Conventional/">Conventional</a></li><li><a class="tocitem" href="../appendix/International/">International</a></li><li><a class="tocitem" href="../appendix/InternationalMean/">InternationalMean</a></li><li><a class="tocitem" href="../appendix/MetricTurn/">MetricTurn</a></li><li><a class="tocitem" href="../appendix/MetricSpatian/">MetricSpatian</a></li><li><a class="tocitem" href="../appendix/MetricGradian/">MetricGradian</a></li><li><a class="tocitem" href="../appendix/MetricDegree/">MetricDegree</a></li><li><a class="tocitem" href="../appendix/MetricArcminute/">MetricArcminute</a></li><li><a class="tocitem" href="../appendix/MetricArcsecond/">MetricArcsecond</a></li><li><a class="tocitem" href="../appendix/Engineering/">Engineering</a></li><li><a class="tocitem" href="../appendix/Gravitational/">Gravitational</a></li><li><a class="tocitem" href="../appendix/MTS/">MTS</a></li><li><a class="tocitem" href="../appendix/EMU/">EMU</a></li><li><a class="tocitem" href="../appendix/ESU/">ESU</a></li><li><a class="tocitem" href="../appendix/Gauss/">Gauss</a></li><li><a class="tocitem" href="../appendix/LorentzHeaviside/">LorentzHeaviside</a></li><li><a class="tocitem" href="../appendix/FPS/">FPS</a></li><li><a class="tocitem" href="../appendix/IPS/">IPS</a></li><li><a class="tocitem" href="../appendix/British/">British</a></li><li><a class="tocitem" href="../appendix/English/">English</a></li><li><a class="tocitem" href="../appendix/Survey/">Survey</a></li><li><a class="tocitem" href="../appendix/MPH/">MPH</a></li><li><a class="tocitem" href="../appendix/KKH/">KKH</a></li><li><a class="tocitem" href="../appendix/Nautical/">Nautical</a></li><li><a class="tocitem" href="../appendix/Meridian/">Meridian</a></li><li><a class="tocitem" href="../appendix/IAU/">IAU☉</a></li><li><a class="tocitem" href="../appendix/IAUE/">IAUE</a></li><li><a class="tocitem" href="../appendix/IAUJ/">IAUJ</a></li><li><a class="tocitem" href="../appendix/Hubble/">Hubble</a></li><li><a class="tocitem" href="../appendix/Cosmological/">Cosmological</a></li><li><a class="tocitem" href="../appendix/CosmologicalQuantum/">CosmologicalQuantum</a></li><li><a class="tocitem" href="../appendix/Planck/">Planck</a></li><li><a class="tocitem" href="../appendix/PlanckGauss/">PlanckGauss</a></li><li><a class="tocitem" href="../appendix/Stoney/">Stoney</a></li><li><a class="tocitem" href="../appendix/Hartree/">Hartree</a></li><li><a class="tocitem" href="../appendix/Rydberg/">Rydberg</a></li><li><a class="tocitem" href="../appendix/Schrodinger/">Schrodinger</a></li><li><a class="tocitem" href="../appendix/Electronic/">Electronic</a></li><li><a class="tocitem" href="../appendix/Natural/">Natural</a></li><li><a class="tocitem" href="../appendix/NaturalGauss/">NaturalGauss</a></li><li><a class="tocitem" href="../appendix/QCD/">QCD</a></li><li><a class="tocitem" href="../appendix/QCDGauss/">QCDGauss</a></li><li><a class="tocitem" href="../appendix/QCDoriginal/">QCDoriginal</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>The UnitSystem</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>The UnitSystem</a></li></ul></nav><div class="docs-right"><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="The-UnitSystem"><a class="docs-heading-anchor" href="#The-UnitSystem">The UnitSystem</a><a id="The-UnitSystem-1"></a><a class="docs-heading-anchor-permalink" href="#The-UnitSystem" title="Permalink"></a></h1><p><em>Physical unit system constants (Metric, English, Natural, etc...)</em></p><ul><li><a href="../similitude/#Similitude">Similitude</a></li></ul><ul><li><a href="#The-UnitSystem">The UnitSystem</a></li><li class="no-marker"><ul><li><a href="#Metric-SI-Unit-Systems">Metric SI Unit Systems</a></li><li><a href="#Electromagnetic-CGS-Systems">Electromagnetic CGS Systems</a></li><li><a href="#Modified-(Entropy)-Unit-Systems">Modified (Entropy) Unit Systems</a></li><li><a href="#Foot-Pound-Second-Rankine">Foot-Pound-Second-Rankine</a></li><li><a href="#Astronomical-Unit-Systems">Astronomical Unit Systems</a></li><li><a href="#Natural-Unit-Systems">Natural Unit Systems</a></li><li><a href="#UnitSystem-Index">UnitSystem Index</a></li></ul></li></ul><ul><li><a href="../constants/#Physics-Constants">Physics Constants</a></li><li><a href="../convert/#Unit-Conversions">Unit Conversions</a></li><li><a href="../units/#Standard-Units">Standard Units</a></li></ul><p>By default, <code>UnitSystems</code> provides a modern unified re-interpretation of various historical unit systems which were previously incompatible. In order to make each <code>UnitSystem</code> consistently compatible with each other, a few convenience assumptions are made. Specifically, it is assumed that all default modern unit systems share the same common <code>Universe</code> of dimensionless constants, although this can be optionally changed. Therefore, the philosophy is to characterize differences among <code>UnitSystem</code> instances by means of dimensional constants. As a result, all the defaults are ideal modern variants of these historical unit systems based on a common underlying <code>Universe</code>, which are completely consistent and compatible with each other. These default <code>UnitSystem</code> values are to be taken as a newly defined mutually-compatible recommended standard, verified to be consistent and coherent.</p><ul><li><a href="#MeasureSystems.British"><code>MeasureSystems.British</code></a></li><li><a href="#MeasureSystems.CODATA"><code>MeasureSystems.CODATA</code></a></li><li><a href="#MeasureSystems.Conventional"><code>MeasureSystems.Conventional</code></a></li><li><a href="#MeasureSystems.Cosmological"><code>MeasureSystems.Cosmological</code></a></li><li><a href="#MeasureSystems.CosmologicalQuantum"><code>MeasureSystems.CosmologicalQuantum</code></a></li><li><a href="#MeasureSystems.EMU"><code>MeasureSystems.EMU</code></a></li><li><a href="#MeasureSystems.ESU"><code>MeasureSystems.ESU</code></a></li><li><a href="#MeasureSystems.Electronic"><code>MeasureSystems.Electronic</code></a></li><li><a href="#MeasureSystems.Engineering"><code>MeasureSystems.Engineering</code></a></li><li><a href="#MeasureSystems.English"><code>MeasureSystems.English</code></a></li><li><a href="#MeasureSystems.FFF"><code>MeasureSystems.FFF</code></a></li><li><a href="#MeasureSystems.FPS"><code>MeasureSystems.FPS</code></a></li><li><a href="#MeasureSystems.Gauss"><code>MeasureSystems.Gauss</code></a></li><li><a href="#MeasureSystems.Gravitational"><code>MeasureSystems.Gravitational</code></a></li><li><a href="#MeasureSystems.Hartree"><code>MeasureSystems.Hartree</code></a></li><li><a href="#MeasureSystems.Hubble"><code>MeasureSystems.Hubble</code></a></li><li><a href="#MeasureSystems.IAU"><code>MeasureSystems.IAU</code></a></li><li><a href="#MeasureSystems.IAUE"><code>MeasureSystems.IAUE</code></a></li><li><a href="#MeasureSystems.IAUJ"><code>MeasureSystems.IAUJ</code></a></li><li><a href="#MeasureSystems.IPS"><code>MeasureSystems.IPS</code></a></li><li><a href="#MeasureSystems.International"><code>MeasureSystems.International</code></a></li><li><a href="#MeasureSystems.InternationalMean"><code>MeasureSystems.InternationalMean</code></a></li><li><a href="#MeasureSystems.KKH"><code>MeasureSystems.KKH</code></a></li><li><a href="#MeasureSystems.LorentzHeaviside"><code>MeasureSystems.LorentzHeaviside</code></a></li><li><a href="#MeasureSystems.MPH"><code>MeasureSystems.MPH</code></a></li><li><a href="#MeasureSystems.MTS"><code>MeasureSystems.MTS</code></a></li><li><a href="#MeasureSystems.Meridian"><code>MeasureSystems.Meridian</code></a></li><li><a href="#MeasureSystems.Metric"><code>MeasureSystems.Metric</code></a></li><li><a href="#MeasureSystems.Natural"><code>MeasureSystems.Natural</code></a></li><li><a href="#MeasureSystems.NaturalGauss"><code>MeasureSystems.NaturalGauss</code></a></li><li><a href="#MeasureSystems.Nautical"><code>MeasureSystems.Nautical</code></a></li><li><a href="#MeasureSystems.Planck"><code>MeasureSystems.Planck</code></a></li><li><a href="#MeasureSystems.PlanckGauss"><code>MeasureSystems.PlanckGauss</code></a></li><li><a href="#MeasureSystems.QCD"><code>MeasureSystems.QCD</code></a></li><li><a href="#MeasureSystems.QCDGauss"><code>MeasureSystems.QCDGauss</code></a></li><li><a href="#MeasureSystems.QCDoriginal"><code>MeasureSystems.QCDoriginal</code></a></li><li><a href="#MeasureSystems.Rydberg"><code>MeasureSystems.Rydberg</code></a></li><li><a href="#MeasureSystems.SI1976"><code>MeasureSystems.SI1976</code></a></li><li><a href="#MeasureSystems.SI2019"><code>MeasureSystems.SI2019</code></a></li><li><a href="#MeasureSystems.Schrodinger"><code>MeasureSystems.Schrodinger</code></a></li><li><a href="#MeasureSystems.Stoney"><code>MeasureSystems.Stoney</code></a></li><li><a href="#MeasureSystems.Survey"><code>MeasureSystems.Survey</code></a></li></ul><h2 id="Metric-SI-Unit-Systems"><a class="docs-heading-anchor" href="#Metric-SI-Unit-Systems">Metric SI Unit Systems</a><a id="Metric-SI-Unit-Systems-1"></a><a class="docs-heading-anchor-permalink" href="#Metric-SI-Unit-Systems" title="Permalink"></a></h2><p>In the Systeme International d&#39;Unites (the SI units) the <code>UnitSystem</code> constants are derived from the most accurate possible physical measurements and a few exactly defined constants. Exact values are the <code>avogadro</code> number, <code>boltzmann</code> constant, <code>planck</code> constant, <code>lightspeed</code> definition, and elementary <code>charge</code> definition.</p><p>Construction of <code>UnitSystem</code> instances based on specifying the the constants <code>molarmass</code>, the <code>vacuumpermeability</code>, and the <code>molargas</code> along with some other options is facilitated by <code>MetricSystem</code>. This construction helps characterize the differences between </p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Metric" href="#MeasureSystems.Metric"><code>MeasureSystems.Metric</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Metric = MetricSystem(milli,𝟐*τ/𝟏𝟎^7)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Standard <code>Metric</code> system based on exact <code>molarmass</code> and <code>vacuumpermeability</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Metric) # J⋅K⁻¹
+<html lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <title>The UnitSystem · UnitSystems.jl</title>
+  <meta name="title" content="The UnitSystem · UnitSystems.jl">
+  <meta property="og:title" content=
+  "The UnitSystem · UnitSystems.jl">
+  <meta property="twitter:title" content=
+  "The UnitSystem · UnitSystems.jl">
+  <meta name="description" content=
+  "Documentation for UnitSystems.jl.">
+  <meta property="og:description" content=
+  "Documentation for UnitSystems.jl.">
+  <meta property="twitter:description" content=
+  "Documentation for UnitSystems.jl.">
+  <script data-outdated-warner="" src=
+  "../assets/warner.js"></script>
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css"
+  rel="stylesheet" type="text/css">
+  <script>
+  documenterBaseURL=".."
+  </script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+  data-main="../assets/documenter.js"></script>
+  <script src="../search_index.js"></script>
+  <script src="../siteinfo.js"></script>
+  <script src="../../versions.js"></script>
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../assets/themes/catppuccin-mocha.css" data-theme-name=
+  "catppuccin-mocha">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../assets/themes/catppuccin-macchiato.css" data-theme-name=
+  "catppuccin-macchiato">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../assets/themes/catppuccin-frappe.css" data-theme-name=
+  "catppuccin-frappe">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../assets/themes/catppuccin-latte.css" data-theme-name=
+  "catppuccin-latte">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../assets/themes/documenter-dark.css" data-theme-name=
+  "documenter-dark" data-theme-primary-dark="">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../assets/themes/documenter-light.css" data-theme-name=
+  "documenter-light" data-theme-primary="">
+  <script src="../assets/themeswap.js"></script>
+</head>
+<body>
+  <div id="documenter">
+    <nav class="docs-sidebar">
+      <div class="docs-package-name">
+        <span class="docs-autofit"><a href=
+        "../">UnitSystems.jl</a></span>
+      </div><button class=
+      "docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2"
+      id="documenter-search-query">Search docs (Ctrl + /)</button>
+      <ul class="docs-menu">
+        <li>
+          <a class="tocitem" href="../">UnitSystems README</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../similitude/">Similitude</a>
+        </li>
+        <li class="is-active">
+          <a class="tocitem" href="">The UnitSystem</a>
+          <ul class="internal">
+            <li>
+              <a class="tocitem" href=
+              "#Metric-SI-Unit-Systems"><span>Metric SI Unit
+              Systems</span></a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "#Electromagnetic-CGS-Systems"><span>Electromagnetic
+              CGS Systems</span></a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "#Modified-(Entropy)-Unit-Systems"><span>Modified
+              (Entropy) Unit Systems</span></a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "#Foot-Pound-Second-Rankine"><span>Foot-Pound-Second-Rankine</span></a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "#Astronomical-Unit-Systems"><span>Astronomical Unit
+              Systems</span></a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "#Natural-Unit-Systems"><span>Natural Unit
+              Systems</span></a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "#UnitSystem-Index"><span>UnitSystem Index</span></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="tocitem" href="../constants/">Physics
+          Constants</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../convert/">Unit
+          Conversions</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../units/">Standard Units</a>
+        </li>
+        <li>
+          <span class="tocitem">Appendix</span>
+          <ul>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Definition/">Definition</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Unified/">Unified</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Metric/">Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/SI2019/">SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/SI1976/">SI1976</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/CODATA/">CODATA</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Conventional/">Conventional</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/International/">International</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/InternationalMean/">InternationalMean</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/MetricTurn/">MetricTurn</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/MetricSpatian/">MetricSpatian</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/MetricGradian/">MetricGradian</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/MetricDegree/">MetricDegree</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/MetricArcminute/">MetricArcminute</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/MetricArcsecond/">MetricArcsecond</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Engineering/">Engineering</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Gravitational/">Gravitational</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/MTS/">MTS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/EMU/">EMU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/ESU/">ESU</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Gauss/">Gauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/LorentzHeaviside/">LorentzHeaviside</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/FPS/">FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/IPS/">IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/British/">British</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/English/">English</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Survey/">Survey</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/MPH/">MPH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/KKH/">KKH</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Nautical/">Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Meridian/">Meridian</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/IAU/">IAU☉</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/IAUE/">IAUE</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/IAUJ/">IAUJ</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Hubble/">Hubble</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Cosmological/">Cosmological</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/CosmologicalQuantum/">CosmologicalQuantum</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Planck/">Planck</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/PlanckGauss/">PlanckGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Stoney/">Stoney</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Hartree/">Hartree</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Rydberg/">Rydberg</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Schrodinger/">Schrodinger</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Electronic/">Electronic</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/Natural/">Natural</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/NaturalGauss/">NaturalGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../appendix/QCD/">QCD</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/QCDGauss/">QCDGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../appendix/QCDoriginal/">QCDoriginal</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span class="tocitem">Ratio</span>
+          <ul>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricSI2019/">Metric -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Metric/">SI2019 -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricCODATA/">Metric -&gt; CODATA</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/CODATAMetric/">CODATA -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019CODATA/">SI2019 -&gt; CODATA</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/CODATASI2019/">CODATA -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricConventional/">Metric -&gt;
+              Conventional</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/ConventionalMetric/">Conventional -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Conventional/">SI2019 -&gt;
+              Conventional</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/ConventionalSI2019/">Conventional -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricInternational/">Metric -&gt;
+              International</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/InternationalMetric/">International -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019International/">SI2019 -&gt;
+              International</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/InternationalSI2019/">International -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricInternationalMean/">Metric -&gt;
+              InternationalMean</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/InternationalMeanMetric/">InternationalMean
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019InternationalMean/">SI2019 -&gt;
+              InternationalMean</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/InternationalMeanSI2019/">InternationalMean
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricEngineering/">Metric -&gt;
+              Engineering</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/EngineeringMetric/">Engineering -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricGravitational/">Metric -&gt;
+              Gravitational</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/GravitationalMetric/">Gravitational -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MetricEMU/">Metric
+              -&gt; EMU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/EMUMetric/">EMU
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/SI2019EMU/">SI2019
+              -&gt; EMU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/EMUSI2019/">EMU
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MetricESU/">Metric
+              -&gt; ESU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/ESUMetric/">ESU
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/SI2019ESU/">SI2019
+              -&gt; ESU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/ESUSI2019/">ESU
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricGauss/">Metric -&gt; Gauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/GaussMetric/">Gauss -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Gauss/">SI2019 -&gt; Gauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/GaussSI2019/">Gauss -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricLorentzHeaviside/">Metric -&gt;
+              LorentzHeaviside</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/LorentzHeavisideMetric/">LorentzHeaviside
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019LorentzHeaviside/">SI2019 -&gt;
+              LorentzHeaviside</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/LorentzHeavisideSI2019/">LorentzHeaviside
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricEnglish/">Metric -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/EnglishMetric/">English -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019English/">SI2019 -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/EnglishSI2019/">English -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricBritish/">Metric -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/BritishMetric/">British -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019British/">SI2019 -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/BritishSI2019/">British -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/BritishEnglish/">British -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/EnglishBritish/">English -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MetricIPS/">Metric
+              -&gt; IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/IPSMetric/">IPS
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/SI2019IPS/">SI2019
+              -&gt; IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/IPSSI2019/">IPS
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/IPSBritish/">IPS
+              -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/BritishIPS/">British -&gt; IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MetricFPS/">Metric
+              -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/FPSMetric/">FPS
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/SI2019FPS/">SI2019
+              -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/FPSSI2019/">FPS
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/FPSEnglish/">FPS
+              -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/EnglishFPS/">English -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/FPSBritish/">FPS
+              -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/BritishFPS/">British -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/FPSMPH/">FPS -&gt;
+              MPH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MPHFPS/">MPH -&gt;
+              FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NauticalFPS/">Nautical -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/FPSNautical/">FPS
+              -&gt; Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NauticalMPH/">Nautical -&gt; MPH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MPHNautical/">MPH
+              -&gt; Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NauticalKKH/">Nautical -&gt; KKH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/KKHNautical/">KKH
+              -&gt; Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NauticalMetric/">Nautical -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricNautical/">Metric -&gt; Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MeridianMetric/">Meridian -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricMeridian/">Metric -&gt; Meridian</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/IAUMetric/">IAU☉
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MetricIAU/">Metric
+              -&gt; IAU☉</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricPlanck/">Metric -&gt; Planck</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/PlanckMetric/">Planck -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Planck/">SI2019 -&gt; Planck</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/PlanckSI2019/">Planck -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricPlanckGauss/">Metric -&gt;
+              PlanckGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/PlanckGaussMetric/">PlanckGauss -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019PlanckGauss/">SI2019 -&gt;
+              PlanckGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/PlanckGaussSI2019/">PlanckGauss -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricStoney/">Metric -&gt; Stoney</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/StoneyMetric/">Stoney -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Stoney/">SI2019 -&gt; Stoney</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/StoneySI2019/">Stoney -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricHartree/">Metric -&gt; Hartree</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/HartreeMetric/">Hartree -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Hartree/">SI2019 -&gt; Hartree</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/HartreeSI2019/">Hartree -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricRydberg/">Metric -&gt; Rydberg</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/RydbergMetric/">Rydberg -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Rydberg/">SI2019 -&gt; Rydberg</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/RydbergSI2019/">Rydberg -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricSchrodinger/">Metric -&gt;
+              Schrodinger</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SchrodingerMetric/">Schrodinger -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Schrodinger/">SI2019 -&gt;
+              Schrodinger</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SchrodingerSI2019/">Schrodinger -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricElectronic/">Metric -&gt;
+              Electronic</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/ElectronicMetric/">Electronic -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Electronic/">SI2019 -&gt;
+              Electronic</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/ElectronicSI2019/">Electronic -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricNatural/">Metric -&gt; Natural</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NaturalMetric/">Natural -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019Natural/">SI2019 -&gt; Natural</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NaturalSI2019/">Natural -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricNaturalGauss/">Metric -&gt;
+              NaturalGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NaturalGaussMetric/">NaturalGauss -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019NaturalGauss/">SI2019 -&gt;
+              NaturalGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/NaturalGaussSI2019/">NaturalGauss -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/MetricQCD/">Metric
+              -&gt; QCD</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/QCDMetric/">QCD
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/SI2019QCD/">SI2019
+              -&gt; QCD</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ratios/QCDSI2019/">QCD
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricQCDGauss/">Metric -&gt; QCDGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/QCDGaussMetric/">QCDGauss -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019QCDGauss/">SI2019 -&gt; QCDGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/QCDGaussSI2019/">QCDGauss -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/MetricQCDoriginal/">Metric -&gt;
+              QCDoriginal</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/QCDoriginalMetric/">QCDoriginal -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/SI2019QCDoriginal/">SI2019 -&gt;
+              QCDoriginal</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ratios/QCDoriginalSI2019/">QCDoriginal -&gt;
+              SI2019</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="docs-version-selector field has-addons">
+        <div class="control">
+          <span class=
+          "docs-label button is-static is-size-7">Version</span>
+        </div>
+        <div class="docs-selector control is-expanded">
+          <div class="select is-fullwidth is-size-7">
+            <select id="documenter-version-selector">
+            </select>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="docs-main">
+      <header class="docs-navbar">
+        <a class=
+        "docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop"
+        id="documenter-sidebar-button" href="#"></a>
+        <nav class="breadcrumb">
+          <ul class="is-hidden-mobile">
+            <li class="is-active">
+              <a href="">The UnitSystem</a>
+            </li>
+          </ul>
+          <ul class="is-hidden-tablet">
+            <li class="is-active">
+              <a href="">The UnitSystem</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="docs-right">
+          <a class=
+          "docs-settings-button docs-navbar-link fa-solid fa-gear"
+          id="documenter-settings-button" href="#" title=
+          "Settings"></a><a class=
+          "docs-article-toggle-button fa-solid fa-chevron-up" id=
+          "documenter-article-toggle-button" href="javascript:;"
+          title="Collapse all docstrings"></a>
+        </div>
+      </header>
+      <article class="content" id="documenter-page">
+        <h1 id="The-UnitSystem"><a class="docs-heading-anchor"
+        href="#The-UnitSystem">The UnitSystem</a><a id=
+        "The-UnitSystem-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#The-UnitSystem"
+        title="Permalink"></a></h1>
+        <p><em>Physical unit system constants (Metric, English,
+        Natural, etc...)</em></p>
+        <ul>
+          <li>
+            <a href="../similitude/#Similitude">Similitude</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#The-UnitSystem">The UnitSystem</a>
+          </li>
+          <li class="no-marker">
+            <ul>
+              <li>
+                <a href="#Metric-SI-Unit-Systems">Metric SI Unit
+                Systems</a>
+              </li>
+              <li>
+                <a href=
+                "#Electromagnetic-CGS-Systems">Electromagnetic CGS
+                Systems</a>
+              </li>
+              <li>
+                <a href="#Modified-(Entropy)-Unit-Systems">Modified
+                (Entropy) Unit Systems</a>
+              </li>
+              <li>
+                <a href=
+                "#Foot-Pound-Second-Rankine">Foot-Pound-Second-Rankine</a>
+              </li>
+              <li>
+                <a href="#Astronomical-Unit-Systems">Astronomical
+                Unit Systems</a>
+              </li>
+              <li>
+                <a href="#Natural-Unit-Systems">Natural Unit
+                Systems</a>
+              </li>
+              <li>
+                <a href="#UnitSystem-Index">UnitSystem Index</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="../constants/#Physics-Constants">Physics
+            Constants</a>
+          </li>
+          <li>
+            <a href="../convert/#Unit-Conversions">Unit
+            Conversions</a>
+          </li>
+          <li>
+            <a href="../units/#Standard-Units">Standard Units</a>
+          </li>
+        </ul>
+        <p>By default, <code>UnitSystems</code> provides a modern
+        unified re-interpretation of various historical unit
+        systems which were previously incompatible. In order to
+        make each <code>UnitSystem</code> consistently compatible
+        with each other, a few convenience assumptions are made.
+        Specifically, it is assumed that all default modern unit
+        systems share the same common <code>Universe</code> of
+        dimensionless constants, although this can be optionally
+        changed. Therefore, the philosophy is to characterize
+        differences among <code>UnitSystem</code> instances by
+        means of dimensional constants. As a result, all the
+        defaults are ideal modern variants of these historical unit
+        systems based on a common underlying <code>Universe</code>,
+        which are completely consistent and compatible with each
+        other. These default <code>UnitSystem</code> values are to
+        be taken as a newly defined mutually-compatible recommended
+        standard, verified to be consistent and coherent.</p>
+        <ul>
+          <li>
+            <a href=
+            "#MeasureSystems.British"><code>MeasureSystems.British</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.CODATA"><code>MeasureSystems.CODATA</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Conventional"><code>MeasureSystems.Conventional</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Cosmological"><code>MeasureSystems.Cosmological</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.CosmologicalQuantum"><code>MeasureSystems.CosmologicalQuantum</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.EMU"><code>MeasureSystems.EMU</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.ESU"><code>MeasureSystems.ESU</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Electronic"><code>MeasureSystems.Electronic</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Engineering"><code>MeasureSystems.Engineering</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.English"><code>MeasureSystems.English</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.FFF"><code>MeasureSystems.FFF</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.FPS"><code>MeasureSystems.FPS</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Gauss"><code>MeasureSystems.Gauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Gravitational"><code>MeasureSystems.Gravitational</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Hartree"><code>MeasureSystems.Hartree</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Hubble"><code>MeasureSystems.Hubble</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IAU"><code>MeasureSystems.IAU</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IAUE"><code>MeasureSystems.IAUE</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IAUJ"><code>MeasureSystems.IAUJ</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IPS"><code>MeasureSystems.IPS</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.International"><code>MeasureSystems.International</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.InternationalMean"><code>MeasureSystems.InternationalMean</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.KKH"><code>MeasureSystems.KKH</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.LorentzHeaviside"><code>MeasureSystems.LorentzHeaviside</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.MPH"><code>MeasureSystems.MPH</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.MTS"><code>MeasureSystems.MTS</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Meridian"><code>MeasureSystems.Meridian</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Metric"><code>MeasureSystems.Metric</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Natural"><code>MeasureSystems.Natural</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.NaturalGauss"><code>MeasureSystems.NaturalGauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Nautical"><code>MeasureSystems.Nautical</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Planck"><code>MeasureSystems.Planck</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.PlanckGauss"><code>MeasureSystems.PlanckGauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.QCD"><code>MeasureSystems.QCD</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.QCDGauss"><code>MeasureSystems.QCDGauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.QCDoriginal"><code>MeasureSystems.QCDoriginal</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Rydberg"><code>MeasureSystems.Rydberg</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.SI1976"><code>MeasureSystems.SI1976</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.SI2019"><code>MeasureSystems.SI2019</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Schrodinger"><code>MeasureSystems.Schrodinger</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Stoney"><code>MeasureSystems.Stoney</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Survey"><code>MeasureSystems.Survey</code></a>
+          </li>
+        </ul>
+        <h2 id="Metric-SI-Unit-Systems"><a class=
+        "docs-heading-anchor" href="#Metric-SI-Unit-Systems">Metric
+        SI Unit Systems</a><a id=
+        "Metric-SI-Unit-Systems-1"></a><a class=
+        "docs-heading-anchor-permalink" href=
+        "#Metric-SI-Unit-Systems" title="Permalink"></a></h2>
+        <p>In the Systeme International d'Unites (the SI units) the
+        <code>UnitSystem</code> constants are derived from the most
+        accurate possible physical measurements and a few exactly
+        defined constants. Exact values are the
+        <code>avogadro</code> number, <code>boltzmann</code>
+        constant, <code>planck</code> constant,
+        <code>lightspeed</code> definition, and elementary
+        <code>charge</code> definition.</p>
+        <p>Construction of <code>UnitSystem</code> instances based
+        on specifying the the constants <code>molarmass</code>, the
+        <code>vacuumpermeability</code>, and the
+        <code>molargas</code> along with some other options is
+        facilitated by <code>MetricSystem</code>. This construction
+        helps characterize the differences between</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Metric" href=
+            "#MeasureSystems.Metric"><code>MeasureSystems.Metric</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Metric = MetricSystem(milli,𝟐*τ/𝟏𝟎^7)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Standard <code>Metric</code> system based on exact
+              <code>molarmass</code> and
+              <code>vacuumpermeability</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Metric) # J⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2⁴5³ = 1.38064899953(43) × 10⁻²³ [J⋅K⁻¹] Metric
 
 julia&gt; planckreduced(Metric) # J⋅s⋅rad⁻¹
@@ -19,8 +1212,30 @@ julia&gt; molarmass(Metric) # kg⋅mol⁻¹
 2⁻³5⁻³ = 0.001 [kg⋅mol⁻¹] Metric
 
 julia&gt; luminousefficacy(Metric) # lm⋅W⁻¹
-Kcd = 683.01969009009 [lm⋅W⁻¹] Metric</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.SI2019" href="#MeasureSystems.SI2019"><code>MeasureSystems.SI2019</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">SI2019 = MetricSystem(Mᵤ,μ₀)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Systeme International d&#39;Unites based on approximate <code>molarmass</code> and <code>vacuumpermeability</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(SI2019) # J⋅K⁻¹
+Kcd = 683.01969009009 [lm⋅W⁻¹] Metric</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.SI2019" href=
+            "#MeasureSystems.SI2019"><code>MeasureSystems.SI2019</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">SI2019 = MetricSystem(Mᵤ,μ₀)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Systeme International d'Unites based on
+              approximate <code>molarmass</code> and
+              <code>vacuumpermeability</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(SI2019) # J⋅K⁻¹
 kB = 1.380649×10⁻²³ [J⋅K⁻¹] SI2019
 
 julia&gt; planckreduced(SI2019) # J⋅s⋅rad⁻¹
@@ -39,8 +1254,30 @@ julia&gt; molarmass(SI2019) # kg⋅mol⁻¹
 NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2 = 0.00099999999966(31) [kg⋅mol⁻¹] SI2019
 
 julia&gt; luminousefficacy(SI2019) # lm⋅W⁻¹
-Kcd = 683.01969009009 [lm⋅W⁻¹] SI2019</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.SI1976" href="#MeasureSystems.SI1976"><code>MeasureSystems.SI1976</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">SI1976 = MetricSystem(milli,𝟐*τ/𝟏𝟎^7,8.31432)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Reference <code>UnitSystem</code> with universal gas constant of <code>8.31432</code> from 1976 standard atmosphere.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(SI1976) # J⋅K⁻¹
+Kcd = 683.01969009009 [lm⋅W⁻¹] SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.SI1976" href=
+            "#MeasureSystems.SI1976"><code>MeasureSystems.SI1976</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">SI1976 = MetricSystem(milli,𝟐*τ/𝟏𝟎^7,8.31432)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Reference <code>UnitSystem</code> with universal
+              gas constant of <code>8.31432</code> from 1976
+              standard atmosphere.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(SI1976) # J⋅K⁻¹
 𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2⁴5³⋅8.31432 = 1.38062531722(43) × 10⁻²³ [kg⋅m²s⁻²K⁻¹] SI1976
 
 julia&gt; planckreduced(SI1976) # J⋅s⋅rad⁻¹
@@ -59,8 +1296,30 @@ julia&gt; molarmass(SI1976) # kg⋅mol⁻¹
 2⁻³5⁻³ = 0.001 [kg⋅mol⁻¹] SI1976
 
 julia&gt; luminousefficacy(SI1976) # lm⋅W⁻¹
-Kcd = 683.01969009009 [kg⁻¹m⁻²s³lm] SI1976</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Engineering" href="#MeasureSystems.Engineering"><code>MeasureSystems.Engineering</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Engineering = MetricSystem(milli,𝟐*τ/𝟏𝟎^7,Rᵤ,g₀)
-F=F, M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=A, R=𝟙, C=𝟙</code></pre><p>Standard Metric <code>Engineering</code> system based on kilogram and kilopond (kilogram-force) units.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Engineering) # kgf⋅m⋅K⁻¹
+Kcd = 683.01969009009 [kg⁻¹m⁻²s³lm] SI1976</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Engineering" href=
+            "#MeasureSystems.Engineering"><code>MeasureSystems.Engineering</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Engineering = MetricSystem(milli,𝟐*τ/𝟏𝟎^7,Rᵤ,g₀)
+F=F, M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=A, R=𝟙, C=𝟙</code></pre>
+              <p>Standard Metric <code>Engineering</code> system
+              based on kilogram and kilopond (kilogram-force)
+              units.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Engineering) # kgf⋅m⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⁻¹2⁴5³ = 1.40787016925(43) × 10⁻²⁴ [kgf⋅m⋅K⁻¹] Engineering
 
 julia&gt; planckreduced(Engineering) # kgf⋅m⋅s⋅rad⁻¹
@@ -82,8 +1341,39 @@ julia&gt; luminousefficacy(Engineering) # lm⋅s⋅m⁻¹⋅kgf⁻¹
 Kcd⋅g₀ = 6698.135043821981 [kgf⁻¹m⁻¹s⋅lm] Engineering
 
 julia&gt; gravity(Engineering) # kg⋅m⋅kgf⁻¹⋅s⁻²
-g₀ = 9.80665 [kgf⁻¹kg⋅m⋅s⁻²] Engineering</code></pre></div></section></article><p>Additional <code>Metric</code> variants with angle scaling include <code>MetricTurn</code>, <code>MetricSpatian</code>, <code>MetricGradian</code>, <code>MetricDegree</code>, <code>MetricArcminute</code>, <code>MetricArcsecond</code>.</p><p>Historically, the <code>josephson</code> and <code>klitzing</code> constants have been used to define <code>Conventional</code> and <code>CODATA</code> variants.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Conventional" href="#MeasureSystems.Conventional"><code>MeasureSystems.Conventional</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Conventional = ConventionalSystem(RK1990,KJ2014)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Conventional electronic <code>UnitSystem</code> with 1990 tuned <code>josephson</code> and <code>klitzing</code> constants.</p><pre><code class="language-Julia hljs">julia&gt; josephson(Conventional) # Hz⋅V⁻¹
+g₀ = 9.80665 [kgf⁻¹kg⋅m⋅s⁻²] Engineering</code></pre>
+            </div>
+          </section>
+        </article>
+        <p>Additional <code>Metric</code> variants with angle
+        scaling include <code>MetricTurn</code>,
+        <code>MetricSpatian</code>, <code>MetricGradian</code>,
+        <code>MetricDegree</code>, <code>MetricArcminute</code>,
+        <code>MetricArcsecond</code>.</p>
+        <p>Historically, the <code>josephson</code> and
+        <code>klitzing</code> constants have been used to define
+        <code>Conventional</code> and <code>CODATA</code>
+        variants.</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Conventional" href=
+            "#MeasureSystems.Conventional"><code>MeasureSystems.Conventional</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Conventional = ConventionalSystem(RK1990,KJ2014)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Conventional electronic <code>UnitSystem</code>
+              with 1990 tuned <code>josephson</code> and
+              <code>klitzing</code> constants.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; josephson(Conventional) # Hz⋅V⁻¹
 KJ90 = 4.835979×10¹⁴ [Hz⋅V⁻¹] Conventional
 
 julia&gt; klitzing(Conventional) # Ω
@@ -108,8 +1398,30 @@ julia&gt; molarmass(Conventional) # kg⋅mol⁻¹
 2⁻³5⁻³ = 0.001 [kg⋅mol⁻¹] Conventional
 
 julia&gt; luminousefficacy(Conventional) # lm⋅W⁻¹
-𝘩⋅Kcd⋅RK90⋅KJ90²2⁻² = 683.0198236454071 [lm⋅W⁻¹] Conventional</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.CODATA" href="#MeasureSystems.CODATA"><code>MeasureSystems.CODATA</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">CODATA = ConventionalSystem(RK2014,KJ2014,Rᵤ2014)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Reference <code>UnitSystem</code> based on Committee on Data of the International Science Council.</p><pre><code class="language-Julia hljs">julia&gt; josephson(CODATA) # Hz⋅V⁻¹
+𝘩⋅Kcd⋅RK90⋅KJ90²2⁻² = 683.0198236454071 [lm⋅W⁻¹] Conventional</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.CODATA" href=
+            "#MeasureSystems.CODATA"><code>MeasureSystems.CODATA</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">CODATA = ConventionalSystem(RK2014,KJ2014,Rᵤ2014)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Reference <code>UnitSystem</code> based on
+              Committee on Data of the International Science
+              Council.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; josephson(CODATA) # Hz⋅V⁻¹
 KJ = 4.835978525(30) × 10¹⁴ [Hz⋅V⁻¹] CODATA
 
 julia&gt; klitzing(CODATA) # Ω
@@ -134,8 +1446,33 @@ julia&gt; molarmass(CODATA) # kg⋅mol⁻¹
 2⁻³5⁻³ = 0.001 [kg⋅mol⁻¹] CODATA
 
 julia&gt; luminousefficacy(CODATA) # lm⋅W⁻¹
-𝘩⋅Kcd⋅RK⋅KJ²2⁻² = 683.0197015(85) [lm⋅W⁻¹] CODATA</code></pre></div></section></article><p>Originally, the practical units where specified by <code>resistance</code> and <code>electricpotential</code>.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.International" href="#MeasureSystems.International"><code>MeasureSystems.International</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">International = ElectricSystem(Metric,Ωᵢₜ = 1.000495,Vᵢₜ = 1.00033)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>International <code>UnitSystem</code> with United States measurements of <code>Ωᵢₜ</code> and <code>Vᵢₜ</code>.</p><pre><code class="language-Julia hljs">julia&gt; resistance(International,Metric) # Ω⋅Ω⁻¹
+𝘩⋅Kcd⋅RK⋅KJ²2⁻² = 683.0197015(85) [lm⋅W⁻¹] CODATA</code></pre>
+            </div>
+          </section>
+        </article>
+        <p>Originally, the practical units where specified by
+        <code>resistance</code> and
+        <code>electricpotential</code>.</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.International" href=
+            "#MeasureSystems.International"><code>MeasureSystems.International</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">International = ElectricSystem(Metric,Ωᵢₜ = 1.000495,Vᵢₜ = 1.00033)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>International <code>UnitSystem</code> with United
+              States measurements of <code>Ωᵢₜ</code> and
+              <code>Vᵢₜ</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; resistance(International,Metric) # Ω⋅Ω⁻¹
 Ωᵢₜ = 1.000495 [kg⋅m⋅s⁻²C⁻²]/[kg⋅m⋅s⁻²C⁻²] International -&gt; Metric
 
 julia&gt; electricpotential(International,Metric) # V⋅V⁻¹
@@ -160,8 +1497,30 @@ julia&gt; molarmass(International) # kg⋅mol⁻¹
 Ωᵢₜ⋅Vᵢₜ⁻²2⁻³5⁻³ = 0.0009998350000179567 [kg⋅mol⁻¹] International
 
 julia&gt; luminousefficacy(International) # lm⋅W⁻¹
-Kcd⋅Ωᵢₜ⁻¹Vᵢₜ² = 683.1324069249656 [lm⋅W⁻¹] International</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.InternationalMean" href="#MeasureSystems.InternationalMean"><code>MeasureSystems.InternationalMean</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">InternationalMean = ElectricSystem(Metric,1.00049,1.00034)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>International <code>UnitSystem</code> with mean measurements of <code>Ωᵢₜ</code> and <code>Vᵢₜ</code>.</p><pre><code class="language-Julia hljs">julia&gt; resistance(InternationalMean,Metric) # Ω⋅Ω⁻¹
+Kcd⋅Ωᵢₜ⁻¹Vᵢₜ² = 683.1324069249656 [lm⋅W⁻¹] International</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.InternationalMean" href=
+            "#MeasureSystems.InternationalMean"><code>MeasureSystems.InternationalMean</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">InternationalMean = ElectricSystem(Metric,1.00049,1.00034)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>International <code>UnitSystem</code> with mean
+              measurements of <code>Ωᵢₜ</code> and
+              <code>Vᵢₜ</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; resistance(InternationalMean,Metric) # Ω⋅Ω⁻¹
 1.00049 = 1.00049 [kg⋅m⋅s⁻²C⁻²]/[kg⋅m⋅s⁻²C⁻²] InternationalMean -&gt; Metric
 
 julia&gt; electricpotential(InternationalMean,Metric) # V⋅V⁻¹
@@ -186,8 +1545,44 @@ julia&gt; molarmass(InternationalMean) # kg⋅mol⁻¹
 2⁻³5⁻³/1.0001900224889804 = 0.0009998100136127059 [kg⋅mol⁻¹] InternationalMean
 
 julia&gt; luminousefficacy(International) # lm⋅W⁻¹
-Kcd⋅Ωᵢₜ⁻¹Vᵢₜ² = 683.1324069249656 [lm⋅W⁻¹] International</code></pre></div></section></article><h2 id="Electromagnetic-CGS-Systems"><a class="docs-heading-anchor" href="#Electromagnetic-CGS-Systems">Electromagnetic CGS Systems</a><a id="Electromagnetic-CGS-Systems-1"></a><a class="docs-heading-anchor-permalink" href="#Electromagnetic-CGS-Systems" title="Permalink"></a></h2><p>Alternatives to the SI unit system are the centimetre-gram-second variants, where the constants are rescaled with <code>centi*meter</code> and <code>milli</code> kilogram units along with introduction of additional <code>rationalization</code> and <code>lorentz</code> constants or electromagnetic units.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.EMU" href="#MeasureSystems.EMU"><code>MeasureSystems.EMU</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">EMU = GaussSystem(Metric,𝟏,𝟐*τ)
-F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L¹ᐟ², Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Centimetre-gram-second <code>UnitSystem</code> variant based on <code>EMU</code> (non-rationalized).</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(EMU) # erg⋅K⁻¹
+Kcd⋅Ωᵢₜ⁻¹Vᵢₜ² = 683.1324069249656 [lm⋅W⁻¹] International</code></pre>
+            </div>
+          </section>
+        </article>
+        <h2 id="Electromagnetic-CGS-Systems"><a class=
+        "docs-heading-anchor" href=
+        "#Electromagnetic-CGS-Systems">Electromagnetic CGS
+        Systems</a><a id=
+        "Electromagnetic-CGS-Systems-1"></a><a class=
+        "docs-heading-anchor-permalink" href=
+        "#Electromagnetic-CGS-Systems" title="Permalink"></a></h2>
+        <p>Alternatives to the SI unit system are the
+        centimetre-gram-second variants, where the constants are
+        rescaled with <code>centi*meter</code> and
+        <code>milli</code> kilogram units along with introduction
+        of additional <code>rationalization</code> and
+        <code>lorentz</code> constants or electromagnetic
+        units.</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.EMU" href=
+            "#MeasureSystems.EMU"><code>MeasureSystems.EMU</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">EMU = GaussSystem(Metric,𝟏,𝟐*τ)
+F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L¹ᐟ², Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Centimetre-gram-second <code>UnitSystem</code>
+              variant based on <code>EMU</code>
+              (non-rationalized).</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(EMU) # erg⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2¹¹5¹⁰ = 1.38064899953(43) × 10⁻¹⁶ [erg⋅K⁻¹] EMU
 
 julia&gt; planckreduced(EMU) # erg⋅s⋅rad⁻¹
@@ -209,8 +1604,30 @@ julia&gt; luminousefficacy(EMU) # lm⋅s⋅erg⁻¹
 Kcd⋅2⁻⁷5⁻⁷ = 6.830196900900899×10⁻⁵ [lm⋅s⋅erg⁻¹] EMU
 
 julia&gt; rationalization(EMU)
-τ⋅2 = 12.566370614359172 [𝟙] EMU</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.ESU" href="#MeasureSystems.ESU"><code>MeasureSystems.ESU</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">ESU = GaussSystem(Metric,(𝟏𝟎*𝘤)^-2,𝟐*τ)
-F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L³ᐟ²T⁻¹, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Centimetre-gram-second <code>UnitSystem</code> variant based on <code>ESU</code> (non-rationalized).</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(ESU) # erg⋅K⁻¹
+τ⋅2 = 12.566370614359172 [𝟙] EMU</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.ESU" href=
+            "#MeasureSystems.ESU"><code>MeasureSystems.ESU</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">ESU = GaussSystem(Metric,(𝟏𝟎*𝘤)^-2,𝟐*τ)
+F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L³ᐟ²T⁻¹, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Centimetre-gram-second <code>UnitSystem</code>
+              variant based on <code>ESU</code>
+              (non-rationalized).</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(ESU) # erg⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2¹¹5¹⁰ = 1.38064899953(43) × 10⁻¹⁶ [erg⋅K⁻¹] ESU
 
 julia&gt; planckreduced(ESU) # erg⋅s⋅rad⁻¹
@@ -232,8 +1649,30 @@ julia&gt; luminousefficacy(ESU) # lm⋅s⋅erg⁻¹
 Kcd⋅2⁻⁷5⁻⁷ = 6.830196900900899×10⁻⁵ [lm⋅s⋅erg⁻¹] ESU
 
 julia&gt; rationalization(ESU)
-τ⋅2 = 12.566370614359172 [𝟙] ESU</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Gauss" href="#MeasureSystems.Gauss"><code>MeasureSystems.Gauss</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Gauss = GaussSystem(Metric,𝟏,𝟐*τ,𝟏𝟎^-2/𝘤)
-F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L³ᐟ²T⁻¹, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=LT⁻¹</code></pre><p>Centimetre-gram-second <code>UnitSystem</code> variant <code>CGS</code> (Gauss-Lorentz, non-rationalized).</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Gauss) # erg⋅K⁻¹
+τ⋅2 = 12.566370614359172 [𝟙] ESU</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Gauss" href=
+            "#MeasureSystems.Gauss"><code>MeasureSystems.Gauss</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Gauss = GaussSystem(Metric,𝟏,𝟐*τ,𝟏𝟎^-2/𝘤)
+F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L³ᐟ²T⁻¹, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=LT⁻¹</code></pre>
+              <p>Centimetre-gram-second <code>UnitSystem</code>
+              variant <code>CGS</code> (Gauss-Lorentz,
+              non-rationalized).</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Gauss) # erg⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2¹¹5¹⁰ = 1.38064899953(43) × 10⁻¹⁶ [erg⋅K⁻¹] Gauss
 
 julia&gt; planckreduced(Gauss) # erg⋅s⋅rad⁻¹
@@ -258,8 +1697,30 @@ julia&gt; rationalization(Gauss)
 τ⋅2 = 12.566370614359172 [𝟙] Gauss
 
 julia&gt; lorentz(Gauss)
-𝘤⁻¹2⁻²5⁻² = 3.335640951981521×10⁻¹¹ [cm⁻¹s] Gauss</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.LorentzHeaviside" href="#MeasureSystems.LorentzHeaviside"><code>MeasureSystems.LorentzHeaviside</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">LorentzHeaviside = GaussSystem(Metric,𝟏,𝟏,centi/𝘤)
-F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L³ᐟ²T⁻¹, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=LT⁻¹</code></pre><p>Centimetre-gram-second <code>UnitSystem</code> variant <code>HLU</code> (Heaviside-Lorentz, rationalized).</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(LorentzHeaviside) # erg⋅K⁻¹
+𝘤⁻¹2⁻²5⁻² = 3.335640951981521×10⁻¹¹ [cm⁻¹s] Gauss</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.LorentzHeaviside" href=
+            "#MeasureSystems.LorentzHeaviside"><code>MeasureSystems.LorentzHeaviside</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">LorentzHeaviside = GaussSystem(Metric,𝟏,𝟏,centi/𝘤)
+F=MLT⁻², M=M, L=L, T=T, Q=M¹ᐟ²L³ᐟ²T⁻¹, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=LT⁻¹</code></pre>
+              <p>Centimetre-gram-second <code>UnitSystem</code>
+              variant <code>HLU</code> (Heaviside-Lorentz,
+              rationalized).</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(LorentzHeaviside) # erg⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2¹¹5¹⁰ = 1.38064899953(43) × 10⁻¹⁶ [erg⋅K⁻¹] LorentzHeaviside
 
 julia&gt; planckreduced(LorentzHeaviside) # erg⋅s⋅rad⁻¹
@@ -284,8 +1745,49 @@ julia&gt; rationalization(LorentzHeaviside)
 𝟏 = 1.0 [𝟙] LorentzHeaviside
 
 julia&gt; lorentz(LorentzHeaviside)
-𝘤⁻¹2⁻²5⁻² = 3.335640951981521×10⁻¹¹ [cm⁻¹s] LorentzHeaviside</code></pre></div></section></article><p>There are multiple choices of elctromagnetic units for these variants based on electromagnetic units, electrostatic units, Gaussian non-rationalized units, and Lorentz-Heaviside rationalized units. Note that <code>CGS</code> is an alias for the <code>Gauss</code> system.</p><h2 id="Modified-(Entropy)-Unit-Systems"><a class="docs-heading-anchor" href="#Modified-(Entropy)-Unit-Systems">Modified (Entropy) Unit Systems</a><a id="Modified-(Entropy)-Unit-Systems-1"></a><a class="docs-heading-anchor-permalink" href="#Modified-(Entropy)-Unit-Systems" title="Permalink"></a></h2><p>Most other un-natural unit systems are derived from the construction above by rescaling <code>time</code>, <code>length</code>, <code>mass</code>, <code>temperature</code>, and <code>gravity</code>; which results in modified entropy constants:</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Gravitational" href="#MeasureSystems.Gravitational"><code>MeasureSystems.Gravitational</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Gravitational = EntropySystem(Metric,𝟏,𝟏,g₀)
-F=F, M=FL⁻¹T², L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Standard <code>Gravitational</code> system based on <code>hyl</code> and <code>kilopond</code> units.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Gravitational) # kgf⋅m⋅K⁻¹
+𝘤⁻¹2⁻²5⁻² = 3.335640951981521×10⁻¹¹ [cm⁻¹s] LorentzHeaviside</code></pre>
+            </div>
+          </section>
+        </article>
+        <p>There are multiple choices of elctromagnetic units for
+        these variants based on electromagnetic units,
+        electrostatic units, Gaussian non-rationalized units, and
+        Lorentz-Heaviside rationalized units. Note that
+        <code>CGS</code> is an alias for the <code>Gauss</code>
+        system.</p>
+        <h2 id="Modified-(Entropy)-Unit-Systems"><a class=
+        "docs-heading-anchor" href=
+        "#Modified-(Entropy)-Unit-Systems">Modified (Entropy) Unit
+        Systems</a><a id=
+        "Modified-(Entropy)-Unit-Systems-1"></a><a class=
+        "docs-heading-anchor-permalink" href=
+        "#Modified-(Entropy)-Unit-Systems" title=
+        "Permalink"></a></h2>
+        <p>Most other un-natural unit systems are derived from the
+        construction above by rescaling <code>time</code>,
+        <code>length</code>, <code>mass</code>,
+        <code>temperature</code>, and <code>gravity</code>; which
+        results in modified entropy constants:</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Gravitational" href=
+            "#MeasureSystems.Gravitational"><code>MeasureSystems.Gravitational</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Gravitational = EntropySystem(Metric,𝟏,𝟏,g₀)
+F=F, M=FL⁻¹T², L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Standard <code>Gravitational</code> system based
+              on <code>hyl</code> and <code>kilopond</code>
+              units.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Gravitational) # kgf⋅m⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⁻¹2⁴5³ = 1.40787016925(43) × 10⁻²⁴ [kgf⋅m⋅K⁻¹] Gravitational
 
 julia&gt; planckreduced(Gravitational) # kgf⋅m⋅s⋅rad⁻¹
@@ -304,8 +1806,29 @@ julia&gt; molarmass(Gravitational) # hyl⋅mol⁻¹
 g₀⁻¹2⁻³5⁻³ = 0.00010197162129779284 [hyl⋅mol⁻¹] Gravitational
 
 julia&gt; luminousefficacy(Gravitational) # lm⋅s⋅m⁻¹⋅kgf⁻¹
-Kcd⋅g₀ = 6698.135043821981 [kgf⁻¹m⁻¹s⋅lm] Gravitational</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.MTS" href="#MeasureSystems.MTS"><code>MeasureSystems.MTS</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">MTS = EntropySystem(SI2019,𝟏,𝟏,kilo)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Metre-tonne-second <code>UnitSystem</code> variant of <code>Metric</code> system.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(MTS) # kJ⋅K⁻¹
+Kcd⋅g₀ = 6698.135043821981 [kgf⁻¹m⁻¹s⋅lm] Gravitational</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.MTS" href=
+            "#MeasureSystems.MTS"><code>MeasureSystems.MTS</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">MTS = EntropySystem(SI2019,𝟏,𝟏,kilo)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Metre-tonne-second <code>UnitSystem</code> variant
+              of <code>Metric</code> system.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(MTS) # kJ⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2 = 1.38064899953(43) × 10⁻²⁶ [t⋅m²s⁻²K⁻¹] MTS
 
 julia&gt; planckreduced(MTS) # kJ⋅s⋅rad⁻¹
@@ -324,8 +1847,29 @@ julia&gt; molarmass(MTS) # t⋅mol⁻¹
 2⁻⁶5⁻⁶ = 1.0×10⁻⁶ [t⋅mol⁻¹] MTS
 
 julia&gt; luminousefficacy(MTS) # lm⋅kW⁻¹
-Kcd⋅2³5³ = 683019.6900900899 [t⁻¹m⁻²s³lm] MTS</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.KKH" href="#MeasureSystems.KKH"><code>MeasureSystems.KKH</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">KKH = EntropySystem(Metric,HOUR,kilo,𝟏)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Kilometer-kilogram-hour <code>UnitSystem</code> variant of <code>Metric</code> system.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(KKH) # kg⋅km²⋅h⁻²⋅K⁻¹
+Kcd⋅2³5³ = 683019.6900900899 [t⁻¹m⁻²s³lm] MTS</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.KKH" href=
+            "#MeasureSystems.KKH"><code>MeasureSystems.KKH</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">KKH = EntropySystem(Metric,HOUR,kilo,𝟏)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Kilometer-kilogram-hour <code>UnitSystem</code>
+              variant of <code>Metric</code> system.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(KKH) # kg⋅km²⋅h⁻²⋅K⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2⁶3⁴5 = 1.78932110338(55) × 10⁻²² [kg⋅km²h⁻²K⁻¹] KKH
 
 julia&gt; planckreduced(KKH) # kg⋅km²⋅h⁻¹
@@ -344,8 +1888,30 @@ julia&gt; molarmass(KKH) # kg⋅mol⁻¹
 2⁻³5⁻³ = 0.001 [kg⋅mol⁻¹] KKH
 
 julia&gt; luminousefficacy(KKH) # lm⋅h³⋅kg⁻¹⋅km⁻²
-Kcd⋅2⁻⁶3⁻⁶ = 0.014639482383618183 [kg⁻¹km⁻²h³lm] KKH</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.MPH" href="#MeasureSystems.MPH"><code>MeasureSystems.MPH</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">MPH = EntropySystem(FPS,HOUR,mi,𝟏)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Mile-pound-hour specification based on <code>FPS</code> absolute <code>UnitSystem</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(MPH) # lbf⋅mi²⋅hr⁻²⋅F⁻¹
+Kcd⋅2⁻⁶3⁻⁶ = 0.014639482383618183 [kg⁻¹km⁻²h³lm] KKH</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.MPH" href=
+            "#MeasureSystems.MPH"><code>MeasureSystems.MPH</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">MPH = EntropySystem(FPS,HOUR,mi,𝟏)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Mile-pound-hour specification based on
+              <code>FPS</code> absolute
+              <code>UnitSystem</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(MPH) # lbf⋅mi²⋅hr⁻²⋅F⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹ft⁻²lb⁻¹2²5⁶11⁻² = 8.4615956484(26) × 10⁻²³ [lb⋅mi²h⁻²°R⁻¹] MPH
 
 julia&gt; planckreduced(MPH) # lbf⋅mi²⋅hr⁻¹⋅rad⁻¹
@@ -364,8 +1930,29 @@ julia&gt; molarmass(MPH) # lbm⋅lb-mol⁻¹
 𝟏 = 1.0 [lb⋅lb-mol⁻¹] MPH
 
 julia&gt; luminousefficacy(MPH) # lm⋅h³⋅lb⁻¹⋅mi⁻²
-Kcd⋅ft²lb⋅2⁻²3⁻⁴5⁻⁴11² = 0.017198446999173198 [lb⁻¹mi⁻²h³lm] MPH</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Nautical" href="#MeasureSystems.Nautical"><code>MeasureSystems.Nautical</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Nautical = EntropySystem(Metric,HOUR,nm,em^3,𝟏,τ*𝟑^3/𝟐^10/𝟓^12,milli)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Nautical miles, kilo-earthgram, hour specification based on <code>Meridian</code> definition.</p><pre><code class="language-Julia hljs">julia&gt; greatcircle(Nautical) # nm
+Kcd⋅ft²lb⋅2⁻²3⁻⁴5⁻⁴11² = 0.017198446999173198 [lb⁻¹mi⁻²h³lm] MPH</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Nautical" href=
+            "#MeasureSystems.Nautical"><code>MeasureSystems.Nautical</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Nautical = EntropySystem(Metric,HOUR,nm,em^3,𝟏,τ*𝟑^3/𝟐^10/𝟓^12,milli)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Nautical miles, kilo-earthgram, hour specification
+              based on <code>Meridian</code> definition.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; greatcircle(Nautical) # nm
 2⁵3³5² = 21600.0 [nm] Nautical
 
 julia&gt; boltzmann(Nautical) # keg⋅nm²⋅hr⁻²⋅K⁻¹
@@ -387,8 +1974,30 @@ julia&gt; molarmass(Nautical) # keg⋅eg-mol⁻¹
 2⁻³5⁻³ = 0.001 [keg⋅eg-mol⁻¹] Nautical
 
 julia&gt; luminousefficacy(Nautical) # lm⋅h³⋅keg⁻¹⋅nm⁻²
-Kcd⋅g₀⁻⁵ᐟ²GME⁵ᐟ²τ⁵2⁻⁴⁹3⁻¹²5⁻³¹ = 0.05056853095(25) [keg⁻¹nm⁻²h³lm] Nautical</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Meridian" href="#MeasureSystems.Meridian"><code>MeasureSystems.Meridian</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Meridian = EntropySystem(Metric,𝟏,em,em^3,𝟏,τ/𝟐^6/𝟓^7,milli)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Modern ideal <code>Meridian</code> system defined by France&#39;s original <code>earthmeter</code> definition.</p><pre><code class="language-Julia hljs">julia&gt; greatcircle(Meridian) # em
+Kcd⋅g₀⁻⁵ᐟ²GME⁵ᐟ²τ⁵2⁻⁴⁹3⁻¹²5⁻³¹ = 0.05056853095(25) [keg⁻¹nm⁻²h³lm] Nautical</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Meridian" href=
+            "#MeasureSystems.Meridian"><code>MeasureSystems.Meridian</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Meridian = EntropySystem(Metric,𝟏,em,em^3,𝟏,τ/𝟐^6/𝟓^7,milli)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Modern ideal <code>Meridian</code> system defined
+              by France's original <code>earthmeter</code>
+              definition.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; greatcircle(Meridian) # em
 2⁹5⁷ = 4.0×10⁷ [em] Meridian
 
 julia&gt; boltzmann(Meridian) # eJ⋅K⁻¹
@@ -410,8 +2019,36 @@ julia&gt; molarmass(Meridian) # keg⋅eg-mol⁻¹
 2⁻³5⁻³ = 0.001 [keg⋅eg-mol⁻¹] Meridian
 
 julia&gt; luminousefficacy(Meridian) # lm⋅W⁻¹
-Kcd⋅g₀⁻⁵ᐟ²GME⁵ᐟ²τ⁵2⁻⁴⁵5⁻³⁵ = 687.9792808(35) [lm⋅eW⁻¹] Meridian</code></pre></div></section></article><h2 id="Foot-Pound-Second-Rankine"><a class="docs-heading-anchor" href="#Foot-Pound-Second-Rankine">Foot-Pound-Second-Rankine</a><a id="Foot-Pound-Second-Rankine-1"></a><a class="docs-heading-anchor-permalink" href="#Foot-Pound-Second-Rankine" title="Permalink"></a></h2><p>In Britain and the United States an <code>English</code> system of engineering units was commonly used.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.FPS" href="#MeasureSystems.FPS"><code>MeasureSystems.FPS</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">FPS = RankineSystem(Metric,ft,lb)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Absolute English <code>UnitSystem</code> based on the foot, pound, second, and poundal.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(FPS) # ft⋅pdl⋅°R⁻¹
+Kcd⋅g₀⁻⁵ᐟ²GME⁵ᐟ²τ⁵2⁻⁴⁵5⁻³⁵ = 687.9792808(35) [lm⋅eW⁻¹] Meridian</code></pre>
+            </div>
+          </section>
+        </article>
+        <h2 id="Foot-Pound-Second-Rankine"><a class=
+        "docs-heading-anchor" href=
+        "#Foot-Pound-Second-Rankine">Foot-Pound-Second-Rankine</a><a id="Foot-Pound-Second-Rankine-1"></a><a class="docs-heading-anchor-permalink"
+        href="#Foot-Pound-Second-Rankine" title=
+        "Permalink"></a></h2>
+        <p>In Britain and the United States an <code>English</code>
+        system of engineering units was commonly used.</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.FPS" href=
+            "#MeasureSystems.FPS"><code>MeasureSystems.FPS</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">FPS = RankineSystem(Metric,ft,lb)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Absolute English <code>UnitSystem</code> based on
+              the foot, pound, second, and poundal.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(FPS) # ft⋅pdl⋅°R⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹ft⁻²lb⁻¹2⁴3⁻²5⁴ = 1.82018324169(56) × 10⁻²² [lb⋅ft²s⁻²°R⁻¹] FPS
 
 julia&gt; planckreduced(FPS) # ft⋅pdl⋅s⋅rad⁻¹
@@ -430,8 +2067,30 @@ julia&gt; molarmass(FPS) # lb⋅lb-mol⁻¹
 𝟏 = 1.0 [lb⋅lb-mol⁻¹] FPS
 
 julia&gt; luminousefficacy(FPS) # lm⋅s³⋅lb⁻¹⋅ft⁻²
-Kcd⋅ft²lb = 28.78252493663283 [lb⁻¹ft⁻²s³lm] FPS</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.IPS" href="#MeasureSystems.IPS"><code>MeasureSystems.IPS</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">IPS = RankineSystem(Metric,ft/𝟐^2/𝟑,lb*g₀*𝟐^2*𝟑/ft)
-F=F, M=FL⁻¹T², L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>British Gravitational <code>UnitSystem</code> historically used in the United States of America.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(IPS) # in⋅lb⋅°R⁻¹
+Kcd⋅ft²lb = 28.78252493663283 [lb⁻¹ft⁻²s³lm] FPS</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.IPS" href=
+            "#MeasureSystems.IPS"><code>MeasureSystems.IPS</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">IPS = RankineSystem(Metric,ft/𝟐^2/𝟑,lb*g₀*𝟐^2*𝟑/ft)
+F=F, M=FL⁻¹T², L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>British Gravitational <code>UnitSystem</code>
+              historically used in the United States of
+              America.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(IPS) # in⋅lb⋅°R⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⁻¹ft⁻¹lb⁻¹2⁶3⁻¹5⁴ = 6.7887629566(21) × 10⁻²³ [lb⋅in⋅°R⁻¹] IPS
 
 julia&gt; planckreduced(IPS) # in⋅lb⋅s⋅rad⁻¹
@@ -450,8 +2109,29 @@ julia&gt; molarmass(IPS) # slinch⋅slinch-mol⁻¹
 𝟏 = 1.0 [slinch-slinch-mol⁻¹] IPS
 
 julia&gt; luminousefficacy(IPS) # lm⋅s⋅in⁻¹⋅lb⁻¹
-Kcd⋅g₀⋅ft⋅lb⋅2⁻²3⁻¹ = 77.17086290732456 [lb⁻¹in⁻¹s⋅lm] IPS</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.British" href="#MeasureSystems.British"><code>MeasureSystems.British</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">British = RankineSystem(Metric,ft,slug)
-F=F, M=FL⁻¹T², L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>British Gravitational <code>UnitSystem</code> historically used by Britain and United States.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(British) # ft⋅lb⋅°R⁻¹
+Kcd⋅g₀⋅ft⋅lb⋅2⁻²3⁻¹ = 77.17086290732456 [lb⁻¹in⁻¹s⋅lm] IPS</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.British" href=
+            "#MeasureSystems.British"><code>MeasureSystems.British</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">British = RankineSystem(Metric,ft,slug)
+F=F, M=FL⁻¹T², L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>British Gravitational <code>UnitSystem</code>
+              historically used by Britain and United States.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(British) # ft⋅lb⋅°R⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⁻¹ft⁻¹lb⁻¹2⁴3⁻²5⁴ = 5.6573024638(17) × 10⁻²⁴ [lb⋅ft⋅°R⁻¹] British
 
 julia&gt; planckreduced(British) # ft⋅lb⋅s⋅rad⁻¹
@@ -470,8 +2150,30 @@ julia&gt; molarmass(British) # slug⋅slug-mol⁻¹
 𝟏 = 1.0 [slug⋅slug-mol⁻¹] British
 
 julia&gt; luminousefficacy(British) # lm⋅s⋅ft⁻¹⋅lb⁻¹
-Kcd⋅g₀⋅ft⋅lb = 926.0503548878947 [lb⁻¹ft⁻¹s⋅lm] British</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.English" href="#MeasureSystems.English"><code>MeasureSystems.English</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">English = RankineSystem(Metric,ft,lb,g₀/ft)
-F=F, M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=A, R=𝟙, C=𝟙</code></pre><p>English Engineering <code>UnitSystem</code> historically used in the United States of America.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(English) # ft⋅lbf⋅°R⁻¹
+Kcd⋅g₀⋅ft⋅lb = 926.0503548878947 [lb⁻¹ft⁻¹s⋅lm] British</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.English" href=
+            "#MeasureSystems.English"><code>MeasureSystems.English</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">English = RankineSystem(Metric,ft,lb,g₀/ft)
+F=F, M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=A, R=𝟙, C=𝟙</code></pre>
+              <p>English Engineering <code>UnitSystem</code>
+              historically used in the United States of
+              America.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(English) # ft⋅lbf⋅°R⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⁻¹ft⁻¹lb⁻¹2⁴3⁻²5⁴ = 5.6573024638(17) × 10⁻²⁴ [lbf⋅ft⋅°R⁻¹] English
 
 julia&gt; planckreduced(English) # ft⋅lbf⋅s⋅rad⁻¹
@@ -493,8 +2195,29 @@ julia&gt; luminousefficacy(English) # lm⋅s⋅ft⁻¹⋅lbf⁻¹
 Kcd⋅g₀⋅ft⋅lb = 926.0503548878947 [lbf⁻¹ft⁻¹s⋅lm] English
 
 julia&gt; gravity(English) # lbm⋅ft⋅lbf⁻¹⋅s⁻²
-g₀⋅ft⁻¹ = 32.17404855643044 [lbf⁻¹lbm⋅ft⋅s⁻²] English</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Survey" href="#MeasureSystems.Survey"><code>MeasureSystems.Survey</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Survey = RankineSystem(Metric,ftUS,lb,g₀/ftUS)
-F=F, M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=A, R=𝟙, C=𝟙</code></pre><p>English Engineering <code>UnitSystem</code> based on the geophysical US survey foot (1200/3937).</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Survey) # ftUS⋅lbf⋅°R⁻¹
+g₀⋅ft⁻¹ = 32.17404855643044 [lbf⁻¹lbm⋅ft⋅s⁻²] English</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Survey" href=
+            "#MeasureSystems.Survey"><code>MeasureSystems.Survey</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Survey = RankineSystem(Metric,ftUS,lb,g₀/ftUS)
+F=F, M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=A, R=𝟙, C=𝟙</code></pre>
+              <p>English Engineering <code>UnitSystem</code> based
+              on the geophysical US survey foot (1200/3937).</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Survey) # ftUS⋅lbf⋅°R⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⁻¹ftUS⁻¹lb⁻¹2⁴3⁻²5⁴ = 5.6572911492(17) × 10⁻²⁴ [lbf⋅ft⋅°R⁻¹] Survey
 
 julia&gt; planckreduced(Survey) # ftUS⋅lbf⋅s⋅rad⁻¹
@@ -516,8 +2239,30 @@ julia&gt; luminousefficacy(Survey) # lm⋅s⋅ft⁻¹⋅lbf⁻¹
 Kcd⋅g₀⋅ftUS⋅lb = 926.0522069923087 [lbf⁻¹ft⁻¹s⋅lm] Survey
 
 julia&gt; gravity(Survey) # lbm⋅ftUS⋅lbf⁻¹⋅s⁻²
-g₀⋅ftUS⁻¹ = 32.17398420833334 [lbf⁻¹lbm⋅ft⋅s⁻²] Survey</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.FFF" href="#MeasureSystems.FFF"><code>MeasureSystems.FFF</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">FFF = EntropySystem(Metric,𝟐*𝟕*DAY,fur,𝟐*𝟑^2*𝟓*lb,°R,0,𝟏)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Furlong–firkin–fortnight <code>FFF</code> is a humorous <code>UnitSystem</code> based on unusal impractical units.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(FFF) # fir⋅fur²⋅ftn⁻²⋅F⁻¹
+g₀⋅ftUS⁻¹ = 32.17398420833334 [lbf⁻¹lbm⋅ft⋅s⁻²] Survey</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.FFF" href=
+            "#MeasureSystems.FFF"><code>MeasureSystems.FFF</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">FFF = EntropySystem(Metric,𝟐*𝟕*DAY,fur,𝟐*𝟑^2*𝟓*lb,°R,0,𝟏)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Furlong–firkin–fortnight <code>FFF</code> is a
+              humorous <code>UnitSystem</code> based on unusal
+              impractical units.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(FFF) # fir⋅fur²⋅ftn⁻²⋅F⁻¹
 kB⋅NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹ft⁻²lb⁻¹2¹⁵5⁵7²11⁻² = 6.7931043720(21) × 10⁻¹⁸ [fir⋅fur²ftn⁻²°R⁻¹] FFF
 
 julia&gt; planckreduced(FFF) # fir⋅fur²⋅ftn⁻¹⋅rad⁻¹
@@ -536,8 +2281,40 @@ julia&gt; molarmass(FFF) # fir⋅fir-mol⁻¹
 𝟏 = 1.0 [fir⋅fir-mol⁻¹] FFF
 
 julia&gt; luminousefficacy(FFF) # lm⋅ftn³⋅fir⁻¹⋅fur⁻²
-Kcd⋅ft²lb⋅2⁻¹⁹3⁻⁵5⁻³7⁻³11² = 6.375788993269436×10⁻¹⁰ [fir⁻¹fur⁻²ftn³lm] FFF</code></pre></div></section></article><h2 id="Astronomical-Unit-Systems"><a class="docs-heading-anchor" href="#Astronomical-Unit-Systems">Astronomical Unit Systems</a><a id="Astronomical-Unit-Systems-1"></a><a class="docs-heading-anchor-permalink" href="#Astronomical-Unit-Systems" title="Permalink"></a></h2><p>The International Astronomical Union (IAU) units are based on the solar mass, distance from the sun to the earth, and the length of a terrestrial day.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.IAU" href="#MeasureSystems.IAU"><code>MeasureSystems.IAU</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">IAU☉ = EntropySystem(Metric,DAY,au,GM☉/G)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Solar <code>UnitSystem</code> defined by International Astronomical Union and <code>solarmass</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(IAU) # M⊙⋅au²⋅D⁻²⋅K⁻¹
+Kcd⋅ft²lb⋅2⁻¹⁹3⁻⁵5⁻³7⁻³11² = 6.375788993269436×10⁻¹⁰ [fir⁻¹fur⁻²ftn³lm] FFF</code></pre>
+            </div>
+          </section>
+        </article>
+        <h2 id="Astronomical-Unit-Systems"><a class=
+        "docs-heading-anchor" href=
+        "#Astronomical-Unit-Systems">Astronomical Unit
+        Systems</a><a id=
+        "Astronomical-Unit-Systems-1"></a><a class="docs-heading-anchor-permalink"
+        href="#Astronomical-Unit-Systems" title=
+        "Permalink"></a></h2>
+        <p>The International Astronomical Union (IAU) units are
+        based on the solar mass, distance from the sun to the
+        earth, and the length of a terrestrial day.</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.IAU" href=
+            "#MeasureSystems.IAU"><code>MeasureSystems.IAU</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">IAU☉ = EntropySystem(Metric,DAY,au,GM☉/G)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Solar <code>UnitSystem</code> defined by
+              International Astronomical Union and
+              <code>solarmass</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(IAU) # M⊙⋅au²⋅D⁻²⋅K⁻¹
 kB⋅NA⋅𝘩²R∞⋅α⁻²μₑᵤ⁻¹au⁻⁵kG⁻²mP⁻²τ⁻³2⁴⁶3²⁰5¹⁷ = 2.316083(51) × 10⁻⁶⁶ [M☉⋅au²D⁻²K⁻¹] IAU☉
 
 julia&gt; planckreduced(IAU) # M⊙⋅au²⋅D⁻¹⋅rad⁻¹
@@ -559,8 +2336,30 @@ julia&gt; luminousefficacy(IAU) # lm⋅D³⋅M☉⁻¹⋅au⁻²
 𝘩⁻¹𝘤⁻¹Kcd⋅au⁵kG²mP²τ³2⁻⁴⁹3⁻²³5⁻¹⁶ = 4.71247(10) × 10⁴⁰ [M☉⁻¹au⁻²D³lm] IAU☉
 
 julia&gt; gaussgravitation(IAU) # D⁻¹
-kG⋅τ⋅2⁻⁷3⁻⁴5⁻³ = 0.017202098964713464 [D⁻¹] IAU☉</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.IAUE" href="#MeasureSystems.IAUE"><code>MeasureSystems.IAUE</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">IAUE = EntropySystem(Metric,DAY,LD,GME/G)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Astronomical (Earth) <code>UnitSystem</code> defined by <code>lunardistance</code> around the <code>earthmass</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(IAUE) # ME⋅LD²⋅D⁻²⋅K⁻¹
+kG⋅τ⋅2⁻⁷3⁻⁴5⁻³ = 0.017202098964713464 [D⁻¹] IAU☉</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.IAUE" href=
+            "#MeasureSystems.IAUE"><code>MeasureSystems.IAUE</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">IAUE = EntropySystem(Metric,DAY,LD,GME/G)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Astronomical (Earth) <code>UnitSystem</code>
+              defined by <code>lunardistance</code> around the
+              <code>earthmass</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(IAUE) # ME⋅LD²⋅D⁻²⋅K⁻¹
 kB⋅NA⋅𝘩²R∞⋅α⁻²μₑᵤ⁻¹mP⁻²GME⁻¹τ⁻¹2¹²5/202692169 = 1.167923(26) × 10⁻⁵⁵ [ME⋅LD²D⁻²K⁻¹] IAUE
 
 julia&gt; planckreduced(IAUE) # ME⋅LD²⋅D⁻¹⋅rad⁻¹
@@ -582,8 +2381,30 @@ julia&gt; luminousefficacy(IAUE) # lm⋅D³⋅ME⁻¹⋅LD⁻²
 𝘩⁻¹𝘤⁻¹Kcd⋅mP²GME⋅τ⋅2⁻¹⁵3⁻³⋅202692169 = 9.34520(21) × 10²⁹ [ME⁻¹LD⁻²D³lm] IAUE
 
 julia&gt; turn(IAU)/gaussianmonth(IAU) # D⁻¹
-GME¹ᐟ²2⁵ᐟ²3⁻³ᐟ²5⁻⁵ᐟ²/1.6987431854323947×10⁶ = 0.22888074402(23) [D⁻¹] IAU☉</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.IAUJ" href="#MeasureSystems.IAUJ"><code>MeasureSystems.IAUJ</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">IAUJ = EntropySystem(Metric,DAY,JD,GMJ/G)
-F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Astronomical (Jupiter) <code>UnitSystem</code> defined by <code>jupiterdistance</code> around the <code>solarmass</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(IAUJ) # MJ⋅JD²⋅D⁻²⋅K⁻¹
+GME¹ᐟ²2⁵ᐟ²3⁻³ᐟ²5⁻⁵ᐟ²/1.6987431854323947×10⁶ = 0.22888074402(23) [D⁻¹] IAU☉</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.IAUJ" href=
+            "#MeasureSystems.IAUJ"><code>MeasureSystems.IAUJ</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">IAUJ = EntropySystem(Metric,DAY,JD,GMJ/G)
+F=MLT⁻², M=M, L=L, T=T, Q=Q, Θ=Θ, N=N, J=J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Astronomical (Jupiter) <code>UnitSystem</code>
+              defined by <code>jupiterdistance</code> around the
+              <code>solarmass</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(IAUJ) # MJ⋅JD²⋅D⁻²⋅K⁻¹
 kB⋅NA⋅𝘩²R∞⋅α⁻²μₑᵤ⁻¹mP⁻²GMJ⁻¹τ⁻¹2⁶3⁴5⁻⁵/67336617049 = 8.95968(20) × 10⁻⁶⁵ [MJ⋅JD²D⁻²K⁻¹] IAUJ
 
 julia&gt; planckreduced(IAUJ) # MJ⋅JD²⋅D⁻¹⋅rad⁻¹
@@ -605,8 +2426,29 @@ julia&gt; luminousefficacy(IAUJ) # lm⋅D³⋅MJ⁻¹⋅JD⁻²
 𝘩⁻¹𝘤⁻¹Kcd⋅mP²GMJ⋅τ⋅2⁻⁹3⁻⁷5⁶⋅67336617049 = 1.218177(27) × 10³⁹ [MJ⁻¹JD⁻²D³lm] IAUJ
 
 julia&gt; sqrt(gravitation(IAUJ)*solarmass(IAUJ)/jupiterdistance(IAUJ)^3) # D⁻¹
-au³ᐟ²kG⋅τ⋅2⁻¹⁶3⁻¹¹ᐟ²5⁻¹²/1.3218691602384917×10⁸ = 0.001449102839405(44) [D⁻¹] IAUJ</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Hubble" href="#MeasureSystems.Hubble"><code>MeasureSystems.Hubble</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Hubble = AstronomicalSystem(Metric,th,𝘤*th,mₑ)
-F=T⁻¹, M=𝟙, L=T, T, Q, Θ=𝟙, N=𝟙, J=T⁻¹, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Hubble <code>UnitSystem</code> defined by <code>hubble</code> parameter.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Hubble)
+au³ᐟ²kG⋅τ⋅2⁻¹⁶3⁻¹¹ᐟ²5⁻¹²/1.3218691602384917×10⁸ = 0.001449102839405(44) [D⁻¹] IAUJ</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Hubble" href=
+            "#MeasureSystems.Hubble"><code>MeasureSystems.Hubble</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Hubble = AstronomicalSystem(Metric,th,𝘤*th,mₑ)
+F=T⁻¹, M=𝟙, L=T, T, Q, Θ=𝟙, N=𝟙, J=T⁻¹, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Hubble <code>UnitSystem</code> defined by
+              <code>hubble</code> parameter.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Hubble)
 𝟏 = 1.0 [𝟙] Hubble
 
 julia&gt; planckreduced(Hubble)
@@ -631,8 +2473,29 @@ julia&gt; hubble(Hubble)
 𝟏 = 1.0 [T⁻¹] Hubble
 
 julia&gt; cosmological(Hubble)
-ΩΛ⋅3 = 2.067(17) [T⁻²] Hubble</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Cosmological" href="#MeasureSystems.Cosmological"><code>MeasureSystems.Cosmological</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Cosmological = AstronomicalSystem(Metric,lc/𝘤,lc,mc)
-F=MT⁻¹, M, L=T, T, Q, Θ=M, N=M, J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Cosmological scale <code>UnitSystem</code> defined by <code>darkenergydensity</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Cosmological)
+ΩΛ⋅3 = 2.067(17) [T⁻²] Hubble</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Cosmological" href=
+            "#MeasureSystems.Cosmological"><code>MeasureSystems.Cosmological</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Cosmological = AstronomicalSystem(Metric,lc/𝘤,lc,mc)
+F=MT⁻¹, M, L=T, T, Q, Θ=M, N=M, J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Cosmological scale <code>UnitSystem</code> defined
+              by <code>darkenergydensity</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Cosmological)
 𝟏 = 1.0 [𝟙] Cosmological
 
 julia&gt; planckreduced(Cosmological)
@@ -657,8 +2520,29 @@ julia&gt; hubble(Cosmological)
 ΩΛ⁻¹ᐟ²τ¹ᐟ²2⋅3⁻¹ᐟ² = 3.487(14) [T⁻¹] Cosmological
 
 julia&gt; cosmological(Cosmological)
-τ⋅2² = 25.132741228718345 [T⁻²] Cosmological</code></pre></div></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.CosmologicalQuantum" href="#MeasureSystems.CosmologicalQuantum"><code>MeasureSystems.CosmologicalQuantum</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">CosmologicalQuantum = AstronomicalSystem(Metric,tcq,lcq,mcq)
-F=M², M, L=M⁻¹, T=M⁻¹, Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Cosmological quantum scale <code>UnitSystem</code> defined by <code>darkenergydensity</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(CosmologicalQuantum)
+τ⋅2² = 25.132741228718345 [T⁻²] Cosmological</code></pre>
+            </div>
+          </section>
+        </article>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.CosmologicalQuantum" href=
+            "#MeasureSystems.CosmologicalQuantum"><code>MeasureSystems.CosmologicalQuantum</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">CosmologicalQuantum = AstronomicalSystem(Metric,tcq,lcq,mcq)
+F=M², M, L=M⁻¹, T=M⁻¹, Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Cosmological quantum scale <code>UnitSystem</code>
+              defined by <code>darkenergydensity</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(CosmologicalQuantum)
 𝟏 = 1.0 [𝟙] CosmologicalQuantum
 
 julia&gt; planckreduced(CosmologicalQuantum)
@@ -677,8 +2561,28 @@ julia&gt; molarmass(CosmologicalQuantum)
 𝟏 = 1.0 [𝟙] CosmologicalQuantum
 
 julia&gt; luminousefficacy(CosmologicalQuantum)
-𝟏 = 1.0 [𝟙] CosmologicalQuantum</code></pre></div></section></article><h2 id="Natural-Unit-Systems"><a class="docs-heading-anchor" href="#Natural-Unit-Systems">Natural Unit Systems</a><a id="Natural-Unit-Systems-1"></a><a class="docs-heading-anchor-permalink" href="#Natural-Unit-Systems" title="Permalink"></a></h2><p>With the introduction of the <code>planckmass</code> a set of natural atomic unit systems can be derived in terms of the gravitational coupling constant.</p><p class="math-container">\[\alpha_G = \left(\frac{m_e}{m_P}\right)^2, \qquad \tilde k_B = 1, \qquad (\tilde M_u = 1, \quad \tilde \lambda = 1, \quad \tilde\alpha_L = 1)\]</p><pre><code class="language-julia hljs">julia&gt; αG # (mₑ/mP)^2
-𝘩²𝘤⁻²mP⁻²R∞²α⁻⁴2² = 1.75181e-45 ± 3.9e-50</code></pre><p>Some of the notable variants include</p><pre><code class="language-julia hljs">Planck       ::UnitSystem{1,1,1,1,√(4π*αG)}
+𝟏 = 1.0 [𝟙] CosmologicalQuantum</code></pre>
+            </div>
+          </section>
+        </article>
+        <h2 id="Natural-Unit-Systems"><a class=
+        "docs-heading-anchor" href="#Natural-Unit-Systems">Natural
+        Unit Systems</a><a id=
+        "Natural-Unit-Systems-1"></a><a class="docs-heading-anchor-permalink"
+        href="#Natural-Unit-Systems" title="Permalink"></a></h2>
+        <p>With the introduction of the <code>planckmass</code> a
+        set of natural atomic unit systems can be derived in terms
+        of the gravitational coupling constant.</p>
+        <p class="math-container">\[\alpha_G =
+        \left(\frac{m_e}{m_P}\right)^2, \qquad \tilde k_B = 1,
+        \qquad (\tilde M_u = 1, \quad \tilde \lambda = 1, \quad
+        \tilde\alpha_L = 1)\]</p>
+        <pre><code class=
+        "language-julia hljs">julia&gt; αG # (mₑ/mP)^2
+𝘩²𝘤⁻²mP⁻²R∞²α⁻⁴2² = 1.75181e-45 ± 3.9e-50</code></pre>
+        <p>Some of the notable variants include</p>
+        <pre><code class=
+        "language-julia hljs">Planck       ::UnitSystem{1,1,1,1,√(4π*αG)}
 PlanckGauss  ::UnitSystem{1,1,1,4π,√αG}
 Stoney       ::UnitSystem{1,1/α,1,4π,√(αG/α)}
 Hartree      ::UnitSystem{1,1,1/α,4π*α^2,1}
@@ -689,8 +2593,30 @@ Natural      ::UnitSystem{1,1,1,1,1}
 NaturalGauss ::UnitSystem{1,1,1,4π,1}
 QCD          ::UnitSystem{1,1,1,1,1/μₚₑ}
 QCDGauss     ::UnitSystem{1,1,1,4π,1/μₚₑ}
-QCDoriginal  ::UnitSystem{1,1,1,4π*α,1/μₚₑ}</code></pre><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 1, \qquad \tilde m_e = \sqrt{4\pi\alpha_G}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Planck" href="#MeasureSystems.Planck"><code>MeasureSystems.Planck</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Planck = UnitSystem(𝟏,𝟏,𝟏,𝟏,√(𝟐*τ*αG))
-F=M², M, L=M⁻¹, T=M⁻¹, Q=𝟙, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Planck <code>UnitSystem</code> with the <code>electronmass</code> value <code>√(4π*αG)</code> using gravitational coupling.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Planck)
+QCDoriginal  ::UnitSystem{1,1,1,4π*α,1/μₚₑ}</code></pre>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        1, \qquad \tilde m_e = \sqrt{4\pi\alpha_G}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Planck" href=
+            "#MeasureSystems.Planck"><code>MeasureSystems.Planck</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Planck = UnitSystem(𝟏,𝟏,𝟏,𝟏,√(𝟐*τ*αG))
+F=M², M, L=M⁻¹, T=M⁻¹, Q=𝟙, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Planck <code>UnitSystem</code> with the
+              <code>electronmass</code> value <code>√(4π*αG)</code>
+              using gravitational coupling.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Planck)
 𝟏 = 1.0 [𝟙] Planck
 
 julia&gt; planckreduced(Planck)
@@ -703,8 +2629,34 @@ julia&gt; vacuumpermeability(Planck)
 𝟏 = 1.0 [𝟙] Planck
 
 julia&gt; electronmass(Planck)
-𝘩⋅𝘤⁻¹R∞⋅α⁻²mP⁻¹τ¹ᐟ²2³ᐟ² = 1.483708(16) × 10⁻²² [M] Planck</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 4\pi, \qquad \tilde m_e = \sqrt{4\pi\alpha_G}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.PlanckGauss" href="#MeasureSystems.PlanckGauss"><code>MeasureSystems.PlanckGauss</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">PlanckGauss = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ,√αG)
-F=M², M=M, L=M⁻¹, T=M⁻¹, Q=Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Planck (Gauss) <code>UnitSystem</code> with <code>permeability</code> of <code>4π</code> and <code>electronmass</code> coupling <code>√αG</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(PlanckGauss)
+𝘩⋅𝘤⁻¹R∞⋅α⁻²mP⁻¹τ¹ᐟ²2³ᐟ² = 1.483708(16) × 10⁻²² [M] Planck</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        4\pi, \qquad \tilde m_e = \sqrt{4\pi\alpha_G}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.PlanckGauss" href=
+            "#MeasureSystems.PlanckGauss"><code>MeasureSystems.PlanckGauss</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">PlanckGauss = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ,√αG)
+F=M², M=M, L=M⁻¹, T=M⁻¹, Q=Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Planck (Gauss) <code>UnitSystem</code> with
+              <code>permeability</code> of <code>4π</code> and
+              <code>electronmass</code> coupling
+              <code>√αG</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(PlanckGauss)
 𝟏 = 1.0 [𝟙] PlanckGauss
 
 julia&gt; planckreduced(PlanckGauss)
@@ -717,7 +2669,13 @@ julia&gt; vacuumpermeability(PlanckGauss)
 τ⋅2 = 12.566370614359172 [𝘦ₙ⁻²] PlanckGauss
 
 julia&gt; electronmass(PlanckGauss)
-𝘩⋅𝘤⁻¹R∞⋅α⁻²mP⁻¹2 = 4.185463(46) × 10⁻²³ [mP] PlanckGauss</code></pre><p>The well known <code>PlanckGauss</code> values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>temperature</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(PlanckGauss,SI2019) # ℓP
+𝘩⋅𝘤⁻¹R∞⋅α⁻²mP⁻¹2 = 4.185463(46) × 10⁻²³ [mP] PlanckGauss</code></pre>
+              <p>The well known <code>PlanckGauss</code> values for
+              <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>temperature</code>
+              are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(PlanckGauss,SI2019) # ℓP
 𝘩⋅𝘤⁻¹mP⁻¹τ⁻¹ = 1.616255(18) × 10⁻³⁵ [m]/[mP⁻¹] PlanckGauss -&gt; SI2019
 
 julia&gt; time(PlanckGauss,SI2019) # tP
@@ -727,8 +2685,35 @@ julia&gt; mass(PlanckGauss,SI2019) # mP
 mP = 2.176434(24) × 10⁻⁸ [kg]/[mP] PlanckGauss -&gt; SI2019
 
 julia&gt; temperature(PlanckGauss,SI2019) # TP
-kB⁻¹𝘤²mP = 1.416784(16) × 10³² [K]/[mP] PlanckGauss -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = \frac{1}{\alpha}, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 4\pi, \qquad \tilde m_e = \sqrt{\frac{\alpha_G}{\alpha}}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Stoney" href="#MeasureSystems.Stoney"><code>MeasureSystems.Stoney</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Stoney = UnitSystem(𝟏,𝟏/α,𝟏,𝟐*τ,√(αG/α))
-F=MT⁻¹, M, L=T, T, Q, Θ=M, N=M, J, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Stoney <code>UnitSystem</code> with <code>permeability</code> of <code>4π</code> and <code>electronmass</code> coupling <code>√(αG/α)</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Stoney)
+kB⁻¹𝘤²mP = 1.416784(16) × 10³² [K]/[mP] PlanckGauss -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = \frac{1}{\alpha}, \qquad \tilde c = 1, \qquad
+        \tilde\mu_0 = 4\pi, \qquad \tilde m_e =
+        \sqrt{\frac{\alpha_G}{\alpha}}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Stoney" href=
+            "#MeasureSystems.Stoney"><code>MeasureSystems.Stoney</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Stoney = UnitSystem(𝟏,𝟏/α,𝟏,𝟐*τ,√(αG/α))
+F=MT⁻¹, M, L=T, T, Q, Θ=M, N=M, J, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Stoney <code>UnitSystem</code> with
+              <code>permeability</code> of <code>4π</code> and
+              <code>electronmass</code> coupling
+              <code>√(αG/α)</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Stoney)
 𝟏 = 1.0 [𝟙] Stoney
 
 julia&gt; planckreduced(Stoney)
@@ -741,7 +2726,12 @@ julia&gt; vacuumpermeability(Stoney)
 τ⋅2 = 12.566370614359172 [MTQ⁻²] Stoney
 
 julia&gt; electronmass(Stoney)
-𝘩⋅𝘤⁻¹R∞⋅α⁻⁵ᐟ²mP⁻¹2 = 4.899602(54) × 10⁻²² [M] Stoney</code></pre><p>The well known <code>Stoney</code> values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(Stoney,SI2019) # lS
+𝘩⋅𝘤⁻¹R∞⋅α⁻⁵ᐟ²mP⁻¹2 = 4.899602(54) × 10⁻²² [M] Stoney</code></pre>
+              <p>The well known <code>Stoney</code> values for
+              <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(Stoney,SI2019) # lS
 𝘩⋅𝘤⁻¹α¹ᐟ²mP⁻¹τ⁻¹ = 1.380679(15) × 10⁻³⁶ [m]/[T] Stoney -&gt; SI2019
 
 julia&gt; time(Stoney,SI2019) # tS
@@ -751,8 +2741,33 @@ julia&gt; mass(Stoney,SI2019) # mS
 α¹ᐟ²mP = 1.859209(21) × 10⁻⁹ [kg]/[M] Stoney -&gt; SI2019
 
 julia&gt; charge(Stoney,SI2019) # qS
-𝘦 = 1.602176634×10⁻¹⁹ [C]/[𝘦] Stoney -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = \frac{1}{\alpha}, \qquad \tilde\mu_0 = 4\pi\alpha^2, \qquad \tilde m_e = 1\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Hartree" href="#MeasureSystems.Hartree"><code>MeasureSystems.Hartree</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Hartree = UnitSystem(𝟏,𝟏,𝟏/α,𝟐*τ*α^2,𝟏)
-F=L⁻³, M=𝟙, L=L, T=L², Q=Q, Θ=L⁻², N=𝟙, J=L⁻⁴, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Hartree atomic <code>UnitSystem</code> based on <code>bohr</code> radius and <code>elementarycharge</code> scale.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Hartree)
+𝘦 = 1.602176634×10⁻¹⁹ [C]/[𝘦] Stoney -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = \frac{1}{\alpha}, \qquad
+        \tilde\mu_0 = 4\pi\alpha^2, \qquad \tilde m_e = 1\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Hartree" href=
+            "#MeasureSystems.Hartree"><code>MeasureSystems.Hartree</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Hartree = UnitSystem(𝟏,𝟏,𝟏/α,𝟐*τ*α^2,𝟏)
+F=L⁻³, M=𝟙, L=L, T=L², Q=Q, Θ=L⁻², N=𝟙, J=L⁻⁴, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Hartree atomic <code>UnitSystem</code> based on
+              <code>bohr</code> radius and
+              <code>elementarycharge</code> scale.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Hartree)
 𝟏 = 1.0 [𝟙] Hartree
 
 julia&gt; planckreduced(Hartree)
@@ -765,7 +2780,12 @@ julia&gt; vacuumpermeability(Hartree)
 α²τ⋅2 = 0.00066917625662(21) [a₀⋅𝘦⁻²] Hartree
 
 julia&gt; electronmass(Hartree)
-𝟏 = 1.0 [𝟙] Hartree</code></pre><p>The well known <code>Hartree</code> atomic unit values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(Hartree,SI2019) # lA
+𝟏 = 1.0 [𝟙] Hartree</code></pre>
+              <p>The well known <code>Hartree</code> atomic unit
+              values for <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(Hartree,SI2019) # lA
 R∞⁻¹α⋅τ⁻¹2⁻¹ = 5.29177210902(81) × 10⁻¹¹ [m]/[a₀] Hartree -&gt; SI2019
 
 julia&gt; time(Hartree,SI2019) # tA
@@ -775,8 +2795,34 @@ julia&gt; mass(Hartree,SI2019) # mA
 𝘩⋅𝘤⁻¹R∞⋅α⁻²2 = 9.1093837016(28) × 10⁻³¹ [kg]/[𝟙] Hartree -&gt; SI2019
 
 julia&gt; charge(Hartree,SI2019) # qA
-𝘦 = 1.602176634×10⁻¹⁹ [C]/[𝘦] Hartree -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = \frac{2}{\alpha}, \qquad \tilde\mu_0 = \pi\alpha^2, \qquad \tilde m_e = \frac{1}{2}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Rydberg" href="#MeasureSystems.Rydberg"><code>MeasureSystems.Rydberg</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Rydberg = UnitSystem(𝟏,𝟏,𝟐/α,τ/𝟐*α^2,𝟏/𝟐)
-F=MLT⁻², M, L, T, Q, Θ=T⁻¹, N=M, J=T², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Rydberg <code>UnitSystem</code> with <code>lightspeed</code> of <code>𝟐/α</code> and <code>permeability</code> of <code>π*α^2</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Rydberg)
+𝘦 = 1.602176634×10⁻¹⁹ [C]/[𝘦] Hartree -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = \frac{2}{\alpha}, \qquad
+        \tilde\mu_0 = \pi\alpha^2, \qquad \tilde m_e =
+        \frac{1}{2}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Rydberg" href=
+            "#MeasureSystems.Rydberg"><code>MeasureSystems.Rydberg</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Rydberg = UnitSystem(𝟏,𝟏,𝟐/α,τ/𝟐*α^2,𝟏/𝟐)
+F=MLT⁻², M, L, T, Q, Θ=T⁻¹, N=M, J=T², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Rydberg <code>UnitSystem</code> with
+              <code>lightspeed</code> of <code>𝟐/α</code> and
+              <code>permeability</code> of <code>π*α^2</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Rydberg)
 𝟏 = 1.0 [ML²T⁻¹] Rydberg
 
 julia&gt; planckreduced(Rydberg)
@@ -789,7 +2835,12 @@ julia&gt; vacuumpermeability(Rydberg)
 α²τ⋅2⁻¹ = 0.000167294064155(51) [MLQ⁻²] Rydberg
 
 julia&gt; electronmass(Rydberg)
-2⁻¹ = 0.5 [M] Rydberg</code></pre><p>The well known <code>Rydberg</code> atomic unit values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(Rydberg,SI2019) # lR
+2⁻¹ = 0.5 [M] Rydberg</code></pre>
+              <p>The well known <code>Rydberg</code> atomic unit
+              values for <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(Rydberg,SI2019) # lR
 R∞⁻¹α⋅τ⁻¹2⁻¹ = 5.29177210902(81) × 10⁻¹¹ [m]/[a₀] Rydberg -&gt; SI2019
 
 julia&gt; time(Rydberg,SI2019) # tR
@@ -799,8 +2850,35 @@ julia&gt; mass(Rydberg,SI2019) # mR
 𝘩⋅𝘤⁻¹R∞⋅α⁻²2² = 1.82187674031(56) × 10⁻³⁰ [kg]/[M] Rydberg -&gt; SI2019
 
 julia&gt; charge(Rydberg,SI2019) # qR
-𝘦⋅2⁻¹ᐟ² = 1.1329099625600371×10⁻¹⁹ [C]/[Q] Rydberg -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = \frac{1}{\alpha}, \qquad \tilde\mu_0 = 4\pi\alpha^2, \qquad \tilde m_e = \sqrt{\frac{\alpha_G}{\alpha}}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Schrodinger" href="#MeasureSystems.Schrodinger"><code>MeasureSystems.Schrodinger</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Schrodinger = UnitSystem(𝟏,𝟏,𝟏/α,𝟐*τ*α^2,√(αG/α))
-F=MLT⁻², M, L, T, Q, Θ=T⁻¹, N=M, J=T², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Schrodinger <code>UnitSystem</code> with <code>permeability</code> of <code>4π/αinv^2</code> and <code>electronmass</code> of <code>√(αG*αinv)</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Schrodinger)
+𝘦⋅2⁻¹ᐟ² = 1.1329099625600371×10⁻¹⁹ [C]/[Q] Rydberg -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = \frac{1}{\alpha}, \qquad
+        \tilde\mu_0 = 4\pi\alpha^2, \qquad \tilde m_e =
+        \sqrt{\frac{\alpha_G}{\alpha}}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Schrodinger" href=
+            "#MeasureSystems.Schrodinger"><code>MeasureSystems.Schrodinger</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Schrodinger = UnitSystem(𝟏,𝟏,𝟏/α,𝟐*τ*α^2,√(αG/α))
+F=MLT⁻², M, L, T, Q, Θ=T⁻¹, N=M, J=T², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Schrodinger <code>UnitSystem</code> with
+              <code>permeability</code> of <code>4π/αinv^2</code>
+              and <code>electronmass</code> of
+              <code>√(αG*αinv)</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Schrodinger)
 𝟏 = 1.0 [ML²T⁻¹] Schrodinger
 
 julia&gt; planckreduced(Schrodinger)
@@ -813,8 +2891,33 @@ julia&gt; vacuumpermeability(Schrodinger)
 α²τ⋅2 = 0.00066917625662(21) [MLQ⁻²] Schrodinger
 
 julia&gt; electronmass(Schrodinger)
-𝘩⋅𝘤⁻¹R∞⋅α⁻⁵ᐟ²mP⁻¹2 = 4.899602(54) × 10⁻²² [M] Schrodinger</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = \frac{1}{\alpha}, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 4\pi, \qquad \tilde m_e = 1\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Electronic" href="#MeasureSystems.Electronic"><code>MeasureSystems.Electronic</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Electronic = UnitSystem(𝟏,𝟏/α,𝟏,𝟐*τ,𝟏)
-F=T⁻¹, M=𝟙, L=T, T, Q, Θ=𝟙, N=𝟙, J=T⁻¹, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Electronic <code>UnitSystem</code> with <code>planckreduced</code> of <code>1/α</code> and <code>permeability</code> of <code>4π</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Electronic)
+𝘩⋅𝘤⁻¹R∞⋅α⁻⁵ᐟ²mP⁻¹2 = 4.899602(54) × 10⁻²² [M] Schrodinger</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = \frac{1}{\alpha}, \qquad \tilde c = 1, \qquad
+        \tilde\mu_0 = 4\pi, \qquad \tilde m_e = 1\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Electronic" href=
+            "#MeasureSystems.Electronic"><code>MeasureSystems.Electronic</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Electronic = UnitSystem(𝟏,𝟏/α,𝟏,𝟐*τ,𝟏)
+F=T⁻¹, M=𝟙, L=T, T, Q, Θ=𝟙, N=𝟙, J=T⁻¹, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Electronic <code>UnitSystem</code> with
+              <code>planckreduced</code> of <code>1/α</code> and
+              <code>permeability</code> of <code>4π</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Electronic)
 𝟏 = 1.0 [𝟙] Electronic
 
 julia&gt; planckreduced(Electronic)
@@ -827,8 +2930,32 @@ julia&gt; vacuumpermeability(Electronic)
 τ⋅2 = 12.566370614359172 [TQ⁻²] Electronic
 
 julia&gt; electronmass(Electronic)
-𝟏 = 1.0 [𝟙] Electronic</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 1, \qquad \tilde m_e = 1\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.Natural" href="#MeasureSystems.Natural"><code>MeasureSystems.Natural</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">Natural = UnitSystem(𝟏,𝟏,𝟏,𝟏,𝟏)
-F=𝟙, M=𝟙, L=𝟙, T=𝟙, Q=𝟙, Θ=𝟙, N=𝟙, J=𝟙, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Natural <code>UnitSystem</code> with all primary constants having unit value.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(Natural)
+𝟏 = 1.0 [𝟙] Electronic</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        1, \qquad \tilde m_e = 1\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.Natural" href=
+            "#MeasureSystems.Natural"><code>MeasureSystems.Natural</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">Natural = UnitSystem(𝟏,𝟏,𝟏,𝟏,𝟏)
+F=𝟙, M=𝟙, L=𝟙, T=𝟙, Q=𝟙, Θ=𝟙, N=𝟙, J=𝟙, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Natural <code>UnitSystem</code> with all primary
+              constants having unit value.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(Natural)
 𝟏 = 1.0 [𝟙] Natural
 
 julia&gt; planckreduced(Natural)
@@ -841,7 +2968,12 @@ julia&gt; vacuumpermeability(Natural)
 𝟏 = 1.0 [𝟙] Natural
 
 julia&gt; electronmass(Natural)
-𝟏 = 1.0 [𝟙] Natural</code></pre><p>The well known <code>Natural</code> values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(Natural,SI2019)
+𝟏 = 1.0 [𝟙] Natural</code></pre>
+              <p>The well known <code>Natural</code> values for
+              <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(Natural,SI2019)
 R∞⁻¹α²τ⁻¹2⁻¹ = 3.8615926796(12) × 10⁻¹³ [m]/[𝟙] Natural -&gt; SI2019
 
 julia&gt; time(Natural,SI2019)
@@ -851,8 +2983,33 @@ julia&gt; mass(Natural,SI2019)
 𝘩⋅𝘤⁻¹R∞⋅α⁻²2 = 9.1093837016(28) × 10⁻³¹ [kg]/[𝟙] Natural -&gt; SI2019
 
 julia&gt; charge(Natural,SI2019)
-𝘦⋅α⁻¹ᐟ²τ⁻¹ᐟ²2⁻¹ᐟ² = 5.29081768990(41) × 10⁻¹⁹ [C]/[𝟙] Natural -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 4\pi, \qquad \tilde m_e = 1\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.NaturalGauss" href="#MeasureSystems.NaturalGauss"><code>MeasureSystems.NaturalGauss</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">NaturalGauss = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ,𝟏)
-F=𝟙, M=𝟙, L=𝟙, T=𝟙, Q=Q, Θ=𝟙, N=𝟙, J=𝟙, A=𝟙, R=𝟙, C=𝟙</code></pre><p>Natural (Gauss) <code>UnitSystem</code> with the Gaussian <code>permeability</code> value of <code>4π</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(NaturalGauss)
+𝘦⋅α⁻¹ᐟ²τ⁻¹ᐟ²2⁻¹ᐟ² = 5.29081768990(41) × 10⁻¹⁹ [C]/[𝟙] Natural -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        4\pi, \qquad \tilde m_e = 1\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.NaturalGauss" href=
+            "#MeasureSystems.NaturalGauss"><code>MeasureSystems.NaturalGauss</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">NaturalGauss = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ,𝟏)
+F=𝟙, M=𝟙, L=𝟙, T=𝟙, Q=Q, Θ=𝟙, N=𝟙, J=𝟙, A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Natural (Gauss) <code>UnitSystem</code> with the
+              Gaussian <code>permeability</code> value of
+              <code>4π</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(NaturalGauss)
 𝟏 = 1.0 [𝟙] NaturalGauss
 
 julia&gt; planckreduced(NaturalGauss)
@@ -865,8 +3022,33 @@ julia&gt; vacuumpermeability(NaturalGauss)
 τ⋅2 = 12.566370614359172 [𝘦ₙ⁻²] NaturalGauss
 
 julia&gt; electronmass(NaturalGauss)
-𝟏 = 1.0 [𝟙] NaturalGauss</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 1, \qquad \tilde m_e = \frac{1}{\mu_{pe}} = \frac{m_e}{m_p}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.QCD" href="#MeasureSystems.QCD"><code>MeasureSystems.QCD</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">QCD = UnitSystem(𝟏,𝟏,𝟏,𝟏,𝟏/μₚₑ)
-F=M², M=M, L=M⁻¹, T=M⁻¹, Q=𝟙, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Qunatum chromodynamics <code>UnitSystem</code> based on the <code>protonmass</code> scale.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(QCD)
+𝟏 = 1.0 [𝟙] NaturalGauss</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        1, \qquad \tilde m_e = \frac{1}{\mu_{pe}} =
+        \frac{m_e}{m_p}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.QCD" href=
+            "#MeasureSystems.QCD"><code>MeasureSystems.QCD</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">QCD = UnitSystem(𝟏,𝟏,𝟏,𝟏,𝟏/μₚₑ)
+F=M², M=M, L=M⁻¹, T=M⁻¹, Q=𝟙, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Qunatum chromodynamics <code>UnitSystem</code>
+              based on the <code>protonmass</code> scale.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(QCD)
 𝟏 = 1.0 [𝟙] QCD
 
 julia&gt; planckreduced(QCD)
@@ -879,7 +3061,12 @@ julia&gt; vacuumpermeability(QCD)
 𝟏 = 1.0 [𝟙] QCD
 
 julia&gt; electronmass(QCD)
-μₑᵤ⋅μₚᵤ⁻¹ = 0.000544617021487(33) [mₚ] QCD</code></pre><p>The well known <code>QCD</code> values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(QCD,SI2019) # lQCD
+μₑᵤ⋅μₚᵤ⁻¹ = 0.000544617021487(33) [mₚ] QCD</code></pre>
+              <p>The well known <code>QCD</code> values for
+              <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(QCD,SI2019) # lQCD
 R∞⁻¹α²μₑᵤ⋅μₚᵤ⁻¹τ⁻¹2⁻¹ = 2.10308910335(66) × 10⁻¹⁶ [m]/[mₚ⁻¹] QCD -&gt; SI2019
 
 julia&gt; time(QCD,SI2019) # tQCD
@@ -889,8 +3076,34 @@ julia&gt; mass(QCD,SI2019) # mQCD
 𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹μₚᵤ⋅2 = 1.67262192369(52) × 10⁻²⁷ [kg]/[mₚ] QCD -&gt; SI2019
 
 julia&gt; charge(QCD,SI2019) # qQCD
-𝘦⋅α⁻¹ᐟ²τ⁻¹ᐟ²2⁻¹ᐟ² = 5.29081768990(41) × 10⁻¹⁹ [C]/[𝟙] QCD -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 4\pi, \qquad \tilde m_e = \frac{1}{\mu_{pe}} = \frac{m_e}{m_p}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.QCDGauss" href="#MeasureSystems.QCDGauss"><code>MeasureSystems.QCDGauss</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">QCDGauss = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ,𝟏/μₚₑ)
-F=M², M=M, L=M⁻¹, T=M⁻¹, Q=Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Qunatum chromodynamics (Gauss) <code>UnitSystem</code> based on the <code>protonmass</code> scale.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(QCDGauss)
+𝘦⋅α⁻¹ᐟ²τ⁻¹ᐟ²2⁻¹ᐟ² = 5.29081768990(41) × 10⁻¹⁹ [C]/[𝟙] QCD -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        4\pi, \qquad \tilde m_e = \frac{1}{\mu_{pe}} =
+        \frac{m_e}{m_p}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.QCDGauss" href=
+            "#MeasureSystems.QCDGauss"><code>MeasureSystems.QCDGauss</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">QCDGauss = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ,𝟏/μₚₑ)
+F=M², M=M, L=M⁻¹, T=M⁻¹, Q=Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Qunatum chromodynamics (Gauss)
+              <code>UnitSystem</code> based on the
+              <code>protonmass</code> scale.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(QCDGauss)
 𝟏 = 1.0 [𝟙] QCDGauss
 
 julia&gt; planckreduced(QCDGauss)
@@ -903,7 +3116,12 @@ julia&gt; vacuumpermeability(QCDGauss)
 τ⋅2 = 12.566370614359172 [𝘦ₙ⁻²] QCDGauss
 
 julia&gt; electronmass(QCDGauss)
-μₑᵤ⋅μₚᵤ⁻¹ = 0.000544617021487(33) [mₚ] QCDGauss</code></pre><p>The well known <code>QCDGauss</code> values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(QCDGauss,SI2019) # lQCD
+μₑᵤ⋅μₚᵤ⁻¹ = 0.000544617021487(33) [mₚ] QCDGauss</code></pre>
+              <p>The well known <code>QCDGauss</code> values for
+              <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(QCDGauss,SI2019) # lQCD
 R∞⁻¹α²μₑᵤ⋅μₚᵤ⁻¹τ⁻¹2⁻¹ = 2.10308910335(66) × 10⁻¹⁶ [m]/[mₚ⁻¹] QCDGauss -&gt; SI2019
 
 julia&gt; time(QCDGauss,SI2019) # tQCD
@@ -913,8 +3131,35 @@ julia&gt; mass(QCDGauss,SI2019) # mQCD
 𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹μₚᵤ⋅2 = 1.67262192369(52) × 10⁻²⁷ [kg]/[mₚ] QCDGauss -&gt; SI2019
 
 julia&gt; charge(QCDGauss,SI2019) # qQCD
-𝘦⋅α⁻¹ᐟ² = 1.87554603778(14) × 10⁻¹⁸ [C]/[𝘦ₙ] QCDGauss -&gt; SI2019</code></pre></div></section></article><p class="math-container">\[\tilde k_B = 1, \qquad \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 = 4\pi\alpha, \qquad \tilde m_e = \frac{1}{\mu_{pe}} = \frac{m_e}{m_p}\]</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="MeasureSystems.QCDoriginal" href="#MeasureSystems.QCDoriginal"><code>MeasureSystems.QCDoriginal</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-Julia hljs">QCDoriginal = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ*α,𝟏/μₚₑ)
-F=M², M=M, L=M⁻¹, T=M⁻¹, Q=Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre><p>Qunatum chromodynamics (original) <code>UnitSystem</code> scaled by <code>protonmass</code> and <code>elementarycharge</code>.</p><pre><code class="language-Julia hljs">julia&gt; boltzmann(QCDoriginal)
+𝘦⋅α⁻¹ᐟ² = 1.87554603778(14) × 10⁻¹⁸ [C]/[𝘦ₙ] QCDGauss -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <p class="math-container">\[\tilde k_B = 1, \qquad
+        \tilde\hbar = 1, \qquad \tilde c = 1, \qquad \tilde\mu_0 =
+        4\pi\alpha, \qquad \tilde m_e = \frac{1}{\mu_{pe}} =
+        \frac{m_e}{m_p}\]</p>
+        <article class="docstring">
+          <header>
+            <a class=
+            "docstring-article-toggle-button fa-solid fa-chevron-down"
+            href="javascript:;" title=
+            "Collapse docstring"></a><a class="docstring-binding"
+            id="MeasureSystems.QCDoriginal" href=
+            "#MeasureSystems.QCDoriginal"><code>MeasureSystems.QCDoriginal</code></a>
+            — <span class="docstring-category">Constant</span>
+          </header>
+          <section>
+            <div>
+              <pre><code class=
+              "language-Julia hljs">QCDoriginal = UnitSystem(𝟏,𝟏,𝟏,𝟐*τ*α,𝟏/μₚₑ)
+F=M², M=M, L=M⁻¹, T=M⁻¹, Q=Q, Θ=M, N=M, J=M², A=𝟙, R=𝟙, C=𝟙</code></pre>
+              <p>Qunatum chromodynamics (original)
+              <code>UnitSystem</code> scaled by
+              <code>protonmass</code> and
+              <code>elementarycharge</code>.</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; boltzmann(QCDoriginal)
 𝟏 = 1.0 [𝟙] QCDoriginal
 
 julia&gt; planckreduced(QCDoriginal)
@@ -927,7 +3172,12 @@ julia&gt; vacuumpermeability(QCDoriginal)
 α⋅τ⋅2 = 0.091701236889(14) [𝘦⁻²] QCDoriginal
 
 julia&gt; electronmass(QCDoriginal)
-μₑᵤ⋅μₚᵤ⁻¹ = 0.000544617021487(33) [mₚ] QCDoriginal</code></pre><p>The well known <code>QCDoriginal</code> values for <code>length</code>, <code>time</code>, <code>mass</code>, and <code>charge</code> are:</p><pre><code class="language-Julia hljs">julia&gt; length(QCDoriginal,SI2019) # lQCD
+μₑᵤ⋅μₚᵤ⁻¹ = 0.000544617021487(33) [mₚ] QCDoriginal</code></pre>
+              <p>The well known <code>QCDoriginal</code> values for
+              <code>length</code>, <code>time</code>,
+              <code>mass</code>, and <code>charge</code> are:</p>
+              <pre><code class=
+              "language-Julia hljs">julia&gt; length(QCDoriginal,SI2019) # lQCD
 R∞⁻¹α²μₑᵤ⋅μₚᵤ⁻¹τ⁻¹2⁻¹ = 2.10308910335(66) × 10⁻¹⁶ [m]/[mₚ⁻¹] QCDoriginal -&gt; SI2019
 
 julia&gt; time(QCDoriginal,SI2019) # tQCD
@@ -937,4 +3187,240 @@ julia&gt; mass(QCDoriginal,SI2019) # mQCD
 𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹μₚᵤ⋅2 = 1.67262192369(52) × 10⁻²⁷ [kg]/[mₚ] QCDoriginal -&gt; SI2019
 
 julia&gt; charge(QCDoriginal,SI2019) # qQCD
-𝘦 = 1.602176634×10⁻¹⁹ [C]/[𝘦] QCDoriginal -&gt; SI2019</code></pre></div></section></article><h2 id="UnitSystem-Index"><a class="docs-heading-anchor" href="#UnitSystem-Index">UnitSystem Index</a><a id="UnitSystem-Index-1"></a><a class="docs-heading-anchor-permalink" href="#UnitSystem-Index" title="Permalink"></a></h2><ul><li><a href="#MeasureSystems.British"><code>MeasureSystems.British</code></a></li><li><a href="#MeasureSystems.CODATA"><code>MeasureSystems.CODATA</code></a></li><li><a href="#MeasureSystems.Conventional"><code>MeasureSystems.Conventional</code></a></li><li><a href="#MeasureSystems.Cosmological"><code>MeasureSystems.Cosmological</code></a></li><li><a href="#MeasureSystems.CosmologicalQuantum"><code>MeasureSystems.CosmologicalQuantum</code></a></li><li><a href="#MeasureSystems.EMU"><code>MeasureSystems.EMU</code></a></li><li><a href="#MeasureSystems.ESU"><code>MeasureSystems.ESU</code></a></li><li><a href="#MeasureSystems.Electronic"><code>MeasureSystems.Electronic</code></a></li><li><a href="#MeasureSystems.Engineering"><code>MeasureSystems.Engineering</code></a></li><li><a href="#MeasureSystems.English"><code>MeasureSystems.English</code></a></li><li><a href="#MeasureSystems.FFF"><code>MeasureSystems.FFF</code></a></li><li><a href="#MeasureSystems.FPS"><code>MeasureSystems.FPS</code></a></li><li><a href="#MeasureSystems.Gauss"><code>MeasureSystems.Gauss</code></a></li><li><a href="#MeasureSystems.Gravitational"><code>MeasureSystems.Gravitational</code></a></li><li><a href="#MeasureSystems.Hartree"><code>MeasureSystems.Hartree</code></a></li><li><a href="#MeasureSystems.Hubble"><code>MeasureSystems.Hubble</code></a></li><li><a href="#MeasureSystems.IAU"><code>MeasureSystems.IAU</code></a></li><li><a href="#MeasureSystems.IAUE"><code>MeasureSystems.IAUE</code></a></li><li><a href="#MeasureSystems.IAUJ"><code>MeasureSystems.IAUJ</code></a></li><li><a href="#MeasureSystems.IPS"><code>MeasureSystems.IPS</code></a></li><li><a href="#MeasureSystems.International"><code>MeasureSystems.International</code></a></li><li><a href="#MeasureSystems.InternationalMean"><code>MeasureSystems.InternationalMean</code></a></li><li><a href="#MeasureSystems.KKH"><code>MeasureSystems.KKH</code></a></li><li><a href="#MeasureSystems.LorentzHeaviside"><code>MeasureSystems.LorentzHeaviside</code></a></li><li><a href="#MeasureSystems.MPH"><code>MeasureSystems.MPH</code></a></li><li><a href="#MeasureSystems.MTS"><code>MeasureSystems.MTS</code></a></li><li><a href="#MeasureSystems.Meridian"><code>MeasureSystems.Meridian</code></a></li><li><a href="#MeasureSystems.Metric"><code>MeasureSystems.Metric</code></a></li><li><a href="#MeasureSystems.Natural"><code>MeasureSystems.Natural</code></a></li><li><a href="#MeasureSystems.NaturalGauss"><code>MeasureSystems.NaturalGauss</code></a></li><li><a href="#MeasureSystems.Nautical"><code>MeasureSystems.Nautical</code></a></li><li><a href="#MeasureSystems.Planck"><code>MeasureSystems.Planck</code></a></li><li><a href="#MeasureSystems.PlanckGauss"><code>MeasureSystems.PlanckGauss</code></a></li><li><a href="#MeasureSystems.QCD"><code>MeasureSystems.QCD</code></a></li><li><a href="#MeasureSystems.QCDGauss"><code>MeasureSystems.QCDGauss</code></a></li><li><a href="#MeasureSystems.QCDoriginal"><code>MeasureSystems.QCDoriginal</code></a></li><li><a href="#MeasureSystems.Rydberg"><code>MeasureSystems.Rydberg</code></a></li><li><a href="#MeasureSystems.SI1976"><code>MeasureSystems.SI1976</code></a></li><li><a href="#MeasureSystems.SI2019"><code>MeasureSystems.SI2019</code></a></li><li><a href="#MeasureSystems.Schrodinger"><code>MeasureSystems.Schrodinger</code></a></li><li><a href="#MeasureSystems.Stoney"><code>MeasureSystems.Stoney</code></a></li><li><a href="#MeasureSystems.Survey"><code>MeasureSystems.Survey</code></a></li></ul></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../similitude/">« Similitude</a><a class="docs-footer-nextpage" href="../constants/">Physics Constants »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.10.1 on <span class="colophon-date" title="Thursday 17 April 2025 12:40">Thursday 17 April 2025</span>. Using Julia version 1.11.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+𝘦 = 1.602176634×10⁻¹⁹ [C]/[𝘦] QCDoriginal -&gt; SI2019</code></pre>
+            </div>
+          </section>
+        </article>
+        <h2 id="UnitSystem-Index"><a class="docs-heading-anchor"
+        href="#UnitSystem-Index">UnitSystem Index</a><a id=
+        "UnitSystem-Index-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#UnitSystem-Index"
+        title="Permalink"></a></h2>
+        <ul>
+          <li>
+            <a href=
+            "#MeasureSystems.British"><code>MeasureSystems.British</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.CODATA"><code>MeasureSystems.CODATA</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Conventional"><code>MeasureSystems.Conventional</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Cosmological"><code>MeasureSystems.Cosmological</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.CosmologicalQuantum"><code>MeasureSystems.CosmologicalQuantum</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.EMU"><code>MeasureSystems.EMU</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.ESU"><code>MeasureSystems.ESU</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Electronic"><code>MeasureSystems.Electronic</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Engineering"><code>MeasureSystems.Engineering</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.English"><code>MeasureSystems.English</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.FFF"><code>MeasureSystems.FFF</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.FPS"><code>MeasureSystems.FPS</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Gauss"><code>MeasureSystems.Gauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Gravitational"><code>MeasureSystems.Gravitational</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Hartree"><code>MeasureSystems.Hartree</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Hubble"><code>MeasureSystems.Hubble</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IAU"><code>MeasureSystems.IAU</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IAUE"><code>MeasureSystems.IAUE</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IAUJ"><code>MeasureSystems.IAUJ</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.IPS"><code>MeasureSystems.IPS</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.International"><code>MeasureSystems.International</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.InternationalMean"><code>MeasureSystems.InternationalMean</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.KKH"><code>MeasureSystems.KKH</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.LorentzHeaviside"><code>MeasureSystems.LorentzHeaviside</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.MPH"><code>MeasureSystems.MPH</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.MTS"><code>MeasureSystems.MTS</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Meridian"><code>MeasureSystems.Meridian</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Metric"><code>MeasureSystems.Metric</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Natural"><code>MeasureSystems.Natural</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.NaturalGauss"><code>MeasureSystems.NaturalGauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Nautical"><code>MeasureSystems.Nautical</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Planck"><code>MeasureSystems.Planck</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.PlanckGauss"><code>MeasureSystems.PlanckGauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.QCD"><code>MeasureSystems.QCD</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.QCDGauss"><code>MeasureSystems.QCDGauss</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.QCDoriginal"><code>MeasureSystems.QCDoriginal</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Rydberg"><code>MeasureSystems.Rydberg</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.SI1976"><code>MeasureSystems.SI1976</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.SI2019"><code>MeasureSystems.SI2019</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Schrodinger"><code>MeasureSystems.Schrodinger</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Stoney"><code>MeasureSystems.Stoney</code></a>
+          </li>
+          <li>
+            <a href=
+            "#MeasureSystems.Survey"><code>MeasureSystems.Survey</code></a>
+          </li>
+        </ul>
+      </article>
+      <nav class="docs-footer">
+        <a class="docs-footer-prevpage" href="../similitude/">«
+        Similitude</a><a class="docs-footer-nextpage" href=
+        "../constants/">Physics Constants »</a>
+        <div class="flexbox-break"></div>
+        <p class="footer-message">Powered by <a href=
+        "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
+        and the <a href="https://julialang.org/">Julia Programming
+        Language</a>.</p>
+      </nav>
+    </div>
+    <div class="modal" id="documenter-settings">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Settings</p>
+        </header>
+        <section class="modal-card-body">
+          <p><label class="label">Theme</label></p>
+          <div class="select">
+            <select id="documenter-themepicker">
+              <option value="auto">
+                Automatic (OS)
+              </option>
+              <option value="documenter-light">
+                documenter-light
+              </option>
+              <option value="documenter-dark">
+                documenter-dark
+              </option>
+              <option value="catppuccin-latte">
+                catppuccin-latte
+              </option>
+              <option value="catppuccin-frappe">
+                catppuccin-frappe
+              </option>
+              <option value="catppuccin-macchiato">
+                catppuccin-macchiato
+              </option>
+              <option value="catppuccin-mocha">
+                catppuccin-mocha
+              </option>
+            </select>
+          </div>
+          <hr>
+          <p>This document was generated with <a href=
+          "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
+          version 1.10.1 on <span class="colophon-date" title=
+          "Friday 18 April 2025 08:49">Friday 18 April 2025</span>.
+          Using Julia version 1.11.0.</p>
+        </section>
+        <footer class="modal-card-foot"></footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

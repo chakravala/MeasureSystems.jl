@@ -1,0 +1,3341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <title>Metric -&gt; ESU · UnitSystems.jl</title>
+  <meta name="title" content="Metric -&gt; ESU · UnitSystems.jl">
+  <meta property="og:title" content=
+  "Metric -&gt; ESU · UnitSystems.jl">
+  <meta property="twitter:title" content=
+  "Metric -&gt; ESU · UnitSystems.jl">
+  <meta name="description" content=
+  "Documentation for UnitSystems.jl.">
+  <meta property="og:description" content=
+  "Documentation for UnitSystems.jl.">
+  <meta property="twitter:description" content=
+  "Documentation for UnitSystems.jl.">
+  <script data-outdated-warner="" src=
+  "../../assets/warner.js"></script>
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css"
+  rel="stylesheet" type="text/css">
+  <script>
+  documenterBaseURL="../.."
+  </script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+  data-main="../../assets/documenter.js"></script>
+  <script src="../../search_index.js"></script>
+  <script src="../../siteinfo.js"></script>
+  <script src="../../../versions.js"></script>
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-mocha.css" data-theme-name=
+  "catppuccin-mocha">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-macchiato.css"
+  data-theme-name="catppuccin-macchiato">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-frappe.css" data-theme-name=
+  "catppuccin-frappe">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-latte.css" data-theme-name=
+  "catppuccin-latte">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/documenter-dark.css" data-theme-name=
+  "documenter-dark" data-theme-primary-dark="">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/documenter-light.css" data-theme-name=
+  "documenter-light" data-theme-primary="">
+  <script src="../../assets/themeswap.js"></script>
+</head>
+<body>
+  <div id="documenter">
+    <nav class="docs-sidebar">
+      <div class="docs-package-name">
+        <span class="docs-autofit"><a href=
+        "../../">UnitSystems.jl</a></span>
+      </div><button class=
+      "docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2"
+      id="documenter-search-query">Search docs (Ctrl + /)</button>
+      <ul class="docs-menu">
+        <li>
+          <a class="tocitem" href="../../">UnitSystems README</a>
+        </li>
+        <li>
+          <a class="tocitem" href=
+          "../../similitude/">Similitude</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../unitsystems/">The
+          UnitSystem</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../constants/">Physics
+          Constants</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../convert/">Unit
+          Conversions</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../units/">Standard Units</a>
+        </li>
+        <li>
+          <span class="tocitem">Appendix</span>
+          <ul>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Definition/">Definition</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Unified/">Unified</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Metric/">Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/SI2019/">SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/SI1976/">SI1976</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/CODATA/">CODATA</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Conventional/">Conventional</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/International/">International</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/InternationalMean/">InternationalMean</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/MetricTurn/">MetricTurn</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/MetricSpatian/">MetricSpatian</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/MetricGradian/">MetricGradian</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/MetricDegree/">MetricDegree</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/MetricArcminute/">MetricArcminute</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/MetricArcsecond/">MetricArcsecond</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Engineering/">Engineering</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Gravitational/">Gravitational</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/MTS/">MTS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/EMU/">EMU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/ESU/">ESU</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Gauss/">Gauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/LorentzHeaviside/">LorentzHeaviside</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/FPS/">FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/IPS/">IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/British/">British</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/English/">English</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Survey/">Survey</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/MPH/">MPH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/KKH/">KKH</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Nautical/">Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Meridian/">Meridian</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/IAU/">IAU☉</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/IAUE/">IAUE</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/IAUJ/">IAUJ</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Hubble/">Hubble</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Cosmological/">Cosmological</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/CosmologicalQuantum/">CosmologicalQuantum</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Planck/">Planck</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/PlanckGauss/">PlanckGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Stoney/">Stoney</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Hartree/">Hartree</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Rydberg/">Rydberg</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Schrodinger/">Schrodinger</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Electronic/">Electronic</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/Natural/">Natural</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/NaturalGauss/">NaturalGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../../appendix/QCD/">QCD</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/QCDGauss/">QCDGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../../appendix/QCDoriginal/">QCDoriginal</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span class="tocitem">Ratio</span>
+          <ul>
+            <li>
+              <a class="tocitem" href="../MetricSI2019/">Metric
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Metric/">SI2019
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricCODATA/">Metric
+              -&gt; CODATA</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../CODATAMetric/">CODATA
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019CODATA/">SI2019
+              -&gt; CODATA</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../CODATASI2019/">CODATA
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricConventional/">Metric -&gt;
+              Conventional</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ConventionalMetric/">Conventional -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019Conventional/">SI2019 -&gt;
+              Conventional</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ConventionalSI2019/">Conventional -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricInternational/">Metric -&gt;
+              International</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../InternationalMetric/">International -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019International/">SI2019 -&gt;
+              International</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../InternationalSI2019/">International -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricInternationalMean/">Metric -&gt;
+              InternationalMean</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../InternationalMeanMetric/">InternationalMean -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019InternationalMean/">SI2019 -&gt;
+              InternationalMean</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../InternationalMeanSI2019/">InternationalMean -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricEngineering/">Metric -&gt; Engineering</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../EngineeringMetric/">Engineering -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricGravitational/">Metric -&gt;
+              Gravitational</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../GravitationalMetric/">Gravitational -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricEMU/">Metric -&gt;
+              EMU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../EMUMetric/">EMU -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019EMU/">SI2019 -&gt;
+              EMU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../EMUSI2019/">EMU -&gt;
+              SI2019</a>
+            </li>
+            <li class="is-active">
+              <a class="tocitem" href="">Metric -&gt; ESU</a>
+              <ul class="internal">
+                <li>
+                  <a class="tocitem" href=
+                  "#Kinematic-Ratios"><span>Kinematic
+                  Ratios</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Mechanical-Ratios"><span>Mechanical
+                  Ratios</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Electromagnetic-Ratios"><span>Electromagnetic
+                  Ratios</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Thermodynamic-Ratios"><span>Thermodynamic
+                  Ratios</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Molar-Ratios"><span>Molar Ratios</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Photometric-Ratios"><span>Photometric
+                  Ratios</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Kinematic"><span>Kinematic</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Mechanical"><span>Mechanical</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Electromagnetic"><span>Electromagnetic</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Thermodynamic"><span>Thermodynamic</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Molar"><span>Molar</span></a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "#Photometric"><span>Photometric</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="tocitem" href="../ESUMetric/">ESU -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019ESU/">SI2019 -&gt;
+              ESU</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../ESUSI2019/">ESU -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricGauss/">Metric
+              -&gt; Gauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../GaussMetric/">Gauss -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Gauss/">SI2019
+              -&gt; Gauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../GaussSI2019/">Gauss -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricLorentzHeaviside/">Metric -&gt;
+              LorentzHeaviside</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../LorentzHeavisideMetric/">LorentzHeaviside -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019LorentzHeaviside/">SI2019 -&gt;
+              LorentzHeaviside</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../LorentzHeavisideSI2019/">LorentzHeaviside -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricEnglish/">Metric
+              -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../EnglishMetric/">English
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019English/">SI2019
+              -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../EnglishSI2019/">English
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricBritish/">Metric
+              -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../BritishMetric/">British
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019British/">SI2019
+              -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../BritishSI2019/">British
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../BritishEnglish/">British
+              -&gt; English</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../EnglishBritish/">English
+              -&gt; British</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricIPS/">Metric -&gt;
+              IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../IPSMetric/">IPS -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019IPS/">SI2019 -&gt;
+              IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../IPSSI2019/">IPS -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../IPSBritish/">IPS -&gt;
+              British</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../BritishIPS/">British
+              -&gt; IPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricFPS/">Metric -&gt;
+              FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../FPSMetric/">FPS -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019FPS/">SI2019 -&gt;
+              FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../FPSSI2019/">FPS -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../FPSEnglish/">FPS -&gt;
+              English</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../EnglishFPS/">English
+              -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../FPSBritish/">FPS -&gt;
+              British</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../BritishFPS/">British
+              -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../FPSMPH/">FPS -&gt;
+              MPH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MPHFPS/">MPH -&gt;
+              FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../NauticalFPS/">Nautical
+              -&gt; FPS</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../FPSNautical/">FPS -&gt;
+              Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../NauticalMPH/">Nautical
+              -&gt; MPH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MPHNautical/">MPH -&gt;
+              Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../NauticalKKH/">Nautical
+              -&gt; KKH</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../KKHNautical/">KKH -&gt;
+              Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../NauticalMetric/">Nautical
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricNautical/">Metric
+              -&gt; Nautical</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MeridianMetric/">Meridian
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricMeridian/">Metric
+              -&gt; Meridian</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../IAUMetric/">IAU☉ -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricIAU/">Metric -&gt;
+              IAU☉</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricPlanck/">Metric
+              -&gt; Planck</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../PlanckMetric/">Planck
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Planck/">SI2019
+              -&gt; Planck</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../PlanckSI2019/">Planck
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricPlanckGauss/">Metric -&gt; PlanckGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../PlanckGaussMetric/">PlanckGauss -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019PlanckGauss/">SI2019 -&gt; PlanckGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../PlanckGaussSI2019/">PlanckGauss -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricStoney/">Metric
+              -&gt; Stoney</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../StoneyMetric/">Stoney
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Stoney/">SI2019
+              -&gt; Stoney</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../StoneySI2019/">Stoney
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricHartree/">Metric
+              -&gt; Hartree</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../HartreeMetric/">Hartree
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Hartree/">SI2019
+              -&gt; Hartree</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../HartreeSI2019/">Hartree
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricRydberg/">Metric
+              -&gt; Rydberg</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../RydbergMetric/">Rydberg
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Rydberg/">SI2019
+              -&gt; Rydberg</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../RydbergSI2019/">Rydberg
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricSchrodinger/">Metric -&gt; Schrodinger</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SchrodingerMetric/">Schrodinger -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019Schrodinger/">SI2019 -&gt; Schrodinger</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SchrodingerSI2019/">Schrodinger -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricElectronic/">Metric
+              -&gt; Electronic</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ElectronicMetric/">Electronic -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Electronic/">SI2019
+              -&gt; Electronic</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../ElectronicSI2019/">Electronic -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricNatural/">Metric
+              -&gt; Natural</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../NaturalMetric/">Natural
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019Natural/">SI2019
+              -&gt; Natural</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../NaturalSI2019/">Natural
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricNaturalGauss/">Metric -&gt;
+              NaturalGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../NaturalGaussMetric/">NaturalGauss -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019NaturalGauss/">SI2019 -&gt;
+              NaturalGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../NaturalGaussSI2019/">NaturalGauss -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricQCD/">Metric -&gt;
+              QCD</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../QCDMetric/">QCD -&gt;
+              Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019QCD/">SI2019 -&gt;
+              QCD</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../QCDSI2019/">QCD -&gt;
+              SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../MetricQCDGauss/">Metric
+              -&gt; QCDGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../QCDGaussMetric/">QCDGauss
+              -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../SI2019QCDGauss/">SI2019
+              -&gt; QCDGauss</a>
+            </li>
+            <li>
+              <a class="tocitem" href="../QCDGaussSI2019/">QCDGauss
+              -&gt; SI2019</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../MetricQCDoriginal/">Metric -&gt; QCDoriginal</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../QCDoriginalMetric/">QCDoriginal -&gt; Metric</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../SI2019QCDoriginal/">SI2019 -&gt; QCDoriginal</a>
+            </li>
+            <li>
+              <a class="tocitem" href=
+              "../QCDoriginalSI2019/">QCDoriginal -&gt; SI2019</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="docs-version-selector field has-addons">
+        <div class="control">
+          <span class=
+          "docs-label button is-static is-size-7">Version</span>
+        </div>
+        <div class="docs-selector control is-expanded">
+          <div class="select is-fullwidth is-size-7">
+            <select id="documenter-version-selector">
+            </select>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="docs-main">
+      <header class="docs-navbar">
+        <a class=
+        "docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop"
+        id="documenter-sidebar-button" href="#"></a>
+        <nav class="breadcrumb">
+          <ul class="is-hidden-mobile">
+            <li>
+              <a class="is-disabled">Ratio</a>
+            </li>
+            <li class="is-active">
+              <a href="">Metric -&gt; ESU</a>
+            </li>
+          </ul>
+          <ul class="is-hidden-tablet">
+            <li class="is-active">
+              <a href="">Metric -&gt; ESU</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="docs-right">
+          <a class=
+          "docs-settings-button docs-navbar-link fa-solid fa-gear"
+          id="documenter-settings-button" href="#" title=
+          "Settings"></a><a class=
+          "docs-article-toggle-button fa-solid fa-chevron-up" id=
+          "documenter-article-toggle-button" href="javascript:;"
+          title="Collapse all docstrings"></a>
+        </div>
+      </header>
+      <article class="content" id="documenter-page">
+        <h1 id="Metric-ESU"><a class="docs-heading-anchor" href=
+        "#Metric-ESU">Metric -&gt; ESU</a><a id=
+        "Metric-ESU-1"></a><a class="docs-heading-anchor-permalink"
+        href="#Metric-ESU" title="Permalink"></a></h1>
+        <p>data derived with <a href=
+        "https://github.com/chakravala/UnitSystems.jl">UnitSystems.jl</a>
+        <a href=
+        "https://zenodo.org/badge/latestdoi/317419353"><img src=
+        "https://zenodo.org/badge/317419353.svg" alt="DOI"></a></p>
+        <h2 id="Kinematic-Ratios"><a class="docs-heading-anchor"
+        href="#Kinematic-Ratios">Kinematic Ratios</a><a id=
+        "Kinematic-Ratios-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Kinematic-Ratios"
+        title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right">Name</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">angle</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">solid angle</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">time</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular time</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">length</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular length</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">area</td>
+            <td style="text-align: left"><span>$10000.0$</span>
+            <span>$\left[\text{cm}^{2}\right]/\left[\text{m}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular area</td>
+            <td style="text-align: left"><span>$10000.0$</span>
+            <span>$\left[\text{cm}^{2}\right]/\left[\text{m}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">volume</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{6}$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{6}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">wavenumber</td>
+            <td style="text-align: left">
+            <span>$0.010000000000000002$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-2}5^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular wavenumber</td>
+            <td style="text-align: left">
+            <span>$0.010000000000000002$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-2}5^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">fuel efficiency</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">number density</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-6}$</span>
+            <span>$\left[\text{mL}^{-1}\right]/\left[\text{m}^{-3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-6}5^{-6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">frequency</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular frequency</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">frequency drift</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">stagnance</td>
+            <td style="text-align: left">
+            <span>$0.010000000000000002$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-2}5^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">speed</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">acceleration</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">jerk</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">snap</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">crackle</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">pop</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">volume flow</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{6}$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{6}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">etendue</td>
+            <td style="text-align: left"><span>$10000.0$</span>
+            <span>$\left[\text{cm}^{2}\right]/\left[\text{m}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">photon intensity</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">photon irradiance</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">photon radiance</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Mechanical-Ratios"><a class="docs-heading-anchor"
+        href="#Mechanical-Ratios">Mechanical Ratios</a><a id=
+        "Mechanical-Ratios-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Mechanical-Ratios"
+        title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right">Name</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">inertia</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{dyn} \cdot
+            \text{cm}^{-1}\right]/\left[\text{N} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">mass</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{g}\right]/\left[\text{kg}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">mass flow</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{g}\right]/\left[\text{kg}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">linear density</td>
+            <td style="text-align: left"><span>$10.0$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}^{-1}\right]/\left[\text{kg}\cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center"><span>$2\cdot
+            5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">area density</td>
+            <td style="text-align: left"><span>$0.1$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}^{-2}\right]/\left[\text{kg}\cdot
+            \text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-1}5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">density</td>
+            <td style="text-align: left"><span>$0.001$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}^{-3}\right]/\left[\text{kg}\cdot
+            \text{m}^{-3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-3}5^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific weight</td>
+            <td style="text-align: left"><span>$0.1$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}^{-2}\text{s}^{-2}\right]/\left[\text{kg}\cdot
+            \text{m}^{-2}\text{s}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-1}5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific volume</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{g}^{-1}\text{cm}^{3}\right]/\left[\text{kg}^{-1}\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">force</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{dyn}\right]/\left[\text{N}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific force</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{gal}\right]/\left[\text{m}\cdot
+            \text{s}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">gravity force</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\text{s}^{2}\right]/\left[\text{s}^{2}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">pressure</td>
+            <td style="text-align: left"><span>$10.0$</span>
+            <span>$\left[\text{Ba}\right]/\left[\text{Pa}\right]$</span></td>
+            <td style="text-align: center"><span>$2\cdot
+            5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">compressibility</td>
+            <td style="text-align: left"><span>$0.1$</span>
+            <span>$\left[\text{Ba}^{-1}\right]/\left[\text{Pa}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-1}5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">viscosity</td>
+            <td style="text-align: left"><span>$10.0$</span>
+            <span>$\left[\text{Ba}\right]/\left[\text{Pa}\right]$</span></td>
+            <td style="text-align: center"><span>$2\cdot
+            5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">diffusivity</td>
+            <td style="text-align: left"><span>$10000.0$</span>
+            <span>$\left[\text{cm}^{2}\right]/\left[\text{m}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">rotational inertia</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span> <span>$\left[\text{g}\cdot
+            \text{cm}^{2}\right]/\left[\text{kg}\cdot
+            \text{m}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">impulse</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{dyn}\right]/\left[\text{N}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">momentum</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}\right]/\left[\text{kg}\cdot
+            \text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular momentum</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">yank</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}\right]/\left[\text{kg}\cdot
+            \text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">energy</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific energy</td>
+            <td style="text-align: left"><span>$10000.0$</span>
+            <span>$\left[\text{erg} \cdot
+            \text{g}^{-1}\right]/\left[\text{J} \cdot
+            \text{kg}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">action</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">fluence</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{dyn} \cdot
+            \text{cm}^{-1}\right]/\left[\text{N} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">power</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">power density</td>
+            <td style="text-align: left"><span>$10.0$</span>
+            <span>$\left[\text{Ba}\right]/\left[\text{Pa}\right]$</span></td>
+            <td style="text-align: center"><span>$2\cdot
+            5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">irradiance</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{dyn} \cdot
+            \text{cm}^{-1}\right]/\left[\text{N} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">radiance</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{dyn} \cdot
+            \text{cm}^{-1}\right]/\left[\text{N} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">radiant intensity</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">spectral flux</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{dyn}\right]/\left[\text{N}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">spectral exposure</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{dyn} \cdot
+            \text{cm}^{-1}\right]/\left[\text{N} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">sound exposure</td>
+            <td style="text-align: left"><span>$100.0$</span>
+            <span>$\left[\text{g}^{2}\text{cm}^{-2}\text{s}^{-4}\right]/\left[\text{kg}^{2}\text{m}^{-2}\text{s}^{-4}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">impedance</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-5}$</span> <span>$\left[\text{g}\cdot
+            \text{cm}^{-4}\text{s}^{-2}\right]/\left[\text{kg}\cdot
+            \text{m}^{-4}\text{s}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-5}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific impedance</td>
+            <td style="text-align: left"><span>$0.1$</span>
+            <span>$\left[\text{g}\cdot
+            \text{cm}^{-2}\text{s}^{-2}\right]/\left[\text{kg}\cdot
+            \text{m}^{-2}\text{s}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-1}5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">admittance</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{g}^{-1}\text{cm}^{4}\text{s}^{2}\right]/\left[\text{kg}^{-1}\text{m}^{4}\text{s}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">compliance</td>
+            <td style="text-align: left"><span>$0.001$</span>
+            <span>$\left[\text{g}^{-1}\right]/\left[\text{kg}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-3}5^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">inertance</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-5}$</span> <span>$\left[\text{g}\cdot
+            \text{cm}^{-4}\right]/\left[\text{kg}\cdot
+            \text{m}^{-4}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-5}5^{-5}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Electromagnetic-Ratios"><a class=
+        "docs-heading-anchor" href=
+        "#Electromagnetic-Ratios">Electromagnetic Ratios</a><a id=
+        "Electromagnetic-Ratios-1"></a><a class=
+        "docs-heading-anchor-permalink" href=
+        "#Electromagnetic-Ratios" title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right">Name</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">charge</td>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{9}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}\right]/\left[\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2\cdot 5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">charge density</td>
+            <td style="text-align: left">
+            <span>$2997.9245800000003$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-3/2}\text{s}^{-1}\right]/\left[\text{m}^{-3}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{-5}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">linear charge
+            density</td>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{7}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-1}\right]/\left[\text{m}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{-1}5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">exposure</td>
+            <td style="text-align: left"><span>$2.9979245800000005
+            \times 10^{6}$</span>
+            <span>$\left[\text{g}^{-1/2}\text{cm}^{3/2}\text{s}^{-1}\right]/\left[\text{kg}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{-2}5^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">mobility</td>
+            <td style="text-align: left">
+            <span>$33.3564095198152$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{5/2}\text{s}^{-1}\right]/\left[\text{kg}\cdot
+            \text{m}^{4}\text{s}^{-2}\text{C}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{10}5^{10}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">current</td>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{9}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}\right]/\left[\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2\cdot 5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">current density</td>
+            <td style="text-align: left"><span>$299792.458$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}\right]/\left[\text{m}^{-2}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{-3}5^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">resistance</td>
+            <td style="text-align: left"><span>$1.1126500560536183
+            \times 10^{-12}$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{F}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-2}2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">conductance</td>
+            <td style="text-align: left"><span>$8.987551787368176
+            \times 10^{11}$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{F}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}2^{-5}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">resistivity</td>
+            <td style="text-align: left"><span>$1.1126500560536183
+            \times 10^{-10}$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\text{m} \cdot
+            \text{F}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-2}2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">conductivity</td>
+            <td style="text-align: left"><span>$8.987551787368176
+            \times 10^{9}$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\text{F} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}2^{-7}5^{-7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">capacitance</td>
+            <td style="text-align: left"><span>$8.987551787368176
+            \times 10^{11}$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{F}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}2^{-5}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">inductance</td>
+            <td style="text-align: left"><span>$1.1126500560536183
+            \times 10^{-12}$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{F}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-2}2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">reluctance</td>
+            <td style="text-align: left"><span>$1.129409066758147
+            \times 10^{13}$</span>
+            <span>$\left[\text{cm}\right]/\left[\text{F}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}\tau\cdot 2^{-4}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">permeance</td>
+            <td style="text-align: left"><span>$8.85418781762039
+            \times 10^{-14}$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{F}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-2}\tau^{-1}2^{4}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">permittivity</td>
+            <td style="text-align: left"><span>$1.129409066758147
+            \times 10^{11}$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\text{F} \cdot
+            \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}\tau\cdot 2^{-6}5^{-7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">permeability</td>
+            <td style="text-align: left"><span>$8.85418781762039
+            \times 10^{-16}$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{kg}\cdot
+            \text{m}\cdot
+            \text{s}^{-2}\text{C}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-2}\tau^{-1}2^{2}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">susceptibility</td>
+            <td style="text-align: left">
+            <span>$0.07957747154594767$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific
+            susceptibility</td>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{g}^{-1}\text{cm}^{3}\right]/\left[\text{kg}^{-1}\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">demagnetizing factor</td>
+            <td style="text-align: left">
+            <span>$12.566370614359172$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$\tau\cdot
+            2$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">vector potential</td>
+            <td style="text-align: left"><span>$3.3356409519815205
+            \times 10^{-5}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}\right]/\left[\text{V}
+            \cdot \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric potential</td>
+            <td style="text-align: left">
+            <span>$0.0033356409519815205$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-1}\right]/\left[\text{V}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{6}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic potential</td>
+            <td style="text-align: left"><span>$3.767303134617706
+            \times 10^{10}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}\right]/\left[\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            \tau\cdot 2^{2}5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric field</td>
+            <td style="text-align: left"><span>$3.3356409519815205
+            \times 10^{-5}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}\right]/\left[\text{V}
+            \cdot \text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic field</td>
+            <td style="text-align: left"><span>$3.7673031346177065
+            \times 10^{8}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-1}\right]/\left[\text{m}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            \tau\cdot 5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric flux</td>
+            <td style="text-align: left">
+            <span>$0.33356409519815206$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}\right]/\left[\text{V}
+            \cdot \text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{8}5^{8}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic flux</td>
+            <td style="text-align: left">
+            <span>$0.0033356409519815205$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-1}\right]/\left[\text{V}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{6}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric
+            displacement</td>
+            <td style="text-align: left"><span>$3.7673031346177063
+            \times 10^{6}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}\right]/\left[\text{m}^{-2}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            \tau\cdot 2^{-2}5^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic flux
+            density</td>
+            <td style="text-align: left"><span>$3.3356409519815204
+            \times 10^{-7}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-3/2}\text{s}^{-1}\right]/\left[\text{kg}\cdot
+            \text{s}^{-2}\text{C}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{2}5^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric dipole
+            moment</td>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{11}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{5/2}\text{s}^{-1}\right]/\left[\text{m}\cdot
+            \text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic dipole
+            moment</td>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{13}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{7/2}\text{s}^{-1}\right]/\left[\text{m}^{2}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric
+            polarizability</td>
+            <td style="text-align: left"><span>$8.987551787368176
+            \times 10^{15}$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{kg}^{-1}\text{s}^{2}\text{C}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}2^{-1}5^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic
+            polarizability</td>
+            <td style="text-align: left">
+            <span>$79577.47154594767$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{5}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic moment</td>
+            <td style="text-align: left">
+            <span>$0.33356409519815206$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}\right]/\left[\text{V}
+            \cdot \text{m}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{-1}2^{8}5^{8}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific
+            magnetization</td>
+            <td style="text-align: left">
+            <span>$2997.9245800000003$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-3/2}\text{s}\right]/\left[\text{m}^{-3}\text{s}^{2}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{-5}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">pole strength</td>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{11}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{5/2}\text{s}^{-1}\right]/\left[\text{m}\cdot
+            \text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{3}5^{3}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Thermodynamic-Ratios"><a class=
+        "docs-heading-anchor" href=
+        "#Thermodynamic-Ratios">Thermodynamic Ratios</a><a id=
+        "Thermodynamic-Ratios-1"></a><a class=
+        "docs-heading-anchor-permalink" href=
+        "#Thermodynamic-Ratios" title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right">Name</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">temperature</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">entropy</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific entropy</td>
+            <td style="text-align: left"><span>$10000.0$</span>
+            <span>$\left[\text{erg} \cdot
+            \text{g}^{-1}\right]/\left[\text{J} \cdot
+            \text{kg}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{4}5^{4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">volume heat capacity</td>
+            <td style="text-align: left"><span>$10.0$</span>
+            <span>$\left[\text{Ba}\right]/\left[\text{Pa}\right]$</span></td>
+            <td style="text-align: center"><span>$2\cdot
+            5$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal conductivity</td>
+            <td style="text-align: left"><span>$100000.0$</span>
+            <span>$\left[\text{dyn}\right]/\left[\text{N}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{5}5^{5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal conductance</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal resistivity</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-5}$</span>
+            <span>$\left[\text{dyn}^{-1}\right]/\left[\text{N}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-5}5^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal resistance</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-7}$</span>
+            <span>$\left[\text{erg}^{-1}\right]/\left[\text{J}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-7}5^{-7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal expansion</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">lapse rate</td>
+            <td style="text-align: left">
+            <span>$0.010000000000000002$</span>
+            <span>$\left[\text{cm}^{-1}\right]/\left[\text{m}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-2}5^{-2}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Molar-Ratios"><a class="docs-heading-anchor" href=
+        "#Molar-Ratios">Molar Ratios</a><a id=
+        "Molar-Ratios-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Molar-Ratios" title=
+        "Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right">Name</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar mass</td>
+            <td style="text-align: left"><span>$1000.0$</span>
+            <span>$\left[\text{g}\right]/\left[\text{kg}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{3}5^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molality</td>
+            <td style="text-align: left"><span>$0.001$</span>
+            <span>$\left[\text{g}^{-1}\right]/\left[\text{kg}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-3}5^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar amount</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molarity</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-6}$</span>
+            <span>$\left[\text{mL}^{-1}\right]/\left[\text{m}^{-3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-6}5^{-6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar volume</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{6}$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{6}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar entropy</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar energy</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{7}$</span>
+            <span>$\left[\text{erg}\right]/\left[\text{J}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{7}5^{7}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar conductivity</td>
+            <td style="text-align: left"><span>$8.987551787368177
+            \times 10^{13}$</span>
+            <span>$\left[\text{cm}^{2}\right]/\left[\text{kg}^{-1}\text{m}^{-1}\text{s}^{2}\text{C}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{c}^{2}2^{-3}5^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar susceptibility</td>
+            <td style="text-align: left">
+            <span>$79577.47154594767$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{5}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">catalysis</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specificity</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{6}$</span>
+            <span>$\left[\text{mL}\right]/\left[\text{m}^{3}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{6}5^{6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">diffusion flux</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Photometric-Ratios"><a class="docs-heading-anchor"
+        href="#Photometric-Ratios">Photometric Ratios</a><a id=
+        "Photometric-Ratios-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Photometric-Ratios"
+        title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right">Name</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous flux</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous intensity</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminance</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">illuminance</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous energy</td>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\mathbb{1}\right]/\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous exposure</td>
+            <td style="text-align: left"><span>$0.0001$</span>
+            <span>$\left[\text{cm}^{-2}\right]/\left[\text{m}^{-2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-4}5^{-4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous efficacy</td>
+            <td style="text-align: left"><span>$1.0 \times
+            10^{-7}$</span>
+            <span>$\left[\text{erg}^{-1}\right]/\left[\text{J}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$2^{-7}5^{-7}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Kinematic"><a class="docs-heading-anchor" href=
+        "#Kinematic">Kinematic</a><a id="Kinematic-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Kinematic" title=
+        "Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right"></th>
+            <th style="text-align: left">Unified</th>
+            <th style="text-align: center">Metric</th>
+            <th style="text-align: center">ESU</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">angle</td>
+            <td style="text-align: left">
+            <span>$\text{A}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">solid angle</td>
+            <td style="text-align: left">
+            <span>$\text{A}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">time</td>
+            <td style="text-align: left">
+            <span>$\text{T}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular time</td>
+            <td style="text-align: left"><span>$\text{T}\cdot
+            \text{A}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">length</td>
+            <td style="text-align: left">
+            <span>$\text{L}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular length</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{A}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">area</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular area</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{2}\text{A}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">volume</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{mL}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">wavenumber</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular wavenumber</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-1}\text{A}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">fuel efficiency</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">number density</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{mL}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">frequency</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular frequency</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-1}\text{A}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">frequency drift</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{Hz} \cdot
+            \text{s}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{gal} \cdot
+            \text{cm}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">stagnance</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-1}\text{T}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-1}\text{s}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}\text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">speed</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{cm}\cdot
+            \text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">acceleration</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{gal}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">jerk</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{cm}\cdot
+            \text{s}^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">snap</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-4}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-4}$</span></td>
+            <td style="text-align: center"><span>$\text{cm}\cdot
+            \text{s}^{-4}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">crackle</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-5}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-5}$</span></td>
+            <td style="text-align: center"><span>$\text{cm}\cdot
+            \text{s}^{-5}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">pop</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-6}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-6}$</span></td>
+            <td style="text-align: center"><span>$\text{cm}\cdot
+            \text{s}^{-6}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">volume flow</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{3}\text{T}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{3}\text{s}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{3}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">etendue</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{2}\text{A}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">photon intensity</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-1}\text{A}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">photon irradiance</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{Hz} \cdot
+            \text{m}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{Hz} \cdot
+            \text{m}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">photon radiance</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{T}\cdot
+            \text{A}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{Hz} \cdot
+            \text{m}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{Hz} \cdot
+            \text{m}^{-2}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Mechanical"><a class="docs-heading-anchor" href=
+        "#Mechanical">Mechanical</a><a id=
+        "Mechanical-1"></a><a class="docs-heading-anchor-permalink"
+        href="#Mechanical" title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right"></th>
+            <th style="text-align: left">Unified</th>
+            <th style="text-align: center">Metric</th>
+            <th style="text-align: center">ESU</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">inertia</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-1}\text{T}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">mass</td>
+            <td style="text-align: left">
+            <span>$\text{M}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">mass flow</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{T}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{m}^{-2} \cdot \text{Hz}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{cm}^{-2} \cdot \text{Hz}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">linear density</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">area density</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">density</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific weight</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-2}\text{s}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific volume</td>
+            <td style="text-align: left">
+            <span>$\text{M}^{-1}\text{L}^{3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{-1}\text{m}^{3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{-1}\text{cm}^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">force</td>
+            <td style="text-align: left">
+            <span>$\text{F}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{N}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{dyn}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific force</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{M}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{gal}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">gravity force</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{M}\cdot \text{L}\cdot
+            \text{T}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">pressure</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Pa}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Ba}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">compressibility</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Pa}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Ba}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">viscosity</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-2}\text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{Pa} \cdot
+            \text{s}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{P}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">diffusivity</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{2}\text{T}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{2}\text{s}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{St}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">rotational inertia</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}^{2}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{2}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">impulse</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{N} \cdot
+            \text{s}$</span></td>
+            <td style="text-align: center"><span>$\text{dyn} \cdot
+            \text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">momentum</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}\cdot \text{T}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{N} \cdot
+            \text{s}$</span></td>
+            <td style="text-align: center"><span>$\text{dyn} \cdot
+            \text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">angular momentum</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}\cdot \text{A}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{s}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">yank</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}\cdot \text{T}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{N} \cdot
+            \text{s}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{dyn} \cdot
+            \text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">energy</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{J}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{erg}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific energy</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{M}^{-1}\text{L}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{kg}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{g}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">action</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{s}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">fluence</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{N} \cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{dyn} \cdot
+            \text{cm}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">power</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{W}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">power density</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-2}\text{T}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{W} \cdot
+            \text{m}^{-3}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1} \text{mL}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">irradiance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-1}\text{T}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{W} \cdot
+            \text{m}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1} \text{cm}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">radiance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-1}\text{T}^{-1}\text{A}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{W} \cdot
+            \text{m}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1} \text{cm}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">radiant intensity</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}^{-1}\text{A}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{W}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">spectral flux</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{T}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{N} \cdot
+            \text{s}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{dyn} \cdot
+            \text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">spectral exposure</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-1}\text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{m}^{-2} \cdot \text{Hz}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{cm}^{-2} \cdot \text{Hz}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">sound exposure</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{2}\text{L}^{-4}\text{T}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{2}\text{m}^{-2}\text{s}^{-3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{2}\text{cm}^{-2}\text{s}^{-3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">impedance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-5}\text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-4}\text{s}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-4}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific impedance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-3}\text{T}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-2}\text{s}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">admittance</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{5}\text{T}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{-1}\text{m}^{4}\text{s}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{-1}\text{cm}^{4}\text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">compliance</td>
+            <td style="text-align: left">
+            <span>$\text{M}^{-1}\text{T}^{2}$</span></td>
+            <td style="text-align: center"><span>$\text{m} \cdot
+            \text{N}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{cm} \cdot
+            \text{dyn}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">inertance</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{L}^{-4}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-4}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-4}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Electromagnetic"><a class="docs-heading-anchor"
+        href="#Electromagnetic">Electromagnetic</a><a id=
+        "Electromagnetic-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Electromagnetic"
+        title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right"></th>
+            <th style="text-align: left">Unified</th>
+            <th style="text-align: center">Metric</th>
+            <th style="text-align: center">ESU</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">charge</td>
+            <td style="text-align: left">
+            <span>$\text{Q}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">charge density</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-3}\text{Q}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-3}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-3/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">linear charge
+            density</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-1}\text{Q}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">exposure</td>
+            <td style="text-align: left">
+            <span>$\text{M}^{-1}\text{Q}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{-1/2}\text{cm}^{3/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">mobility</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{3}\text{T}^{-1}\text{Q}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{m}^2
+            \text{s}^{-1} \text{V}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{5/2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">current</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-1}\text{Q}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">current density</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{T}^{-1}\text{Q}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-2}\text{s}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">resistance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}\cdot \text{Q}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\Omega$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}\text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">conductance</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-1}\text{T}^{-1}\text{Q}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{S}$</span></td>
+            <td style="text-align: center"><span>$\text{cm}\cdot
+            \text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">resistivity</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{2}\text{T}\cdot \text{Q}^{-2}$</span></td>
+            <td style="text-align: center"><span>$\Omega \cdot
+            \text{m}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">conductivity</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-2}\text{T}^{-1}\text{Q}^{2}$</span></td>
+            <td style="text-align: center"><span>$\text{S} \cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Hz}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">capacitance</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-1}\text{Q}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{F}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">inductance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}^{2}\text{Q}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{H}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}\text{s}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">reluctance</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-1}\text{T}^{-2}\text{Q}^{2}\text{R}\cdot
+            \text{C}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{H}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{gal}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">permeance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot
+            \text{T}^{2}\text{Q}^{-2}\text{R}^{-1}\text{C}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{H}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}\text{s}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">permittivity</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-2}\text{Q}^{2}\text{R}$</span></td>
+            <td style="text-align: center"><span>$\text{F} \cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">permeability</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{T}^{2}\text{Q}^{-2}\text{R}^{-1}\text{C}^{2}$</span></td>
+            <td style="text-align: center"><span>$\text{H} \cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-2}\text{s}^{2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">susceptibility</td>
+            <td style="text-align: left">
+            <span>$\text{R}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific
+            susceptibility</td>
+            <td style="text-align: left">
+            <span>$\text{M}^{-1}\text{L}^{3}\text{A}^{-1}\text{R}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{-1}\text{m}^{3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{-1}\text{cm}^{3}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">demagnetizing factor</td>
+            <td style="text-align: left">
+            <span>$\text{R}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+            <td style="text-align: center">
+            <span>$\mathbb{1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">vector potential</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{T}\cdot \text{Q}^{-1}\text{C}$</span></td>
+            <td style="text-align: center"><span>$\text{Wb} \cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-1/2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric potential</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{Q}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{V}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic potential</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-1}\text{Q}\cdot \text{R}\cdot
+            \text{C}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{s}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric field</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{Q}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{V} \cdot
+            \text{m}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic field</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-1}\text{T}^{-1}\text{Q}\cdot
+            \text{R}\cdot \text{C}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-1}\text{s}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric flux</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{2}\text{Q}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{V} \cdot
+            \text{m}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{3/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic flux</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}\cdot
+            \text{Q}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{Wb}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{1/2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric
+            displacement</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{Q}\cdot \text{R}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-2}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic flux
+            density</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-1}\text{T}\cdot
+            \text{Q}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{T}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-3/2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric dipole
+            moment</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{Q}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{5/2}\text{s}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic dipole
+            moment</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{2}\text{T}^{-1}\text{Q}\cdot
+            \text{A}^{-1}\text{C}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{T}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{7/2}\text{s}^{-2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">electric
+            polarizability</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}\cdot
+            \text{Q}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{-1}\text{s}^{2}\text{C}^{2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{mL}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic
+            polarizability</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{3}\text{A}^{-1}\text{R}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{3}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{mL}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">magnetic moment</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{2}\text{T}\cdot
+            \text{Q}^{-1}\text{C}$</span></td>
+            <td style="text-align: center"><span>$\text{Wb} \cdot
+            \text{m}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{3/2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific
+            magnetization</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{M}\cdot
+            \text{L}^{-2}\text{T}^{-1}\text{Q}\cdot
+            \text{C}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-3}\text{s}\cdot \text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{-3/2}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">pole strength</td>
+            <td style="text-align: left"><span>$\text{L}\cdot
+            \text{T}^{-1}\text{Q}\cdot
+            \text{A}^{-1}\text{C}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{m}\cdot
+            \text{s}^{-1}\text{C}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{1/2}\text{cm}^{5/2}\text{s}^{-2}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Thermodynamic"><a class="docs-heading-anchor" href=
+        "#Thermodynamic">Thermodynamic</a><a id=
+        "Thermodynamic-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Thermodynamic"
+        title="Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right"></th>
+            <th style="text-align: left">Unified</th>
+            <th style="text-align: center">Metric</th>
+            <th style="text-align: center">ESU</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">temperature</td>
+            <td style="text-align: left"><span>$\Theta$</span></td>
+            <td style="text-align: center">
+            <span>$\text{K}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{K}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">entropy</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \Theta^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{K}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{K}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specific entropy</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{M}^{-1}\text{L}\cdot \Theta^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{K}^{-1} \text{kg}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{K}^{-1} \text{g}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">volume heat capacity</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}^{-2}\Theta^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{m}^{-1}\text{s}^{-2}\text{K}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{cm}^{-1}\text{s}^{-2}\text{K}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal conductivity</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{T}^{-1}\Theta^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{W} \cdot
+            \text{m}^{-1} \text{K}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1} \text{cm}^{-1} \text{K}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal conductance</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{T}^{-1}\Theta^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{W} \cdot
+            \text{K}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{s}^{-1} \text{K}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal resistivity</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{T}\cdot \Theta$</span></td>
+            <td style="text-align: center"><span>$\text{K} \cdot
+            \text{m} \cdot \text{W}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{K} \cdot
+            \text{cm} \cdot \text{s} \cdot
+            \text{erg}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal resistance</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-1}\text{T}\cdot
+            \Theta$</span></td>
+            <td style="text-align: center"><span>$\text{K} \cdot
+            \text{W}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{K} \cdot
+            \text{s} \cdot \text{erg}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">thermal expansion</td>
+            <td style="text-align: left">
+            <span>$\Theta^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{K}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{K}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">lapse rate</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-1}\Theta$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-1}\text{K}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-1}\text{K}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Molar"><a class="docs-heading-anchor" href=
+        "#Molar">Molar</a><a id="Molar-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Molar" title=
+        "Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right"></th>
+            <th style="text-align: left">Unified</th>
+            <th style="text-align: center">Metric</th>
+            <th style="text-align: center">ESU</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar mass</td>
+            <td style="text-align: left"><span>$\text{M}\cdot
+            \text{N}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{kg}\cdot
+            \text{mol}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{g}\cdot
+            \text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molality</td>
+            <td style="text-align: left">
+            <span>$\text{M}^{-1}\text{N}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kg}^{-1}\text{mol}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}^{-1}\text{mol}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar amount</td>
+            <td style="text-align: left">
+            <span>$\text{N}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{mol}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{mol}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molarity</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-3}\text{N}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-3}\text{mol}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-3}\text{mol}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar volume</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{3}\text{N}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{3}\text{mol}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{3}\text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar entropy</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \Theta^{-1}\text{N}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{K}^{-1} \text{mol}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{K}^{-1} \text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar energy</td>
+            <td style="text-align: left"><span>$\text{F}\cdot
+            \text{L}\cdot \text{N}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{J} \cdot
+            \text{mol}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{erg} \cdot
+            \text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar conductivity</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{T}^{-1}\text{Q}^{2}\text{N}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{S} \cdot
+            \text{m}^2 \text{mol}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{2}\text{s}^{-1}\text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">molar susceptibility</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{3}\text{N}^{-1}\text{A}^{-1}\text{R}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{3}\text{mol}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{3}\text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">catalysis</td>
+            <td style="text-align: left">
+            <span>$\text{T}^{-1}\text{N}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kat}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{kat}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">specificity</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{3}\text{T}^{-1}\text{N}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{3}\text{s}^{-1}\text{mol}^{-1}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{3}\text{s}^{-1}\text{mol}^{-1}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">diffusion flux</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{T}\cdot \text{N}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{m}^{-2}\text{s}\cdot
+            \text{mol}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-2}\text{s}\cdot
+            \text{mol}$</span></td>
+          </tr>
+        </table>
+        <h2 id="Photometric"><a class="docs-heading-anchor" href=
+        "#Photometric">Photometric</a><a id=
+        "Photometric-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#Photometric" title=
+        "Permalink"></a></h2>
+        <table>
+          <tr>
+            <th style="text-align: right"></th>
+            <th style="text-align: left">Unified</th>
+            <th style="text-align: center">Metric</th>
+            <th style="text-align: center">ESU</th>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous flux</td>
+            <td style="text-align: left">
+            <span>$\text{J}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cd}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cd}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous intensity</td>
+            <td style="text-align: left"><span>$\text{J}\cdot
+            \text{A}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cd}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cd}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminance</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{J}\cdot
+            \text{A}^{-2}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{lx}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{ph}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">illuminance</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{J}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{lx}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{ph}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous energy</td>
+            <td style="text-align: left"><span>$\text{T}\cdot
+            \text{J}$</span></td>
+            <td style="text-align: center"><span>$\text{s}\cdot
+            \text{lm}$</span></td>
+            <td style="text-align: center"><span>$\text{s}\cdot
+            \text{lm}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous exposure</td>
+            <td style="text-align: left">
+            <span>$\text{L}^{-2}\text{T}\cdot \text{J}$</span></td>
+            <td style="text-align: center"><span>$\text{lx} \cdot
+            \text{s}$</span></td>
+            <td style="text-align: center">
+            <span>$\text{cm}^{-2}\text{s}\cdot
+            \text{lm}$</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right">luminous efficacy</td>
+            <td style="text-align: left">
+            <span>$\text{F}^{-1}\text{L}^{-1}\text{T}\cdot
+            \text{J}$</span></td>
+            <td style="text-align: center"><span>$\text{lm} \cdot
+            \text{W}^{-1}$</span></td>
+            <td style="text-align: center"><span>$\text{lm} \cdot
+            \text{s} \cdot \text{erg}^{-1}$</span></td>
+          </tr>
+        </table>
+      </article>
+      <nav class="docs-footer">
+        <a class="docs-footer-prevpage" href="../EMUSI2019/">« EMU
+        -&gt; SI2019</a><a class="docs-footer-nextpage" href=
+        "../ESUMetric/">ESU -&gt; Metric »</a>
+        <div class="flexbox-break"></div>
+        <p class="footer-message">Powered by <a href=
+        "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
+        and the <a href="https://julialang.org/">Julia Programming
+        Language</a>.</p>
+      </nav>
+    </div>
+    <div class="modal" id="documenter-settings">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Settings</p>
+        </header>
+        <section class="modal-card-body">
+          <p><label class="label">Theme</label></p>
+          <div class="select">
+            <select id="documenter-themepicker">
+              <option value="auto">
+                Automatic (OS)
+              </option>
+              <option value="documenter-light">
+                documenter-light
+              </option>
+              <option value="documenter-dark">
+                documenter-dark
+              </option>
+              <option value="catppuccin-latte">
+                catppuccin-latte
+              </option>
+              <option value="catppuccin-frappe">
+                catppuccin-frappe
+              </option>
+              <option value="catppuccin-macchiato">
+                catppuccin-macchiato
+              </option>
+              <option value="catppuccin-mocha">
+                catppuccin-mocha
+              </option>
+            </select>
+          </div>
+          <hr>
+          <p>This document was generated with <a href=
+          "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
+          version 1.10.1 on <span class="colophon-date" title=
+          "Friday 18 April 2025 08:49">Friday 18 April 2025</span>.
+          Using Julia version 1.11.0.</p>
+        </section>
+        <footer class="modal-card-foot"></footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
