@@ -82,7 +82,71 @@ Pages = ["similitude.md","unitsystems.md","constants.md","convert.md","units.md"
 ## Appendix
 
 ```@contents
-Pages = "appendix/".*["Definition.md", "Unified.md", "Metric.md", "SI2019.md", "SI1976.md", "CODATA.md", "Conventional.md", "International.md", "InternationalMean.md", "MetricTurn.md", "MetricSpatian.md", "MetricGradian.md", "MetricDegree.md", "MetricArcminute.md", "MetricArcsecond.md", "Engineering.md", "Gravitational.md", "MTS.md", "EMU.md", "ESU.md", "Gauss.md", "LorentzHeaviside.md", "FPS.md", "IPS.md", "British.md", "English.md", "Survey.md", "MPH.md", "KKH.md", "Nautical.md", "Meridian.md", "IAU.md", "IAUE.md", "IAUJ.md", "Hubble.md", "Cosmological.md", "CosmologicalQuantum.md", "Planck.md", "PlanckGauss.md", "Stoney.md", "Hartree.md", "Rydberg.md", "Schrodinger.md", "Electronic.md", "Natural.md", "NaturalGauss.md", "QCD.md", "QCDGauss.md", "QCDoriginal.md"]
+Pages = "appendix/".*[
+    "Definition","Unified",
+    "Metric", "SI2019", "SI1976","CODATA", "Conventional",
+    "International", "InternationalMean",
+    "MetricTurn", "MetricSpatian", "MetricGradian", "MetricDegree",
+    "MetricArcminute", "MetricArcsecond",
+    "Engineering", "Gravitational", "MTS",
+    "EMU", "ESU", "Gauss", "LorentzHeaviside",
+    "FPS", "IPS", "British", "English", "Survey",
+    "MPH", "KKH", "Nautical", "Meridian",
+    "IAU", "IAUE", "IAUJ", "Hubble", "Cosmological",
+    "CosmologicalQuantum", "Planck", "PlanckGauss",
+    "Stoney", "Hartree", "Rydberg", "Schrodinger", "Electronic",
+    "Natural", "NaturalGauss", "QCD", "QCDGauss", "QCDoriginal"
+].*".md"
+Depth = 1
+```
+
+## Conversion Ratio
+
+```@contents
+Pages = "ratios/".*[
+    "MetricSI2019", "SI2019Metric",
+    "MetricCODATA", "CODATAMetric", "SI2019CODATA", "CODATASI2019",
+    "MetricConventional", "ConventionalMetric",
+    "SI2019Conventional", "ConventionalSI2019",
+    "MetricInternational", "InternationalMetric",
+    "SI2019International", "InternationalSI2019",
+    "MetricInternationalMean", "InternationalMeanMetric",
+    "SI2019InternationalMean", "InternationalMeanSI2019",
+    "MetricEngineering", "EngineeringMetric",
+    "MetricGravitational", "GravitationalMetric",
+    "MetricEMU", "EMUMetric", "SI2019EMU", "EMUSI2019",
+    "MetricESU", "ESUMetric", "SI2019ESU", "ESUSI2019",
+    "MetricGauss", "GaussMetric", "SI2019Gauss", "GaussSI2019",
+    "MetricLorentzHeaviside", "LorentzHeavisideMetric",
+    "SI2019LorentzHeaviside", "LorentzHeavisideSI2019",
+    "MetricEnglish", "EnglishMetric", "SI2019English", "EnglishSI2019",
+    "MetricBritish", "BritishMetric", "SI2019British", "BritishSI2019",
+    "BritishEnglish", "EnglishBritish",
+    "MetricIPS", "IPSMetric", "SI2019IPS", "IPSSI2019",
+    "IPSBritish", "BritishIPS",
+    "MetricFPS", "FPSMetric", "SI2019FPS", "FPSSI2019",
+    "FPSEnglish", "EnglishFPS", "FPSBritish", "BritishFPS", "FPSMPH", "MPHFPS",
+    "NauticalFPS", "FPSNautical", "NauticalMPH", "MPHNautical",
+    "NauticalKKH", "KKHNautical", "NauticalMetric", "MetricNautical",
+    "MeridianMetric", "MetricMeridian", "IAUMetric", "MetricIAU",
+    "MetricPlanck", "PlanckMetric", "SI2019Planck", "PlanckSI2019",
+    "MetricPlanckGauss", "PlanckGaussMetric",
+    "SI2019PlanckGauss", "PlanckGaussSI2019",
+    "MetricStoney", "StoneyMetric", "SI2019Stoney", "StoneySI2019",
+    "MetricHartree", "HartreeMetric", "SI2019Hartree", "HartreeSI2019",
+    "MetricRydberg", "RydbergMetric", "SI2019Rydberg", "RydbergSI2019",
+    "MetricSchrodinger", "SchrodingerMetric",
+    "SI2019Schrodinger", "SchrodingerSI2019",
+    "MetricElectronic", "ElectronicMetric",
+    "SI2019Electronic", "ElectronicSI2019",
+    "MetricNatural", "NaturalMetric", "SI2019Natural", "NaturalSI2019",
+    "MetricNaturalGauss", "NaturalGaussMetric",
+    "SI2019NaturalGauss", "NaturalGaussSI2019",
+    "MetricQCD", "QCDMetric", "SI2019QCD", "QCDSI2019",
+    "MetricQCDGauss", "QCDGaussMetric", "SI2019QCDGauss", "QCDGaussSI2019",
+    "MetricQCDoriginal", "QCDoriginalMetric",
+    "SI2019QCDoriginal", "QCDoriginalSI2019"
+].*".md"
 Depth = 1
 ```
 
