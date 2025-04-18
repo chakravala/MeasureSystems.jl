@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <title>oersted unit · UnitSystems.jl</title>
+  <meta name="title" content="oersted unit · UnitSystems.jl">
+  <meta property="og:title" content=
+  "oersted unit · UnitSystems.jl">
+  <meta property="twitter:title" content=
+  "oersted unit · UnitSystems.jl">
+  <meta name="description" content=
+  "Documentation for UnitSystems.jl.">
+  <meta property="og:description" content=
+  "Documentation for UnitSystems.jl.">
+  <meta property="twitter:description" content=
+  "Documentation for UnitSystems.jl.">
+  <script data-outdated-warner="" src=
+  "../../assets/warner.js"></script>
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+  rel="stylesheet" type="text/css">
+  <link href=
+  "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css"
+  rel="stylesheet" type="text/css">
+  <script>
+  documenterBaseURL="../.."
+  </script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+  data-main="../../assets/documenter.js"></script>
+  <script src="../../search_index.js"></script>
+  <script src="../../siteinfo.js"></script>
+  <script src="../../../versions.js"></script>
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-mocha.css" data-theme-name=
+  "catppuccin-mocha">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-macchiato.css"
+  data-theme-name="catppuccin-macchiato">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-frappe.css" data-theme-name=
+  "catppuccin-frappe">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/catppuccin-latte.css" data-theme-name=
+  "catppuccin-latte">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/documenter-dark.css" data-theme-name=
+  "documenter-dark" data-theme-primary-dark="">
+  <link class="docs-theme-link" rel="stylesheet" type="text/css"
+  href="../../assets/themes/documenter-light.css" data-theme-name=
+  "documenter-light" data-theme-primary="">
+  <script src="../../assets/themeswap.js"></script>
+</head>
+<body>
+  <div id="documenter">
+    <nav class="docs-sidebar">
+      <div class="docs-package-name">
+        <span class="docs-autofit"><a href=
+        "../../">UnitSystems.jl</a></span>
+      </div><button class=
+      "docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2"
+      id="documenter-search-query">Search docs (Ctrl + /)</button>
+      <ul class="docs-menu">
+        <li>
+          <a class="tocitem" href="../../">UnitSystems README</a>
+        </li>
+        <li>
+          <a class="tocitem" href=
+          "../../similitude/">Similitude</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../unitsystems/">The
+          UnitSystem</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../constants/">Physics
+          Constants</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../convert/">Unit
+          Conversions</a>
+        </li>
+        <li>
+          <a class="tocitem" href="../../units/">Standard Units</a>
+        </li>
+        <li>
+          <span class="tocitem">Physics</span>
+          <ul>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-1"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-1"><span class=
+              "docs-label">Constants</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../hyperfine/">hyperfine
+                  transition unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../lightspeed/">light
+                  speed unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../planck/">Planck
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../planckreduced/">Planck reduced unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../electronmass/">electron mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../molarmass/">molar
+                  mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../boltzmann/">Boltzmann
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../vacuumpermeability/">vacuum permeability
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../rationalization/">rationalization unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../lorentz/">Lorentz
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../luminousefficacy/">luminous efficacy unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gravity/">gravity
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../radian/">radian
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../turn/">turn unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../spat/">spat unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../dalton/">Dalton
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../protonmass/">proton
+                  mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../planckmass/">Planck
+                  mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gravitation/">Newton
+                  gravitation unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../gaussgravitation/">Gauss gravitation unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../einstein/">Einstein
+                  gravitation unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../hartree/">Hartree
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../rydberg/">Rydberg
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../bohr/">Bohr radius
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../electronradius/">electron radius unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../avogadro/">Avogadro
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../molargas/">Molar gas
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../stefan/">Stefan-Boltzmann unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../radiationdensity/">radiation density unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../vacuumpermittivity/">vacuum permittivity
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../electrostatic/">electrostatic unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../magnetostatic/">magnetostatic unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../biotsavart/">Biot-Savart unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../elementarycharge/">elementary charge unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../faraday/">Faraday
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../vacuumimpedance/">vacuum impedance unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../conductancequantum/">conductance quantum
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../klitzing/">Klitzing
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../josephson/">Josephson
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../magneticfluxquantum/">magnetic flux quantum
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../magneton/">magneton
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../loschmidt/">Loschmidt
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../mechanicalheat/">mechanical heat unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../wienwavelength/">Wien
+                  wavelength unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../wienfrequency/">Wien
+                  frequency unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../sackurtetrode/">Sackur-Tetrode unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../eddington/">Eddington
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../solarmass/">solar
+                  mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../jupitermass/">Jupiter
+                  mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../earthmass/">Earth
+                  mass unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gforce/">g-force
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../earthradius/">Earth
+                  radius unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../greatcircle/">great
+                  circle unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../nauticalmile/">nautical mile unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../hubble/">Hubble
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../cosmological/">cosmological unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-2"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-2"><span class=
+              "docs-label">Angle</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../turn/">turn unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../radian/">radian
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../spatian/">spatian
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gradian/">gradian
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../degree/">degree
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../arcminute/">arc
+                  minute unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../arcsecond/">arc
+                  second unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-3"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-3"><span class=
+              "docs-label">SolidAngle</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../spat/">spat unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../steradian/">steradian
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../squaredegree/">square
+                  degree unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-4"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-4"><span class=
+              "docs-label">Time</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../second/">second
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../minute/">minute
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../hour/">hour unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../day/">day unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../year/">year unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-5"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-5"><span class=
+              "docs-label">Length</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../angstrom/">angstrom
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../inch/">inch unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../foot/">foot unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../surveyfoot/">survey
+                  foot unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../yard/">yard unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../meter/">meter
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../earthmeter/">Earth
+                  meter unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../mile/">mile unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../statutemile/">statute
+                  mile unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../meridianmile/">meridian mile unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../admiraltymile/">admiralty mile unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../nauticalmile/">nautical mile unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../lunardistance/">lunar
+                  distance unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../astronomicalunit/">astronomical unit unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../jupiterdistance/">Jupiter distance unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../lightyear/">light-year unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../parsec/">parsec
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-6"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-6"><span class=
+              "docs-label">Speed</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../bubnoff/">Bubnoff
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../fpm/">feet per minute
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../ips/">inches per
+                  second unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../kmh/">kilometers per
+                  hour unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../fps/">feet per second
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../mph/">miles per hour
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../ms/">meters per
+                  second unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../mps/">miles per
+                  second unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-7"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-7"><span class=
+              "docs-label">Area</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../barn/">barn unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../hectare/">hectare
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../acre/">acre unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../surveyacre/">survey
+                  acre unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-8"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-8"><span class=
+              "docs-label">Volume</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../liter/">liter
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gallon/">gallon
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../quart/">quart
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../pint/">pint unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../cup/">cup unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../fluidounce/">fluid
+                  ounce unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../teaspoon/">teaspoon
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../tablespoon/">tablespoon unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-9"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-9"><span class=
+              "docs-label">Mass</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../gram/">gram unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../earthgram/">Earth
+                  gram unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../kilogram/">kilogram
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../tonne/">tonne
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../ton/">ton unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../pound/">pound (mass)
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../ounce/">ounce
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../grain/">grain
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../slug/">slug unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../slinch/">slinch
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../hyl/">hyl unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-10"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-10"><span class=
+              "docs-label">Force</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../dyne/">dyne unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../newton/">newton
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../poundal/">poundal
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../poundforce/">pound
+                  (force) unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../kilopond/">kilopond
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-11"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-11"><span class=
+              "docs-label">Pressure</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../psi/">pounds per
+                  square inch unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../pascal/">pascal
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../barye/">barye
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../bar/">bar unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../technicalatmosphere/">technical atmosphere
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../atmosphere/">atmosphere unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../inchmercury/">inch
+                  mercury unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../torr/">torr unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-12"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-12"><span class=
+              "docs-label">Energy</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../erg/">erg unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../joule/">joule
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../footpound/">foot-pound unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../calorie/">calorie
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../kilocalorie/">kilocalorie unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../meancalorie/">mean
+                  calorie unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../earthcalorie/">Earth
+                  calorie unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../thermalunit/">thermal
+                  unit unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gasgallon/">gas
+                  gallon unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../tontnt/">ton TNT
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../electronvolt/">electronvolt unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-13"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-13"><span class=
+              "docs-label">Power</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../watt/">watt unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../horsepowerwatt/">horsepower (Watt) unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../horsepowermetric/">horsepower (Metric)
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../horsepower/">horsepower unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../electricalhorsepower/">electrical horsepower
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../tonsrefrigeration/">tons refrigeration
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../boilerhorsepower/">boiler horsepower unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-14"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-14"><span class=
+              "docs-label">Thermodynamic</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../kelvin/">Kelvin
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../rankine/">Rankine
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../celsius/">Celsius
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../fahrenheit/">Fahrenheit unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../sealevel/">sea level
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../boiling/">boiling
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../mole/">mole unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../earthmole/">Earth-mole unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../poundmole/">pound-mole unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../slugmole/">slug-mole
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../slinchmole/">slinch-mole unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../katal/">katal
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../amagat/">amagat
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-15"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-15"><span class=
+              "docs-label">Photometric</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../lumen/">lumen
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../candela/">candela
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../lux/">lux unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../phot/">phot unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../footcandle/">foot-candle unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../nit/">nit unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../apostilb/">apostilb
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../stilb/">stilb
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../lambert/">lambert
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../footlambert/">foot-lambert unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../bril/">bril unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../talbot/">talbot
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../lumerg/">lumerg
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-16"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-16"><span class=
+              "docs-label">Specialized</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../hertz/">hertz
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../apm/">actions per
+                  minute unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../rpm/">revolutions per
+                  minute unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../kayser/">kayser
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../diopter/">diopter
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../rayleigh/">rayleigh
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../flick/">flick
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gforce/">g-force
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../galileo/">galileo
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../eotvos/">eotvos
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../darcy/">darcy
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../poise/">poise
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../reyn/">reyn unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../stokes/">stokes
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../rayl/">rayl unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../mpge/">mpg equivalent
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../langley/">langley
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../jansky/">jansky
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../solarflux/">solar
+                  flux unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../curie/">curie
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gray/">gray unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../roentgen/">roentgen
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-17"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-17"><span class=
+              "docs-label">Charge</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../coulomb/">coulomb
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../earthcoulomb/">Earth
+                  coulomb unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abcoulomb/">abcoulomb
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../statcoulomb/">statcoulomb unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-18"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-18"><span class=
+              "docs-label">Current</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../ampere/">ampere
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abampere/">abampere
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../statampere/">statampere unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-19"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-19"><span class=
+              "docs-label">Electromotive</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../volt/">volt unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abvolt/">abvolt
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../statvolt/">statvolt
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-20"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-20"><span class=
+              "docs-label">Inductance</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../henry/">henry
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abhenry/">abhenry
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../stathenry/">stathenry
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-21"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-21"><span class=
+              "docs-label">Resistance</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../ohm/">ohm unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abohm/">abohm
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../statohm/">statohm
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-22"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-22"><span class=
+              "docs-label">Conductance</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../siemens/">siemens
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abmho/">abmho
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../statmho/">statmho
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-23"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-23"><span class=
+              "docs-label">Capacitance</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../farad/">farad
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../abfarad/">abfarad
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../statfarad/">statfarad
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-24"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-24"><span class=
+              "docs-label">MagneticFlux</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../weber/">weber
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../maxwell/">maxwell
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../statweber/">statweber
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-25"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-25"><span class=
+              "docs-label">MagneticFluxDensity</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href="../tesla/">tesla
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gauss/">gauss
+                  unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../stattesla/">stattesla
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-26"
+              type="checkbox" checked><label class="tocitem" for=
+              "menuitem-7-26"><span class=
+              "docs-label">MagneticSpecialized</span></label>
+              <ul class="collapsed">
+                <li class="is-active">
+                  <a class="tocitem" href="">oersted unit</a>
+                </li>
+                <li>
+                  <a class="tocitem" href="../gilbert/">gilbert
+                  unit</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-27"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-27"><span class=
+              "docs-label">Appendix</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Definition/">Definition</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Unified/">Unified</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Metric/">Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/SI2019/">SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/SI1976/">SI1976</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/CODATA/">CODATA</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Conventional/">Conventional</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/International/">International</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/InternationalMean/">InternationalMean</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MetricTurn/">MetricTurn</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MetricSpatian/">MetricSpatian</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MetricGradian/">MetricGradian</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MetricDegree/">MetricDegree</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MetricArcminute/">MetricArcminute</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MetricArcsecond/">MetricArcsecond</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Engineering/">Engineering</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Gravitational/">Gravitational</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MTS/">MTS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/EMU/">EMU</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/ESU/">ESU</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Gauss/">Gauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/LorentzHeaviside/">LorentzHeaviside</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/FPS/">FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/IPS/">IPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/British/">British</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/English/">English</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Survey/">Survey</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/MPH/">MPH</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/KKH/">KKH</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Nautical/">Nautical</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Meridian/">Meridian</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/IAU/">IAU☉</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/IAUE/">IAUE</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/IAUJ/">IAUJ</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Hubble/">Hubble</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Cosmological/">Cosmological</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/CosmologicalQuantum/">CosmologicalQuantum</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Planck/">Planck</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/PlanckGauss/">PlanckGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Stoney/">Stoney</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Hartree/">Hartree</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Rydberg/">Rydberg</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Schrodinger/">Schrodinger</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Electronic/">Electronic</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/Natural/">Natural</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/NaturalGauss/">NaturalGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/QCD/">QCD</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/QCDGauss/">QCDGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../appendix/QCDoriginal/">QCDoriginal</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input class="collapse-toggle" id="menuitem-7-28"
+              type="checkbox"><label class="tocitem" for=
+              "menuitem-7-28"><span class=
+              "docs-label">Ratios</span></label>
+              <ul class="collapsed">
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricSI2019/">Metric -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Metric/">SI2019 -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricCODATA/">Metric -&gt;
+                  CODATA</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/CODATAMetric/">CODATA -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019CODATA/">SI2019 -&gt;
+                  CODATA</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/CODATASI2019/">CODATA -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricConventional/">Metric -&gt;
+                  Conventional</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/ConventionalMetric/">Conventional
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Conventional/">SI2019 -&gt;
+                  Conventional</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/ConventionalSI2019/">Conventional
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricInternational/">Metric -&gt;
+                  International</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/InternationalMetric/">International
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019International/">SI2019 -&gt;
+                  International</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/InternationalSI2019/">International
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricInternationalMean/">Metric
+                  -&gt; InternationalMean</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/InternationalMeanMetric/">InternationalMean
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019InternationalMean/">SI2019
+                  -&gt; InternationalMean</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/InternationalMeanSI2019/">InternationalMean
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricEngineering/">Metric -&gt;
+                  Engineering</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EngineeringMetric/">Engineering
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricGravitational/">Metric -&gt;
+                  Gravitational</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/GravitationalMetric/">Gravitational
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricEMU/">Metric -&gt; EMU</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EMUMetric/">EMU -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019EMU/">SI2019 -&gt; EMU</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EMUSI2019/">EMU -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricESU/">Metric -&gt; ESU</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/ESUMetric/">ESU -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019ESU/">SI2019 -&gt; ESU</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/ESUSI2019/">ESU -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricGauss/">Metric -&gt;
+                  Gauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/GaussMetric/">Gauss -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Gauss/">SI2019 -&gt;
+                  Gauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/GaussSI2019/">Gauss -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricLorentzHeaviside/">Metric
+                  -&gt; LorentzHeaviside</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/LorentzHeavisideMetric/">LorentzHeaviside
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019LorentzHeaviside/">SI2019
+                  -&gt; LorentzHeaviside</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/LorentzHeavisideSI2019/">LorentzHeaviside
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricEnglish/">Metric -&gt;
+                  English</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EnglishMetric/">English -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019English/">SI2019 -&gt;
+                  English</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EnglishSI2019/">English -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricBritish/">Metric -&gt;
+                  British</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/BritishMetric/">British -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019British/">SI2019 -&gt;
+                  British</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/BritishSI2019/">British -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/BritishEnglish/">British -&gt;
+                  English</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EnglishBritish/">English -&gt;
+                  British</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricIPS/">Metric -&gt; IPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/IPSMetric/">IPS -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019IPS/">SI2019 -&gt; IPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/IPSSI2019/">IPS -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/IPSBritish/">IPS -&gt; British</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/BritishIPS/">British -&gt; IPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricFPS/">Metric -&gt; FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/FPSMetric/">FPS -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019FPS/">SI2019 -&gt; FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/FPSSI2019/">FPS -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/FPSEnglish/">FPS -&gt; English</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/EnglishFPS/">English -&gt; FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/FPSBritish/">FPS -&gt; British</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/BritishFPS/">British -&gt; FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/FPSMPH/">FPS -&gt; MPH</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MPHFPS/">MPH -&gt; FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NauticalFPS/">Nautical -&gt;
+                  FPS</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/FPSNautical/">FPS -&gt;
+                  Nautical</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NauticalMPH/">Nautical -&gt;
+                  MPH</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MPHNautical/">MPH -&gt;
+                  Nautical</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NauticalKKH/">Nautical -&gt;
+                  KKH</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/KKHNautical/">KKH -&gt;
+                  Nautical</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NauticalMetric/">Nautical -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricNautical/">Metric -&gt;
+                  Nautical</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MeridianMetric/">Meridian -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricMeridian/">Metric -&gt;
+                  Meridian</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/IAUMetric/">IAU☉ -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricIAU/">Metric -&gt; IAU☉</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricPlanck/">Metric -&gt;
+                  Planck</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/PlanckMetric/">Planck -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Planck/">SI2019 -&gt;
+                  Planck</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/PlanckSI2019/">Planck -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricPlanckGauss/">Metric -&gt;
+                  PlanckGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/PlanckGaussMetric/">PlanckGauss
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019PlanckGauss/">SI2019 -&gt;
+                  PlanckGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/PlanckGaussSI2019/">PlanckGauss
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricStoney/">Metric -&gt;
+                  Stoney</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/StoneyMetric/">Stoney -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Stoney/">SI2019 -&gt;
+                  Stoney</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/StoneySI2019/">Stoney -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricHartree/">Metric -&gt;
+                  Hartree</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/HartreeMetric/">Hartree -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Hartree/">SI2019 -&gt;
+                  Hartree</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/HartreeSI2019/">Hartree -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricRydberg/">Metric -&gt;
+                  Rydberg</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/RydbergMetric/">Rydberg -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Rydberg/">SI2019 -&gt;
+                  Rydberg</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/RydbergSI2019/">Rydberg -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricSchrodinger/">Metric -&gt;
+                  Schrodinger</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SchrodingerMetric/">Schrodinger
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Schrodinger/">SI2019 -&gt;
+                  Schrodinger</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SchrodingerSI2019/">Schrodinger
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricElectronic/">Metric -&gt;
+                  Electronic</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/ElectronicMetric/">Electronic -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Electronic/">SI2019 -&gt;
+                  Electronic</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/ElectronicSI2019/">Electronic -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricNatural/">Metric -&gt;
+                  Natural</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NaturalMetric/">Natural -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019Natural/">SI2019 -&gt;
+                  Natural</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NaturalSI2019/">Natural -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricNaturalGauss/">Metric -&gt;
+                  NaturalGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NaturalGaussMetric/">NaturalGauss
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019NaturalGauss/">SI2019 -&gt;
+                  NaturalGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/NaturalGaussSI2019/">NaturalGauss
+                  -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricQCD/">Metric -&gt; QCD</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/QCDMetric/">QCD -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019QCD/">SI2019 -&gt; QCD</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/QCDSI2019/">QCD -&gt; SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricQCDGauss/">Metric -&gt;
+                  QCDGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/QCDGaussMetric/">QCDGauss -&gt;
+                  Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019QCDGauss/">SI2019 -&gt;
+                  QCDGauss</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/QCDGaussSI2019/">QCDGauss -&gt;
+                  SI2019</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/MetricQCDoriginal/">Metric -&gt;
+                  QCDoriginal</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/QCDoriginalMetric/">QCDoriginal
+                  -&gt; Metric</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/SI2019QCDoriginal/">SI2019 -&gt;
+                  QCDoriginal</a>
+                </li>
+                <li>
+                  <a class="tocitem" href=
+                  "../../ratios/QCDoriginalSI2019/">QCDoriginal
+                  -&gt; SI2019</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="docs-version-selector field has-addons">
+        <div class="control">
+          <span class=
+          "docs-label button is-static is-size-7">Version</span>
+        </div>
+        <div class="docs-selector control is-expanded">
+          <div class="select is-fullwidth is-size-7">
+            <select id="documenter-version-selector">
+            </select>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="docs-main">
+      <header class="docs-navbar">
+        <a class=
+        "docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop"
+        id="documenter-sidebar-button" href="#"></a>
+        <nav class="breadcrumb">
+          <ul class="is-hidden-mobile">
+            <li>
+              <a class="is-disabled">Physics</a>
+            </li>
+            <li>
+              <a class="is-disabled">MagneticSpecialized</a>
+            </li>
+            <li class="is-active">
+              <a href="">oersted unit</a>
+            </li>
+          </ul>
+          <ul class="is-hidden-tablet">
+            <li class="is-active">
+              <a href="">oersted unit</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="docs-right">
+          <a class=
+          "docs-settings-button docs-navbar-link fa-solid fa-gear"
+          id="documenter-settings-button" href="#" title=
+          "Settings"></a><a class=
+          "docs-article-toggle-button fa-solid fa-chevron-up" id=
+          "documenter-article-toggle-button" href="javascript:;"
+          title="Collapse all docstrings"></a>
+        </div>
+      </header>
+      <article class="content" id="documenter-page">
+        <h1 id="oersted-unit"><a class="docs-heading-anchor" href=
+        "#oersted-unit">oersted unit</a><a id=
+        "oersted-unit-1"></a><a class=
+        "docs-heading-anchor-permalink" href="#oersted-unit" title=
+        "Permalink"></a></h1>
+        <p>data derived with <a href=
+        "https://github.com/chakravala/UnitSystems.jl">UnitSystems.jl</a>
+        <a href=
+        "https://zenodo.org/badge/latestdoi/317419353"><img src=
+        "https://zenodo.org/badge/317419353.svg" alt="DOI"></a></p>
+        <p class="math-container">
+        \[\text{L}^{-1}\text{T}^{-1}\text{Q}\cdot \text{R}\cdot
+        \text{C}^{-1}\]</p>
+        <p class="math-container">
+        \[\left[\hbar^{-3/2}\text{c}^{5/2}\mu_0^{-1/2}\text{m}_\text{e}^{2}\phi^{-3/2}\lambda^{1/2}\text{g}_0^{-2}\right]\]</p>
+        <table>
+          <tr>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: center">Product</th>
+            <th style="text-align: left">UnitSystem</th>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">Metric</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.5774715243(61)$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{1/2}\text{e}\cdot
+            \alpha^{-1/2}\tau^{-1/2}2^{-3/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">SI2019</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">SI1976</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747086(49)$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{1/2}\alpha^{-1/2}\text{R}_\text{K}^{-1}\text{K}_\text{J}^{-1}\tau^{-1/2}2^{-1/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">CODATA</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.5774644521(61)$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{1/2}\alpha^{-1/2}{\text{R}_\text{K}^{90}}^{-1}{\text{K}_\text{J}^{90}}^{-1}\tau^{-1/2}2^{-1/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">Conventional</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.59059749718884$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\Omega_\text{it}\cdot
+            \text{V}_\text{it}^{-1}\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">International</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.58940410960791$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}1.000149949017334$</span></td>
+            <td style="text-align: left">InternationalMean</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MetricTurn</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MetricSpatian</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MetricGradian</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MetricDegree</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MetricArcminute</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MetricArcsecond</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">Engineering</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">Gravitational</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.57747154594767$</span>
+            <span>$\left[\text{m}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">MTS</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\text{G}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+            <td style="text-align: left">EMU</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$2.99792458 \times
+            10^{10}$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{1/2}\text{s}^{-2}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{c}\cdot
+            2^{2}5^{2}$</span></td>
+            <td style="text-align: left">ESU</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.0$</span>
+            <span>$\left[\text{G}\right]$</span></td>
+            <td style="text-align: center"><span>$1$</span></td>
+            <td style="text-align: left">Gauss</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$0.2820947917738782$</span>
+            <span>$\left[\text{g}^{1/2}\text{cm}^{-1/2}\text{s}^{-1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1/2}2^{-1/2}$</span></td>
+            <td style="text-align: left">LorentzHeaviside</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$24.255213327204853$</span>
+            <span>$\left[\text{ft}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{ft}\cdot
+            \tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">FPS</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$2.0212677772670706$</span>
+            <span>$\left[\text{in}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{ft}\cdot
+            \tau^{-1}3^{-1}5^{3}$</span></td>
+            <td style="text-align: left">IPS</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$24.255213327204853$</span>
+            <span>$\left[\text{ft}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{ft}\cdot
+            \tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">British</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$24.255213327204853$</span>
+            <span>$\left[\text{ft}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{ft}\cdot
+            \tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">English</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$24.255261837728526$</span>
+            <span>$\left[\text{ft}^{-1}\text{s}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{ft}_\text{US}\cdot
+            \tau^{-1}2^{2}5^{3}$</span></td>
+            <td style="text-align: left">Survey</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$4.6104309492350984
+            \times 10^{8}$</span>
+            <span>$\left[\text{mi}^{-1}\text{h}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{ft}\cdot
+            \tau^{-1}2^{11}3^{3}5^{6}11$</span></td>
+            <td style="text-align: left">MPH</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$2.864788975654116
+            \times 10^{8}$</span>
+            <span>$\left[\text{km}^{-1}\text{h}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{9}3^{2}5^{8}$</span></td>
+            <td style="text-align: left">KKH</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$5.2974937112(53)
+            \times 10^{8}$</span>
+            <span>$\left[\text{nm}^{-1}\text{h}^{-1}\text{eC}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}_0^{1/2}\text{GM}_\text{E}^{-1/2}\tau^{-2}2^{19}3^{-1}5^{17}$</span></td>
+            <td style="text-align: left">Nautical</td>
+          </tr>
+          <tr>
+            <td style="text-align: left">
+            <span>$79.462405667(80)$</span>
+            <span>$\left[\text{em}^{-1}\text{s}^{-1}\text{eC}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\text{g}_0^{1/2}\text{GM}_\text{E}^{-1/2}\tau^{-2}2^{11}5^{10}$</span></td>
+            <td style="text-align: left">Meridian</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.028559193830(21)
+            \times 10^{18}$</span>
+            <span>$\left[\text{au}^{-1}\text{D}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center"><span>$\text{au}\cdot
+            \tau^{-1}2^{9}3^{3}5^{5}$</span></td>
+            <td style="text-align: left">IAU☉</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$2.64293284188592
+            \times 10^{15}$</span>
+            <span>$\left[\text{LD}^{-1}\text{D}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{12}3^{6}5^{8}14237$</span></td>
+            <td style="text-align: left">IAUE</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$5.352427336747778
+            \times 10^{18}$</span>
+            <span>$\left[\text{JD}^{-1}\text{D}^{-1}\text{C}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\tau^{-1}2^{15}3^{4}5^{11}259493$</span></td>
+            <td style="text-align: left">IAUJ</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.406(13) \times
+            10^{44}$</span>
+            <span>$\left[\text{T}^{-2}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}\cdot
+            \text{R}_{\infty}^{-1/2}\alpha\cdot
+            \text{H}_0^{-3/2}\text{au}^{3/2}\tau^{-5/2}2^{13}3^{6}5^{17/2}$</span></td>
+            <td style="text-align: left">Hubble</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$5468.0 (\pm
+            41.0)$</span>
+            <span>$\left[\text{T}^{-2}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{1/2}\text{c}^{-1/2}\Omega_{\Lambda}^{-1/2}\text{H}_0^{-1}\text{au}\cdot
+            \text{m}_\text{P}^{-1}\tau^{-3/2}2^{21/2}3^{7/2}5^{11/2}$</span></td>
+            <td style="text-align: left">Cosmological</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1090.60(81)$</span>
+            <span>$\left[\text{M}^{2}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{1/2}\text{c}^{-1/2}\Omega_{\Lambda}^{-1/2}\text{H}_0^{-1}\text{au}\cdot
+            \text{m}_\text{P}^{-1}\tau^{-2}2^{19/2}3^{7/2}5^{11/2}$</span></td>
+            <td style="text-align: left">CosmologicalQuantum</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.646935(36) \times
+            10^{-57}$</span>
+            <span>$\left[\text{M}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{3/2}\text{c}^{-5/2}\text{m}_\text{P}^{-2}\tau^{-1}5^{-1/2}$</span></td>
+            <td style="text-align: left">Planck</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$3.697104(82) \times
+            10^{-59}$</span>
+            <span>$\left[\text{m}_\text{P}^{2}\text{e}_\text{n}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{3/2}\text{c}^{-5/2}\text{m}_\text{P}^{-2}\tau^{-5/2}2^{-3/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">PlanckGauss</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$3.158234(70) \times
+            10^{-60}$</span>
+            <span>$\left[\text{T}^{-2}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{3/2}\text{c}^{-5/2}\alpha^{1/2}\text{m}_\text{P}^{-2}\tau^{-5/2}2^{-3/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">Stoney</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$6.35764063113(49)
+            \times 10^{-7}$</span>
+            <span>$\left[\text{a}_0^{-3}\text{e}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{1/2}\tau^{-5/2}2^{-7/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">Hartree</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.79821232105(14)
+            \times 10^{-6}$</span>
+            <span>$\left[\text{L}^{-1}\text{T}^{-1}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{1/2}\tau^{-5/2}2^{-2}5^{-1/2}$</span></td>
+            <td style="text-align: left">Rydberg</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.526222(34) \times
+            10^{-49}$</span>
+            <span>$\left[\text{L}^{-1}\text{T}^{-1}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{3/2}\text{c}^{-5/2}\alpha^{-9/2}\text{m}_\text{P}^{-2}\tau^{-5/2}2^{-3/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">Schrodinger</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$1.3155962393(11)
+            \times 10^{-17}$</span>
+            <span>$\left[\text{T}^{-2}\text{Q}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{11/2}\tau^{-5/2}2^{-7/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">Electronic</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$7.4813429063(46)
+            \times 10^{-14}$</span>
+            <span>$\left[\mathbb{1}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{4}\tau^{-2}2^{-3}5^{-1/2}$</span></td>
+            <td style="text-align: left">Natural</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$2.1104478693(13)
+            \times 10^{-14}$</span>
+            <span>$\left[\text{e}_\text{n}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{4}\tau^{-5/2}2^{-7/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">NaturalGauss</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$2.2190239131(14)
+            \times 10^{-20}$</span>
+            <span>$\left[\text{m}_\text{p}^{2}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{4}\mu_\text{eu}^{2}\mu_\text{pu}^{-2}\tau^{-2}2^{-3}5^{-1/2}$</span></td>
+            <td style="text-align: left">QCD</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$6.2597508869(39)
+            \times 10^{-21}$</span>
+            <span>$\left[\text{m}_\text{p}^{2}\text{e}_\text{n}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{4}\mu_\text{eu}^{2}\mu_\text{pu}^{-2}\tau^{-5/2}2^{-7/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">QCDGauss</td>
+          </tr>
+          <tr>
+            <td style="text-align: left"><span>$7.3278131289(40)
+            \times 10^{-20}$</span>
+            <span>$\left[\text{m}_\text{p}^{2}\text{e}\right]$</span></td>
+            <td style="text-align: center">
+            <span>$\hbar^{-1/2}\text{c}^{-1/2}\text{R}_{\infty}^{-2}\alpha^{7/2}\mu_\text{eu}^{2}\mu_\text{pu}^{-2}\tau^{-5/2}2^{-7/2}5^{-1/2}$</span></td>
+            <td style="text-align: left">QCDoriginal</td>
+          </tr>
+        </table>
+      </article>
+      <nav class="docs-footer">
+        <a class="docs-footer-prevpage" href="../stattesla/">«
+        stattesla unit</a><a class="docs-footer-nextpage" href=
+        "../gilbert/">gilbert unit »</a>
+        <div class="flexbox-break"></div>
+        <p class="footer-message">Powered by <a href=
+        "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
+        and the <a href="https://julialang.org/">Julia Programming
+        Language</a>.</p>
+      </nav>
+    </div>
+    <div class="modal" id="documenter-settings">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Settings</p>
+        </header>
+        <section class="modal-card-body">
+          <p><label class="label">Theme</label></p>
+          <div class="select">
+            <select id="documenter-themepicker">
+              <option value="auto">
+                Automatic (OS)
+              </option>
+              <option value="documenter-light">
+                documenter-light
+              </option>
+              <option value="documenter-dark">
+                documenter-dark
+              </option>
+              <option value="catppuccin-latte">
+                catppuccin-latte
+              </option>
+              <option value="catppuccin-frappe">
+                catppuccin-frappe
+              </option>
+              <option value="catppuccin-macchiato">
+                catppuccin-macchiato
+              </option>
+              <option value="catppuccin-mocha">
+                catppuccin-mocha
+              </option>
+            </select>
+          </div>
+          <hr>
+          <p>This document was generated with <a href=
+          "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
+          version 1.10.1 on <span class="colophon-date" title=
+          "Friday 18 April 2025 13:58">Friday 18 April 2025</span>.
+          Using Julia version 1.11.0.</p>
+        </section>
+        <footer class="modal-card-foot"></footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
