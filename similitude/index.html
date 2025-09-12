@@ -2870,37 +2870,37 @@ julia&gt; tau # τ
               <code>-</code>, <code>^</code>).</p>
               <pre><code class=
               "language-Julia hljs">julia&gt; force(Unified)
-F [ħ⁵𝘤⁻⁸μ₀⁻¹mₑ⁻⁶Kcd⁻¹ϕ⁵λ⁻¹g₀⁵] Unified
+F [ħ⁻¹𝘤³mₑ²ϕ⁻¹g₀⁻²] Unified
 
 julia&gt; mass(Unified)
-M [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹] Unified
+M [mₑ] Unified
 
 julia&gt; length(Unified)
-L [ħ⁻⁵ᐟ²𝘤¹¹ᐟ²μ₀¹ᐟ²mₑ⁴Kcd⋅ϕ⁻⁵ᐟ²λ¹ᐟ²g₀⁻³] Unified
+L [ħ⋅𝘤⁻¹mₑ⁻¹ϕ⋅g₀] Unified
 
 julia&gt; time(Unified)
-T [ħ⁻⁷ᐟ²𝘤¹³ᐟ²μ₀¹ᐟ²mₑ⁵Kcd⋅ϕ⁻⁷ᐟ²λ¹ᐟ²g₀⁻⁴] Unified
+T [ħ⋅𝘤⁻²mₑ⁻¹ϕ⋅g₀] Unified
 
 julia&gt; charge(Unified)
-Q [ħ⁻³ᐟ²𝘤⁷ᐟ²mₑ⁵ᐟ²Kcd¹ᐟ²ϕ⁻²λ⁻¹g₀⁻²] Unified
+Q [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹] Unified
 
 julia&gt; temperature(Unified)
-Θ [ħ⁷ᐟ²𝘤⁻¹¹ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁴ϕ⁷ᐟ²λ⁻¹ᐟ²g₀⁴] Unified
+Θ [kB⁻¹𝘤²mₑ⋅g₀⁻¹] Unified
 
 julia&gt; molaramount(Unified)
-N [kB⋅ħ¹ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹g₀] Unified
+N [mₑ⋅Mᵤ⁻¹] Unified
 
 julia&gt; luminousflux(Unified)
-J [ħ⁶𝘤⁻⁹μ₀⁻¹mₑ⁻⁶Mᵤ⁻¹Kcd⁻¹ϕ⁶λ⁻¹g₀⁶] Unified
+J [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻¹g₀⁻²] Unified
 
 julia&gt; angle(Unified)
-A [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻¹g₀⁻²] Unified
+A [ϕ] Unified
 
 julia&gt; rationalization(Unified)
-R [ϕ] Unified
+R [λ] Unified
 
 julia&gt; lorentz(Unified)
-C⁻¹ [λ] Unified</code></pre>
+C⁻¹ [αL] Unified</code></pre>
               <p>Derived dimension can be obtained from
               multiplicative base of 11 fundamental dimension
               symbols corresponding to <code>force</code>,
@@ -3160,37 +3160,37 @@ F, M, L, T, Q, Θ, N, J, A, R, C # fundamental base dimensions</code></pre>
               a <code>nonstandard</code> dimension.</p>
               <pre><code class=
               "language-Julia hljs">julia&gt; boltzmann(Unified) # entropy
-FLΘ⁻¹ [ħ⁻¹𝘤³mₑ²ϕ⁻¹g₀⁻²] Unified
+FLΘ⁻¹ [kB] Unified
 
 julia&gt; planckreduced(Unified) # angularmomentum
-FLTA⁻¹ [mₑ] Unified
+FLTA⁻¹ [ħ] Unified
 
 julia&gt; lightspeed(Unified) # speed
-LT⁻¹ [ħ⋅𝘤⁻¹mₑ⁻¹ϕ⋅g₀] Unified
+LT⁻¹ [𝘤] Unified
 
 julia&gt; vacuumpermeability(Unified) # permeability
-FT²Q⁻²R⁻¹C² [ħ⋅𝘤⁻²mₑ⁻¹ϕ⋅g₀] Unified
+FT²Q⁻²R⁻¹C² [μ₀] Unified
 
 julia&gt; electronmass(Unified) # mass
-M [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹] Unified
+M [mₑ] Unified
 
 julia&gt; molarmass(Unified) # molarmass
-MN⁻¹ [kB⁻¹𝘤²mₑ⋅g₀⁻¹] Unified
+MN⁻¹ [Mᵤ] Unified
 
 julia&gt; luminousefficacy(Unified) # luminousefficacy
-F⁻¹L⁻¹TJ [mₑ⋅Mᵤ⁻¹] Unified
+F⁻¹L⁻¹TJ [Kcd] Unified
 
 julia&gt; radian(Unified) # angle
-A [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻¹g₀⁻²] Unified
+A [ϕ] Unified
 
 julia&gt; rationalization(Unified) # demagnetizingfactor
-R [ϕ] Unified
+R [λ] Unified
 
 julia&gt; lorentz(Unified) # nonstandard
-C⁻¹ [λ] Unified
+C⁻¹ [αL] Unified
 
 julia&gt; gravity(Unified) # gravityforce
-F⁻¹MLT⁻² [αL⁻¹] Unified</code></pre>
+F⁻¹MLT⁻² [g₀] Unified</code></pre>
             </div>
           </section>
         </article>
@@ -4135,9 +4135,9 @@ QCDoriginal  ::UnitSystem{1,1,1,4π*α,1/μₚₑ}</code></pre>
           <hr>
           <p>This document was generated with <a href=
           "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
-          version 1.10.1 on <span class="colophon-date" title=
-          "Friday 18 April 2025 13:58">Friday 18 April 2025</span>.
-          Using Julia version 1.11.0.</p>
+          version 1.14.1 on <span class="colophon-date" title=
+          "Friday 12 September 2025 12:33">Friday 12 September
+          2025</span>. Using Julia version 1.11.1.</p>
         </section>
         <footer class="modal-card-foot"></footer>
       </div>

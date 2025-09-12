@@ -2186,7 +2186,7 @@
               "language-Julia hljs">angle : [A], [𝟙], [𝟙], [𝟙], [𝟙]
 angle(U::UnitSystem,S::UnitSystem) = angle(U,S)
 angle(v::Real,U::UnitSystem,S::UnitSystem) = v/angle(U,S)
-A [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻¹g₀⁻²] Unified</code></pre>
+A [ϕ] Unified</code></pre>
               <p>Extent of one-dimensional angle or
               <code>angle</code> (rad), unit conversion factor.</p>
               <pre><code class=
@@ -2211,7 +2211,7 @@ A [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻¹g₀⁻²] Unified</code></pre>
               "language-Julia hljs">solidangle : [A²], [𝟙], [𝟙], [𝟙], [𝟙]
 solidangle(U::UnitSystem,S::UnitSystem) = angle(U,S)^2
 solidangle(v::Real,U::UnitSystem,S::UnitSystem) = v/solidangle(U,S)
-A² [ħ⁻²𝘤⁸mₑ⁴Kcd²ϕ⁻²g₀⁻⁴] Unified</code></pre>
+A² [ϕ²] Unified</code></pre>
               <p>Extent of two-dimensional angle or
               <code>solidangle</code> (rad²), unit conversion
               factor.</p>
@@ -2237,7 +2237,7 @@ A² [ħ⁻²𝘤⁸mₑ⁴Kcd²ϕ⁻²g₀⁻⁴] Unified</code></pre>
               "language-Julia hljs">time : [T], [T], [T], [T], [T]
 time(U::UnitSystem,S::UnitSystem) = length(U,S)/speed(U,S)
 time(v::Real,U::UnitSystem,S::UnitSystem) = v/time(U,S)
-T [ħ⁻⁷ᐟ²𝘤¹³ᐟ²μ₀¹ᐟ²mₑ⁵Kcd⋅ϕ⁻⁷ᐟ²λ¹ᐟ²g₀⁻⁴] Unified</code></pre>
+T [ħ⋅𝘤⁻²mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
               <p>Dimension along which events are ordered or
               <code>T</code> (s), unit conversion factor.</p>
               <pre><code class=
@@ -2268,7 +2268,7 @@ H0⁻¹au⋅τ⁻¹2¹⁰3⁴5⁶ = 4.561(28) × 10¹⁷ [s]/[T] Hubble -&gt; Me
               "language-Julia hljs">angulartime : [TA⁻¹], [T], [T], [T], [T]
 angulartime(U::UnitSystem,S::UnitSystem) = time(U,S)/angle(U,S)
 angulartime(v::Real,U::UnitSystem,S::UnitSystem) = v/angulartime(U,S)
-TA⁻¹ [ħ⁻⁵ᐟ²𝘤⁵ᐟ²μ₀¹ᐟ²mₑ³ϕ⁻⁵ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
+TA⁻¹ [ħ⋅𝘤⁻²mₑ⁻¹g₀] Unified</code></pre>
               <p>Circular <code>time</code> per <code>angle</code>
               (s⋅rad⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -2293,7 +2293,7 @@ TA⁻¹ [ħ⁻⁵ᐟ²𝘤⁵ᐟ²μ₀¹ᐟ²mₑ³ϕ⁻⁵ᐟ²λ¹ᐟ²g₀�
               "language-Julia hljs">length : [L], [L], [L], [L], [L]
 length(U::UnitSystem,S::UnitSystem) = planck(U,S)/mass(U,S)/speed(U,S)
 length(v::Real,U::UnitSystem,S::UnitSystem) = v/length(U,S)
-L [ħ⁻⁵ᐟ²𝘤¹¹ᐟ²μ₀¹ᐟ²mₑ⁴Kcd⋅ϕ⁻⁵ᐟ²λ¹ᐟ²g₀⁻³] Unified</code></pre>
+L [ħ⋅𝘤⁻¹mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
               <p>Extent of one-dimensional shape or
               <code>length</code> (m), unit conversion factor.</p>
               <pre><code class=
@@ -2330,7 +2330,7 @@ julia&gt; L(PlanckGauss,Metric) # m⋅ℓP⁻¹
               "language-Julia hljs">angularlength : [LA⁻¹], [L], [L], [L], [L]
 angularlength(U::UnitSystem,S::UnitSystem) = length(U,S)/angle(U,S)
 angularlength(v::Real,U::UnitSystem,S::UnitSystem) = v/angularlength(U,S)
-LA⁻¹ [ħ⁻³ᐟ²𝘤³ᐟ²μ₀¹ᐟ²mₑ²ϕ⁻³ᐟ²λ¹ᐟ²g₀⁻¹] Unified</code></pre>
+LA⁻¹ [ħ⋅𝘤⁻¹mₑ⁻¹g₀] Unified</code></pre>
               <p>Unit of <code>length</code> per <code>angle</code>
               (m⋅rad⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -2358,7 +2358,7 @@ ft = 0.3048 [m]/[ft] English -&gt; Metric</code></pre>
               "language-Julia hljs">area : [L²], [L²], [L²], [L²], [L²]
 area(U::UnitSystem,S::UnitSystem) = length(U,S)^2
 area(v::Real,U::UnitSystem,S::UnitSystem) = v/area(U,S)
-L² [ħ⁻⁵𝘤¹¹μ₀⋅mₑ⁸Kcd²ϕ⁻⁵λ⋅g₀⁻⁶] Unified</code></pre>
+L² [ħ²𝘤⁻²mₑ⁻²ϕ²g₀²] Unified</code></pre>
               <p>Extent of two-dimensional shape or
               <code>area</code> (m²), unit conversion factor.</p>
               <pre><code class=
@@ -2389,7 +2389,7 @@ ft⁻²ftUS² = 1.0000040000119996 [ft²]/[ft²] Survey -&gt; English</code></pr
               "language-Julia hljs">volume : [L³], [L³], [L³], [L³], [L³]
 volume(U::UnitSystem,S::UnitSystem) = length(U,S)^3
 volume(v::Real,U::UnitSystem,S::UnitSystem) = v/volume(U,S)
-L³ [ħ⁻¹⁵ᐟ²𝘤³³ᐟ²μ₀³ᐟ²mₑ¹²Kcd³ϕ⁻¹⁵ᐟ²λ³ᐟ²g₀⁻⁹] Unified</code></pre>
+L³ [ħ³𝘤⁻³mₑ⁻³ϕ³g₀³] Unified</code></pre>
               <p>Extent of three-dimensional shape or
               <code>volume</code> (m³), unit conversion factor.</p>
               <pre><code class=
@@ -2420,7 +2420,7 @@ ft⁻³ftUS³ = 1.0000060000239996 [ft³]/[ft³] Survey -&gt; English</code></pr
               "language-Julia hljs">wavenumber : [L⁻¹], [L⁻¹], [L⁻¹], [L⁻¹], [L⁻¹]
 wavenumber(U::UnitSystem,S::UnitSystem) = 1/length(U,S)
 wavenumber(v::Real,U::UnitSystem,S::UnitSystem) = v/wavenumber(U,S)
-L⁻¹ [ħ⁵ᐟ²𝘤⁻¹¹ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁴Kcd⁻¹ϕ⁵ᐟ²λ⁻¹ᐟ²g₀³] Unified</code></pre>
+L⁻¹ [ħ⁻¹𝘤⋅mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Number of occurences per unit of space (m⁻¹), unit
               conversion factor.</p>
               <pre><code class=
@@ -2448,7 +2448,7 @@ ft⁻¹ = 3.280839895013123 [m⁻¹]/[ft⁻¹] English -&gt; Metric</code></pre>
               "language-Julia hljs">angularwavenumber : [L⁻¹A], [L⁻¹], [L⁻¹], [L⁻¹], [L⁻¹]
 angularwavenumber(U::UnitSystem,S::UnitSystem) = angle(U,S)/length(U,S)
 angularwavenumber(v::Real,U::UnitSystem,S::UnitSystem) = v/angularwavenumber(U,S)
-L⁻¹A [ħ³ᐟ²𝘤⁻³ᐟ²μ₀⁻¹ᐟ²mₑ⁻²ϕ³ᐟ²λ⁻¹ᐟ²g₀] Unified</code></pre>
+L⁻¹A [ħ⁻¹𝘤⋅mₑ⋅g₀⁻¹] Unified</code></pre>
               <p>Number of occurences per unit of space (m⁻¹), unit
               conversion factor.</p>
               <pre><code class=
@@ -2476,7 +2476,7 @@ ft⁻¹ = 3.280839895013123 [m⁻¹]/[ft⁻¹] English -&gt; Metric</code></pre>
               "language-Julia hljs">fuelefficiency : [L⁻²], [L⁻²], [L⁻²], [L⁻²], [L⁻²]
 fuelefficiency(U::UnitSystem,S::UnitSystem) = 1/area(U,S)
 fuelefficiency(v::Real,U::UnitSystem,S::UnitSystem) = v/fuelefficiency(U,S)
-L⁻² [ħ⁵𝘤⁻¹¹μ₀⁻¹mₑ⁻⁸Kcd⁻²ϕ⁵λ⁻¹g₀⁶] Unified</code></pre>
+L⁻² [ħ⁻²𝘤²mₑ²ϕ⁻²g₀⁻²] Unified</code></pre>
               <p>Distance per volume or fuel efficiency (m⋅m⁻³,
               m⁻²), unit conversion factor.</p>
               <pre><code class=
@@ -2504,7 +2504,7 @@ ft⁻² = 10.76391041670972 [m⁻²]/[ft⁻²] English -&gt; Metric</code></pre>
               "language-Julia hljs">frequency : [T⁻¹], [T⁻¹], [T⁻¹], [T⁻¹], [T⁻¹]
 frequency(U::UnitSystem,S::UnitSystem) = 1/time(U,S)
 frequency(v::Real,U::UnitSystem,S::UnitSystem) = v/frequency(U,S)
-T⁻¹ [ħ⁷ᐟ²𝘤⁻¹³ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁵Kcd⁻¹ϕ⁷ᐟ²λ⁻¹ᐟ²g₀⁴] Unified</code></pre>
+T⁻¹ [ħ⁻¹𝘤²mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Number of occurences per unit of time (Hz or s⁻¹),
               unit conversion factor.</p>
               <pre><code class=
@@ -2529,7 +2529,7 @@ T⁻¹ [ħ⁷ᐟ²𝘤⁻¹³ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁵Kcd⁻¹ϕ⁷ᐟ²λ�
               "language-Julia hljs">angularfrequency : [T⁻¹A], [T⁻¹], [T⁻¹], [T⁻¹], [T⁻¹]
 angularfrequency(U::UnitSystem,S::UnitSystem) = angle(U,S)/time(U,S)
 angularfrequency(v::Real,U::UnitSystem,S::UnitSystem) = v/angularfrequency(U,S)
-T⁻¹A [ħ⁵ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻³ϕ⁵ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+T⁻¹A [ħ⁻¹𝘤²mₑ⋅g₀⁻¹] Unified</code></pre>
               <p>Circular radian frequency (rad⋅Hz or rad⋅s⁻¹),
               unit conversion factor.</p>
               <pre><code class=
@@ -2554,7 +2554,7 @@ T⁻¹A [ħ⁵ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻³ϕ⁵ᐟ²λ⁻¹ᐟ²
               "language-Julia hljs">frequencydrift : [T⁻²], [T⁻²], [T⁻²], [T⁻²], [T⁻²]
 frequencydrift(U::UnitSystem,S::UnitSystem) = 1/time(U,S)^2
 frequencydrift(v::Real,U::UnitSystem,S::UnitSystem) = v/frequencydrift(U,S)
-T⁻² [ħ⁷𝘤⁻¹³μ₀⁻¹mₑ⁻¹⁰Kcd⁻²ϕ⁷λ⁻¹g₀⁸] Unified</code></pre>
+T⁻² [ħ⁻²𝘤⁴mₑ²ϕ⁻²g₀⁻²] Unified</code></pre>
               <p>Drift of <code>frequency</code> per
               <code>time</code> or <code>frequencydrift</code>
               (Hz⋅s⁻¹, s⁻²), unit conversion factor.</p>
@@ -2580,7 +2580,7 @@ T⁻² [ħ⁷𝘤⁻¹³μ₀⁻¹mₑ⁻¹⁰Kcd⁻²ϕ⁷λ⁻¹g₀⁸] Unifi
               "language-Julia hljs">stagnance : [L⁻¹T], [L⁻¹T], [L⁻¹T], [L⁻¹T], [L⁻¹T]
 stagnance(U::UnitSystem,S::UnitSystem) = lightspeed(U)/lightspeed(S)
 stagnance(v::Real,U::UnitSystem,S::UnitSystem) = v/stagnance(U,S)
-L⁻¹T [ħ⁻¹𝘤⋅mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
+L⁻¹T [𝘤⁻¹] Unified</code></pre>
               <p>Stagnance or <code>time</code> per
               <code>length</code> (s⋅m⁻¹), unit conversion
               factor.</p>
@@ -2615,7 +2615,7 @@ ft⋅ftUS⁻¹ = 0.9999980000000002 [ft⁻¹]/[ft⁻¹] Survey -&gt; English</co
               "language-Julia hljs">speed : [LT⁻¹], [LT⁻¹], [LT⁻¹], [LT⁻¹], [LT⁻¹]
 speed(U::UnitSystem,S::UnitSystem) = lightspeed(S)/lightspeed(U)
 speed(v::Real,U::UnitSystem,S::UnitSystem) = v/speed(U,S)
-LT⁻¹ [ħ⋅𝘤⁻¹mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
+LT⁻¹ [𝘤] Unified</code></pre>
               <p>Velocity or <code>length</code> per
               <code>time</code> or <code>speed</code> (m⋅s⁻¹), unit
               conversion factor.</p>
@@ -2650,7 +2650,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">acceleration : [LT⁻²], [LT⁻²], [LT⁻²], [LT⁻²], [LT⁻²]
 acceleration(U::UnitSystem,S::UnitSystem) = speed(U,S)/time(U,S)
 acceleration(v::Real,U::UnitSystem,S::UnitSystem) = v/acceleration(U,S)
-LT⁻² [ħ⁹ᐟ²𝘤⁻¹⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁶Kcd⁻¹ϕ⁹ᐟ²λ⁻¹ᐟ²g₀⁵] Unified</code></pre>
+LT⁻² [ħ⁻¹𝘤³mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Specific force or <code>speed</code> per
               <code>time</code> or <code>acceleration</code>
               (m⋅s⁻²), unit conversion factor.</p>
@@ -2685,7 +2685,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">jerk : [LT⁻³], [LT⁻³], [LT⁻³], [LT⁻³], [LT⁻³]
 jerk(U::UnitSystem,S::UnitSystem) = speed(U,S)/time(U,S)^2
 jerk(v::Real,U::UnitSystem,S::UnitSystem) = v/jerk(U,S)
-LT⁻³ [ħ⁸𝘤⁻¹⁴μ₀⁻¹mₑ⁻¹¹Kcd⁻²ϕ⁸λ⁻¹g₀⁹] Unified</code></pre>
+LT⁻³ [ħ⁻²𝘤⁵mₑ²ϕ⁻²g₀⁻²] Unified</code></pre>
               <p>Jolt or <code>acceleration</code> per
               <code>time</code> or <code>jerk</code> (m⋅s⁻³), unit
               conversion factor.</p>
@@ -2720,7 +2720,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">snap : [LT⁻⁴], [LT⁻⁴], [LT⁻⁴], [LT⁻⁴], [LT⁻⁴]
 snap(U::UnitSystem,S::UnitSystem) = speed(U,S)/time(U,S)^3
 snap(v::Real,U::UnitSystem,S::UnitSystem) = v/snap(U,S)
-LT⁻⁴ [ħ²³ᐟ²𝘤⁻⁴¹ᐟ²μ₀⁻³ᐟ²mₑ⁻¹⁶Kcd⁻³ϕ²³ᐟ²λ⁻³ᐟ²g₀¹³] Unified</code></pre>
+LT⁻⁴ [ħ⁻³𝘤⁷mₑ³ϕ⁻³g₀⁻³] Unified</code></pre>
               <p>Jounce or <code>jerk</code> per <code>time</code>
               or <code>snap</code> (m⋅s⁻⁴), unit conversion
               factor.</p>
@@ -2755,7 +2755,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">crackle : [LT⁻⁵], [LT⁻⁵], [LT⁻⁵], [LT⁻⁵], [LT⁻⁵]
 crackle(U::UnitSystem,S::UnitSystem) = speed(U,S)/time(U,S)^4
 crackle(v::Real,U::UnitSystem,S::UnitSystem) = v/crackle(U,S)
-LT⁻⁵ [ħ¹⁵𝘤⁻²⁷μ₀⁻²mₑ⁻²¹Kcd⁻⁴ϕ¹⁵λ⁻²g₀¹⁷] Unified</code></pre>
+LT⁻⁵ [ħ⁻⁴𝘤⁹mₑ⁴ϕ⁻⁴g₀⁻⁴] Unified</code></pre>
               <p>A <code>snap</code> per <code>time</code> or
               <code>crackle</code> (m⋅s⁻⁵), unit conversion
               factor.</p>
@@ -2790,7 +2790,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">pop : [LT⁻⁶], [LT⁻⁶], [LT⁻⁶], [LT⁻⁶], [LT⁻⁶]
 pop(U::UnitSystem,S::UnitSystem) = speed(U,S)/time(U,S)^5
 pop(v::Real,U::UnitSystem,S::UnitSystem) = v/pop(U,S)
-LT⁻⁶ [ħ³⁷ᐟ²𝘤⁻⁶⁷ᐟ²μ₀⁻⁵ᐟ²mₑ⁻²⁶Kcd⁻⁵ϕ³⁷ᐟ²λ⁻⁵ᐟ²g₀²¹] Unified</code></pre>
+LT⁻⁶ [ħ⁻⁵𝘤¹¹mₑ⁵ϕ⁻⁵g₀⁻⁵] Unified</code></pre>
               <p>A <code>crackle</code> per <code>time</code> or
               <code>pop</code> (m⋅s⁻⁶), unit conversion factor.</p>
               <pre><code class=
@@ -2824,7 +2824,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">volumeflow : [L³T⁻¹], [L³T⁻¹], [L³T⁻¹], [L³T⁻¹], [L³T⁻¹]
 volumeflow(U::UnitSystem,S::UnitSystem) = area(U,S)*speed(U,S)
 volumeflow(v::Real,U::UnitSystem,S::UnitSystem) = v/volumeflow(U,S)
-L³T⁻¹ [ħ⁻⁴𝘤¹⁰μ₀⋅mₑ⁷Kcd²ϕ⁻⁴λ⋅g₀⁻⁵] Unified</code></pre>
+L³T⁻¹ [ħ²𝘤⁻¹mₑ⁻²ϕ²g₀²] Unified</code></pre>
               <p>Volumetric flow rate or <code>volumeflow</code>
               (m³⋅s⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -2855,7 +2855,7 @@ ft⁻³ftUS³ = 1.0000060000239996 [ft³]/[ft³] Survey -&gt; English</code></pr
               "language-Julia hljs">etendue : [L²A²], [L²], [L²], [L²], [L²]
 etendue(U::UnitSystem,S::UnitSystem) = area(U,S)*solidangle(U,S)
 etendue(v::Real,U::UnitSystem,S::UnitSystem) = v/etendue(U,S)
-L²A² [ħ⁻⁷𝘤¹⁹μ₀⋅mₑ¹²Kcd⁴ϕ⁻⁷λ⋅g₀⁻¹⁰] Unified</code></pre>
+L²A² [ħ²𝘤⁻²mₑ⁻²ϕ⁴g₀²] Unified</code></pre>
               <p>Etendue or <code>area</code> times
               <code>solidangle</code> (m², ft²), unit conversion
               factor.</p>
@@ -2884,7 +2884,7 @@ ft² = 0.09290304 [m²]/[ft²] English -&gt; Metric</code></pre>
               "language-Julia hljs">photonintensity : [T⁻¹A⁻²], [T⁻¹], [T⁻¹], [T⁻¹], [T⁻¹]
 photonintensity(U::UnitSystem,S::UnitSystem) = frequency(U,S)/solidangle(U,S)
 photonintensity(v::Real,U::UnitSystem,S::UnitSystem) = v/photonintensity(U,S)
-T⁻¹A⁻² [ħ¹¹ᐟ²𝘤⁻²⁹ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁹Kcd⁻³ϕ¹¹ᐟ²λ⁻¹ᐟ²g₀⁸] Unified</code></pre>
+T⁻¹A⁻² [ħ⁻¹𝘤²mₑ⋅ϕ⁻³g₀⁻¹] Unified</code></pre>
               <p>Photon intensity or <code>frequency</code> per
               <code>area</code> (Hz⋅m⁻², m⁻²⋅s⁻¹), unit conversion
               factor.</p>
@@ -2910,7 +2910,7 @@ T⁻¹A⁻² [ħ¹¹ᐟ²𝘤⁻²⁹ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁹Kcd⁻³ϕ¹�
               "language-Julia hljs">photonirradiance : [L⁻²T], [L⁻²T], [L⁻²T], [L⁻²T], [L⁻²T]
 photonirradiance(U::UnitSystem,S::UnitSystem) = 1/area(U,S)/time(U,S)
 photonirradiance(v::Real,U::UnitSystem,S::UnitSystem) = v/photonirradiance(U,S)
-L⁻²T [ħ³ᐟ²𝘤⁻⁹ᐟ²μ₀⁻¹ᐟ²mₑ⁻³Kcd⁻¹ϕ³ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+L⁻²T [ħ⁻¹mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Photon flux or <code>frequency</code> per
               <code>area</code> (Hz⋅m⁻², m⁻²⋅s⁻¹), unit conversion
               factor.</p>
@@ -2939,7 +2939,7 @@ ft⁻² = 10.76391041670972 [m⁻²]/[ft⁻²] English -&gt; Metric</code></pre>
               "language-Julia hljs">photonradiance : [L⁻²TA⁻²], [L⁻²T], [L⁻²T], [L⁻²T], [L⁻²T]
 photonradiance(U::UnitSystem,S::UnitSystem) = photonirradiance(U,S)/solidangle(U,S)
 photonradiance(v::Real,U::UnitSystem,S::UnitSystem) = v/photonradiance(U,S)
-L⁻²TA⁻² [ħ⁷ᐟ²𝘤⁻²⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁷Kcd⁻³ϕ⁷ᐟ²λ⁻¹ᐟ²g₀⁶] Unified</code></pre>
+L⁻²TA⁻² [ħ⁻¹mₑ⋅ϕ⁻³g₀⁻¹] Unified</code></pre>
               <p>Photon radiance or <code>photonirradiance</code>
               per <code>solidangle</code> (Hz⋅m⁻², m⁻²⋅s⁻¹), unit
               conversion factor.</p>
@@ -2973,7 +2973,7 @@ ft⁻² = 10.76391041670972 [m⁻²]/[ft⁻²] English -&gt; Metric</code></pre>
               "language-Julia hljs">inertia : [FL⁻¹T²], [FL⁻¹T²], [M], [M], [M]
 inertia(U::UnitSystem,S::UnitSystem) = mass(U,S)/gravity(U,S)
 inertia(v::Real,U::UnitSystem,S::UnitSystem) = v/inertia(U,S)
-FL⁻¹T² [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²ϕ¹ᐟ²λ⁻¹ᐟ²] Unified</code></pre>
+FL⁻¹T² [mₑ⋅g₀⁻¹] Unified</code></pre>
               <p>Inertal <code>mass</code> or matter quantity or
               resistance to aceleration (kg), unit conversion
               factor.</p>
@@ -3014,7 +3014,7 @@ mP = 2.176434(24) × 10⁻⁸ [kg]/[mP] PlanckGauss -&gt; Metric</code></pre>
               "language-Julia hljs">mass : [M], [FL⁻¹T²], [M], [M], [M]
 mass(U::UnitSystem,S::UnitSystem) = electronmass(S)/electronmass(U)
 mass(v::Real,U::UnitSystem,S::UnitSystem) = v/mass(U,S)
-M [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹] Unified</code></pre>
+M [mₑ] Unified</code></pre>
               <p>Inertal <code>mass</code> or matter quantity or
               resistance to aceleration (kg), unit conversion
               factor.</p>
@@ -3055,7 +3055,7 @@ mP = 2.176434(24) × 10⁻⁸ [kg]/[mP] PlanckGauss -&gt; Metric</code></pre>
               "language-Julia hljs">massflow : [MT⁻¹], [FL⁻¹T], [MT⁻¹], [MT⁻¹], [MT⁻¹]
 massflow(U::UnitSystem,S::UnitSystem) = mass(U,S)/time(U,S)
 massflow(v::Real,U::UnitSystem,S::UnitSystem) = v/massflow(U,S)
-MT⁻¹ [ħ⁴𝘤⁻⁷μ₀⁻¹mₑ⁻⁵Kcd⁻¹ϕ⁴λ⁻¹αL⁻¹g₀⁴] Unified</code></pre>
+MT⁻¹ [ħ⁻¹𝘤²mₑ²ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Rate of <code>massflow</code> or <code>mass</code>
               per <code>time</code> (kg⋅s⁻¹), unit conversion
               factor.</p>
@@ -3090,7 +3090,7 @@ lb = 0.45359237 [kg]/[lbm] English -&gt; Metric</code></pre>
               "language-Julia hljs">lineardensity : [ML⁻¹], [FL⁻²T²], [ML⁻¹], [ML⁻¹], [ML⁻¹]
 lineardensity(U::UnitSystem,S::UnitSystem) = mass(U,S)/length(U,S)
 lineardensity(v::Real,U::UnitSystem,S::UnitSystem) = v/lineardensity(U,S)
-ML⁻¹ [ħ³𝘤⁻⁶μ₀⁻¹mₑ⁻⁴Kcd⁻¹ϕ³λ⁻¹αL⁻¹g₀³] Unified</code></pre>
+ML⁻¹ [ħ⁻¹𝘤⋅mₑ²ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Amount of <code>lineardensity</code> or
               <code>mass</code> per <code>length</code> (kg⋅m⁻¹),
               unit conversion factor.</p>
@@ -3122,7 +3122,7 @@ ft⁻¹lb = 1.4881639435695537 [kg⋅m⁻¹]/[lbm⋅ft⁻¹] English -&gt; Metri
               "language-Julia hljs">areadensity : [ML⁻²], [FL⁻³T²], [ML⁻²], [ML⁻²], [ML⁻²]
 areadensity(U::UnitSystem,S::UnitSystem) = mass(U,S)/area(U,S)
 areadensity(v::Real,U::UnitSystem,S::UnitSystem) = v/areadensity(U,S)
-ML⁻² [ħ¹¹ᐟ²𝘤⁻²³ᐟ²μ₀⁻³ᐟ²mₑ⁻⁸Kcd⁻²ϕ¹¹ᐟ²λ⁻³ᐟ²αL⁻¹g₀⁶] Unified</code></pre>
+ML⁻² [ħ⁻²𝘤²mₑ³ϕ⁻²g₀⁻²] Unified</code></pre>
               <p>Surface or <code>areadensity</code> or
               <code>mass</code> per <code>area</code> (kg⋅m⁻²),
               unit conversion factor.</p>
@@ -3157,7 +3157,7 @@ g₀⋅ft⁻³lb = 157.08746384624618 [kg⋅m⁻²]/[lb⋅ft⁻³s²] British -&
               "language-Julia hljs">density : [ML⁻³], [FL⁻⁴T²], [ML⁻³], [ML⁻³], [ML⁻³]
 density(U::UnitSystem,S::UnitSystem) = mass(U,S)/volume(U,S)
 density(v::Real,U::UnitSystem,S::UnitSystem) = v/density(U,S)
-ML⁻³ [ħ⁸𝘤⁻¹⁷μ₀⁻²mₑ⁻¹²Kcd⁻³ϕ⁸λ⁻²αL⁻¹g₀⁹] Unified</code></pre>
+ML⁻³ [ħ⁻³𝘤³mₑ⁴ϕ⁻³g₀⁻³] Unified</code></pre>
               <p>Specific mass or <code>mass</code> per
               <code>volume</code> or <code>density</code> (kg⋅m⁻³),
               unit conversion factor.</p>
@@ -3189,7 +3189,7 @@ ft⁻³lb = 16.018463373960138 [kg⋅m⁻³]/[lbm⋅ft⁻³] English -&gt; Metri
               "language-Julia hljs">specificweight : [FL⁻³], [FL⁻³], [ML⁻²T⁻²], [ML⁻²T⁻²], [ML⁻²T⁻²]
 specificweight(U::UnitSystem,S::UnitSystem) = force(U,S)/volume(U,S)
 specificweight(v::Real,U::UnitSystem,S::UnitSystem) = v/specificweight(U,S)
-FL⁻³ [ħ²⁵ᐟ²𝘤⁻⁴⁹ᐟ²μ₀⁻⁵ᐟ²mₑ⁻¹⁸Kcd⁻⁴ϕ²⁵ᐟ²λ⁻⁵ᐟ²g₀¹⁴] Unified</code></pre>
+FL⁻³ [ħ⁻⁴𝘤⁶mₑ⁵ϕ⁻⁴g₀⁻⁵] Unified</code></pre>
               <p>Specific weight or <code>force</code> per
               <code>volume</code> (N⋅m⁻³ or lb⋅ft⁻³), unit
               conversion factor.</p>
@@ -3221,7 +3221,7 @@ g₀⋅ft⁻³lb = 157.08746384624618 [kg⋅m⁻²s⁻²]/[lbf⋅ft⁻³] Englis
               "language-Julia hljs">specificvolume : [M⁻¹L³], [F⁻¹L⁴T⁻²], [M⁻¹L³], [M⁻¹L³], [M⁻¹L³]
 specificvolume(U::UnitSystem,S::UnitSystem) = volume(U,S)/mass(U,S)
 specificvolume(v::Real,U::UnitSystem,S::UnitSystem) = v/specificvolume(U,S)
-M⁻¹L³ [ħ⁻⁸𝘤¹⁷μ₀²mₑ¹²Kcd³ϕ⁻⁸λ²αL⋅g₀⁻⁹] Unified</code></pre>
+M⁻¹L³ [ħ³𝘤⁻³mₑ⁻⁴ϕ³g₀³] Unified</code></pre>
               <p>Reciprocal <code>density</code> or
               <code>volume</code> per <code>mass</code> or
               <code>specificvolume</code> (m³⋅kg), unit conversion
@@ -3254,7 +3254,7 @@ ft³lb⁻¹ = 0.062427960576144616 [kg⁻¹m³]/[lbm⁻¹ft³] English -&gt; Met
               "language-Julia hljs">force : [F], [F], [MLT⁻²], [MLT⁻²], [MLT⁻²]
 force(U::UnitSystem,S::UnitSystem) = inertia(U,S)*acceleration(U,S)
 force(v::Real,U::UnitSystem,S::UnitSystem) = v/force(U,S)
-F [ħ⁵𝘤⁻⁸μ₀⁻¹mₑ⁻⁶Kcd⁻¹ϕ⁵λ⁻¹g₀⁵] Unified</code></pre>
+F [ħ⁻¹𝘤³mₑ²ϕ⁻¹g₀⁻²] Unified</code></pre>
               <p>Weight or force or <code>inertia</code> times
               <code>acceleration</code> (N, kg⋅m⋅s⁻²), unit
               conversion factor.</p>
@@ -3292,7 +3292,7 @@ g₀ = 9.80665 [N]/[kgf] Engineering -&gt; Metric</code></pre>
               "language-Julia hljs">specificforce : [FM⁻¹], [LT⁻²], [LT⁻²], [LT⁻²], [LT⁻²]
 specificforce(U::UnitSystem,S::UnitSystem) = acceleration(U,S)/gravity(U,S)
 specificforce(v::Real,U::UnitSystem,S::UnitSystem) = v/specificforce(U,S)
-FM⁻¹ [ħ⁹ᐟ²𝘤⁻¹⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁶Kcd⁻¹ϕ⁹ᐟ²λ⁻¹ᐟ²αL⋅g₀⁵] Unified</code></pre>
+FM⁻¹ [ħ⁻¹𝘤³mₑ⋅ϕ⁻¹g₀⁻²] Unified</code></pre>
               <p>Weight or <code>force</code> per <code>mass</code>
               or <code>gforce</code> (N/kg, m⋅s⁻²), unit conversion
               factor.</p>
@@ -3324,7 +3324,7 @@ g₀ = 9.80665 [m⋅s⁻²]/[g₀] English -&gt; Metric</code></pre>
               "language-Julia hljs">gravityforce : [F⁻¹MLT⁻²], [𝟙], [𝟙], [𝟙], [𝟙]
 gravityforce(U::UnitSystem,S::UnitSystem) = acceleration(U,S)/specificforce(U,S)
 gravityforce(v::Real,U::UnitSystem,S::UnitSystem) = v/gravityforce(U,S)
-F⁻¹MLT⁻² [αL⁻¹] Unified</code></pre>
+F⁻¹MLT⁻² [g₀] Unified</code></pre>
               <p>Reference <code>acceleration</code> per
               <code>specificforce</code> (𝟏, F⁻¹MLT⁻²), unit
               conversion factor.</p>
@@ -3356,7 +3356,7 @@ g₀⋅ft⁻¹ = 32.17404855643044 [lbf⁻¹lbm⋅ft]/[s²] Metric -&gt; English
               "language-Julia hljs">pressure : [FL⁻²], [FL⁻²], [ML⁻¹T⁻²], [ML⁻¹T⁻²], [ML⁻¹T⁻²]
 pressure(U::UnitSystem,S::UnitSystem) = force(U,S)/area(U,S)
 pressure(v::Real,U::UnitSystem,S::UnitSystem) = v/pressure(U,S)
-FL⁻² [ħ¹⁰𝘤⁻¹⁹μ₀⁻²mₑ⁻¹⁴Kcd⁻³ϕ¹⁰λ⁻²g₀¹¹] Unified</code></pre>
+FL⁻² [ħ⁻³𝘤⁵mₑ⁴ϕ⁻³g₀⁻⁴] Unified</code></pre>
               <p>Pressure or stress or <code>force</code> per
               <code>area</code> (Pa, N⋅m⁻², kg⋅m⁻¹⋅s⁻²), unit
               conversion factor.</p>
@@ -3391,7 +3391,7 @@ g₀⁻¹ft²lb⁻¹2⁻⁴3⁻² = 0.0001450377377302092 [lb⋅in⁻²]/[Pa] Me
               "language-Julia hljs">compressibility : [F⁻¹L²], [F⁻¹L²], [M⁻¹LT²], [M⁻¹LT²], [M⁻¹LT²]
 compressibility(U::UnitSystem,S::UnitSystem) = 1/pressure(U,S)
 compressibility(v::Real,U::UnitSystem,S::UnitSystem) = v/compressibility(U,S)
-F⁻¹L² [ħ⁻¹⁰𝘤¹⁹μ₀²mₑ¹⁴Kcd³ϕ⁻¹⁰λ²g₀⁻¹¹] Unified</code></pre>
+F⁻¹L² [ħ³𝘤⁻⁵mₑ⁻⁴ϕ³g₀⁴] Unified</code></pre>
               <p>Relative volume change or
               <code>compressibility</code> (Pa⁻¹), unit conversion
               factor.</p>
@@ -3423,7 +3423,7 @@ g₀⋅ft⁻²lb⋅2⁴3² = 6894.75729316836 [lb⁻¹in²]/[Pa⁻¹] Metric -&g
               "language-Julia hljs">viscosity : [FL⁻²T], [FL⁻²T], [ML⁻¹T⁻¹], [ML⁻¹T⁻¹], [ML⁻¹T⁻¹]
 viscosity(U::UnitSystem,S::UnitSystem) = inertia(U,S)/length(U,S)/time(U,S)
 viscosity(v::Real,U::UnitSystem,S::UnitSystem) = v/viscosity(U,S)
-FL⁻²T [ħ¹³ᐟ²𝘤⁻²⁵ᐟ²μ₀⁻³ᐟ²mₑ⁻⁹Kcd⁻²ϕ¹³ᐟ²λ⁻³ᐟ²g₀⁷] Unified</code></pre>
+FL⁻²T [ħ⁻²𝘤³mₑ³ϕ⁻²g₀⁻³] Unified</code></pre>
               <p>Resistance to deformation or
               <code>viscosity</code> (Pa⋅s, kg⋅m⁻¹⋅s⁻¹), unit
               conversion factor.</p>
@@ -3455,7 +3455,7 @@ g₀⋅ft⁻²lb = 47.88025898033583 [Pa]/[lb⋅ft⁻²] British -&gt; Metric</c
               "language-Julia hljs">diffusivity : [L²T⁻¹], [L²T⁻¹], [L²T⁻¹], [L²T⁻¹], [L²T⁻¹]
 diffusivity(U::UnitSystem,S::UnitSystem) = speed(U,S)*length(U,S)
 diffusivity(v::Real,U::UnitSystem,S::UnitSystem) = v/diffusivity(U,S)
-L²T⁻¹ [ħ⁻³ᐟ²𝘤⁹ᐟ²μ₀¹ᐟ²mₑ³Kcd⋅ϕ⁻³ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
+L²T⁻¹ [ħ⋅mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
               <p>Thermal <code>diffusivity</code> or kinematic
               viscostiy (m²⋅s⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -3486,7 +3486,7 @@ ft⁻²ftUS² = 1.0000040000119996 [ft²]/[ft²] Survey -&gt; English</code></pr
               "language-Julia hljs">rotationalinertia : [ML²], [FLT²], [ML²], [ML²], [ML²]
 rotationalinertia(U::UnitSystem,S::UnitSystem) = mass(U,S)*area(U,S)
 rotationalinertia(v::Real,U::UnitSystem,S::UnitSystem) = v/rotationalinertia(U,S)
-ML² [ħ⁻⁹ᐟ²𝘤²¹ᐟ²μ₀¹ᐟ²mₑ⁸Kcd²ϕ⁻⁹ᐟ²λ¹ᐟ²αL⁻¹g₀⁻⁶] Unified</code></pre>
+ML² [ħ²𝘤⁻²mₑ⁻¹ϕ²g₀²] Unified</code></pre>
               <p>Moment of inertia or
               <code>rotationalinertia</code> (kg⋅m²), unit
               conversion factor.</p>
@@ -3518,7 +3518,7 @@ ft²lb = 0.042140110093804806 [kg⋅m²]/[lbm⋅ft²] English -&gt; Metric</code
               "language-Julia hljs">impulse : [FT], [FT], [MLT⁻¹], [MLT⁻¹], [MLT⁻¹]
 impulse(U::UnitSystem,S::UnitSystem) = force(U,S)*time(U,S)
 impulse(v::Real,U::UnitSystem,S::UnitSystem) = v/impulse(U,S)
-FT [ħ³ᐟ²𝘤⁻³ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ³ᐟ²λ⁻¹ᐟ²g₀] Unified</code></pre>
+FT [𝘤⋅mₑ⋅g₀⁻¹] Unified</code></pre>
               <p>Linear <code>impulse</code> or <code>force</code>
               times <code>time</code> (N⋅s, kg⋅m⋅s⁻¹), unit
               conversion factor.</p>
@@ -3550,7 +3550,7 @@ g₀⋅lb = 4.4482216152605 [N]/[lbf] English -&gt; Metric</code></pre>
               "language-Julia hljs">momentum : [MLT⁻¹], [FT], [MLT⁻¹], [MLT⁻¹], [MLT⁻¹]
 momentum(U::UnitSystem,S::UnitSystem) = mass(U,S)*speed(U,S)
 momentum(v::Real,U::UnitSystem,S::UnitSystem) = v/momentum(U,S)
-MLT⁻¹ [ħ³ᐟ²𝘤⁻³ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ³ᐟ²λ⁻¹ᐟ²αL⁻¹g₀] Unified</code></pre>
+MLT⁻¹ [𝘤⋅mₑ] Unified</code></pre>
               <p>Linear <code>momentum</code> or <code>mass</code>
               times <code>speed</code> (N⋅s, kg⋅m⋅s⁻¹), unit
               conversion factor.</p>
@@ -3582,7 +3582,7 @@ g₀⋅lb = 4.4482216152605 [kg⋅m]/[lb⋅s²] British -&gt; Metric</code></pre
               "language-Julia hljs">angularmomentum : [FLTA⁻¹], [FLT], [ML²T⁻¹], [ML²T⁻¹], [ML²T⁻¹]
 angularmomentum(U::UnitSystem,S::UnitSystem) = impulse(U,S)*length(U,S)/angle(U,S)
 angularmomentum(v::Real,U::UnitSystem,S::UnitSystem) = v/angularmomentum(U,S)
-FLTA⁻¹ [mₑ] Unified</code></pre>
+FLTA⁻¹ [ħ] Unified</code></pre>
               <p>Rotational momentum or
               <code>angularmomentum</code> (N⋅m⋅s, kg⋅m²⋅s⁻¹), unit
               conversion factor.</p>
@@ -3614,7 +3614,7 @@ g₀⋅lb = 4.4482216152605 [kg⋅m]/[lb⋅s²] British -&gt; Metric</code></pre
               "language-Julia hljs">yank : [MLT⁻³], [FT⁻¹], [MLT⁻³], [MLT⁻³], [MLT⁻³]
 yank(U::UnitSystem,S::UnitSystem) = mass(U,S)*jerk(U,S)
 yank(v::Real,U::UnitSystem,S::UnitSystem) = v/yank(U,S)
-MLT⁻³ [ħ¹⁷ᐟ²𝘤⁻²⁹ᐟ²μ₀⁻³ᐟ²mₑ⁻¹¹Kcd⁻²ϕ¹⁷ᐟ²λ⁻³ᐟ²αL⁻¹g₀⁹] Unified</code></pre>
+MLT⁻³ [ħ⁻²𝘤⁵mₑ³ϕ⁻²g₀⁻²] Unified</code></pre>
               <p>Rate of change of <code>force</code> or
               <code>yank</code> (N⋅s⁻¹, kg⋅m⋅s⁻³), unit conversion
               factor.</p>
@@ -3646,7 +3646,7 @@ g₀⋅lb = 4.4482216152605 [kg⋅m]/[lb⋅s²] British -&gt; Metric</code></pre
               "language-Julia hljs">energy : [FL], [FL], [ML²T⁻²], [ML²T⁻²], [ML²T⁻²]
 energy(U::UnitSystem,S::UnitSystem) = mass(U,S)*specificenergy(U,S)
 energy(v::Real,U::UnitSystem,S::UnitSystem) = v/energy(U,S)
-FL [ħ⁵ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻²ϕ⁵ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+FL [𝘤²mₑ⋅g₀⁻¹] Unified</code></pre>
               <p>Work or heat or <code>energy</code> (J, N⋅m,
               kg⋅m²⋅s⁻²), unit conversion factor.</p>
               <pre><code class=
@@ -3683,7 +3683,7 @@ julia&gt; 1/elementarycharge(SI2019) # J⋅eV⁻¹
               "language-Julia hljs">specificenergy : [FM⁻¹L], [L²T⁻²], [L²T⁻²], [L²T⁻²], [L²T⁻²]
 specificenergy(U::UnitSystem,S::UnitSystem) = speed(U,S)^2/gravity(U,S)
 specificenergy(v::Real,U::UnitSystem,S::UnitSystem) = v/specificenergy(U,S)
-FM⁻¹L [ħ²𝘤⁻²mₑ⁻²ϕ²αL⋅g₀²] Unified</code></pre>
+FM⁻¹L [𝘤²g₀⁻¹] Unified</code></pre>
               <p>Massic energy or <code>energy</code> per
               <code>mass</code> or <code>specificenergy</code>
               (J⋅kg⁻¹), unit conversion factor.</p>
@@ -3718,7 +3718,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">action : [FLT], [FLT], [ML²T⁻¹], [ML²T⁻¹], [ML²T⁻¹]
 action(U::UnitSystem,S::UnitSystem) = energy(U,S)*time(U,S)
 action(v::Real,U::UnitSystem,S::UnitSystem) = v/action(U,S)
-FLT [ħ⁻¹𝘤⁴mₑ³Kcd⋅ϕ⁻¹g₀⁻²] Unified</code></pre>
+FLT [ħ⋅ϕ] Unified</code></pre>
               <p>Integrated <code>momentum</code> over
               <code>length</code> or <code>action</code> (J⋅s,
               N⋅m⋅s), unit conversion factor.</p>
@@ -3750,7 +3750,7 @@ g₀⋅ft⋅lb = 1.3558179483314003 [J]/[lbf⋅ft] English -&gt; Metric</code></
               "language-Julia hljs">fluence : [FL⁻¹], [FL⁻¹], [MT⁻²], [MT⁻²], [MT⁻²]
 fluence(U::UnitSystem,S::UnitSystem) = energy(U,S)/area(U,S
 fluence(v::Real,U::UnitSystem,S::UnitSystem) = v/fluence(U,S)
-FL⁻¹ [ħ¹⁵ᐟ²𝘤⁻²⁷ᐟ²μ₀⁻³ᐟ²mₑ⁻¹⁰Kcd⁻²ϕ¹⁵ᐟ²λ⁻³ᐟ²g₀⁸] Unified</code></pre>
+FL⁻¹ [ħ⁻²𝘤⁴mₑ³ϕ⁻²g₀⁻³] Unified</code></pre>
               <p>Radiant exposure or <code>force</code> per
               <code>length</code> or stiffness (N⋅m⁻¹, J⋅m⁻²), unit
               conversion factor.</p>
@@ -3788,7 +3788,7 @@ g₀⋅ft⁻¹lb = 14.593902937206364 [N⋅m⁻¹]/[lbf⋅ft⁻¹] English -&gt;
               "language-Julia hljs">power : [FLT⁻¹], [FLT⁻¹], [ML²T⁻³], [ML²T⁻³], [ML²T⁻³]
 power(U::UnitSystem,S::UnitSystem) = energy(U,S)/time(U,S))
 power(v::Real,U::UnitSystem,S::UnitSystem) = v/power(U,S)
-FLT⁻¹ [ħ⁶𝘤⁻⁹μ₀⁻¹mₑ⁻⁷Kcd⁻¹ϕ⁶λ⁻¹g₀⁶] Unified</code></pre>
+FLT⁻¹ [ħ⁻¹𝘤⁴mₑ²ϕ⁻¹g₀⁻²] Unified</code></pre>
               <p>Radiant flux or <code>power</code> or
               <code>energy</code> per <code>time</code> (W, J⋅s⁻¹,
               kg⋅m²⋅s⁻³), unit conversion factor.</p>
@@ -3817,7 +3817,7 @@ g₀⋅ft⋅lb = 1.3558179483314003 [J]/[lbf⋅ft] English -&gt; Metric</code></
               "language-Julia hljs">powerdensity : [FL⁻²T⁻¹], [FL⁻²T⁻¹], [ML⁻¹T⁻³], [ML⁻¹T⁻³], [ML⁻¹T⁻³]
 powerdensity(U::UnitSystem,S::UnitSystem) = power(U,S)/volume(U,S)
 powerdensity(v::Real,U::UnitSystem,S::UnitSystem) = v/powerdensity(U,S)
-FL⁻²T⁻¹ [ħ²⁷ᐟ²𝘤⁻⁵¹ᐟ²μ₀⁻⁵ᐟ²mₑ⁻¹⁹Kcd⁻⁴ϕ²⁷ᐟ²λ⁻⁵ᐟ²g₀¹⁵] Unified</code></pre>
+FL⁻²T⁻¹ [ħ⁻⁴𝘤⁷mₑ⁵ϕ⁻⁴g₀⁻⁵] Unified</code></pre>
               <p>Spectral irradiance (volume) or
               <code>powerdensity</code> (W⋅m⁻³), unit conversion
               factor.</p>
@@ -3849,7 +3849,7 @@ g₀⋅ft⁻²lb = 47.88025898033583 [Pa]/[lbf⋅ft⁻²] English -&gt; Metric</
               "language-Julia hljs">irradiance : [FL⁻¹T⁻¹], [FL⁻¹T⁻¹], [MT⁻³], [MT⁻³], [MT⁻³]
 irradiance(U::UnitSystem,S::UnitSystem) = power(U,S)/area(U,S)
 irradiance(v::Real,U::UnitSystem,S::UnitSystem) = v/irradiance(U,S)
-FL⁻¹T⁻¹ [ħ¹¹𝘤⁻²⁰μ₀⁻²mₑ⁻¹⁵Kcd⁻³ϕ¹¹λ⁻²g₀¹²] Unified</code></pre>
+FL⁻¹T⁻¹ [ħ⁻³𝘤⁶mₑ⁴ϕ⁻³g₀⁻⁴] Unified</code></pre>
               <p>Heat flux density or irradiance or
               <code>power</code> per <code>area</code> (W⋅m⁻²,
               kg⋅s⁻³), unit conversion factor.</p>
@@ -3881,7 +3881,7 @@ g₀⋅ft⁻¹lb = 14.593902937206364 [N⋅m⁻¹]/[lbf⋅ft⁻¹] English -&gt;
               "language-Julia hljs">radiance : [FL⁻¹T⁻¹A⁻²], [FL⁻¹T⁻¹], [MT⁻³], [MT⁻³], [MT⁻³]
 radiance(U::UnitSystem,S::UnitSystem) = irradiance(U,S)/solidangle(U,S)
 radiance(v::Real,U::UnitSystem,S::UnitSystem) = v/radiance(U,S)
-FL⁻¹T⁻¹A⁻² [ħ¹³𝘤⁻²⁸μ₀⁻²mₑ⁻¹⁹Kcd⁻⁵ϕ¹³λ⁻²g₀¹⁶] Unified</code></pre>
+FL⁻¹T⁻¹A⁻² [ħ⁻³𝘤⁶mₑ⁴ϕ⁻⁵g₀⁻⁴] Unified</code></pre>
               <p>Radiance or <code>irradiance</code> per
               <code>solidangle</code> (W⋅m⁻²⋅sr⁻¹, kg⋅s⁻³⋅sr⁻¹),
               unit conversion factor.</p>
@@ -3913,7 +3913,7 @@ g₀⋅ft⁻¹lb = 14.593902937206364 [N⋅m⁻¹]/[lbf⋅ft⁻¹] English -&gt;
               "language-Julia hljs">radiantintensity : [FLT⁻¹A⁻²], [FLT⁻¹], [ML²T⁻³], [ML²T⁻³], [ML²T⁻³]
 radiantintensity(U::UnitSystem,S::UnitSystem) = power(U,S)/solidangle(U,S)
 radiantintensity(v::Real,U::UnitSystem,S::UnitSystem) = v/radiantintensity(U,S)
-FLT⁻¹A⁻² [ħ⁸𝘤⁻¹⁷μ₀⁻¹mₑ⁻¹¹Kcd⁻³ϕ⁸λ⁻¹g₀¹⁰] Unified</code></pre>
+FLT⁻¹A⁻² [ħ⁻¹𝘤⁴mₑ²ϕ⁻³g₀⁻²] Unified</code></pre>
               <p>Radiant intensity or <code>power</code> per
               <code>solidangle</code> (W⋅sr⁻¹, W⋅rad⁻²), unit
               conversion factor.</p>
@@ -3942,7 +3942,7 @@ g₀⋅ft⋅lb = 1.3558179483314003 [J]/[lbf⋅ft] English -&gt; Metric</code></
               "language-Julia hljs">spectralflux : [FT⁻¹], [FT⁻¹], [MLT⁻³], [MLT⁻³], [MLT⁻³]
 spectralflux(U::UnitSystem,S::UnitSystem) = power(U,S)/length(U,S)
 spectralflux(v::Real,U::UnitSystem,S::UnitSystem) = v/spectralflux(U,S)
-FT⁻¹ [ħ¹⁷ᐟ²𝘤⁻²⁹ᐟ²μ₀⁻³ᐟ²mₑ⁻¹¹Kcd⁻²ϕ¹⁷ᐟ²λ⁻³ᐟ²g₀⁹] Unified</code></pre>
+FT⁻¹ [ħ⁻²𝘤⁵mₑ³ϕ⁻²g₀⁻³] Unified</code></pre>
               <p>Spectral power or <code>power</code> per wave
               <code>length</code> (W⋅m⁻¹), unit conversion
               factor.</p>
@@ -3974,7 +3974,7 @@ g₀⋅lb = 4.4482216152605 [N]/[lbf] English -&gt; Metric</code></pre>
               "language-Julia hljs">spectralexposure : [FL⁻¹T], [FL⁻¹T], [MT⁻¹], [MT⁻¹], [MT⁻¹]
 spectralexposure(U::UnitSystem,S::UnitSystem) = force(U,S)/speed(U,S)
 spectralexposure(v::Real,U::UnitSystem,S::UnitSystem) = v/spectralexposure(U,S)
-FL⁻¹T [ħ⁴𝘤⁻⁷μ₀⁻¹mₑ⁻⁵Kcd⁻¹ϕ⁴λ⁻¹g₀⁴] Unified</code></pre>
+FL⁻¹T [ħ⁻¹𝘤²mₑ²ϕ⁻¹g₀⁻²] Unified</code></pre>
               <p>Spectral exposure or <code>fluence</code> per
               <code>frequency</code> (N⋅s⋅m⁻¹, J⋅s⋅m⁻²), unit
               conversion factor.</p>
@@ -4012,7 +4012,7 @@ g₀⋅ft⁻¹lb = 14.593902937206364 [N⋅m⁻¹]/[lbf⋅ft⁻¹] English -&gt;
               "language-Julia hljs">soundexposure : [F²L⁻⁴T], [F²L⁻⁴T], [M²L⁻²T⁻³], [M²L⁻²T⁻³], [M²L⁻²T⁻³]
 soundexposure(U::UnitSystem,S::UnitSystem) = pressure(U,S)^2*time(U,S)
 soundexposure(v::Real,U::UnitSystem,S::UnitSystem) = v/soundexposure(U,S)
-F²L⁻⁴T [ħ³³ᐟ²𝘤⁻⁶³ᐟ²μ₀⁻⁷ᐟ²mₑ⁻²³Kcd⁻⁵ϕ³³ᐟ²λ⁻⁷ᐟ²g₀¹⁸] Unified</code></pre>
+F²L⁻⁴T [ħ⁻⁵𝘤⁸mₑ⁷ϕ⁻⁵g₀⁻⁷] Unified</code></pre>
               <p>Square of <code>pressure</code> by
               <code>time</code> or <code>soundexposure</code>
               (Pa²⋅s, N²⋅m⁻⁴), unit conversion factor.</p>
@@ -4043,7 +4043,7 @@ g₀²ft⁻⁴lb² = 2292.519200024031 [kg²m⁻²s⁻⁴]/[lbf²ft⁻⁴] Engli
               "language-Julia hljs">impedance : [FL⁻⁵T], [FL⁻⁵T], [ML⁻⁴T⁻¹], [ML⁻⁴T⁻¹], [ML⁻⁴T⁻¹]
 impedance(U::UnitSystem,S::UnitSystem) = specificimpedance(U,S)/area(U,S)
 impedance(v::Real,U::UnitSystem,S::UnitSystem) = v/impedance(U,S)
-FL⁻⁵T [ħ¹⁴𝘤⁻²⁹μ₀⁻³mₑ⁻²¹Kcd⁻⁵ϕ¹⁴λ⁻³g₀¹⁶] Unified</code></pre>
+FL⁻⁵T [ħ⁻⁵𝘤⁶mₑ⁶ϕ⁻⁵g₀⁻⁶] Unified</code></pre>
               <p>Acoustic <code>impedance</code> (Rayl⋅m⁻²,
               Pa⋅s⋅m⁻³, kg⋅s⁻¹⋅m⁻⁴), unit conversion factor.</p>
               <pre><code class=
@@ -4071,7 +4071,7 @@ g₀⋅ft⁻⁵lb = 1690.875388429121 [kg⋅m⁻⁴s⁻²]/[lbf⋅ft⁻⁵] Engl
               "language-Julia hljs">specificimpedance : [FL⁻³T], [FL⁻³T], [ML⁻²T⁻¹], [ML⁻²T⁻¹], [ML⁻²T⁻¹]
 specificimpedance(U::UnitSystem,S::UnitSystem) = pressure(U,S)/speed(U,S)
 specificimpedance(v::Real,U::UnitSystem,S::UnitSystem) = v/specificimpedance(U,S)
-FL⁻³T [ħ⁹𝘤⁻¹⁸μ₀⁻²mₑ⁻¹³Kcd⁻³ϕ⁹λ⁻²g₀¹⁰] Unified</code></pre>
+FL⁻³T [ħ⁻³𝘤⁴mₑ⁴ϕ⁻³g₀⁻⁴] Unified</code></pre>
               <p>Characteristic specific acoustic impedance (Rayl,
               Pa⋅s⋅m⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -4099,7 +4099,7 @@ g₀⋅ft⁻³lb = 157.08746384624618 [kg⋅m⁻²s⁻²]/[lbf⋅ft⁻³] Englis
               "language-Julia hljs">admittance : [F⁻¹L⁵T⁻¹], [F⁻¹L⁵T⁻¹], [M⁻¹L⁴T], [M⁻¹L⁴T], [M⁻¹L⁴T]
 admittance(U::UnitSystem,S::UnitSystem) = area(U,S)/specificimpedance(U,S)
 admittance(v::Real,U::UnitSystem,S::UnitSystem) = v/admittance(U,S)
-F⁻¹L⁵T⁻¹ [ħ⁻¹⁴𝘤²⁹μ₀³mₑ²¹Kcd⁵ϕ⁻¹⁴λ³g₀⁻¹⁶] Unified</code></pre>
+F⁻¹L⁵T⁻¹ [ħ⁵𝘤⁻⁶mₑ⁻⁶ϕ⁵g₀⁶] Unified</code></pre>
               <p>Acoustic <code>admittance</code> (m²⋅Rayl⁻¹,
               m³⋅s⁻¹⋅Pa⁻¹, m⁴⋅s⋅kg⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -4127,7 +4127,7 @@ g₀⁻¹ft⁵lb⁻¹ = 0.0005914096371874175 [kg⁻¹m⁴s²]/[lbf⁻¹ft⁵] E
               "language-Julia hljs">compliance : [M⁻¹T²], [F⁻¹L], [M⁻¹T²], [M⁻¹T²], [M⁻¹T²]
 compliance(U::UnitSystem,S::UnitSystem) = time(U,S)^2/mass(U,S)
 compliance(v::Real,U::UnitSystem,S::UnitSystem) = v/compliance(U,S)
-M⁻¹T² [ħ⁻¹⁵ᐟ²𝘤²⁷ᐟ²μ₀³ᐟ²mₑ¹⁰Kcd²ϕ⁻¹⁵ᐟ²λ³ᐟ²αL⋅g₀⁻⁸] Unified</code></pre>
+M⁻¹T² [ħ²𝘤⁻⁴mₑ⁻³ϕ²g₀²] Unified</code></pre>
               <p>Acoustic <code>compliance</code> is reciprocal of
               <code>fluence</code> (m⋅N⁻¹, m³⋅Pa⁻¹), unit
               conversion factor.</p>
@@ -4159,7 +4159,7 @@ lb⁻¹ = 2.2046226218487757 [kg⁻¹]/[lbm⁻¹] English -&gt; Metric</code></p
               "language-Julia hljs">inertance : [ML⁻⁴], [FL⁻⁵T²], [ML⁻⁴], [ML⁻⁴], [ML⁻⁴]
 inertance(U::UnitSystem,S::UnitSystem) = mass(U,S)/length(U,S)^4
 inertance(v::Real,U::UnitSystem,S::UnitSystem) = v/inertance(U,S)
-ML⁻⁴ [ħ²¹ᐟ²𝘤⁻⁴⁵ᐟ²μ₀⁻⁵ᐟ²mₑ⁻¹⁶Kcd⁻⁴ϕ²¹ᐟ²λ⁻⁵ᐟ²αL⁻¹g₀¹²] Unified</code></pre>
+ML⁻⁴ [ħ⁻⁴𝘤⁴mₑ⁵ϕ⁻⁴g₀⁻⁴] Unified</code></pre>
               <p>Acoustic mass or <code>inertance</code> (kg⋅m⁴,
               Pa⋅s²⋅m⁻³), unit conversion factor.</p>
               <pre><code class=
@@ -4204,7 +4204,7 @@ ft⁻⁴lb = 52.55401369409494 [kg⋅m⁻⁴]/[lbm⋅ft⁻⁴] English -&gt; Met
               "language-Julia hljs">charge : [Q], [Q], [Q], [M¹ᐟ²L¹ᐟ²], [M¹ᐟ²L³ᐟ²T⁻¹]
 charge(U::UnitSystem,S::UnitSystem) = sqrt(action(U,S)*current(U,S)/electricpotential(U,S))
 charge(v::Real,U::UnitSystem,S::UnitSystem) = v/charge(U,S)
-Q [ħ⁻³ᐟ²𝘤⁷ᐟ²mₑ⁵ᐟ²Kcd¹ᐟ²ϕ⁻²λ⁻¹g₀⁻²] Unified</code></pre>
+Q [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹] Unified</code></pre>
               <p>Electric <code>charge</code> quantization (C,
               A⋅s), unit conversion factor.</p>
               <pre><code class=
@@ -4241,7 +4241,7 @@ julia&gt; charge(Hartree,SI2019) # C⋅𝘦⁻¹
               "language-Julia hljs">chargedensity : [L⁻³Q], [L⁻³Q], [L⁻³Q], [M¹ᐟ²L⁻⁵ᐟ²], [M¹ᐟ²L⁻³ᐟ²T⁻¹]
 chargedensity(U::UnitSystem,S::UnitSystem) = charge(U,S)/volume(U,S)
 chargedensity(v::Real,U::UnitSystem,S::UnitSystem) = v/chargedensity(U,S)
-L⁻³Q [ħ⁶𝘤⁻¹³μ₀⁻³ᐟ²mₑ⁻¹⁹ᐟ²Kcd⁻⁵ᐟ²ϕ¹¹ᐟ²λ⁻⁵ᐟ²g₀⁷] Unified</code></pre>
+L⁻³Q [ħ⁻⁵ᐟ²𝘤⁵ᐟ²μ₀⁻¹ᐟ²mₑ³ϕ⁻⁵ᐟ²λ⁻¹ᐟ²αL⁻¹g₀⁻³] Unified</code></pre>
               <p>Volume <code>chargedensity</code> or
               <code>charge</code> per <code>volume</code> (C⋅m⁻³),
               unit conversion factor.</p>
@@ -4273,7 +4273,7 @@ julia&gt; chargedensity(Metric,SI2019) # C⋅C⁻¹
               "language-Julia hljs">linearchargedensity : [L⁻¹Q], [L⁻¹Q], [L⁻¹Q], [M¹ᐟ²L⁻¹ᐟ²], [M¹ᐟ²L¹ᐟ²T⁻¹]
 linearchargedensity(U::UnitSystem,S::UnitSystem) = charge(U,S)/length(U,S)
 linearchargedensity(v::Real,U::UnitSystem,S::UnitSystem) = v/linearchargedensity(U,S)
-L⁻¹Q [ħ⋅𝘤⁻²μ₀⁻¹ᐟ²mₑ⁻³ᐟ²Kcd⁻¹ᐟ²ϕ¹ᐟ²λ⁻³ᐟ²g₀] Unified</code></pre>
+L⁻¹Q [ħ⁻¹ᐟ²𝘤¹ᐟ²μ₀⁻¹ᐟ²mₑ⋅ϕ⁻¹ᐟ²λ⁻¹ᐟ²αL⁻¹g₀⁻¹] Unified</code></pre>
               <p>Amount of <code>linearchargedensity</code> or
               <code>charge</code> per <code>length</code> (C⋅m⁻¹),
               unit conversion factor.</p>
@@ -4305,7 +4305,7 @@ julia&gt; linearchargedensity(Metric,SI2019) # C⋅C⁻¹
               "language-Julia hljs">exposure : [M⁻¹Q], [F⁻¹LT⁻²Q], [M⁻¹Q], [M⁻¹ᐟ²L¹ᐟ²], [M⁻¹ᐟ²L³ᐟ²T⁻¹]
 exposure(U::UnitSystem,S::UnitSystem) = charge(U,S)/mass(U,S)
 exposure(v::Real,U::UnitSystem,S::UnitSystem) = v/exposure(U,S)
-M⁻¹Q [ħ⁻²𝘤⁴μ₀¹ᐟ²mₑ⁵ᐟ²Kcd¹ᐟ²ϕ⁻⁵ᐟ²λ⁻¹ᐟ²αL⋅g₀⁻²] Unified</code></pre>
+M⁻¹Q [ħ¹ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹] Unified</code></pre>
               <p>Ionizing radiation <code>exposure</code> or
               <code>charge</code> per <code>mass</code> (C⋅kg⁻¹),
               unit conversion factor.</p>
@@ -4340,7 +4340,7 @@ julia&gt; exposure(Metric,SI2019) # C⋅C⁻¹
               "language-Julia hljs">mobility : [FL³T⁻¹Q⁻¹], [FL³T⁻¹Q⁻¹], [ML⁴T⁻³Q⁻¹], [M¹ᐟ²L⁷ᐟ²T⁻³], [M¹ᐟ²L⁵ᐟ²T⁻²]
 mobility(U::UnitSystem,S::UnitSystem) = length(U,S)*speed(U,S)/electricpotential(U,S)
 mobility(v::Real,U::UnitSystem,S::UnitSystem) = v/mobility(U,S)
-FL³T⁻¹Q⁻¹ [ħ⁵ᐟ²𝘤⁻³ᐟ²mₑ⁻³ᐟ²Kcd¹ᐟ²ϕ³λ⋅g₀²] Unified</code></pre>
+FL³T⁻¹Q⁻¹ [ħ¹ᐟ²𝘤⁵ᐟ²μ₀¹ᐟ²ϕ¹ᐟ²λ¹ᐟ²αL] Unified</code></pre>
               <p>Electron <code>mobility</code> in solid state
               physics (m²⋅V⁻¹⋅s⁻¹, A⋅s⋅kg⁻¹), unit conversion
               factor.</p>
@@ -4375,7 +4375,7 @@ julia&gt; mobility(Metric,SI2019) # C⋅C⁻¹
               "language-Julia hljs">current : [T⁻¹Q], [T⁻¹Q], [T⁻¹Q], [M¹ᐟ²L¹ᐟ²T⁻¹], [M¹ᐟ²L³ᐟ²T⁻²]
 current(U::UnitSystem,S::UnitSystem) = charge(U,S)/time(U,S)
 current(v::Real,U::UnitSystem,S::UnitSystem) = v/current(U,S)
-T⁻¹Q [ħ²𝘤⁻³μ₀⁻¹ᐟ²mₑ⁻⁵ᐟ²Kcd⁻¹ᐟ²ϕ³ᐟ²λ⁻³ᐟ²g₀²] Unified</code></pre>
+T⁻¹Q [ħ⁻¹ᐟ²𝘤³ᐟ²μ₀⁻¹ᐟ²mₑ⋅ϕ⁻¹ᐟ²λ⁻¹ᐟ²αL⁻¹g₀⁻¹] Unified</code></pre>
               <p>Flow of electric <code>charge</code> per
               <code>time</code> or <code>current</code> (A, C⋅s⁻¹),
               unit conversion factor.</p>
@@ -4410,7 +4410,7 @@ julia&gt; current(Metric,SI2019) # A⋅A⁻¹
               "language-Julia hljs">currentdensity : [L⁻²T⁻¹Q], [L⁻²T⁻¹Q], [L⁻²T⁻¹Q], [M¹ᐟ²L⁻³ᐟ²T⁻¹], [M¹ᐟ²L⁻¹ᐟ²T⁻²]
 currentdensity(U::UnitSystem,S::UnitSystem) = current(U,S)/area(U,S)
 currentdensity(v::Real,U::UnitSystem,S::UnitSystem) = v/currentdensity(U,S)
-L⁻²T⁻¹Q [ħ⁷𝘤⁻¹⁴μ₀⁻³ᐟ²mₑ⁻²¹ᐟ²Kcd⁻⁵ᐟ²ϕ¹³ᐟ²λ⁻⁵ᐟ²g₀⁸] Unified</code></pre>
+L⁻²T⁻¹Q [ħ⁻⁵ᐟ²𝘤⁷ᐟ²μ₀⁻¹ᐟ²mₑ³ϕ⁻⁵ᐟ²λ⁻¹ᐟ²αL⁻¹g₀⁻³] Unified</code></pre>
               <p>Cross-section <code>currentdensity</code> or
               <code>current</code> per <code>area</code> (A⋅m⁻²),
               unit conversion factor.</p>
@@ -4442,7 +4442,7 @@ julia&gt; currentdensity(Metric,SI2019) # A⋅A⁻¹
               "language-Julia hljs">resistance : [FLTQ⁻²], [FLTQ⁻²], [ML²T⁻¹Q⁻²], [LT⁻¹], [L⁻¹T]
 resistance(U::UnitSystem,S::UnitSystem) = electricpotential(U,S)/current(U,S)
 resistance(v::Real,U::UnitSystem,S::UnitSystem) = v/resistance(U,S)
-FLTQ⁻² [ħ²𝘤⁻³mₑ⁻²ϕ³λ²g₀²] Unified</code></pre>
+FLTQ⁻² [𝘤⋅μ₀⋅λ⋅αL²] Unified</code></pre>
               <p>Electrical <code>resistance</code> or
               <code>electricpotential</code> per
               <code>current</code> (Ω, S⁻¹, V⋅A⁻¹), unit conversion
@@ -4477,7 +4477,7 @@ julia&gt; resistance(Metric,SI2019) # Ω⋅Ω⁻¹
               "language-Julia hljs">conductance : [F⁻¹L⁻¹T⁻¹Q²], [F⁻¹L⁻¹T⁻¹Q²], [M⁻¹L⁻²TQ²], [L⁻¹T], [LT⁻¹]
 conductance(U::UnitSystem,S::UnitSystem) = current(U,S)/electricpotential(U,S)
 conductance(v::Real,U::UnitSystem,S::UnitSystem) = v/conductance(U,S)
-F⁻¹L⁻¹T⁻¹Q² [ħ⁻²𝘤³mₑ²ϕ⁻³λ⁻²g₀⁻²] Unified</code></pre>
+F⁻¹L⁻¹T⁻¹Q² [𝘤⁻¹μ₀⁻¹λ⁻¹αL⁻²] Unified</code></pre>
               <p>Electrical <code>conductance</code> or
               <code>current</code> per
               <code>electricpotential</code> (S, Ω⁻¹, A⋅V⁻¹), unit
@@ -4510,7 +4510,7 @@ julia&gt; conductance(Metric,SI2019) # S⋅S⁻¹
               "language-Julia hljs">resistivity : [FL²TQ⁻²], [FL²TQ⁻²], [ML³T⁻¹Q⁻²], [L²T⁻¹], [T]
 resistivity(U::UnitSystem,S::UnitSystem) = resistance(U,S)*length(U,S)
 resistivity(v::Real,U::UnitSystem,S::UnitSystem) = v/resistivity(U,S)
-FL²TQ⁻² [ħ⁻¹ᐟ²𝘤⁵ᐟ²μ₀¹ᐟ²mₑ²Kcd⋅ϕ¹ᐟ²λ⁵ᐟ²g₀⁻¹] Unified</code></pre>
+FL²TQ⁻² [ħ⋅μ₀⋅mₑ⁻¹ϕ⋅λ⋅αL²g₀] Unified</code></pre>
               <p>Electrical <code>resistivity</code> or
               <code>resistance</code> by <code>length</code> (Ω⋅m),
               unit conversion factor.</p>
@@ -4542,7 +4542,7 @@ julia&gt; resistance(Metric,SI2019) # Ω⋅Ω⁻¹
               "language-Julia hljs">conductivity : [F⁻¹L⁻²T⁻¹Q²], [F⁻¹L⁻²T⁻¹Q²], [M⁻¹L⁻³TQ²], [L⁻²T], [T⁻¹]
 conductivity(U::UnitSystem,S::UnitSystem) = conductance(U,S)/length(U,S)
 conductivity(v::Real,U::UnitSystem,S::UnitSystem) = v/conductivity(U,S)
-F⁻¹L⁻²T⁻¹Q² [ħ¹ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻²Kcd⁻¹ϕ⁻¹ᐟ²λ⁻⁵ᐟ²g₀] Unified</code></pre>
+F⁻¹L⁻²T⁻¹Q² [ħ⁻¹μ₀⁻¹mₑ⋅ϕ⁻¹λ⁻¹αL⁻²g₀⁻¹] Unified</code></pre>
               <p>Reciprocal <code>resistivity</code> or electrical
               <code>conductivity</code> (S⋅m⁻¹), unit conversion
               factor.</p>
@@ -4574,7 +4574,7 @@ julia&gt; conductivity(Metric,SI2019) # S⋅S⁻¹
               "language-Julia hljs">capacitance : [F⁻¹L⁻¹Q²], [F⁻¹L⁻¹Q²], [M⁻¹L⁻²T²Q²], [L⁻¹T²], [L]
 capacitance(U::UnitSystem,S::UnitSystem) = charge(U,S)/electricpotential(U,S)
 capacitance(v::Real,U::UnitSystem,S::UnitSystem) = v/capacitance(U,S)
-F⁻¹L⁻¹Q² [ħ⁻¹¹ᐟ²𝘤¹⁹ᐟ²μ₀¹ᐟ²mₑ⁷Kcd⋅ϕ⁻¹³ᐟ²λ⁻³ᐟ²g₀⁻⁶] Unified</code></pre>
+F⁻¹L⁻¹Q² [ħ⋅𝘤⁻³μ₀⁻¹mₑ⁻¹ϕ⋅λ⁻¹αL⁻²g₀] Unified</code></pre>
               <p>Electrical <code>capactiance</code> or
               <code>charge</code> per
               <code>electricpotential</code> (F, C⋅V⁻¹), unit
@@ -4607,7 +4607,7 @@ julia&gt; capactiance(Metric,SI2019) # F⋅F⁻¹
               "language-Julia hljs">inductance : [FLT²Q⁻²], [FLT²Q⁻²], [ML²Q⁻²], [L], [L⁻¹T²]
 inductance(U::UnitSystem,S::UnitSystem) = magneticflux(U,S)/current(U,S)
 inductance(v::Real,U::UnitSystem,S::UnitSystem) = v/inductance(U,S)
-FLT²Q⁻² [ħ⁻³ᐟ²𝘤⁷ᐟ²μ₀¹ᐟ²mₑ³Kcd⋅ϕ⁻¹ᐟ²λ⁵ᐟ²g₀⁻²] Unified</code></pre>
+FLT²Q⁻² [ħ⋅𝘤⁻¹μ₀⋅mₑ⁻¹ϕ⋅λ⋅αL²g₀] Unified</code></pre>
               <p>Electro-<code>magneticflux</code> per
               <code>current</code> or <code>inductance</code> (H,
               Ω⋅s, Wb⋅A⁻¹), unit conversion factor.</p>
@@ -4639,7 +4639,7 @@ julia&gt; inductance(Metric,SI2019) # H⋅H⁻¹
               "language-Julia hljs">reluctance : [F⁻¹L⁻¹T⁻²Q²RC⁻²], [F⁻¹L⁻¹T⁻²Q²], [M⁻¹L⁻²Q²], [L⁻¹], [LT⁻²]
 reluctance(U::UnitSystem,S::UnitSystem) = rationalization(U,S)*lorentz(U,S)^2/inductance(U,S)
 reluctance(v::Real,U::UnitSystem,S::UnitSystem) = v/reluctance(U,S)
-F⁻¹L⁻¹T⁻²Q²RC⁻² [ħ³ᐟ²𝘤⁻⁷ᐟ²μ₀⁻¹ᐟ²mₑ⁻³Kcd⁻¹ϕ³ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+F⁻¹L⁻¹T⁻²Q²RC⁻² [ħ⁻¹𝘤⋅μ₀⁻¹mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Magnetic <code>reluctance</code> or magnetic
               resistance (H⁻¹, Gb⋅Mx⁻¹), unit conversion
               factor.</p>
@@ -4671,7 +4671,7 @@ julia&gt; reluctance(Metric,SI2019) # H⋅H⁻¹
               "language-Julia hljs">permeance : [FLT²Q⁻²R⁻¹C²], [FLT²Q⁻²], [ML²Q⁻²], [L], [L⁻¹T²]
 permeance(U::UnitSystem,S::UnitSystem) = 1/reluctance(U,S)
 permeance(v::Real,U::UnitSystem,S::UnitSystem) = v/permeance(U,S)
-FLT²Q⁻²R⁻¹C² [ħ⁻³ᐟ²𝘤⁷ᐟ²μ₀¹ᐟ²mₑ³Kcd⋅ϕ⁻³ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
+FLT²Q⁻²R⁻¹C² [ħ⋅𝘤⁻¹μ₀⋅mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
               <p>Magnetic <code>permeance</code> or magnetic
               conductance (H, Mx⋅Gb⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -4704,7 +4704,7 @@ julia&gt; permeance(Metric,SI2019) # H⋅H⁻¹
               "language-Julia hljs">permittivity : [F⁻¹L⁻²Q²R], [F⁻¹L⁻²Q²], [M⁻¹L⁻³T²Q²], [L⁻²T²], [𝟙]
 permittivity(U::UnitSystem,S::UnitSystem) = capacitance(U,S)*rationalization(U,S)/length(U,S)
 permittivity(v::Real,U::UnitSystem,S::UnitSystem) = v/permittivity(U,S)
-F⁻¹L⁻²Q²R [ħ⁻³𝘤⁴mₑ³ϕ⁻³λ⁻²g₀⁻³] Unified</code></pre>
+F⁻¹L⁻²Q²R [𝘤⁻²μ₀⁻¹αL⁻²] Unified</code></pre>
               <p>Absolute <code>permittivity</code> or
               <code>capacitance</code> per <code>length</code>
               (F⋅m⁻¹), unit conversion factor.</p>
@@ -4738,7 +4738,7 @@ julia&gt; permittivity(Metric,SI2019) # F⋅F⁻¹
               "language-Julia hljs">permeability : [FT²Q⁻²R⁻¹C²], [FT²Q⁻²], [MLQ⁻²], [𝟙], [L⁻²T²]
 permeability(U::UnitSystem,S::UnitSystem) = permeability(S)/permeability(U)
 permeability(v::Real,U::UnitSystem,S::UnitSystem) = v/permeability(U,S)
-FT²Q⁻²R⁻¹C² [ħ⋅𝘤⁻²mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
+FT²Q⁻²R⁻¹C² [μ₀] Unified</code></pre>
               <p>Magnetic <code>permeability</code> or
               <code>inductance</code> per <code>length</code>
               (H⋅m⁻¹), unit conversion factor.</p>
@@ -4770,7 +4770,7 @@ julia&gt; permeability(Metric,SI2019) # H⋅H⁻¹
               "language-Julia hljs">susceptibility : [R⁻¹], [𝟙], [𝟙], [𝟙], [𝟙]
 susceptibility(U::UnitSystem,S::UnitSystem) = 1/rationalization(U,S)
 susceptibility(v::Real,U::UnitSystem,S::UnitSystem) = v/susceptibility(U,S)
-R⁻¹ [ϕ⁻¹] Unified</code></pre>
+R⁻¹ [λ⁻¹] Unified</code></pre>
               <p>Magnetic/electric volume
               <code>susceptibility</code> (dimensionless), unit
               conversion factor.</p>
@@ -4802,7 +4802,7 @@ julia&gt; susceptibility(Metric,SI2019)
               "language-Julia hljs">specificsusceptibility : [M⁻¹L³A⁻¹R⁻¹], [F⁻¹L⁴T⁻²], [M⁻¹L³], [M⁻¹L³], [M⁻¹L³]
 specificsusceptibility(U::UnitSystem,S::UnitSystem) = susceptibility(U,S)/density(U,S)
 specificsusceptibility(v::Real,U::UnitSystem,S::UnitSystem) = v/specificsusceptibility(U,S)
-M⁻¹L³A⁻¹R⁻¹ [ħ⁻⁷𝘤¹³μ₀²mₑ¹⁰Kcd²ϕ⁻⁸λ²αL⋅g₀⁻⁷] Unified</code></pre>
+M⁻¹L³A⁻¹R⁻¹ [ħ³𝘤⁻³mₑ⁻⁴ϕ²λ⁻¹g₀³] Unified</code></pre>
               <p>Magnetic/electric mass specific
               <code>susceptibility</code> (m³⋅kg⁻¹), unit
               conversion factor.</p>
@@ -4834,7 +4834,7 @@ julia&gt; specificsusceptibility(Metric,SI2019) # m³⋅kg⋅kg⁻¹⋅m⁻³
               "language-Julia hljs">demagnetizingfactor : [R], [𝟙], [𝟙], [𝟙], [𝟙]
 demagnetizingfactor(U::UnitSystem,S::UnitSystem) = 1/susceptibility(U,S)
 demagnetizingfactor(v::Real,U::UnitSystem,S::UnitSystem) = v/demagnetizingfactor(U,S)
-R [ϕ] Unified</code></pre>
+R [λ] Unified</code></pre>
               <p>Quantitiy of <code>demagnetizingfactor</code>
               (dimensionless), unit conversion factor.</p>
               <pre><code class=
@@ -4865,7 +4865,7 @@ julia&gt; demagnetizingfactor(Metric,SI2019)
               "language-Julia hljs">vectorpotential : [FTQ⁻¹C], [FTQ⁻¹], [MLT⁻¹Q⁻¹], [M¹ᐟ²L¹ᐟ²T⁻¹], [M¹ᐟ²L⁻¹ᐟ²]
 vectorpotential(U::UnitSystem,S::UnitSystem) = magneticflux(U,S)/length(U,S)
 vectorpotential(v::Real,U::UnitSystem,S::UnitSystem) = v/vectorpotential(U,S)
-FTQ⁻¹C [ħ³𝘤⁻⁵μ₀⁻¹ᐟ²mₑ⁻⁷ᐟ²Kcd⁻¹ᐟ²ϕ⁷ᐟ²λ⁻¹ᐟ²g₀³] Unified</code></pre>
+FTQ⁻¹C [ħ⁻¹ᐟ²𝘤³ᐟ²μ₀¹ᐟ²mₑ⋅ϕ⁻¹ᐟ²λ¹ᐟ²g₀⁻¹] Unified</code></pre>
               <p>Magnetic <code>vectorpotential</code> or
               electromagnetic rigidity (Wb⋅m⁻¹ or T⋅m), unit
               conversion factor.</p>
@@ -4897,7 +4897,7 @@ julia&gt; vectorpotential(Metric,SI2019) # Wb⋅Wb⁻¹
               "language-Julia hljs">electricpotential : [FLQ⁻¹], [FLQ⁻¹], [ML²T⁻²Q⁻¹], [M¹ᐟ²L³ᐟ²T⁻²], [M¹ᐟ²L¹ᐟ²T⁻¹]
 electricpotential(U::UnitSystem,S::UnitSystem) = energy(U,S)/charge(U,S)
 electricpotential(v::Real,U::UnitSystem,S::UnitSystem) = v/electricpotential(U,S)
-FLQ⁻¹ [ħ⁴𝘤⁻⁶μ₀⁻¹ᐟ²mₑ⁻⁹ᐟ²Kcd⁻¹ᐟ²ϕ⁹ᐟ²λ¹ᐟ²g₀⁴] Unified</code></pre>
+FLQ⁻¹ [ħ⁻¹ᐟ²𝘤⁵ᐟ²μ₀¹ᐟ²mₑ⋅ϕ⁻¹ᐟ²λ¹ᐟ²αL⋅g₀⁻¹] Unified</code></pre>
               <p>Voltage or <code>electricpotential</code> or
               <code>energy</code> per <code>charge</code> (V,
               J⋅C⁻¹), unit conversion factor.</p>
@@ -4932,7 +4932,7 @@ julia&gt; electricpotential(Metric,SI2019) # V⋅V⁻¹
               "language-Julia hljs">magneticpotential : [T⁻¹QRC⁻¹], [T⁻¹Q], [T⁻¹Q], [M¹ᐟ²L¹ᐟ²T⁻¹], [M¹ᐟ²L³ᐟ²T⁻²]
 magneticpotential(U::UnitSystem,S::UnitSystem) = magneticflux(U,S)*reluctance(U,S)
 magneticpotential(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticpotential(U,S)
-T⁻¹QRC⁻¹ [ħ²𝘤⁻³μ₀⁻¹ᐟ²mₑ⁻⁵ᐟ²Kcd⁻¹ᐟ²ϕ⁵ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+T⁻¹QRC⁻¹ [ħ⁻¹ᐟ²𝘤³ᐟ²μ₀⁻¹ᐟ²mₑ⋅ϕ⁻¹ᐟ²λ¹ᐟ²g₀⁻¹] Unified</code></pre>
               <p>Magnetomotive force or
               <code>magneticpotential</code> (A, Gb), unit
               conversion factor.</p>
@@ -4961,7 +4961,7 @@ julia&gt; magneticpotential(Metric,SI2019) # A⋅A⁻¹
               "language-Julia hljs">electricfield : [FQ⁻¹], [FQ⁻¹], [MLT⁻²Q⁻¹], [M¹ᐟ²L¹ᐟ²T⁻²], [M¹ᐟ²L⁻¹ᐟ²T⁻¹]
 electricfield(U::UnitSystem,S::UnitSystem) = electricpotential(U,S)/length(U,S)
 electricfield(v::Real,U::UnitSystem,S::UnitSystem) = v/electricfield(U,S)
-FQ⁻¹ [ħ¹³ᐟ²𝘤⁻²³ᐟ²μ₀⁻¹mₑ⁻¹⁷ᐟ²Kcd⁻³ᐟ²ϕ⁷g₀⁷] Unified</code></pre>
+FQ⁻¹ [ħ⁻³ᐟ²𝘤⁷ᐟ²μ₀¹ᐟ²mₑ²ϕ⁻³ᐟ²λ¹ᐟ²αL⋅g₀⁻²] Unified</code></pre>
               <p>The <code>electricpotential</code> per
               <code>length</code> or <code>electricfield</code>
               (V⋅m⁻¹), unit conversion factor.</p>
@@ -4996,7 +4996,7 @@ julia&gt; electricfield(Metric,SI2019) # V⋅V⁻¹
               "language-Julia hljs">magneticfield : [L⁻¹T⁻¹QRC⁻¹], [L⁻¹T⁻¹Q], [L⁻¹T⁻¹Q], [M¹ᐟ²L⁻¹ᐟ²T⁻¹], [M¹ᐟ²L¹ᐟ²T⁻²]
 magneticfield(U::UnitSystem,S::UnitSystem) = current(U,S)*rationalization(U,S)*lorentz(U,S)/length(U,S)
 magneticfield(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticfield(U,S)
-L⁻¹T⁻¹QRC⁻¹ [ħ⁹ᐟ²𝘤⁻¹⁷ᐟ²μ₀⁻¹mₑ⁻¹³ᐟ²Kcd⁻³ᐟ²ϕ⁵λ⁻¹g₀⁵] Unified</code></pre>
+L⁻¹T⁻¹QRC⁻¹ [ħ⁻³ᐟ²𝘤⁵ᐟ²μ₀⁻¹ᐟ²mₑ²ϕ⁻³ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
               <p>Magnetization or <code>magneticfield</code> or
               <code>current</code> per <code>length</code> (A⋅m⁻¹),
               unit conversion factor.</p>
@@ -5028,7 +5028,7 @@ julia&gt; magneticfield(Metric,SI2019) # A⋅A⁻¹
               "language-Julia hljs">electricflux : [FL²Q⁻¹], [FL²Q⁻¹], [ML³T⁻²Q⁻¹], [M¹ᐟ²L⁵ᐟ²T⁻²], [M¹ᐟ²L³ᐟ²T⁻¹]
 electricflux(U::UnitSystem,S::UnitSystem) = electricpotential(U,S)*length(U,S)
 electricflux(v::Real,U::UnitSystem,S::UnitSystem) = v/electricflux(U,S)
-FL²Q⁻¹ [ħ³ᐟ²𝘤⁻¹ᐟ²mₑ⁻¹ᐟ²Kcd¹ᐟ²ϕ²λ⋅g₀] Unified</code></pre>
+FL²Q⁻¹ [ħ¹ᐟ²𝘤³ᐟ²μ₀¹ᐟ²ϕ¹ᐟ²λ¹ᐟ²αL] Unified</code></pre>
               <p>Amount of <code>electricflux</code> or
               <code>electricpotential</code> by <code>length</code>
               (V⋅m), unit conversion factor.</p>
@@ -5065,7 +5065,7 @@ julia&gt; electricflux(Metric,SI2019) # V⋅V⁻¹
               "language-Julia hljs">magneticflux : [FLTQ⁻¹C], [FLTQ⁻¹], [ML²T⁻¹Q⁻¹], [M¹ᐟ²L³ᐟ²T⁻¹], [M¹ᐟ²L¹ᐟ²]
 magneticflux(U::UnitSystem,S::UnitSystem) = energy(U,S)/lorentz(U,S)/current(U,S)
 magneticflux(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticflux(U,S)
-FLTQ⁻¹C [ħ¹ᐟ²𝘤¹ᐟ²mₑ¹ᐟ²Kcd¹ᐟ²ϕ] Unified</code></pre>
+FLTQ⁻¹C [ħ¹ᐟ²𝘤¹ᐟ²μ₀¹ᐟ²ϕ¹ᐟ²λ¹ᐟ²] Unified</code></pre>
               <p>Surface <code>magneticflux</code> or
               <code>energy</code> per <code>current</code> (Wb,
               J⋅A⁻¹, V⋅s), unit conversion factor.</p>
@@ -5097,7 +5097,7 @@ julia&gt; magneticflux(Metric,SI2019) # Wb⋅Wb⁻¹
               "language-Julia hljs">electricdisplacement : [L⁻²QR], [L⁻²Q], [L⁻²Q], [M¹ᐟ²L⁻³ᐟ²], [M¹ᐟ²L⁻¹ᐟ²T⁻¹]
 electricdisplacement(U::UnitSystem,S::UnitSystem) = charge(U,S)*rationalization(U,S)/area(U,S)
 electricdisplacement(v::Real,U::UnitSystem,S::UnitSystem) = v/electricdisplacement(U,S)
-L⁻²QR [ħ⁷ᐟ²𝘤⁻¹⁵ᐟ²μ₀⁻¹mₑ⁻¹¹ᐟ²Kcd⁻³ᐟ²ϕ⁴λ⁻²g₀⁴] Unified</code></pre>
+L⁻²QR [ħ⁻³ᐟ²𝘤³ᐟ²μ₀⁻¹ᐟ²mₑ²ϕ⁻³ᐟ²λ¹ᐟ²αL⁻¹g₀⁻²] Unified</code></pre>
               <p>Electric field displacement or surface
               <code>electricdisplacement</code> (C⋅m⁻²), unit
               conversion factor.</p>
@@ -5129,7 +5129,7 @@ julia&gt; electricdisplacement(Metric,SI2019) # C⋅C⁻¹
               "language-Julia hljs">magneticfluxdensity : [FL⁻¹TQ⁻¹C], [FL⁻¹TQ⁻¹], [MT⁻¹Q⁻¹], [M¹ᐟ²L⁻¹ᐟ²T⁻¹], [M¹ᐟ²L⁻³ᐟ²]
 magneticfluxdensity(U::UnitSystem,S::UnitSystem) = magneticflux(U,S)/area(U,S)
 magneticfluxdensity(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticfluxdensity(U,S)
-FL⁻¹TQ⁻¹C [ħ¹¹ᐟ²𝘤⁻²¹ᐟ²μ₀⁻¹mₑ⁻¹⁵ᐟ²Kcd⁻³ᐟ²ϕ⁶λ⁻¹g₀⁶] Unified</code></pre>
+FL⁻¹TQ⁻¹C [ħ⁻³ᐟ²𝘤⁵ᐟ²μ₀¹ᐟ²mₑ²ϕ⁻³ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
               <p>Magnetic induction or <code>magneticmoment</code>
               per <code>volume</code> (T or Wb⋅m⁻²), unit
               conversion factor.</p>
@@ -5161,7 +5161,7 @@ julia&gt; magneticfluxdensity(Metric,SI2019) # T⋅T⁻¹
               "language-Julia hljs">electricdipolemoment : [LQ], [LQ], [LQ], [M¹ᐟ²L³ᐟ²], [M¹ᐟ²L⁵ᐟ²T⁻¹]
 electricdipolemoment(U::UnitSystem,S::UnitSystem) = charge(U,S)*length(U,S)
 electricdipolemoment(v::Real,U::UnitSystem,S::UnitSystem) = v/electricdipolemoment(U,S)
-LQ [ħ⁻⁴𝘤⁹μ₀¹ᐟ²mₑ¹³ᐟ²Kcd³ᐟ²ϕ⁻⁹ᐟ²λ⁻¹ᐟ²g₀⁻⁵] Unified</code></pre>
+LQ [ħ³ᐟ²𝘤⁻³ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ³ᐟ²λ⁻¹ᐟ²αL⁻¹g₀] Unified</code></pre>
               <p>Electric dipole moment or
               <code>electricdipolemoment</code> (C⋅m), unit
               conversion factor.</p>
@@ -5193,7 +5193,7 @@ julia&gt; electricdipolemoment(Metric,SI2019) # C⋅C⁻¹
               "language-Julia hljs">magneticdipolemoment : [L²T⁻¹QA⁻¹C⁻¹], [L²T⁻¹Q], [L²T⁻¹Q], [M¹ᐟ²L⁵ᐟ²T⁻¹], [M¹ᐟ²L⁷ᐟ²T⁻²]
 magneticdipolemoment(U::UnitSystem,S::UnitSystem) = current(U,S)*lorentz(U,S)/area(U,S)/gravity(U,S)/angle(U,S)
 magneticdipolemoment(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticdipolemoment(U,S)
-L²T⁻¹QA⁻¹C⁻¹ [ħ⁻²𝘤⁴μ₀¹ᐟ²mₑ⁷ᐟ²Kcd¹ᐟ²ϕ⁻⁵ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
+L²T⁻¹QA⁻¹C⁻¹ [ħ³ᐟ²𝘤⁻¹ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ¹ᐟ²λ⁻¹ᐟ²g₀] Unified</code></pre>
               <p>Magnetic dipole moment or
               <code>magneticdipolemoment</code> (J⋅T⁻¹, A⋅m²), unit
               conversion factor.</p>
@@ -5225,7 +5225,7 @@ julia&gt; magneticdipolemoment(Metric,SI2019) # A⋅A⁻¹⋅
               "language-Julia hljs">electricpolarizability : [F⁻¹LQ²], [F⁻¹LQ²], [M⁻¹T²Q²], [LT²], [L³]
 electricpolarizability(U::UnitSystem,S::UnitSystem) = electricdipolemoment(U,S)/electricfield(U,S)
 electricpolarizability(v::Real,U::UnitSystem,S::UnitSystem) = v/electricpolarizability(U,S)
-F⁻¹LQ² [ħ⁻²¹ᐟ²𝘤⁴¹ᐟ²μ₀³ᐟ²mₑ¹⁵Kcd³ϕ⁻²³ᐟ²λ⁻¹ᐟ²g₀⁻¹²] Unified</code></pre>
+F⁻¹LQ² [ħ³𝘤⁻⁵μ₀⁻¹mₑ⁻³ϕ³λ⁻¹αL⁻²g₀³] Unified</code></pre>
               <p>Polarizability or
               <code>electricdipolemoment</code> per
               <code>electricfield</code> (C⋅m²⋅V⁻¹), unit
@@ -5261,7 +5261,7 @@ julia&gt; electricpolarizability(Metric,SI2019) # C⋅V⋅C⁻¹⋅V⁻¹
               "language-Julia hljs">magneticpolarizability : [L³A⁻¹R⁻¹], [L³], [L³], [L³], [L³]
 magneticpolarizability(U::UnitSystem,S::UnitSystem) = magneticdipolemoment(U,S)/magneticfield(U,S)
 magneticpolarizability(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticpolarizability(U,S)
-L³A⁻¹R⁻¹ [ħ⁻¹³ᐟ²𝘤²⁵ᐟ²μ₀³ᐟ²mₑ¹⁰Kcd²ϕ⁻¹⁵ᐟ²λ³ᐟ²g₀⁻⁷] Unified</code></pre>
+L³A⁻¹R⁻¹ [ħ³𝘤⁻³mₑ⁻³ϕ²λ⁻¹g₀³] Unified</code></pre>
               <p>Polarizability or
               <code>magneticdipolemoment</code> per
               <code>magneticfield</code> (m³), unit conversion
@@ -5297,7 +5297,7 @@ julia&gt; electricpolarizability(Metric,SI2019)
               "language-Julia hljs">magneticmoment : [FL²TQ⁻¹C], [FL²TQ⁻¹], [ML³T⁻¹Q⁻¹], [M¹ᐟ²L⁵ᐟ²T⁻¹], [M¹ᐟ²L³ᐟ²]
 magneticmoment(U::UnitSystem,S::UnitSystem) = magneticflux(U,S)*length(U,S)
 magneticmoment(v::Real,U::UnitSystem,S::UnitSystem) = v/magneticmoment(U,S)
-FL²TQ⁻¹C [ħ⁻²𝘤⁶μ₀¹ᐟ²mₑ⁹ᐟ²Kcd³ᐟ²ϕ⁻³ᐟ²λ¹ᐟ²g₀⁻³] Unified</code></pre>
+FL²TQ⁻¹C [ħ³ᐟ²𝘤⁻¹ᐟ²μ₀¹ᐟ²mₑ⁻¹ϕ³ᐟ²λ¹ᐟ²g₀] Unified</code></pre>
               <p>Amount of <code>magneticmoment</code> or
               <code>magneticflux</code> by <code>length</code>
               (Wb⋅m or T⋅m³), unit conversion factor.</p>
@@ -5329,7 +5329,7 @@ julia&gt; magneticmoment(Metric,SI2019) # Wb⋅Wb⁻¹
               "language-Julia hljs">specificmagnetization : [F⁻¹ML⁻²T⁻¹QC⁻¹], [L⁻³TQ], [L⁻³TQ], [M¹ᐟ²L⁻⁵ᐟ²T], [M¹ᐟ²L⁻³ᐟ²]
 specificmagnetization(U::UnitSystem,S::UnitSystem) = magneticmoment(U,S)/mass(U,S)
 specificmagnetization(v::Real,U::UnitSystem,S::UnitSystem) = v/specificmagnetization(U,S)
-F⁻¹ML⁻²T⁻¹QC⁻¹ [ħ⁵ᐟ²𝘤⁻¹³ᐟ²μ₀⁻¹mₑ⁻⁹ᐟ²Kcd⁻³ᐟ²ϕ²λ⁻¹αL⁻¹g₀³] Unified</code></pre>
+F⁻¹ML⁻²T⁻¹QC⁻¹ [ħ⁻³ᐟ²𝘤¹ᐟ²μ₀⁻¹ᐟ²mₑ²ϕ⁻³ᐟ²λ⁻¹ᐟ²g₀⁻¹] Unified</code></pre>
               <p>Amount of <code>magneticmoment</code> per
               <code>mass</code> (Wb⋅m⋅kg⁻¹), unit conversion
               factor.</p>
@@ -5361,7 +5361,7 @@ julia&gt; specificmagnetization(Metric,SI2019) # Wb⋅Wb⁻¹
               "language-Julia hljs">polestrength : [LT⁻¹QA⁻¹C⁻¹], [LT⁻¹Q], [LT⁻¹Q], [M¹ᐟ²L³ᐟ²T⁻¹], [M¹ᐟ²L⁵ᐟ²T⁻²]
 polestrength(U::UnitSystem,S::UnitSystem) = magneticdipolemoment(U,S)/length(U,S)
 polestrength(v::Real,U::UnitSystem,S::UnitSystem) = v/polestrength(U,S)
-LT⁻¹QA⁻¹C⁻¹ [ħ¹ᐟ²𝘤⁻³ᐟ²mₑ⁻¹ᐟ²Kcd⁻¹ᐟ²g₀] Unified</code></pre>
+LT⁻¹QA⁻¹C⁻¹ [ħ¹ᐟ²𝘤¹ᐟ²μ₀⁻¹ᐟ²ϕ⁻¹ᐟ²λ⁻¹ᐟ²] Unified</code></pre>
               <p>Magnetic <code>polestrength</code> is analogous to
               <code>charge</code> (A⋅m), unit conversion
               factor.</p>
@@ -5395,7 +5395,7 @@ julia&gt; polestrength(Metric,SI2019) # A⋅A⁻¹⋅
               "language-Julia hljs">temperature : [Θ], [Θ], [Θ], [Θ], [Θ]
 temperature(U::UnitSystem,S::UnitSystem) = mass(U,S)*speed(U,S)^2/entropy(U,S)
 temperature(v::Real,U::UnitSystem,S::UnitSystem) = v/temperature(U,S)
-Θ [ħ⁷ᐟ²𝘤⁻¹¹ᐟ²μ₀⁻¹ᐟ²mₑ⁻⁴ϕ⁷ᐟ²λ⁻¹ᐟ²g₀⁴] Unified</code></pre>
+Θ [kB⁻¹𝘤²mₑ⋅g₀⁻¹] Unified</code></pre>
               <p>Measurement scale for thermodynamic energy or
               <code>temperature</code> (K), unit conversion
               factor.</p>
@@ -5430,7 +5430,7 @@ kB⁻¹NA⁻¹𝘩⁻¹𝘤³R∞⁻¹α²μₑᵤ⋅mP⋅2⁻⁴5⁻³ = 1.4167
               "language-Julia hljs">entropy : [FLΘ⁻¹], [FLΘ⁻¹], [ML²T⁻²Θ⁻¹], [ML²T⁻²Θ⁻¹], [ML²T⁻²Θ⁻¹]
 entropy(U::UnitSystem,S::UnitSystem) = energy(U,S)/temperature(U,S)
 entropy(v::Real,U::UnitSystem,S::UnitSystem) = v/entropy(U,S)
-FLΘ⁻¹ [ħ⁻¹𝘤³mₑ²ϕ⁻¹g₀⁻²] Unified</code></pre>
+FLΘ⁻¹ [kB] Unified</code></pre>
               <p>Heat capacity or <code>energy</code> per
               <code>temperature</code> or <code>entropy</code>
               (J⋅K⁻¹), unit conversion factor.</p>
@@ -5465,7 +5465,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">specificentropy : [FM⁻¹LΘ⁻¹], [L²T⁻²Θ⁻¹], [L²T⁻²Θ⁻¹], [L²T⁻²Θ⁻¹], [L²T⁻²Θ⁻¹]
 specificentropy(U::UnitSystem,S::UnitSystem) = specificenergy(U,S)/temperature(U,S)
 specificentropy(v::Real,U::UnitSystem,S::UnitSystem) = v/specificentropy(U,S)
-FM⁻¹LΘ⁻¹ [ħ⁻³ᐟ²𝘤⁷ᐟ²μ₀¹ᐟ²mₑ²ϕ⁻³ᐟ²λ¹ᐟ²αL⋅g₀⁻²] Unified</code></pre>
+FM⁻¹LΘ⁻¹ [kB⋅mₑ⁻¹] Unified</code></pre>
               <p>Specific heat capacity or
               <code>specificentropy</code> (J⋅K⁻¹⋅kg⁻¹), unit
               conversion factor.</p>
@@ -5500,7 +5500,7 @@ ft⁻¹ftUS = 1.0000020000039997 [ft]/[ft] Survey -&gt; English</code></pre>
               "language-Julia hljs">volumeheatcapacity : [FL⁻²Θ⁻¹], [FL⁻²Θ⁻¹], [ML⁻¹T⁻²Θ⁻¹], [ML⁻¹T⁻²Θ⁻¹], [ML⁻¹T⁻²Θ⁻¹]
 volumeheatcapacity(U::UnitSystem,S::UnitSystem) = entropy(U,S)/volume(U,S)
 volumeheatcapacity(v::Real,U::UnitSystem,S::UnitSystem) = v/volumeheatcapacity(U,S)
-FL⁻²Θ⁻¹ [ħ¹³ᐟ²𝘤⁻²⁷ᐟ²μ₀⁻³ᐟ²mₑ⁻¹⁰Kcd⁻³ϕ¹³ᐟ²λ⁻³ᐟ²g₀⁷] Unified</code></pre>
+FL⁻²Θ⁻¹ [kB⋅ħ⁻³𝘤³mₑ³ϕ⁻³g₀⁻³] Unified</code></pre>
               <p>The <code>entropy</code> per <code>volume</code>
               or <code>volumeheatcapacity</code> (J⋅K⁻¹⋅m⁻³), unit
               conversion factor.</p>
@@ -5535,7 +5535,7 @@ ft²ftUS⁻² = 0.9999960000040004 [ft⁻²]/[ft⁻²] Survey -&gt; English</cod
               "language-Julia hljs">thermalconductivity : [FT⁻¹Θ⁻¹], [FT⁻¹Θ⁻¹], [MLT⁻³Θ⁻¹], [MLT⁻³Θ⁻¹], [MLT⁻³Θ⁻¹]
 thermalconductivity(U::UnitSystem,S::UnitSystem) = force(U,S)/time(U,S)/temperature(U,S)
 thermalconductivity(v::Real,U::UnitSystem,S::UnitSystem) = v/thermalconductivity(U,S)
-FT⁻¹Θ⁻¹ [ħ⁵𝘤⁻⁹μ₀⁻¹mₑ⁻⁷Kcd⁻²ϕ⁵λ⁻¹g₀⁵] Unified</code></pre>
+FT⁻¹Θ⁻¹ [kB⋅ħ⁻²𝘤³mₑ²ϕ⁻²g₀⁻²] Unified</code></pre>
               <p>Heat conductivity or
               <code>thermalconductivity</code> (W⋅m⁻¹⋅K⁻¹), unit
               conversion factor.</p>
@@ -5567,7 +5567,7 @@ g₀⋅lb⋅3²5⁻¹ = 8.0067989074689 [kg⋅m⋅s⁻²K⁻¹]/[lbf⋅°R⁻¹]
               "language-Julia hljs">thermalconductance : [FLT⁻¹Θ⁻¹], [FLT⁻¹Θ⁻¹], [ML²T⁻³Θ⁻¹], [ML²T⁻³Θ⁻¹], [ML²T⁻³Θ⁻¹]
 thermalconductance(U::UnitSystem,S::UnitSystem) = thermalconductivity(U,S)*length(U,S)
 thermalconductance(v::Real,U::UnitSystem,S::UnitSystem) = v/thermalconductance(U,S)
-FLT⁻¹Θ⁻¹ [ħ⁵ᐟ²𝘤⁻⁷ᐟ²μ₀⁻¹ᐟ²mₑ⁻³Kcd⁻¹ϕ⁵ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+FLT⁻¹Θ⁻¹ [kB⋅ħ⁻¹𝘤²mₑ⋅ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Reciprocal of <code>thermalresistance</code>
               (W⋅K⁻¹), unit conversion factor.</p>
               <pre><code class=
@@ -5598,7 +5598,7 @@ g₀⋅ft⋅lb⋅3²5⁻¹ = 2.440472306996521 [J⋅K⁻¹]/[lbf⋅ft⋅°R⁻¹
               "language-Julia hljs">thermalresistivity : [F⁻¹TΘ], [F⁻¹TΘ], [M⁻¹L⁻¹T³Θ], [M⁻¹L⁻¹T³Θ], [M⁻¹L⁻¹T³Θ]
 thermalresistivity(U::UnitSystem,S::UnitSystem) = 1/thermalconductivity(U,S)
 thermalresistivity(v::Real,U::UnitSystem,S::UnitSystem) = v/thermalresistivity(U,S)
-F⁻¹TΘ [ħ⁻⁵𝘤⁹μ₀⋅mₑ⁷Kcd²ϕ⁻⁵λ⋅g₀⁻⁵] Unified</code></pre>
+F⁻¹TΘ [kB⁻¹ħ²𝘤⁻³mₑ⁻²ϕ²g₀²] Unified</code></pre>
               <p>Resistance to heat flow or
               <code>thermalresistance</code> (K⋅W⁻¹), unit
               conversion factor.</p>
@@ -5630,7 +5630,7 @@ g₀⁻¹ft⁻¹lb⁻¹3⁻²5 = 0.40975674959848074 [kg⁻¹m⁻²s²K]/[lbf⁻
               "language-Julia hljs">thermalresistance : [F⁻¹L⁻¹TΘ], [F⁻¹L⁻¹TΘ], [M⁻¹L⁻²T³Θ], [M⁻¹L⁻²T³Θ], [M⁻¹L⁻²T³Θ]
 thermalresistance(U::UnitSystem,S::UnitSystem) = 1/thermalconductivity(U,S)/length(U,S)
 thermalresistance(v::Real,U::UnitSystem,S::UnitSystem) = v/thermalresistance(U,S)
-F⁻¹L⁻¹TΘ [ħ⁻⁵ᐟ²𝘤⁷ᐟ²μ₀¹ᐟ²mₑ³Kcd⋅ϕ⁻⁵ᐟ²λ¹ᐟ²g₀⁻²] Unified</code></pre>
+F⁻¹L⁻¹TΘ [kB⁻¹ħ⋅𝘤⁻²mₑ⁻¹ϕ⋅g₀] Unified</code></pre>
               <p>Resistance to heat flow or
               <code>thermalresistance</code> (K⋅W⁻¹), unit
               conversion factor.</p>
@@ -5662,7 +5662,7 @@ g₀⁻¹ft⁻¹lb⁻¹3⁻²5 = 0.40975674959848074 [kg⁻¹m⁻²s²K]/[lbf⁻
               "language-Julia hljs">thermalexpansion : [Θ⁻¹], [Θ⁻¹], [Θ⁻¹], [Θ⁻¹], [Θ⁻¹]
 thermalexpansion(U::UnitSystem,S::UnitSystem) = 1/temperature(U,S)
 thermalexpansion(v::Real,U::UnitSystem,S::UnitSystem) = v/thermalexpansion(U,S)
-Θ⁻¹ [ħ⁻⁷ᐟ²𝘤¹¹ᐟ²μ₀¹ᐟ²mₑ⁴ϕ⁻⁷ᐟ²λ¹ᐟ²g₀⁻⁴] Unified</code></pre>
+Θ⁻¹ [kB⋅𝘤⁻²mₑ⁻¹g₀] Unified</code></pre>
               <p>Measurement scale for coefficient of
               <code>thermalexpansion</code> (K⁻¹), unit conversion
               factor.</p>
@@ -5694,7 +5694,7 @@ julia&gt; thermalexpansion(English,Metric) # °R⋅K⁻¹
               "language-Julia hljs">lapserate : [L⁻¹Θ], [L⁻¹Θ], [L⁻¹Θ], [L⁻¹Θ], [L⁻¹Θ]
 lapserate(U::UnitSystem,S::UnitSystem) = temperature(U,S)/length(U,S)
 lapserate(v::Real,U::UnitSystem,S::UnitSystem) = v/lapserate(U,S)
-L⁻¹Θ [ħ⁶𝘤⁻¹¹μ₀⁻¹mₑ⁻⁸Kcd⁻¹ϕ⁶λ⁻¹g₀⁷] Unified</code></pre>
+L⁻¹Θ [kB⁻¹ħ⁻¹𝘤³mₑ²ϕ⁻¹g₀⁻²] Unified</code></pre>
               <p>Temperature gradient over <code>length</code> or
               <code>lapserate</code> (K⋅m⁻¹), unit conversion
               factor.</p>
@@ -5736,7 +5736,7 @@ ft⋅ftUS⁻¹ = 0.9999980000000002 [ft⁻¹]/[ft⁻¹] Survey -&gt; English</co
               "language-Julia hljs">molarmass : [MN⁻¹], [FL⁻¹T²N⁻¹], [MN⁻¹], [MN⁻¹], [MN⁻¹]
 molarmass(U::UnitSystem,S::UnitSystem) = molarmass(S)/molarmass(U)
 molarmass(v::Real,U::UnitSystem,S::UnitSystem) = v/molarmass(U,S)
-MN⁻¹ [kB⁻¹𝘤²mₑ⋅g₀⁻¹] Unified</code></pre>
+MN⁻¹ [Mᵤ] Unified</code></pre>
               <p>Molar mass or <code>mass</code> per
               <code>mole</code> (kg⋅mol⁻¹), unit conversion
               factor.</p>
@@ -5765,7 +5765,7 @@ NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2⁴5³ = 0.99999999966(31) [mol
               "language-Julia hljs">molality : [M⁻¹N], [F⁻¹LT⁻²N], [M⁻¹N], [M⁻¹N], [M⁻¹N]
 molality(U::UnitSystem,S::UnitSystem) = molarmass(U)/molarmass(S)
 molality(v::Real,U::UnitSystem,S::UnitSystem) = v/molality(U,S)
-M⁻¹N [kB⋅𝘤⁻²mₑ⁻¹g₀] Unified</code></pre>
+M⁻¹N [Mᵤ⁻¹] Unified</code></pre>
               <p>Molality or <code>mole</code> per
               <code>mass</code> (mol⋅kg⁻¹), unit conversion
               factor.</p>
@@ -5794,7 +5794,7 @@ NA⁻¹𝘩⁻¹𝘤⋅R∞⁻¹α²μₑᵤ⋅2⁻⁴5⁻³ = 1.00000000034(31)
               "language-Julia hljs">molaramount : [N], [N], [N], [N], [N]
 molaramount(U::UnitSystem,S::UnitSystem) = mass(U,S)*molality(U,S)
 molaramount(v::Real,U::UnitSystem,S::UnitSystem) = v/molaramount(U,S)
-N [kB⋅ħ¹ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹ϕ¹ᐟ²λ⁻¹ᐟ²αL⁻¹g₀] Unified</code></pre>
+N [mₑ⋅Mᵤ⁻¹] Unified</code></pre>
               <p>Amount of molecular substance or
               <code>molaramount</code> (mol), unit conversion
               factor.</p>
@@ -5826,7 +5826,7 @@ NA⁻¹𝘩⁻¹𝘤⋅R∞⁻¹α²μₑᵤ⋅lb⋅2⁻¹ = 453.59237016(14) [m
               "language-Julia hljs">molarity : [L⁻³N], [L⁻³N], [L⁻³N], [L⁻³N], [L⁻³N]
 molarity(U::UnitSystem,S::UnitSystem) = molaramount(U,S)/volume(U,S)
 molarity(v::Real,U::UnitSystem,S::UnitSystem) = v/molarity(U,S)
-L⁻³N [kB⋅ħ⁸𝘤⁻¹⁹μ₀⁻²mₑ⁻¹³Kcd⁻³ϕ⁸λ⁻²αL⁻¹g₀¹⁰] Unified</code></pre>
+L⁻³N [ħ⁻³𝘤³mₑ⁴Mᵤ⁻¹ϕ⁻³g₀⁻³] Unified</code></pre>
               <p>Molar concentration or <code>molaramount</code>
               per <code>volume</code> (mol⋅m⁻³), unit conversion
               factor.</p>
@@ -5855,7 +5855,7 @@ NA⁻¹𝘩⁻¹𝘤⋅R∞⁻¹α²μₑᵤ⋅ft⁻³lb⋅2⁻¹ = 16018.463379
               "language-Julia hljs">molarvolume : [L³N⁻¹], [L³N⁻¹], [L³N⁻¹], [L³N⁻¹], [L³N⁻¹]
 molarvolume(U::UnitSystem,S::UnitSystem) = volume(U,S)/molaramount(U,S)
 molarvolume(v::Real,U::UnitSystem,S::UnitSystem) = v/molarvolume(U,S)
-L³N⁻¹ [kB⁻¹ħ⁻⁸𝘤¹⁹μ₀²mₑ¹³Kcd³ϕ⁻⁸λ²αL⋅g₀⁻¹⁰] Unified</code></pre>
+L³N⁻¹ [ħ³𝘤⁻³mₑ⁻⁴Mᵤ⋅ϕ³g₀³] Unified</code></pre>
               <p>Occupied <code>volume</code> per
               <code>molaramount</code> or <code>molarvolume</code>
               (m³⋅mol⁻¹), unit conversion factor.</p>
@@ -5884,7 +5884,7 @@ NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹ft³lb⁻¹2 = 6.2427960555(19) 
               "language-Julia hljs">molarentropy : [FLΘ⁻¹N⁻¹], [FLΘ⁻¹N⁻¹], [ML²T⁻²Θ⁻¹N⁻¹], [ML²T⁻²Θ⁻¹N⁻¹], [ML²T⁻²Θ⁻¹N⁻¹]
 molarentropy(U::UnitSystem,S::UnitSystem) = entropy(U,S)/molaramount(U,S)
 molarentropy(v::Real,U::UnitSystem,S::UnitSystem) = v/molarentropy(U,S)
-FLΘ⁻¹N⁻¹ [kB⁻¹ħ⁻³ᐟ²𝘤¹¹ᐟ²μ₀¹ᐟ²mₑ³ϕ⁻³ᐟ²λ¹ᐟ²αL⋅g₀⁻³] Unified</code></pre>
+FLΘ⁻¹N⁻¹ [kB⋅mₑ⁻¹Mᵤ] Unified</code></pre>
               <p>Molar heat capacity or <code>entropy</code> per
               <code>molaramount</code> (J⋅K⁻¹⋅mol⁻¹), unit
               conversion factor.</p>
@@ -5913,7 +5913,7 @@ g₀⋅ft⋅2⁻³3²5⁻⁴ = 0.005380320456000001 [J⋅K⁻¹mol⁻¹]/[lbf⋅
               "language-Julia hljs">molarenergy : [FLN⁻¹], [FLN⁻¹], [ML²T⁻²N⁻¹], [ML²T⁻²N⁻¹], [ML²T⁻²N⁻¹]
 molarenergy(U::UnitSystem,S::UnitSystem) = energy(U,S)/molaramount(U,S)
 molarenergy(v::Real,U::UnitSystem,S::UnitSystem) = v/molarenergy(U,S)
-FLN⁻¹ [kB⁻¹ħ²mₑ⁻¹ϕ²αL⋅g₀] Unified</code></pre>
+FLN⁻¹ [𝘤²Mᵤ⋅g₀⁻¹] Unified</code></pre>
               <p>Gibbs free <code>energy</code> per
               <code>mole</code> or <code>molarenergy</code>
               (J⋅mol⁻¹), unit conversion factor.</p>
@@ -5942,7 +5942,7 @@ NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹g₀⋅ft⋅2 = 0.00298906691897
               "language-Julia hljs">molarconductivity : [F⁻¹T⁻¹Q²N⁻¹], [F⁻¹T⁻¹Q²N⁻¹], [M⁻¹L⁻¹TQ²N⁻¹], [TN⁻¹], [L²T⁻¹N⁻¹]
 molarconductivity(U::UnitSystem,S::UnitSystem) = conductivity(U,S)*area(U,S)/molaramount(U,S)
 molarconductivity(v::Real,U::UnitSystem,S::UnitSystem) = v/molarconductivity(U,S)
-F⁻¹T⁻¹Q²N⁻¹ [kB⁻¹ħ⁻⁵𝘤¹¹μ₀⋅mₑ⁷Kcd⋅ϕ⁻⁶λ⁻¹αL⋅g₀⁻⁶] Unified</code></pre>
+F⁻¹T⁻¹Q²N⁻¹ [ħ⋅𝘤⁻²μ₀⁻¹mₑ⁻²Mᵤ⋅ϕ⋅λ⁻¹αL⁻²g₀] Unified</code></pre>
               <p>Conductivity per <code>molarvolume</code> or
               <code>molarconductivity</code> (S⋅m²⋅mol⁻¹), unit
               conversion factor.</p>
@@ -5971,7 +5971,7 @@ julia&gt; molarconductivity(ESU,Metric) # S⋅m²⋅statΩ⋅cm⁻²
               "language-Julia hljs">molarsusceptibility : [L³N⁻¹A⁻¹R⁻¹], [L³N⁻¹], [L³N⁻¹], [L³N⁻¹], [L³N⁻¹]
 molarsusceptibility(U::UnitSystem,S::UnitSystem) = specificsusceptibility(U,S)*molarmass(U,S)
 molarsusceptibility(v::Real,U::UnitSystem,S::UnitSystem) = v/molarsusceptibility(U,S)
-L³N⁻¹A⁻¹R⁻¹ [kB⁻¹ħ⁻⁷𝘤¹⁵μ₀²mₑ¹¹Kcd²ϕ⁻⁸λ²αL⋅g₀⁻⁸] Unified</code></pre>
+L³N⁻¹A⁻¹R⁻¹ [ħ³𝘤⁻³mₑ⁻⁴Mᵤ⋅ϕ²λ⁻¹g₀³] Unified</code></pre>
               <p>Magnetic/electric molar mass
               <code>susceptibility</code> (m³⋅mol⁻¹), unit
               conversion factor.</p>
@@ -6000,7 +6000,7 @@ NA⋅𝘩⋅𝘤⁻¹R∞⋅α⁻²μₑᵤ⁻¹2⁴5³ = 0.99999999966(31) [mol
               "language-Julia hljs">catalysis : [T⁻¹N], [T⁻¹N], [T⁻¹N], [T⁻¹N], [T⁻¹N]
 catalysis(U::UnitSystem,S::UnitSystem) = molaramount(U,S)/time(U,S)
 catalysis(v::Real,U::UnitSystem,S::UnitSystem) = v/catalysis(U,S)
-T⁻¹N [kB⋅ħ⁴𝘤⁻⁹μ₀⁻¹mₑ⁻⁶Kcd⁻¹ϕ⁴λ⁻¹αL⁻¹g₀⁵] Unified</code></pre>
+T⁻¹N [ħ⁻¹𝘤²mₑ²Mᵤ⁻¹ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Catalytic activity or <code>molaramount</code> per
               <code>time</code> (kat, mol⋅s⁻¹), unit conversion
               factor.</p>
@@ -6026,7 +6026,7 @@ lb⋅2³5³ = 453.59237 [mol]/[lb-mol] English -&gt; Metric</code></pre>
               "language-Julia hljs">specificity : [L³T⁻¹N⁻¹], [L³T⁻¹N⁻¹], [L³T⁻¹N⁻¹], [L³T⁻¹N⁻¹], [L³T⁻¹N⁻¹]
 specificity(U::UnitSystem,S::UnitSystem) = volume(U,S)/molaramount(U,S)/time(U,S)
 specificity(v::Real,U::UnitSystem,S::UnitSystem) = v/specificity(U,S)
-L³T⁻¹N⁻¹ [kB⁻¹ħ⁻⁹ᐟ²𝘤²⁵ᐟ²μ₀³ᐟ²mₑ⁸Kcd²ϕ⁻⁹ᐟ²λ³ᐟ²αL⋅g₀⁻⁶] Unified</code></pre>
+L³T⁻¹N⁻¹ [ħ²𝘤⁻¹mₑ⁻³Mᵤ⋅ϕ²g₀²] Unified</code></pre>
               <p>Catalytic efficiency or <code>volume</code> per
               <code>mole</code> per <code>time</code>
               (m³⋅mol⁻¹⋅s⁻¹), unit conversion factor.</p>
@@ -6055,7 +6055,7 @@ ft³lb⁻¹2⁻³5⁻³ = 6.242796057614462×10⁻⁵ [m³mol⁻¹]/[ft³lb-mol�
               "language-Julia hljs">diffusionflux : [L⁻²TN], [L⁻²TN], [L⁻²TN], [L⁻²TN], [L⁻²TN]
 diffusionflux(U::UnitSystem,S::UnitSystem) = molaramount(U,S)*photonirradiance(U,S)
 diffusionflux(v::Real,U::UnitSystem,S::UnitSystem) = v/diffusionflux(U,S)
-L⁻²TN [kB⋅ħ²𝘤⁻⁷μ₀⁻¹mₑ⁻⁴Kcd⁻¹ϕ²λ⁻¹αL⁻¹g₀³] Unified</code></pre>
+L⁻²TN [ħ⁻¹mₑ²Mᵤ⁻¹ϕ⁻¹g₀⁻¹] Unified</code></pre>
               <p>Molar diffusion flux or <code>molarmount</code>
               times <code>flux</code> (mol⋅s⁻¹⋅m⁻²), unit
               conversion factor.</p>
@@ -6089,7 +6089,7 @@ ft⁻²lb⋅2³5³ = 4882.42763638305 [m⁻²mol]/[ft⁻²lb-mol] English -&gt; 
               "language-Julia hljs">luminousflux : [J], [J], [J], [J], [J]
 luminousflux(U::UnitSystem,S::UnitSystem) = luminousenergy(U,S)*frequency(U,S)
 luminousflux(v::Real,U::UnitSystem,S::UnitSystem) = v/luminousflux(U,S)
-J [ħ⁶𝘤⁻⁹μ₀⁻¹mₑ⁻⁶Mᵤ⁻¹Kcd⁻¹ϕ⁶λ⁻¹g₀⁶] Unified</code></pre>
+J [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻¹g₀⁻²] Unified</code></pre>
               <p>Perceived power of light or
               <code>luminousflux</code> (lm, cd⋅rad⋅²), unit
               conversion factor.</p>
@@ -6112,7 +6112,7 @@ J [ħ⁶𝘤⁻⁹μ₀⁻¹mₑ⁻⁶Mᵤ⁻¹Kcd⁻¹ϕ⁶λ⁻¹g₀⁶] Unif
               "language-Julia hljs">luminousintensity : [JA⁻²], [J], [J], [J], [J]
 luminousintensity(U::UnitSystem,S::UnitSystem) = luminousflux(U,S)/solidangle(U,S)
 luminousintensity(v::Real,U::UnitSystem,S::UnitSystem) = v/luminousintensity(U,S)
-JA⁻² [ħ⁸𝘤⁻¹⁷μ₀⁻¹mₑ⁻¹⁰Mᵤ⁻¹Kcd⁻³ϕ⁸λ⁻¹g₀¹⁰] Unified</code></pre>
+JA⁻² [ħ⁻¹𝘤⁴mₑ²Kcd⋅ϕ⁻³g₀⁻²] Unified</code></pre>
               <p>Perceived power of light or
               <code>luminousintensity</code> (cd, lm⋅rad⁻²), unit
               conversion factor.</p>
@@ -6135,7 +6135,7 @@ JA⁻² [ħ⁸𝘤⁻¹⁷μ₀⁻¹mₑ⁻¹⁰Mᵤ⁻¹Kcd⁻³ϕ⁸λ⁻¹g�
               "language-Julia hljs">luminance : [L⁻²JA⁻²], [L⁻²J], [L⁻²J], [L⁻²J], [L⁻²J]
 luminance(U::UnitSystem,S::UnitSystem) = luminousintensity(U,S)/area(U,S)
 luminance(v::Real,U::UnitSystem,S::UnitSystem) = v/luminance(U,S)
-L⁻²JA⁻² [ħ¹³𝘤⁻²⁸μ₀⁻²mₑ⁻¹⁸Mᵤ⁻¹Kcd⁻⁵ϕ¹³λ⁻²g₀¹⁶] Unified</code></pre>
+L⁻²JA⁻² [ħ⁻³𝘤⁶mₑ⁴Kcd⋅ϕ⁻⁵g₀⁻⁴] Unified</code></pre>
               <p>Luminous intensity per <code>area</code> or
               <code>luminance</code> (cd⋅m⁻², lm⋅m⁻²⋅rad⁻²), unit
               conversion factor.</p>
@@ -6170,7 +6170,7 @@ julia&gt; 1/10.76 # lx⋅fc⁻¹
               "language-Julia hljs">illuminance : [L⁻²J], [L⁻²J], [L⁻²J], [L⁻²J], [L⁻²J]
 illuminance(U::UnitSystem,S::UnitSystem) = luminousflux(U,S)/area(U,S)
 illuminance(v::Real,U::UnitSystem,S::UnitSystem) = v/illuminance(U,S)
-L⁻²J [ħ¹¹𝘤⁻²⁰μ₀⁻²mₑ⁻¹⁴Mᵤ⁻¹Kcd⁻³ϕ¹¹λ⁻²g₀¹²] Unified</code></pre>
+L⁻²J [ħ⁻³𝘤⁶mₑ⁴Kcd⋅ϕ⁻³g₀⁻⁴] Unified</code></pre>
               <p>Luminous flux per <code>area</code> or
               <code>luminance</code> (lx, lm⋅m⁻², cd⋅m⁻²⋅rad²),
               unit conversion factor.</p>
@@ -6205,7 +6205,7 @@ julia&gt; 1/10.76 # lx⋅fc⁻¹
               "language-Julia hljs">luminousenergy : [TJ], [TJ], [TJ], [TJ], [TJ]
 luminousenergy(U::UnitSystem,S::UnitSystem) = luminousflux(U,S)*time(U,S)
 luminousenergy(v::Real,U::UnitSystem,S::UnitSystem) = v/luminousenergy(U,S)
-TJ [ħ⁵ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹Mᵤ⁻¹ϕ⁵ᐟ²λ⁻¹ᐟ²g₀²] Unified</code></pre>
+TJ [𝘤²mₑ⋅Kcd⋅g₀⁻¹] Unified</code></pre>
               <p>Perceived quantity of light or
               <code>luminousenergy</code> (lm⋅s, cd⋅s⋅sr), unit
               conversion factor.</p>
@@ -6231,7 +6231,7 @@ TJ [ħ⁵ᐟ²𝘤⁻⁵ᐟ²μ₀⁻¹ᐟ²mₑ⁻¹Mᵤ⁻¹ϕ⁵ᐟ²λ⁻¹�
               "language-Julia hljs">luminousexposure : [L⁻²TJ], [L⁻²TJ], [L⁻²TJ], [L⁻²TJ], [L⁻²TJ]
 luminousexposure(U::UnitSystem,S::UnitSystem) = illuminance(U,S)*time(U,S)
 luminousexposure(v::Real,U::UnitSystem,S::UnitSystem) = v/luminousexposure(U,S)
-L⁻²TJ [ħ¹⁵ᐟ²𝘤⁻²⁷ᐟ²μ₀⁻³ᐟ²mₑ⁻⁹Mᵤ⁻¹Kcd⁻²ϕ¹⁵ᐟ²λ⁻³ᐟ²g₀⁸] Unified</code></pre>
+L⁻²TJ [ħ⁻²𝘤⁴mₑ³Kcd⋅ϕ⁻²g₀⁻³] Unified</code></pre>
               <p>Integrated <code>luminance</code> along
               <code>time</code> (lx⋅s, lm⋅s⋅m⁻², cd⋅s⋅m⁻²⋅sr), unit
               conversion factor.</p>
@@ -6265,7 +6265,7 @@ ft⁻² = 10.76391041670972 [m⁻²]/[ft⁻²] English -&gt; Metric</code></pre>
               "language-Julia hljs">luminousefficacy : [F⁻¹L⁻¹TJ], [F⁻¹L⁻¹TJ], [M⁻¹L⁻²T³J], [M⁻¹L⁻²T³J], [M⁻¹L⁻²T³J]
 luminousefficacy(U::UnitSystem,S::UnitSystem) = luminousefficacy(S)/luminousefficacy(U)
 luminousefficacy(v::Real,U::UnitSystem,S::UnitSystem) = v/luminousefficacy(U,S)
-F⁻¹L⁻¹TJ [mₑ⋅Mᵤ⁻¹] Unified</code></pre>
+F⁻¹L⁻¹TJ [Kcd] Unified</code></pre>
               <p>Ratio of <code>luminousflux</code> to
               <code>power</code> or <code>luminousefficacy</code>
               (lm⋅W⁻¹), unit conversion factor.</p>
@@ -7024,9 +7024,9 @@ g₀⁻¹ft⁻¹lb⁻¹ = 0.7375621492772653 [J⁻¹]/[lbf⁻¹ft⁻¹] English 
           <hr>
           <p>This document was generated with <a href=
           "https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>
-          version 1.10.1 on <span class="colophon-date" title=
-          "Friday 18 April 2025 13:58">Friday 18 April 2025</span>.
-          Using Julia version 1.11.0.</p>
+          version 1.14.1 on <span class="colophon-date" title=
+          "Friday 12 September 2025 12:33">Friday 12 September
+          2025</span>. Using Julia version 1.11.1.</p>
         </section>
         <footer class="modal-card-foot"></footer>
       </div>
