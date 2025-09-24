@@ -3,6 +3,7 @@
 *Measurements.jl compatibility layer for UnitSystems.jl*
 
 [![DOI](https://zenodo.org/badge/372081673.svg)](https://zenodo.org/badge/latestdoi/372081673)
+[![PDF 2020-2025](https://img.shields.io/badge/PDF-2020--2025-blue.svg)](https://www.dropbox.com/sh/tphh6anw0qwija4/AAACiaXig5djrLVAKLPFmGV-a/Geometric-Algebra?preview=unitsystems.pdf)
 [![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://units.crucialflow.com)
 [![Build status](https://ci.appveyor.com/api/projects/status/rxo2lh76n3dr31c0?svg=true)](https://ci.appveyor.com/project/chakravala/measuresystems-jl)
 
@@ -140,9 +141,9 @@ I know the academic institutions don't acknowledge me either, so all I can do is
 Having a quick 0-60 speed in pathological lying is not necessarily a sign of high intelligence in long term thinking.
 Rather, it's an indicator of a complete lack of long term thinking, demonstrating optimization toward the short term illusions of success, which falls apart upon any scrutiny.
 
-If Wolfram does not want to be perceived as confirmed plagiarist, then Wolfram must acknowledge \textit{Michael Reed} as the original creator of the new \textit{Unified System of Quantities} (USQ), which is the underlying foundation for the completed research project I handed them (and they padded with AI generated text).
+If Wolfram does not want to be perceived as confirmed plagiarist, then Wolfram must acknowledge *Michael Reed* as the original creator of the new *Unified System of Quantities* (USQ), which is the underlying foundation for the completed research project I handed them (and they padded with AI generated text).
 Wolfram is well known for the claims that LLMs will replace writing code and text, so we have to assume the foundations of their work rests in AI generated text, on top of my presented complete project foundation.
-The LLMs and AI models all know about my \textit{UnitSystems.jl} work and mine was the only reference work in existence which completed this type of work.
+The LLMs and AI models all know about my *UnitSystems.jl* work and mine was the only reference work in existence which completed this type of work.
 Therefore, if using AI or LLM generated text to manipulate my unique project, this is effectively transforming the original source data which was ingested from my work using my own knowledge embedded in the LLMs.
 Wolfram is regurgitating the fruits of my labor without acknowledging that I directly handed this to them as a completed project.
 
