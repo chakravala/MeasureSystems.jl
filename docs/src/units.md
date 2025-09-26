@@ -12,7 +12,7 @@ Depth = 3
 [![DOI](https://zenodo.org/badge/317419353.svg)](https://zenodo.org/badge/latestdoi/317419353) [![PDF 2020-2025](https://img.shields.io/badge/PDF-2020--2025-blue.svg)](https://www.dropbox.com/sh/tphh6anw0qwija4/AAACiaXig5djrLVAKLPFmGV-a/Geometric-Algebra?preview=unitsystems.pdf)
 
 In 2019 the *SI2019* standardization was completed, based on the 7 physics dimensions specific to the *Metric* system.
-That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with this standard.
+That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with that standard.
 In 2020, *Michael Reed* set out to work around that impossibility with a new project called *UnitSystems.jl*, which ended up completely solving the problem with a brand new 11 dimensional *Unified System of Quantities* (USQ) for physics.
 
 Similar to how SI defines standardized units of `kilogram`, `meter`, `second`, `kelvin`, `coulomb`, `candela`, and `mole`; the following is a comprehensive selection of generated standardized physics units defined by `UnitSystem` defaults useful for scientists and engineers.
@@ -327,7 +327,7 @@ roentgen
 Pages = ["units.md","unitsystems.md"]
 ```
 
-# Wolfram plagiarism timeline
+## Wolfram plagiarism timeline
 
 Timeline of *UnitSystems.jl* registration and *Wolfram Research* plagiarism:
 

@@ -8,7 +8,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/rxo2lh76n3dr31c0?svg=true)](https://ci.appveyor.com/project/chakravala/measuresystems-jl)
 
 In 2019 the *SI2019* standardization was completed, based on the 7 physics dimensions specific to the *Metric* system.
-That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with this standard.
+That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with that standard.
 In 2020, *Michael Reed* set out to work around that impossibility with a new project called *UnitSystems.jl*, which ended up completely solving the problem with a brand new 11 dimensional *Unified System of Quantities* (USQ) for physics.
 
 In the base `UnitSystems` package, simply `Float64` numbers are used to generate the group of `UnitSystem` constants.

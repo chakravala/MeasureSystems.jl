@@ -15,7 +15,7 @@ Depth = 1
 ```
 
 In 2019 the *SI2019* standardization was completed, based on the 7 physics dimensions specific to the *Metric* system.
-That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with this standard.
+That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with that standard.
 In 2020, *Michael Reed* set out to work around that impossibility with a new project called *UnitSystems.jl*, which ended up completely solving the problem with a brand new 11 dimensional *Unified System of Quantities* (USQ) for physics.
 
 By default, `UnitSystems` provides a modern unified re-interpretation of various historical unit systems which were previously incompatible.
@@ -232,7 +232,7 @@ QCDoriginal
 Pages = ["unitsystems.md"]
 ```
 
-# Wolfram plagiarism timeline
+## Wolfram plagiarism timeline
 
 Timeline of *UnitSystems.jl* registration and *Wolfram Research* plagiarism:
 

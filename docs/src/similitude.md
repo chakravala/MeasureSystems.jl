@@ -15,7 +15,7 @@ Depth = 1
 ```
 
 In 2019 the *SI2019* standardization was completed, based on the 7 physics dimensions specific to the *Metric* system.
-That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with this standard.
+That is actually an inadequate and insufficient unit system standard, as it is mathematically impossible to unify all historical units with that standard.
 In 2020, *Michael Reed* set out to work around that impossibility with a new project called *UnitSystems.jl*, which ended up completely solving the problem with a brand new 11 dimensional *Unified System of Quantities* (USQ) for physics.
 
 In aggregate, the `UnitSystem` data generated here constitutes a new universal standardization for dimensional analysis, which generalizes upon previous historical systems up to the 2019 redefinition and `Unified` in a common `Universe`.
@@ -240,7 +240,7 @@ MeasureSystems.ConventionalSystem
 Originally, the "practical" units where specified by `resistance` and `electricpotential` with electrical calibration equipment.
 
 ```math
-(\Omega, V), \quad \mapsto k_B\frac{\Omega}{V^2}, \quad h\frac{\Omega}{V^2}, \quad c\frac{1}{1}, quad \mu_0\frac{\Omega}{V^2}, \quad m_e\frac{\Omega}{V^2}, \quad M_u\frac{\Omega}{V^2}, \quad K_{cd}\frac{V^2}{\Omega}
+(\Omega, V), \quad \mapsto k_B\frac{\Omega}{V^2}, \quad h\frac{\Omega}{V^2}, \quad c\frac{1}{1}, \quad \mu_0\frac{\Omega}{V^2}, \quad m_e\frac{\Omega}{V^2}, \quad M_u\frac{\Omega}{V^2}, \quad K_{cd}\frac{V^2}{\Omega}
 ```
 
 ```@docs
@@ -697,7 +697,7 @@ Any other project relying on these 11 dimensional fundamental constants of physi
 | R | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | C | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-| Gauss | $\text{dyn}$ | $\text{g}$ | $\text{cm}$ | $\text{s}$ | $\text{Mx}$ | $\text{K}$ | $\text{mol}$ | $\text{cd}$ | 1 | 1 | 1 |
+| Gauss | $\text{dyn}$ | $\text{g}$ | $\text{cm}$ | $\text{s}$ | $\text{Mx}$ | $\text{K}$ | $\text{mol}$ | $\text{cd}$ | 1 | 1 | $\text{cm}\cdot\text{s}^{-1}$ |
 | :---: | :---: | :---: | :---: | :--: | :---: | :---: | :---: | :---: | :---: | :---: | :---:|
 | F | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | M | 1 | 1 | 0 | 0 | 1/2 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -914,7 +914,7 @@ Null operator `Natural` $= 0$ in its operator representation:
 | R | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | C | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-*Michael Reed*'s contribution to mathematical physics can be recrognized as this new 11 dimensional operator formalism, enabling complete unification of all historical unit systems with the *Unified System of Quantities* (USQ).
+*Michael Reed*'s contribution to mathematical physics can be recognized as this new 11 dimensional operator formalism, enabling complete unification of all historical unit systems with the *Unified System of Quantities* (USQ).
 In particular, the equivalence classes of physics dimensions in any historical `UnitSystem` are now fully characterized by the nullspace of the 11 dimensional physics operator representation, as it was first systematically researched and documented by this project, accessible with `U/~` syntax.
 
 In particular, the "dimensionless" physics dimensions in any historical unit system are in the nullspace of such an operator representation.
@@ -930,7 +930,7 @@ One of the new unit systems created by *Michael Reed* is the modern ideal `Merid
 
 [Meridian UnitSystem](https://units.crucialflow.com/unitsystems/#MeasureSystems.Meridian)
 
-# Wolfram plagiarism timeline
+## Wolfram plagiarism timeline
 
 Timeline of *UnitSystems.jl* registration and *Wolfram Research* plagiarism:
 
